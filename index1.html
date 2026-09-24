@@ -3,185 +3,229 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>দেওয়ানগঞ্জ ইনফো – দেওয়ানগঞ্জ উপজেলার যাবতীয় তথ্য সেবা</title>
-  <meta name="description" content="দেওয়ানগঞ্জ উপজেলার ইউনিয়ন, পৌরসভা, ২০০+ স্কুল-কলেজ, হাট-বাজার, ট্রেন-বাস-সিএনজি স্টেশন, থানা, হাসপাতাল ও কুরিয়ার অফিসের পূর্ণাঙ্গ তথ্য।" />
+  <title>দেওয়ানগঞ্জ ইনফো – দেওয়ানগঞ্জ উপজেলার অফিশিয়াল নাগরিক তথ্য সেবা</title>
+  <meta name="description" content="দেওয়ানগঞ্জ উপজেলার ১টি পৌরসভা, ৮টি ইউনিয়ন, ২০০+ স্কুল-কলেজ, হাট-বাজার, তিস্তা ট্রেন শিডিউল, বাস ও সিএনজি স্ট্যান্ড, থানা ও স্বাস্থ্য সেবার পূর্ণাঙ্গ তথ্য।" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      font-family: 'Hind Siliguri', 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-family: 'Hind Siliguri', system-ui, sans-serif;
       background-color: #f8fafc;
       color: #0f172a;
     }
-    .hero-gradient {
-      background: linear-gradient(135deg, #022c22 0%, #064e3b 50%, #0f172a 100%);
+    .gov-green {
+      background-color: #006a4e;
     }
-    .clock-glow {
-      box-shadow: 0 0 35px -5px rgba(16, 185, 129, 0.25);
+    .gov-red {
+      background-color: #f42a41;
     }
   </style>
 </head>
-<body class="antialiased">
+<body class="antialiased text-slate-800">
 
-  <!-- TOP BAR: LIVE CLOCK & WEATHER -->
-  <div class="bg-slate-950 text-slate-200 border-b border-emerald-950/80 px-4 py-3">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-sm">
+  <!-- TOP OFFICIAL GOV STRIP -->
+  <div class="gov-green text-white py-1.5 px-4 text-xs font-medium border-b border-[#00523c]">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
       <div class="flex items-center gap-3">
-        <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
-        <div class="font-mono text-emerald-400 font-bold text-base tracking-wider" id="live-time">সকাল ১০:০০:০০</div>
-        <span class="text-slate-600">|</span>
-        <div class="text-slate-300" id="live-date">দেওয়ানগঞ্জ, জামালপুর</div>
+        <span class="flex items-center gap-1.5 text-emerald-100">
+          <span>⏰ লাইভ সময়:</span>
+          <strong id="top-live-time" class="text-white font-mono bg-[#00523c] px-2 py-0.5 rounded border border-emerald-600/60 font-bold">--:--:--</strong>
+        </span>
+        <span class="text-emerald-300 hidden sm:inline">|</span>
+        <span id="top-live-date" class="text-emerald-100 hidden sm:inline">লোড হচ্ছে...</span>
       </div>
-      <div class="flex items-center gap-4 text-xs sm:text-sm" id="weather-box">
-        <div class="text-amber-400 font-semibold" id="temp-display">🌡️ দেওয়ানগঞ্জ: ২৮°সে (লোড হচ্ছে...)</div>
-        <span class="text-slate-600">|</span>
-        <a href="#emergency" class="text-rose-400 hover:text-rose-300 font-bold">🚨 জরুরি হটলাইন: ৯৯৯</a>
+      <div class="flex items-center gap-4">
+        <span id="top-live-temp" class="text-amber-300 font-bold">🌡️ দেওয়ানগঞ্জ: ২৮°সে</span>
+        <span class="text-emerald-400">|</span>
+        <a href="tel:999" class="gov-red text-white font-bold px-2 py-0.5 rounded text-[11px]">জরুরি ৯৯৯</a>
       </div>
     </div>
   </div>
 
-  <!-- HERO SECTION -->
-  <header class="hero-gradient text-white py-14 px-4 border-b-4 border-emerald-600 relative overflow-hidden">
-    <div class="max-w-7xl mx-auto text-center relative z-10">
-      <span class="px-4 py-1.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-semibold uppercase tracking-widest inline-block mb-4">
-        জামালপুর জেলা · ময়মনসিংহ বিভাগ · ব্রহ্মপুত্র অববাহিকা
-      </span>
-      <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold font-serif tracking-tight text-white mb-4">
-        দেওয়ানগঞ্জ ইনফো
-      </h1>
-      <p class="text-base sm:text-xl text-emerald-100/90 max-w-3xl mx-auto leading-relaxed">
-        দেওয়ানগঞ্জ উপজেলার ৮টি ইউনিয়ন, ১টি পৌরসভা, ২০০+ স্কুল-কলেজ-মাদ্রাসা, ঐতিহ্যবাহী হাট-বাজার, ট্রেন ও বাস শিডিউল, সিএনজি স্ট্যান্ড, থানা, হাসপাতাল ও কুরিয়ার সার্ভিসের পূর্ণাঙ্গ তথ্যভাণ্ডার।
-      </p>
-
-      <!-- LIVE DIGITAL CLOCK BANNER -->
-      <div class="mt-8 max-w-2xl mx-auto bg-slate-900/80 backdrop-blur-md rounded-2xl p-6 border border-emerald-500/40 clock-glow text-center">
-        <div class="text-xs font-semibold text-emerald-400 uppercase tracking-widest mb-1">রিয়েল-টাইম লাইভ ঘড়ি (বাংলাদেশ স্ট্যান্ডার্ড টাইম)</div>
-        <div class="text-4xl sm:text-5xl font-mono font-bold text-white tracking-widest my-2" id="hero-clock">--:--:--</div>
-        <div class="text-emerald-200 text-sm font-medium" id="hero-date">লোড হচ্ছে...</div>
+  <!-- OFFICIAL HEADER BANNER -->
+  <header class="bg-white border-b-2 border-[#006a4e] shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-4 text-center md:text-left">
+        <div class="w-16 h-16 rounded-full border-2 border-[#006a4e] p-1 bg-white shadow-sm flex items-center justify-center shrink-0">
+          <div class="w-full h-full rounded-full bg-[#006a4e] text-white flex items-center justify-center font-bold text-xl font-serif">
+            দে
+          </div>
+        </div>
+        <div>
+          <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">গণপ্রজাতন্ত্রী বাংলাদেশ সরকার · জামালপুর জেলা</div>
+          <h1 class="text-3xl font-bold font-serif text-[#006a4e] tracking-tight">দেওয়ানগঞ্জ ইনফো</h1>
+          <p class="text-xs text-slate-600 mt-0.5">উপজেলা প্রশাসন, ১টি পৌরসভা, ৮টি ইউনিয়ন ও সার্বিক নাগরিক তথ্য সেবা পোর্টাল</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="#emergency" class="gov-red hover:bg-red-700 text-white font-bold px-4 py-2 rounded text-xs shadow-sm transition">
+          🚨 জরুরি হেল্পলাইন
+        </a>
       </div>
     </div>
+
+    <!-- OFFICIAL NAV MENU -->
+    <nav class="bg-[#f1f5f9] border-t border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 flex items-center justify-between overflow-x-auto py-2.5 text-xs sm:text-sm font-bold text-slate-700 gap-6 whitespace-nowrap">
+        <a href="#unions" class="hover:text-[#006a4e]">পৌরসভা ও ইউনিয়ন</a>
+        <a href="#schools" class="hover:text-[#006a4e]">২০০+ শিক্ষা প্রতিষ্ঠান</a>
+        <a href="#markets" class="hover:text-[#006a4e]">হাট-বাজার ও হাটবার</a>
+        <a href="#transport" class="hover:text-[#006a4e]">রেলওয়ে, বাস ও সিএনজি</a>
+        <a href="#police" class="hover:text-[#006a4e]">থানা ও পুলিশ</a>
+        <a href="#hospital" class="hover:text-[#006a4e]">হাসপাতাল</a>
+        <a href="#courier" class="hover:text-[#006a4e]">স্টিডফাস্ট কুরিয়ার</a>
+        <a href="#emergency" class="text-rose-700 hover:text-red-800">জরুরি সেবা</a>
+      </div>
+    </nav>
   </header>
 
-  <!-- QUICK NAVIGATION -->
-  <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between overflow-x-auto py-3 text-sm font-semibold text-slate-700 gap-4 whitespace-nowrap">
-      <a href="#unions" class="hover:text-emerald-700">ইউনিয়ন ও পৌরসভা</a>
-      <a href="#schools" class="hover:text-emerald-700">২০০+ স্কুল-কলেজ</a>
-      <a href="#markets" class="hover:text-emerald-700">হাট-বাজার</a>
-      <a href="#transport" class="hover:text-emerald-700">ট্রেন, বাস ও সিএনজি</a>
-      <a href="#police" class="hover:text-emerald-700">থানা ও পুলিশ ফাঁড়ি</a>
-      <a href="#hospital" class="hover:text-emerald-700">হাসপাতাল</a>
-      <a href="#courier" class="hover:text-emerald-700">স্টিডফাস্ট কুরিয়ার</a>
-      <a href="#emergency" class="text-rose-700 hover:text-rose-800">জরুরি সেবা</a>
-    </div>
-  </nav>
+  <!-- OFFICIAL HERO WIDGET: LIVE CLOCK & WEATHER -->
+  <section class="bg-gradient-to-b from-slate-100 to-slate-200 border-b border-slate-300 py-8 px-4">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+      
+      <!-- Real-time Live Clock -->
+      <div class="lg:col-span-7 bg-white rounded-xl border border-slate-300 p-6 shadow-sm flex flex-col justify-between">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-3">
+          <span class="text-xs font-bold text-[#006a4e] uppercase tracking-wider">রিয়েল-টাইম লাইভ ঘড়ি (বাংলাদেশ সময়)</span>
+          <span class="text-[11px] text-slate-500 bg-slate-100 px-2 py-0.5 rounded">প্রতি সেকেন্ডে আপডেট</span>
+        </div>
+        <div class="my-6 text-center">
+          <div id="hero-clock" class="text-4xl sm:text-6xl font-mono font-bold text-[#006a4e] tracking-tight">--:--:--</div>
+          <div id="hero-date" class="mt-2 text-sm font-semibold text-slate-700">তারিখ লোড হচ্ছে...</div>
+        </div>
+        <div class="pt-3 border-t border-slate-200 text-xs text-slate-500 flex justify-between">
+          <span>সরকারি অফিস সময়: সকাল ৯:০০ – বিকাল ৪:০০</span>
+          <span class="font-bold text-[#006a4e]">রবিবার – বৃহস্পতিবার</span>
+        </div>
+      </div>
 
-  <!-- MAIN CONTAINER -->
-  <main class="max-w-7xl mx-auto px-4 py-12 space-y-16">
+      <!-- Live Weather -->
+      <div class="lg:col-span-5 bg-white rounded-xl border border-slate-300 p-6 shadow-sm flex flex-col justify-between">
+        <div class="border-b border-slate-200 pb-3 flex justify-between">
+          <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">দেওয়ানগঞ্জ লাইভ আবহাওয়া</span>
+          <span class="text-xs text-slate-400">স্থানাঙ্ক: ২৫.১৪° উ, ৮৯.৭৭° পূ</span>
+        </div>
+        <div class="my-4 flex items-center justify-between">
+          <div>
+            <div id="weather-temp" class="text-5xl font-mono font-bold text-slate-900">২৮°সে</div>
+            <div id="weather-text" class="text-xs font-bold text-emerald-800 mt-1">শান্ত আবহাওয়া</div>
+          </div>
+          <div class="text-4xl text-amber-500">☀️</div>
+        </div>
+        <div class="pt-3 border-t border-slate-200 text-xs text-slate-500 text-right">
+          রিয়েল-টাইম অটোমেটিক সেন্সর
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAIN CIVIC SECTIONS -->
+  <main class="max-w-7xl mx-auto px-4 py-10 space-y-14">
 
     <!-- 1. UNIONS & MUNICIPALITY -->
     <section id="unions">
-      <div class="border-b border-slate-200 pb-4 mb-8">
-        <span class="text-xs font-bold uppercase tracking-wider text-emerald-800">স্থানীয় প্রশাসন</span>
-        <h2 class="text-3xl font-bold text-slate-900 font-serif">১টি পৌরসভা ও ৮টি ইউনিয়ন</h2>
+      <div class="border-b-2 border-[#006a4e] pb-2 mb-6">
+        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">স্থানীয় প্রশাসনিক ইউনিট</span>
+        <h2 class="text-2xl font-bold font-serif text-[#006a4e]">দেওয়ানগঞ্জ পৌরসভা ও ৮টি ইউনিয়ন পরিষদ</h2>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-amber-50/60 rounded-2xl border-2 border-amber-300 p-6">
-          <span class="text-xs font-bold text-amber-800 uppercase">পৌরসভা</span>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="bg-amber-50/70 border-2 border-amber-300 rounded-xl p-5">
+          <span class="text-[11px] font-bold text-amber-900 uppercase">পৌরসভা কার্যালয়</span>
           <h3 class="text-xl font-bold text-slate-900 mt-1">দেওয়ানগঞ্জ পৌরসভা</h3>
           <p class="text-xs text-slate-600 mt-2">১৯৯৯ সালে প্রতিষ্ঠিত দেওয়ানগঞ্জ পৌরসভা ৯টি প্রশাসনিক ওয়ার্ড ও প্রধান বাণিজ্যিক প্রাণকেন্দ্র নিয়ে গঠিত। এখানে রয়েছে ঐতিহাসিক রেলওয়ে টার্মিনাল, দেওয়ানগঞ্জ সুগার মিলস, কলেজ, সরকারি হাসপাতাল ও কেন্দ্রীয় প্রশাসনিক দপ্তর।</p>
-          <div class="mt-4 pt-4 border-t border-amber-200 text-xs text-slate-700 space-y-1">
+          <div class="mt-4 pt-3 border-t border-amber-200 text-xs text-slate-700 space-y-1">
             <div><strong>কার্যালয়:</strong> পৌর ভবন, দেওয়ানগঞ্জ বাজার</div>
             <div><strong>ওয়ার্ড:</strong> 9টি | <strong>গ্রাম:</strong> 42টি</div>
             <div><strong>জনসংখ্যা:</strong> ৫৫,৪২০ জন (প্রায়)</div>
           </div>
         </div>
         
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-          <span class="text-xs font-bold text-emerald-800 uppercase">ইউনিয়ন পরিষদ</span>
-          <h3 class="text-xl font-bold text-slate-900 mt-1">দেওয়ানগঞ্জ সদর ইউনিয়ন</h3>
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-[11px] font-bold text-[#006a4e] uppercase">ইউনিয়ন পরিষদ</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">দেওয়ানগঞ্জ সদর ইউনিয়ন</h3>
           <p class="text-xs text-slate-600 mt-2">উপজেলা সদরের সংলগ্ন ঐতিহ্যবাহী ইউনিয়ন। কৃষি, ডাল, সরিষা ও পাট চাষের জন্য বিখ্যাত। ব্রহ্মপুত্র নদের পলিসমৃদ্ধ বিস্তীর্ণ সমভূমি ও নদীবিধৌত জনপদ।</p>
-          <div class="mt-4 pt-4 border-t border-slate-100 text-xs text-slate-700 space-y-1">
-            <div><strong>ভবন:</strong> ইউনিয়ন পরিষদ কমপ্লেক্স ভবন, দেওয়ানগঞ্জ</div>
+          <div class="mt-4 pt-3 border-t border-slate-200 text-xs text-slate-700 space-y-1">
+            <div><strong>পরিষদ ভবন:</strong> ইউনিয়ন পরিষদ কমপ্লেক্স ভবন, দেওয়ানগঞ্জ</div>
             <div><strong>ওয়ার্ড:</strong> 9টি | <strong>জনসংখ্যা:</strong> ৩২,১০০ জন</div>
             <div><strong>আয়তন:</strong> ২৪.৫০ বর্গ কি.মি.</div>
           </div>
         </div>
         
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-          <span class="text-xs font-bold text-emerald-800 uppercase">ইউনিয়ন পরিষদ</span>
-          <h3 class="text-xl font-bold text-slate-900 mt-1">বাহাদুরাবাদ ইউনিয়ন</h3>
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-[11px] font-bold text-[#006a4e] uppercase">ইউনিয়ন পরিষদ</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">বাহাদুরাবাদ ইউনিয়ন</h3>
           <p class="text-xs text-slate-600 mt-2">ঐতিহাসিক বাহাদুরাবাদ ঘাটের জন্য সমগ্র দেশে পরিচিত। ব্রিটিশ আমল থেকে উত্তরবঙ্গের রেলওয়ে ও নৌ-যোগাযোগের প্রধান ট্রানজিট পয়েন্ট ছিল বাহাদুরাবাদ ঘাট।</p>
-          <div class="mt-4 pt-4 border-t border-slate-100 text-xs text-slate-700 space-y-1">
-            <div><strong>ভবন:</strong> বাহাদুরাবাদ বাজার সংলগ্ন ইউপি ভবন</div>
+          <div class="mt-4 pt-3 border-t border-slate-200 text-xs text-slate-700 space-y-1">
+            <div><strong>পরিষদ ভবন:</strong> বাহাদুরাবাদ বাজার সংলগ্ন ইউপি ভবন</div>
             <div><strong>ওয়ার্ড:</strong> 9টি | <strong>জনসংখ্যা:</strong> ২৭,৪৫০ জন</div>
             <div><strong>আয়তন:</strong> ২৭.৮০ বর্গ কি.মি.</div>
           </div>
         </div>
         
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-          <span class="text-xs font-bold text-emerald-800 uppercase">ইউনিয়ন পরিষদ</span>
-          <h3 class="text-xl font-bold text-slate-900 mt-1">চিকাজানী ইউনিয়ন</h3>
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-[11px] font-bold text-[#006a4e] uppercase">ইউনিয়ন পরিষদ</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">চিকাজানী ইউনিয়ন</h3>
           <p class="text-xs text-slate-600 mt-2">কৃষিপ্রধান সমৃদ্ধ এলাকা। বিশেষ করে পাট, ভুট্টা ও ধান উৎপাদনে শীর্ষস্থানীয়। যমুনার শাখা ও চরাঞ্চলের বৈচিত্র্যময় জীবনযাত্রার সমন্বয়।</p>
-          <div class="mt-4 pt-4 border-t border-slate-100 text-xs text-slate-700 space-y-1">
-            <div><strong>ভবন:</strong> চিকাজানী বাজার সংলগ্ন পরিষদ ভবন</div>
+          <div class="mt-4 pt-3 border-t border-slate-200 text-xs text-slate-700 space-y-1">
+            <div><strong>পরিষদ ভবন:</strong> চিকাজানী বাজার সংলগ্ন পরিষদ ভবন</div>
             <div><strong>ওয়ার্ড:</strong> 9টি | <strong>জনসংখ্যা:</strong> ২৮,৯০০ জন</div>
             <div><strong>আয়তন:</strong> ২৬.১০ বর্গ কি.মি.</div>
           </div>
         </div>
         
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-          <span class="text-xs font-bold text-emerald-800 uppercase">ইউনিয়ন পরিষদ</span>
-          <h3 class="text-xl font-bold text-slate-900 mt-1">চুকাইবাড়ী ইউনিয়ন</h3>
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-[11px] font-bold text-[#006a4e] uppercase">ইউনিয়ন পরিষদ</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">চুকাইবাড়ী ইউনিয়ন</h3>
           <p class="text-xs text-slate-600 mt-2">দেওয়ানগঞ্জের শিল্প ও বাণিজ্যিক কর্মকাণ্ডের অন্যতম কেন্দ্র। ঐতিহাসিক দেওয়ানগঞ্জ সুগার মিলসের আখ উৎপাদনকারী প্রধান চাষীদের এলাকা।</p>
-          <div class="mt-4 pt-4 border-t border-slate-100 text-xs text-slate-700 space-y-1">
-            <div><strong>ভবন:</strong> চুকাইবাড়ী বাজার</div>
+          <div class="mt-4 pt-3 border-t border-slate-200 text-xs text-slate-700 space-y-1">
+            <div><strong>পরিষদ ভবন:</strong> চুকাইবাড়ী বাজার</div>
             <div><strong>ওয়ার্ড:</strong> 9টি | <strong>জনসংখ্যা:</strong> ৩১,২৫০ জন</div>
             <div><strong>আয়তন:</strong> ২৮.৪০ বর্গ কি.মি.</div>
           </div>
         </div>
         
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-          <span class="text-xs font-bold text-emerald-800 uppercase">ইউনিয়ন পরিষদ</span>
-          <h3 class="text-xl font-bold text-slate-900 mt-1">হাতীভাঙ্গা ইউনিয়ন</h3>
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-[11px] font-bold text-[#006a4e] uppercase">ইউনিয়ন পরিষদ</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">হাতীভাঙ্গা ইউনিয়ন</h3>
           <p class="text-xs text-slate-600 mt-2">তারাটিয়া বাজারের মতো প্রাণবন্ত বাণিজ্যিক কেন্দ্র সমৃদ্ধ ইউনিয়ন। উত্তর ও পশ্চিমাংশের যাতায়াতের অন্যতম মোড়। মৃৎশিল্প ও শস্য উৎপাদনে প্রসিদ্ধ।</p>
-          <div class="mt-4 pt-4 border-t border-slate-100 text-xs text-slate-700 space-y-1">
-            <div><strong>ভবন:</strong> তারাটিয়া বাজার সংলগ্ন ইউপি ভবন</div>
+          <div class="mt-4 pt-3 border-t border-slate-200 text-xs text-slate-700 space-y-1">
+            <div><strong>পরিষদ ভবন:</strong> তারাটিয়া বাজার সংলগ্ন ইউপি ভবন</div>
             <div><strong>ওয়ার্ড:</strong> 9টি | <strong>জনসংখ্যা:</strong> ৩৩,৪০০ জন</div>
             <div><strong>আয়তন:</strong> ৩১.৫০ বর্গ কি.মি.</div>
           </div>
         </div>
         
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-          <span class="text-xs font-bold text-emerald-800 uppercase">ইউনিয়ন পরিষদ</span>
-          <h3 class="text-xl font-bold text-slate-900 mt-1">ডাংধরা ইউনিয়ন</h3>
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-[11px] font-bold text-[#006a4e] uppercase">ইউনিয়ন পরিষদ</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">ডাংধরা ইউনিয়ন</h3>
           <p class="text-xs text-slate-600 mt-2">উপজেলার সর্বউত্তরের সীমান্ত ও নদীসংলগ্ন গুরুত্বপূর্ণ বৃহত্তর ইউনিয়ন। কাউনিয়ার চর ও বাঘারচরসহ বিস্তীর্ণ জনপদ। শস্য, রবিশস্য ও মাছ চাষে অগ্রগণ্য।</p>
-          <div class="mt-4 pt-4 border-t border-slate-100 text-xs text-slate-700 space-y-1">
-            <div><strong>ভবন:</strong> কাউনিয়ার চর বাজার সংলগ্ন ইউপি ভবন</div>
+          <div class="mt-4 pt-3 border-t border-slate-200 text-xs text-slate-700 space-y-1">
+            <div><strong>পরিষদ ভবন:</strong> কাউনিয়ার চর বাজার সংলগ্ন ইউপি ভবন</div>
             <div><strong>ওয়ার্ড:</strong> 9টি | <strong>জনসংখ্যা:</strong> ৩৮,৭০০ জন</div>
             <div><strong>আয়তন:</strong> ৩৬.২০ বর্গ কি.মি.</div>
           </div>
         </div>
         
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-          <span class="text-xs font-bold text-emerald-800 uppercase">ইউনিয়ন পরিষদ</span>
-          <h3 class="text-xl font-bold text-slate-900 mt-1">পাররামপুর ইউনিয়ন</h3>
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-[11px] font-bold text-[#006a4e] uppercase">ইউনিয়ন পরিষদ</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">পাররামপুর ইউনিয়ন</h3>
           <p class="text-xs text-slate-600 mt-2">প্রাকৃতিক সুষম পরিবেশ ও শান্ত পল্লীপ্রকৃতির সমন্বয়। শিক্ষা ও সংস্কৃতির প্রসারে অগ্রণী। বিস্তীর্ণ সবুজ ফসলের মাঠ ও গ্রামীণ জীবনধারা।</p>
-          <div class="mt-4 pt-4 border-t border-slate-100 text-xs text-slate-700 space-y-1">
-            <div><strong>ভবন:</strong> তারাটিয়া-পাররামপুর লিংক রোড ইউপি কমপ্লেক্স</div>
+          <div class="mt-4 pt-3 border-t border-slate-200 text-xs text-slate-700 space-y-1">
+            <div><strong>পরিষদ ভবন:</strong> তারাটিয়া-পাররামপুর লিংক রোড ইউপি কমপ্লেক্স</div>
             <div><strong>ওয়ার্ড:</strong> 9টি | <strong>জনসংখ্যা:</strong> ২৯,৮৫০ জন</div>
             <div><strong>আয়তন:</strong> ২৯.৩০ বর্গ কি.মি.</div>
           </div>
         </div>
         
-        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-          <span class="text-xs font-bold text-emerald-800 uppercase">ইউনিয়ন পরিষদ</span>
-          <h3 class="text-xl font-bold text-slate-900 mt-1">চর আমখাওয়া ইউনিয়ন</h3>
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-[11px] font-bold text-[#006a4e] uppercase">ইউনিয়ন পরিষদ</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">চর আমখাওয়া ইউনিয়ন</h3>
           <p class="text-xs text-slate-600 mt-2">দেওয়ানগঞ্জ তথা জামালপুরের বৃহত্তম বাণিজ্যিক হাট "সানন্দবাড়ী হাট"-এর কেন্দ্রভূমি। এটি সানন্দবাড়ী কলেজ, উচ্চ বিদ্যালয় ও সমৃদ্ধ নদী বন্দরের প্রাণকেন্দ্র। কুড়িগ্রামের রৌমারী ও রাজিবপুর উপজেলার অন্যতম সংযোগস্থল।</p>
-          <div class="mt-4 pt-4 border-t border-slate-100 text-xs text-slate-700 space-y-1">
-            <div><strong>ভবন:</strong> সানন্দবাড়ী বাজার ইউপি কমপ্লেক্স</div>
+          <div class="mt-4 pt-3 border-t border-slate-200 text-xs text-slate-700 space-y-1">
+            <div><strong>পরিষদ ভবন:</strong> সানন্দবাড়ী বাজার ইউপি কমপ্লেক্স</div>
             <div><strong>ওয়ার্ড:</strong> 9টি | <strong>জনসংখ্যা:</strong> ৪২,৩০০ জন</div>
             <div><strong>আয়তন:</strong> ৪১.১০ বর্গ কি.মি.</div>
           </div>
@@ -192,125 +236,2866 @@
 
     <!-- 2. SCHOOLS DIRECTORY (200+) -->
     <section id="schools">
-      <div class="border-b border-slate-200 pb-4 mb-8 flex items-center justify-between flex-wrap gap-4">
+      <div class="border-b-2 border-[#006a4e] pb-2 mb-6 flex justify-between items-end flex-wrap gap-2">
         <div>
-          <span class="text-xs font-bold uppercase tracking-wider text-emerald-800">শিক্ষা প্রতিষ্ঠান</span>
-          <h2 class="text-3xl font-bold text-slate-900 font-serif">২০০+ স্কুল, কলেজ, মাদ্রাসা ও প্রাথমিক বিদ্যালয়</h2>
+          <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">শিক্ষা প্রশাসন</span>
+          <h2 class="text-2xl font-bold font-serif text-[#006a4e]">২০০+ শিক্ষা প্রতিষ্ঠান (কলেজ, হাইস্কুল, মাদ্রাসা ও প্রাথমিক)</h2>
         </div>
-        <div class="text-sm font-bold text-emerald-800 bg-emerald-50 px-4 py-2 rounded-lg border border-emerald-200">
+        <div class="text-xs font-bold text-[#006a4e] bg-emerald-50 px-3 py-1.5 rounded border border-emerald-200">
           মোট প্রতিষ্ঠান: 216টি
         </div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-h-[700px] overflow-y-auto p-2 border border-slate-200 rounded-2xl bg-white">
+      <div class="max-h-[600px] overflow-y-auto p-3 bg-white border border-slate-300 rounded-xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         
-        <div class="p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-emerald-50/40 transition">
-          <div class="flex items-center justify-between text-xs text-slate-500 mb-1">
-            <span class="font-bold text-emerald-800">কলেজ</span>
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">কলেজ</strong>
             <span>দেওয়ানগঞ্জ পৌরসভা</span>
           </div>
           <h4 class="font-bold text-slate-900 text-sm">দেওয়ানগঞ্জ সরকারি কলেজ</h4>
-          <div class="text-xs text-slate-600 mt-2">কলেজ রোড, দেওয়ানগঞ্জ পৌরসভা</div>
-          <div class="text-[11px] font-mono text-slate-400 mt-1">কোড: 109845</div>
+          <div class="text-slate-600 mt-1">কলেজ রোড, দেওয়ানগঞ্জ পৌরসভা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109845</div>
         </div>
         
-        <div class="p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-emerald-50/40 transition">
-          <div class="flex items-center justify-between text-xs text-slate-500 mb-1">
-            <span class="font-bold text-emerald-800">কলেজ</span>
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">কলেজ</strong>
             <span>চর আমখাওয়া ইউনিয়ন</span>
           </div>
           <h4 class="font-bold text-slate-900 text-sm">সানন্দবাড়ী ডিগ্রি কলেজ</h4>
-          <div class="text-xs text-slate-600 mt-2">সানন্দবাড়ী বাজার সংলগ্ন, চর আমখাওয়া</div>
-          <div class="text-[11px] font-mono text-slate-400 mt-1">কোড: 109846</div>
+          <div class="text-slate-600 mt-1">সানন্দবাড়ী বাজার সংলগ্ন, চর আমখাওয়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109846</div>
         </div>
         
-        <div class="p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-emerald-50/40 transition">
-          <div class="flex items-center justify-between text-xs text-slate-500 mb-1">
-            <span class="font-bold text-emerald-800">কলেজ</span>
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">কলেজ</strong>
             <span>হাতীভাঙ্গা ইউনিয়ন</span>
           </div>
           <h4 class="font-bold text-slate-900 text-sm">আলহাজ্ব আঃ খালেক মেমোরিয়াল কলেজ</h4>
-          <div class="text-xs text-slate-600 mt-2">তারাটিয়া, হাতীভাঙ্গা</div>
-          <div class="text-[11px] font-mono text-slate-400 mt-1">কোড: 109847</div>
+          <div class="text-slate-600 mt-1">তারাটিয়া, হাতীভাঙ্গা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109847</div>
         </div>
         
-        <div class="p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-emerald-50/40 transition">
-          <div class="flex items-center justify-between text-xs text-slate-500 mb-1">
-            <span class="font-bold text-emerald-800">কলেজ</span>
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">কলেজ</strong>
             <span>চর আমখাওয়া ইউনিয়ন</span>
           </div>
           <h4 class="font-bold text-slate-900 text-sm">সানন্দবাড়ী মোখলেছুর রহমান মহিলা কলেজ</h4>
-          <div class="text-xs text-slate-600 mt-2">সানন্দবাড়ী কলেজ মোড়</div>
-          <div class="text-[11px] font-mono text-slate-400 mt-1">কোড: 109848</div>
+          <div class="text-slate-600 mt-1">সানন্দবাড়ী কলেজ মোড়</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109848</div>
         </div>
         
-        <div class="p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-emerald-50/40 transition">
-          <div class="flex items-center justify-between text-xs text-slate-500 mb-1">
-            <span class="font-bold text-emerald-800">কলেজ</span>
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">কলেজ</strong>
             <span>দেওয়ানগঞ্জ পৌরসভা</span>
           </div>
           <h4 class="font-bold text-slate-900 text-sm">দেওয়ানগঞ্জ মহিলা কলেজ</h4>
-          <div class="text-xs text-slate-600 mt-2">স্টেশন রোড, দেওয়ানগঞ্জ</div>
-          <div class="text-[11px] font-mono text-slate-400 mt-1">কোড: 109849</div>
+          <div class="text-slate-600 mt-1">স্টেশন রোড, দেওয়ানগঞ্জ</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109849</div>
         </div>
         
-        <div class="p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-emerald-50/40 transition">
-          <div class="flex items-center justify-between text-xs text-slate-500 mb-1">
-            <span class="font-bold text-emerald-800">কলেজ</span>
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">কলেজ</strong>
             <span>দেওয়ানগঞ্জ পৌরসভা</span>
           </div>
           <h4 class="font-bold text-slate-900 text-sm">দেওয়ানগঞ্জ টেকনিক্যাল এন্ড বিজনেস ম্যানেজমেন্ট কলেজ</h4>
-          <div class="text-xs text-slate-600 mt-2">সদর রোড, দেওয়ানগঞ্জ</div>
-          <div class="text-[11px] font-mono text-slate-400 mt-1">কোড: 109850</div>
+          <div class="text-slate-600 mt-1">সদর রোড, দেওয়ানগঞ্জ</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109850</div>
         </div>
         
-        <div class="p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-emerald-50/40 transition">
-          <div class="flex items-center justify-between text-xs text-slate-500 mb-1">
-            <span class="font-bold text-emerald-800">কলেজ</span>
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">কলেজ</strong>
             <span>ডাংধরা ইউনিয়ন</span>
           </div>
           <h4 class="font-bold text-slate-900 text-sm">ডাংধরা আদর্শ কলেজ</h4>
-          <div class="text-xs text-slate-600 mt-2">কাউনিয়ার চর, ডাংধরা</div>
-          <div class="text-[11px] font-mono text-slate-400 mt-1">কোড: 109851</div>
+          <div class="text-slate-600 mt-1">কাউনিয়ার চর, ডাংধরা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109851</div>
         </div>
         
-        <div class="p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-emerald-50/40 transition">
-          <div class="flex items-center justify-between text-xs text-slate-500 mb-1">
-            <span class="font-bold text-emerald-800">উচ্চ বিদ্যালয়</span>
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
             <span>দেওয়ানগঞ্জ পৌরসভা</span>
           </div>
           <h4 class="font-bold text-slate-900 text-sm">দেওয়ানগঞ্জ সরকারি উচ্চ বিদ্যালয়</h4>
-          <div class="text-xs text-slate-600 mt-2">হাসপাতাল রোড, দেওয়ানগঞ্জ</div>
-          <div class="text-[11px] font-mono text-slate-400 mt-1">কোড: 109810</div>
+          <div class="text-slate-600 mt-1">হাসপাতাল রোড, দেওয়ানগঞ্জ</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109810</div>
         </div>
         
-        <div class="p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-emerald-50/40 transition">
-          <div class="flex items-center justify-between text-xs text-slate-500 mb-1">
-            <span class="font-bold text-emerald-800">উচ্চ বিদ্যালয়</span>
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
             <span>দেওয়ানগঞ্জ পৌরসভা</span>
           </div>
           <h4 class="font-bold text-slate-900 text-sm">দেওয়ানগঞ্জ সরকারি বালিকা উচ্চ বিদ্যালয়</h4>
-          <div class="text-xs text-slate-600 mt-2">কলেজ রোড, দেওয়ানগঞ্জ</div>
-          <div class="text-[11px] font-mono text-slate-400 mt-1">কোড: 109811</div>
+          <div class="text-slate-600 mt-1">কলেজ রোড, দেওয়ানগঞ্জ</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109811</div>
         </div>
         
-        <div class="p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-emerald-50/40 transition">
-          <div class="flex items-center justify-between text-xs text-slate-500 mb-1">
-            <span class="font-bold text-emerald-800">উচ্চ বিদ্যালয়</span>
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
             <span>চর আমখাওয়া ইউনিয়ন</span>
           </div>
           <h4 class="font-bold text-slate-900 text-sm">সানন্দবাড়ী উচ্চ বিদ্যালয়</h4>
-          <div class="text-xs text-slate-600 mt-2">সানন্দবাড়ী বাজার, চর আমখাওয়া</div>
-          <div class="text-[11px] font-mono text-slate-400 mt-1">কোড: 109812</div>
+          <div class="text-slate-600 mt-1">সানন্দবাড়ী বাজার, চর আমখাওয়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109812</div>
         </div>
         
-        <div class="p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-emerald-50/40 transition">
-          <div class="flex items-center justify-between text-xs text-slate-500 mb-1">
-            <span class="font-bold text-emerald-800">উচ্চ বিদ্যালয়</span>
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
             <span>চর আমখাওয়া ইউনিয়ন</span>
           </div>
           <h4 class="font-bold text-slate-900 text-sm">সানন্দবাড়ী বালিকা উচ্চ বিদ্যালয়</h4>
-          <div class="text-xs text-slate-600 mt-2">সানন্দবাড়ী</div>
-          <div class="text-[11px] font-mono text-slate-400 mt-1">কোড: 109813</div>
+          <div class="text-slate-600 mt-1">সানন্দবাড়ী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109813</div>
         </div>
         
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">তারাটিয়া উচ্চ বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">তারাটিয়া বাজার সংলগ্ন</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109814</div>
+        </div>
         
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
+            <span>বাহাদুরাবাদ ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">বাহাদুরাবাদ উচ্চ বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">বাহাদুরাবাদ ঘাট রোড</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109815</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
+            <span>চিকাজানী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চিকাজানী উচ্চ বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">চিকাজানী বাজার</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109816</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
+            <span>চুকাইবাড়ী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চুকাইবাড়ী বহুমুখী উচ্চ বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">চুকাইবাড়ী বাজার</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109817</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">ডাংধরা বহুমুখী উচ্চ বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">কাউনিয়ার চর, ডাংধরা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109818</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">কাউনিয়ার চর উচ্চ বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">কাউনিয়ার চর বাজার</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109819</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">বাঘারচর উচ্চ বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">বাঘারচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109820</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মৌলভীরচর উচ্চ বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মৌলভীরচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109821</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
+            <span>পাররামপুর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পাররামপুর উচ্চ বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পাররামপুর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109822</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
+            <span>পাররামপুর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">ঝালোরচর উচ্চ বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">ঝালোরচর বাজার</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109823</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
+            <span>দেওয়ানগঞ্জ সদর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">খোলাবাড়ী উচ্চ বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">খোলাবাড়ী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109824</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">ফারাজিপাড়া উচ্চ বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">ফারাজিপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109825</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
+            <span>বাহাদুরাবাদ ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মেউয়ারচর উচ্চ বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মেউয়ারচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109826</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মোশারফগঞ্জ উচ্চ বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মোশারফগঞ্জ</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109827</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
+            <span>চিকাজানী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পুল্লাকান্দি দ্বি-মুখী উচ্চ বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পুল্লাকান্দি</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109828</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
+            <span>দেওয়ানগঞ্জ পৌরসভা</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">দেওয়ানগঞ্জ রেলওয়ে উচ্চ বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">রেলওয়ে কলোনি, দেওয়ানগঞ্জ</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109829</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">শহীদ জিয়াউর রহমান উচ্চ বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">হাতীভাঙ্গা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109830</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">বাঘারচর আদর্শ বালিকা উচ্চ বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">বাঘারচর উত্তরপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109831</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">তারাটিয়া বালিকা উচ্চ বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">তারাটিয়া মোড়</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109832</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
+            <span>দেওয়ানগঞ্জ পৌরসভা</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">সুগার মিলস উচ্চ বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">সুগার মিলস এলাকা, দেওয়ানগঞ্জ</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109833</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">উচ্চ বিদ্যালয়</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মাগুরার হাট উচ্চ বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মাগুরার হাট</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 109834</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">মাদ্রাসা</strong>
+            <span>দেওয়ানগঞ্জ পৌরসভা</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">দেওয়ানগঞ্জ কামিল মাদ্রাসা</h4>
+          <div class="text-slate-600 mt-1">মাদ্রাসা রোড, দেওয়ানগঞ্জ পৌরসভা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 121450</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">মাদ্রাসা</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">সানন্দবাড়ী সিনিয়র আলিম মাদ্রাসা</h4>
+          <div class="text-slate-600 mt-1">সানন্দবাড়ী পূর্বপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 121451</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">মাদ্রাসা</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">হাতীভাঙ্গা ইসলামিয়া দাখিল মাদ্রাসা</h4>
+          <div class="text-slate-600 mt-1">তারাটিয়া, হাতীভাঙ্গা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 121452</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">মাদ্রাসা</strong>
+            <span>বাহাদুরাবাদ ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">বাহাদুরাবাদ দাখিল মাদ্রাসা</h4>
+          <div class="text-slate-600 mt-1">বাহাদুরাবাদ বাজার</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 121453</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">মাদ্রাসা</strong>
+            <span>চিকাজানী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চিকাজানী ফাজিল মাদ্রাসা</h4>
+          <div class="text-slate-600 mt-1">চিকাজানী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 121454</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">মাদ্রাসা</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">কাউনিয়ার চর দাখিল মাদ্রাসা</h4>
+          <div class="text-slate-600 mt-1">কাউনিয়ার চর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 121455</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">মাদ্রাসা</strong>
+            <span>চুকাইবাড়ী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চুকাইবাড়ী দারুল উলুম দাখিল মাদ্রাসা</h4>
+          <div class="text-slate-600 mt-1">চুকাইবাড়ী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 121456</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">মাদ্রাসা</strong>
+            <span>পাররামপুর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পাররামপুর দাখিল মাদ্রাসা</h4>
+          <div class="text-slate-600 mt-1">পাররামপুর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 121457</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">মাদ্রাসা</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">সানন্দবাড়ী মোহাম্মাদিয়া বালিকা দাখিল মাদ্রাসা</h4>
+          <div class="text-slate-600 mt-1">সানন্দবাড়ী বাজার</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 121458</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">মাদ্রাসা</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">বাঘারচর নূরে মদিনা দাখিল মাদ্রাসা</h4>
+          <div class="text-slate-600 mt-1">বাঘারচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 121459</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">মাদ্রাসা</strong>
+            <span>দেওয়ানগঞ্জ পৌরসভা</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">দেওয়ানগঞ্জ কাওমী মহিলা মাদ্রাসা</h4>
+          <div class="text-slate-600 mt-1">কলেজ রোড</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 121460</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">মাদ্রাসা</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">তারাটিয়া আল-হেরা দাখিল মাদ্রাসা</h4>
+          <div class="text-slate-600 mt-1">তারাটিয়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 121461</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">মাদ্রাসা</strong>
+            <span>বাহাদুরাবাদ ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মেউয়ারচর দাখিল মাদ্রাসা</h4>
+          <div class="text-slate-600 mt-1">মেউয়ারচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 121462</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">মাদ্রাসা</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মৌলভীরচর ইসলামিয়া মাদ্রাসা</h4>
+          <div class="text-slate-600 mt-1">মৌলভীরচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 121463</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">মাদ্রাসা</strong>
+            <span>চিকাজানী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পুল্লাকান্দি দাখিল মাদ্রাসা</h4>
+          <div class="text-slate-600 mt-1">পুল্লাকান্দি</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 121464</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">মাদ্রাসা</strong>
+            <span>পাররামপুর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">ঝালোরচর রহমানিয়া দাখিল মাদ্রাসা</h4>
+          <div class="text-slate-600 mt-1">ঝালোরচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 121465</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ পৌরসভা</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">দেওয়ানগঞ্জ মডেল সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পৌরসভা সদর, দেওয়ানগঞ্জ</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020101</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ পৌরসভা</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">দেওয়ানগঞ্জ জিলাপাড়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">ওয়ার্ড নং ৩, দেওয়ানগঞ্জ</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020102</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ পৌরসভা</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">দেওয়ানগঞ্জ স্টেশন সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">স্টেশন রোড, ওয়ার্ড নং ১</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020103</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ পৌরসভা</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">কলেজ রোড সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">ওয়ার্ড নং ৪, পৌরসভা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020104</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ পৌরসভা</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">সুগার মিলস কলোনি সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">সুগার মিলস এলাকা, ওয়ার্ড নং ২</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020105</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ পৌরসভা</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">কুতুবের চর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">ওয়ার্ড নং ৫, দেওয়ানগঞ্জ</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020106</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ পৌরসভা</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">কাজীবাড়ি সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">ওয়ার্ড নং ৬, পৌরসভা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020107</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ পৌরসভা</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মোল্লাপাড়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">ওয়ার্ড নং ৭, পৌরসভা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020108</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ পৌরসভা</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মুন্সীপাড়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">ওয়ার্ড নং ৮, দেওয়ানগঞ্জ</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020109</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ পৌরসভা</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">দেওয়ানগঞ্জ মধ্যপাড়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">ওয়ার্ড নং ৯</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020110</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ পৌরসভা</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">তুতিয়ারচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">তুতিয়ারচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020111</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ পৌরসভা</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মাঠেরঘাট সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মাঠেরঘাট, দেওয়ানগঞ্জ</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020112</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ সদর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">খোলাবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">খোলাবাড়ী, সদর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020201</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ সদর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">বালুগ্রাম সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">বালুগ্রাম</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020202</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ সদর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পশ্চিম খোলাবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পশ্চিম খোলাবাড়ী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020203</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ সদর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">খামারখোলা সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">খামারখোলা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020204</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ সদর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মিয়াপাড়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মিয়াপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020205</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ সদর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পাড়াগ্রাম সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পাড়াগ্রাম</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020206</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ সদর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">উত্তর বালুগ্রাম সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">উত্তর বালুগ্রাম</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020207</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ সদর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">দক্ষিণ বালুগ্রাম সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">দক্ষিণ বালুগ্রাম</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020208</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ সদর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চক দেওয়ানগঞ্জ সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">চক দেওয়ানগঞ্জ</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020209</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ সদর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">নয়াপাড়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">নয়াপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020210</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ সদর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চর দেওয়ানগঞ্জ সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">চর দেওয়ানগঞ্জ</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020211</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ সদর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">গাংপার সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">গাংপার</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020212</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ সদর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পূর্ব খোলাবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পূর্ব খোলাবাড়ী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020213</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ সদর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">বক্তারপাড়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">বক্তারপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020214</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ সদর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">হাজীপাড়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">হাজীপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020215</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ সদর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">সৈয়দপুর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">সৈয়দপুর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020216</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>বাহাদুরাবাদ ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">বাহাদুরাবাদ সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">বাহাদুরাবাদ বাজার সংলগ্ন</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020301</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>বাহাদুরাবাদ ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মেউয়ারচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মেউয়ারচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020302</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>বাহাদুরাবাদ ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">ঘাট বাহাদুরাবাদ সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">বাহাদুরাবাদ ঘাট</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020303</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>বাহাদুরাবাদ ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মীরপাড়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মীরপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020304</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>বাহাদুরাবাদ ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">আলমপুর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">আলমপুর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020305</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>বাহাদুরাবাদ ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পশ্চিম মেউয়ারচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পশ্চিম মেউয়ারচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020306</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>বাহাদুরাবাদ ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পূর্ব মেউয়ারচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পূর্ব মেউয়ারচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020307</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>বাহাদুরাবাদ ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চর বাহাদুরাবাদ সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">চর বাহাদুরাবাদ</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020308</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>বাহাদুরাবাদ ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">নয়াপাড়া বাহাদুরাবাদ সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">নয়াপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020309</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>বাহাদুরাবাদ ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">কাটাখালী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">কাটাখালী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020310</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>বাহাদুরাবাদ ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">সর্দারপাড়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">সর্দারপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020311</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>বাহাদুরাবাদ ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">খাগড়িয়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">খাগড়িয়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020312</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>বাহাদুরাবাদ ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">উত্তর বাহাদুরাবাদ সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">উত্তর বাহাদুরাবাদ</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020313</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>বাহাদুরাবাদ ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">দক্ষিণ বাহাদুরাবাদ সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">দক্ষিণ বাহাদুরাবাদ</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020314</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>বাহাদুরাবাদ ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">বাঘারচর ঘাট সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">বাঘারচর ঘাট</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020315</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চিকাজানী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চিকাজানী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">চিকাজানী বাজার</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020401</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চিকাজানী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পুল্লাকান্দি সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পুল্লাকান্দি</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020402</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চিকাজানী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মৌলভীরচর চিকাজানী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মৌলভীরচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020403</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চিকাজানী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">খোলাবাড়ী চিকাজানী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">খোলাবাড়ী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020404</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চিকাজানী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চর চিকাজানী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">চর চিকাজানী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020405</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চিকাজানী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">বাঘারপাড়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">বাঘারপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020406</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চিকাজানী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চন্দনপুর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">চন্দনপুর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020407</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চিকাজানী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চর পুল্লাকান্দি সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">চর পুল্লাকান্দি</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020408</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চিকাজানী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পশ্চিম চিকাজানী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পশ্চিম চিকাজানী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020409</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চিকাজানী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পূর্ব চিকাজানী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পূর্ব চিকাজানী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020410</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চিকাজানী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">দক্ষিণ পুল্লাকান্দি সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">দক্ষিণ পুল্লাকান্দি</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020411</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চিকাজানী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">উত্তর চিকাজানী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">উত্তর চিকাজানী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020412</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চিকাজানী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মোল্লাপাড়া চিকাজানী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মোল্লাপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020413</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চিকাজানী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">সর্দারপাড়া পুল্লাকান্দি সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">সর্দারপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020414</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চিকাজানী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">বিলপাড়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">বিলপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020415</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চুকাইবাড়ী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চুকাইবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">চুকাইবাড়ী বাজার</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020501</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চুকাইবাড়ী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">হরিণধরা সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">হরিণধরা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020502</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চুকাইবাড়ী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">ফুলতলী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">ফুলতলী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020503</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চুকাইবাড়ী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চর চুকাইবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">চর চুকাইবাড়ী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020504</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চুকাইবাড়ী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">দক্ষিণ হরিণধরা সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">দক্ষিণ হরিণধরা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020505</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চুকাইবাড়ী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">উত্তর হরিণধরা সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">উত্তর হরিণধরা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020506</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চুকাইবাড়ী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">কাশিমাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">কাশিমাড়ী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020507</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চুকাইবাড়ী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">গাংপার চুকাইবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">গাংপার</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020508</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চুকাইবাড়ী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পশ্চিম ফুলতলী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পশ্চিম ফুলতলী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020509</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চুকাইবাড়ী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পাড়াগ্রাম চুকাইবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পাড়াগ্রাম</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020510</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চুকাইবাড়ী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মোল্লাপাড়া চুকাইবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মোল্লাপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020511</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চুকাইবাড়ী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">নয়াপাড়া চুকাইবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">নয়াপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020512</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চুকাইবাড়ী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পূর্ব চুকাইবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পূর্ব চুকাইবাড়ী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020513</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চুকাইবাড়ী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">দক্ষিণ চুকাইবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">দক্ষিণ চুকাইবাড়ী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020514</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চুকাইবাড়ী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">হাজীবাড়ি চুকাইবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">হাজীবাড়ি</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020515</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">তারাটিয়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">তারাটিয়া বাজার</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020601</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">হাতীভাঙ্গা সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">হাতীভাঙ্গা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020602</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">ফারাজিপাড়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">ফারাজিপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020603</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">উত্তর তারাটিয়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">উত্তর তারাটিয়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020604</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">দক্ষিণ তারাটিয়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">দক্ষিণ তারাটিয়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020605</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">কাঠারবিল সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">কাঠারবিল</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020606</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">আমখাওয়া খালপাড় সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">আমখাওয়া খালপাড়</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020607</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পশ্চিম ফারাজিপাড়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পশ্চিম ফারাজিপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020608</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চর হাতীভাঙ্গা সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">চর হাতীভাঙ্গা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020609</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">জিগারতলী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">জিগারতলী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020610</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মোল্লাপাড়া তারাটিয়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মোল্লাপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020611</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">নয়াপাড়া হাতীভাঙ্গা সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">নয়াপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020612</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পূর্ব ফারাজিপাড়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পূর্ব ফারাজিপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020613</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">উত্তর হাতীভাঙ্গা সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">উত্তর হাতীভাঙ্গা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020614</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">দক্ষিণ হাতীভাঙ্গা সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">দক্ষিণ হাতীভাঙ্গা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020615</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পাড়াগ্রাম তারাটিয়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পাড়াগ্রাম</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020616</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">সর্দারপাড়া তারাটিয়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">সর্দারপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020617</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">কাউনিয়ার চর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">কাউনিয়ার চর বাজার</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020701</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">ডাংধরা সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">ডাংধরা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020702</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">বাঘারচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">বাঘারচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020703</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পশ্চিম কাউনিয়ার চর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পশ্চিম কাউনিয়ার চর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020704</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পূর্ব কাউনিয়ার চর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পূর্ব কাউনিয়ার চর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020705</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">উত্তর বাঘারচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">উত্তর বাঘারচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020706</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">দক্ষিণ বাঘারচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">দক্ষিণ বাঘারচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020707</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চর বাঘারচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">চর বাঘারচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020708</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মোল্লাপাড়া কাউনিয়ার চর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মোল্লাপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020709</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">গাংপার কাউনিয়ার চর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">গাংপার</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020710</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পাথরের চর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পাথরের চর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020711</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পশ্চিম ডাংধরা সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পশ্চিম ডাংধরা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020712</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পূর্ব ডাংধরা সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পূর্ব ডাংধরা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020713</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">আলমপুর ডাংধরা সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">আলমপুর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020714</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">নয়াপাড়া ডাংধরা সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">নয়াপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020715</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চর আলমপুর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">চর আলমপুর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020716</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">সর্দারপাড়া ডাংধরা সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">সর্দারপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020717</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">বাঘারচর বাজার সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">বাঘারচর বাজার</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020718</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মিয়াপাড়া ডাংধরা সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মিয়াপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020719</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মুন্সীপাড়া বাঘারচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মুন্সীপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020720</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>পাররামপুর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পাররামপুর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পাররামপুর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020801</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>পাররামপুর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">ঝালোরচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">ঝালোরচর বাজার</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020802</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>পাররামপুর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পশ্চিম পাররামপুর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পশ্চিম পাররামপুর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020803</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>পাররামপুর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পূর্ব পাররামপুর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পূর্ব পাররামপুর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020804</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>পাররামপুর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চর ঝালোরচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">চর ঝালোরচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020805</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>পাররামপুর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">দক্ষিণ ঝালোরচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">দক্ষিণ ঝালোরচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020806</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>পাররামপুর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">উত্তর ঝালোরচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">উত্তর ঝালোরচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020807</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>পাররামপুর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মাটির মসজিদ সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মাটির মসজিদ মোড়</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020808</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>পাররামপুর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পাড়াগ্রাম পাররামপুর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পাড়াগ্রাম</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020809</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>পাররামপুর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মোল্লাপাড়া ঝালোরচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মোল্লাপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020810</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>পাররামপুর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">নয়াপাড়া পাররামপুর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">নয়াপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020811</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>পাররামপুর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">বিলপাড়া পাররামপুর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">বিলপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020812</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>পাররামপুর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">সর্দারপাড়া পাররামপুর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">সর্দারপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020813</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>পাররামপুর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">গাংপার পাররামপুর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">গাংপার</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020814</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>পাররামপুর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">হাজীপাড়া ঝালোরচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">হাজীপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020815</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">সানন্দবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">সানন্দবাড়ী বাজার সংলগ্ন</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020901</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চর আমখাওয়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">চর আমখাওয়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020902</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মৌলভীরচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মৌলভীরচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020903</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মোশারফগঞ্জ সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মোশারফগঞ্জ বাজার</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020904</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মাগুরার হাট সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মাগুরার হাট</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020905</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পূর্ব সানন্দবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পূর্ব সানন্দবাড়ী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020906</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পশ্চিম সানন্দবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পশ্চিম সানন্দবাড়ী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020907</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">দক্ষিণ সানন্দবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">দক্ষিণ সানন্দবাড়ী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020908</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">উত্তর সানন্দবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">উত্তর সানন্দবাড়ী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020909</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">গেন্দারপাড়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">গেন্দারপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020910</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পশ্চিম মৌলভীরচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পশ্চিম মৌলভীরচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020911</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পূর্ব মৌলভীরচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পূর্ব মৌলভীরচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020912</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">নয়াপাড়া সানন্দবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">নয়াপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020913</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পাড়াগ্রাম সানন্দবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পাড়াগ্রাম</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020914</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চর মাগুরা সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">চর মাগুরা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020915</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মিয়াপাড়া সানন্দবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মিয়াপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020916</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মোল্লাপাড়া সানন্দবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মোল্লাপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020917</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">হাজীপাড়া সানন্দবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">হাজীপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020918</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">গাংপার সানন্দবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">গাংপার</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020919</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">সর্দারপাড়া সানন্দবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">সর্দারপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020920</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">বিলপাড়া সানন্দবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">বিলপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020921</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চর মোশারফগঞ্জ সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">চর মোশারফগঞ্জ</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020922</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">কাটাখালী সানন্দবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">কাটাখালী</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020923</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মুন্সীপাড়া সানন্দবাড়ী সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মুন্সীপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020924</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চর আমখাওয়া মধ্যপাড়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মধ্যপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020925</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চর তারাকান্দি সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">তারাকান্দি</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020618</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">দক্ষিণ ডাংধরা সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">দক্ষিণ ডাংধরা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020721</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পশ্চিম বাঘারচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পশ্চিম বাঘারচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020722</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পূর্ব বাঘারচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পূর্ব বাঘারচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020723</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ পৌরসভা</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">খামারপাড়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পৌরসভা ওয়ার্ড ৩</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020113</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>দেওয়ানগঞ্জ সদর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">মাজিপাড়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">মাজিপাড়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020217</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>বাহাদুরাবাদ ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">উত্তর মেউয়ারচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">উত্তর মেউয়ারচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020316</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>বাহাদুরাবাদ ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">দক্ষিণ মেউয়ারচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">দক্ষিণ মেউয়ারচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020317</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চিকাজানী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চর পুল্লাকান্দি উত্তর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">চর পুল্লাকান্দি</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020416</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চিকাজানী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চর পুল্লাকান্দি দক্ষিণ সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">চর পুল্লাকান্দি</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020417</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চুকাইবাড়ী ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পাড়াগ্রাম হরিণধরা সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">হরিণধরা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020516</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>হাতীভাঙ্গা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চর তারাটিয়া সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">চর তারাটিয়া</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020619</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">উত্তর কাউনিয়ার চর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">উত্তর কাউনিয়ার চর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020724</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>ডাংধরা ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">দক্ষিণ কাউনিয়ার চর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">দক্ষিণ কাউনিয়ার চর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020725</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>পাররামপুর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পূর্ব ঝালোরচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পূর্ব ঝালোরচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020816</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>পাররামপুর ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">পশ্চিম ঝালোরচর সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">পশ্চিম ঝালোরচর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020817</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">চর মাগুরা দক্ষিণ সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">চর মাগুরা</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020926</div>
+        </div>
+        
+        <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+          <div class="flex justify-between text-slate-500 mb-1">
+            <strong class="text-[#006a4e]">সরকারি প্রাথমিক</strong>
+            <span>চর আমখাওয়া ইউনিয়ন</span>
+          </div>
+          <h4 class="font-bold text-slate-900 text-sm">জিঞ্জিরাম পাড় সরকারি প্রাথমিক বিদ্যালয়</h4>
+          <div class="text-slate-600 mt-1">জিঞ্জিরাম নদী তীর</div>
+          <div class="font-mono text-slate-400 mt-0.5">কোড: 3020927</div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- 3. MARKETS -->
+    <section id="markets">
+      <div class="border-b-2 border-[#006a4e] pb-2 mb-6">
+        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">গ্রামীণ বাণিজ্য</span>
+        <h2 class="text-2xl font-bold font-serif text-[#006a4e]">ঐতিহ্যবাহী সানন্দবাড়ী হাট ও সকল হাট-বাজার</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        
+        <div class="bg-white border border-amber-400 bg-amber-50/20 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e]">চর আমখাওয়া ইউনিয়ন</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">সানন্দবাড়ী হাট ও বাজার</h3>
+          <div class="mt-3 p-2.5 bg-slate-50 rounded-lg text-xs space-y-1">
+            <div><strong>হাটবার:</strong> বুধবার, শনিবার</div>
+            <div><strong>সময়:</strong> সকাল ৭টা – রাত ৯টা (হাটবার সারাদিন ও রাত পর্যন্ত)</div>
+            <div><strong>অবস্থান:</strong> চর আমখাওয়া ইউনিয়ন, কুড়িগ্রাম-জামালপুর সংযোগ সড়ক ও জিঞ্জিরাম নদী তীরবর্তী</div>
+          </div>
+          <div class="mt-3">
+            <span class="text-xs font-bold text-slate-700">প্রধান পণ্য:</span>
+            <ul class="mt-1 text-xs text-slate-600 space-y-0.5">
+              <li>• গরু-মহিষ ও ছাগলের বিশাল হাট</li><li>• কাঁচা মরিচ ও সবজির পাইকারি আড়ত</li><li>• পাট, ধান, গম ও ভুট্টা</li><li>• নদী ও বিলের তাজা মাছ</li><li>• গ্রামোদ্যোগের হস্তশিল্প</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e]">দেওয়ানগঞ্জ পৌরসভা</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">দেওয়ানগঞ্জ পুরাতন বাজার</h3>
+          <div class="mt-3 p-2.5 bg-slate-50 rounded-lg text-xs space-y-1">
+            <div><strong>হাটবার:</strong> প্রতিদিন নিত্যপ্রয়োজনীয় বাজার</div>
+            <div><strong>সময়:</strong> সকাল ৬টা – রাত ১০টা</div>
+            <div><strong>অবস্থান:</strong> পৌরসভা প্রাণকেন্দ্র, ব্রহ্মপুত্র নদের পুরাতন বাঁধ সংলগ্ন</div>
+          </div>
+          <div class="mt-3">
+            <span class="text-xs font-bold text-slate-700">প্রধান পণ্য:</span>
+            <ul class="mt-1 text-xs text-slate-600 space-y-0.5">
+              <li>• মুদি মালামাল ও মসলা</li><li>• নিত্যদিনের তাজা কাঁচাবাজার</li><li>• সোনারূপা ও অলংকার পট্টি</li><li>• কাপড় ও পোশাকের পাইকারি ও খুচরা দোকান</li><li>• হার্ডওয়্যার ও ইলেকট্রনিক্স</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e]">দেওয়ানগঞ্জ পৌরসভা</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">দেওয়ানগঞ্জ রেলওয়ে স্টেশন বাজার (নতুন বাজার)</h3>
+          <div class="mt-3 p-2.5 bg-slate-50 rounded-lg text-xs space-y-1">
+            <div><strong>হাটবার:</strong> রবিবার, বৃহস্পতিবার</div>
+            <div><strong>সময়:</strong> সকাল ৮টা – রাত ১০টা</div>
+            <div><strong>অবস্থান:</strong> দেওয়ানগঞ্জ বাজার রেলওয়ে টার্মিনাল সংলগ্ন</div>
+          </div>
+          <div class="mt-3">
+            <span class="text-xs font-bold text-slate-700">প্রধান পণ্য:</span>
+            <ul class="mt-1 text-xs text-slate-600 space-y-0.5">
+              <li>• ট্রেন যাত্রীদের পণ্যদ্রব্য ও হোটেল</li><li>• শাকসবজি ও ফলের আড়ত</li><li>• মিষ্টান্ন ও বেকারি</li><li>• চা-জলখাবার ও মোবাইল এক্সেসরিজ</li><li>• কুরিয়ার ও পার্সেল হাব</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e]">হাতীভাঙ্গা ইউনিয়ন</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">তারাটিয়া বাজার ও হাট</h3>
+          <div class="mt-3 p-2.5 bg-slate-50 rounded-lg text-xs space-y-1">
+            <div><strong>হাটবার:</strong> রবিবার, বৃহস্পতিবার</div>
+            <div><strong>সময়:</strong> দুপুর ২টা – রাত ৯টা</div>
+            <div><strong>অবস্থান:</strong> তারাটিয়া মোড়, হাতীভাঙ্গা ইউনিয়ন</div>
+          </div>
+          <div class="mt-3">
+            <span class="text-xs font-bold text-slate-700">প্রধান পণ্য:</span>
+            <ul class="mt-1 text-xs text-slate-600 space-y-0.5">
+              <li>• গবাদি পশুর কেনাবেচা</li><li>• পাট ও ভুট্টার বৃহৎ পাইকারি আড়ত</li><li>• মৃৎশিল্প ও মাটির তৈজসপত্র</li><li>• গ্রাম্য তাজা শাকসবজি</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e]">ডাংধরা ইউনিয়ন</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">কাউনিয়ার চর বাজার</h3>
+          <div class="mt-3 p-2.5 bg-slate-50 rounded-lg text-xs space-y-1">
+            <div><strong>হাটবার:</strong> সোমবার, শুক্রবার</div>
+            <div><strong>সময়:</strong> সকাল ৮টা – রাত ৯টা</div>
+            <div><strong>অবস্থান:</strong> ডাংধরা ইউনিয়ন পরিষদ সংলগ্ন</div>
+          </div>
+          <div class="mt-3">
+            <span class="text-xs font-bold text-slate-700">প্রধান পণ্য:</span>
+            <ul class="mt-1 text-xs text-slate-600 space-y-0.5">
+              <li>• রবিশস্য (সরিষা, কলাই, তিল)</li><li>• চরাঞ্চলের দেশি মাছ ও শুঁটকি</li><li>• দেশি হাঁস-মুরগি ও ডিম</li><li>• সার-কীটনাশক ও কৃষি যন্ত্রপাতি</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e]">পাররামপুর ইউনিয়ন</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">ঝালোরচর বাজার</h3>
+          <div class="mt-3 p-2.5 bg-slate-50 rounded-lg text-xs space-y-1">
+            <div><strong>হাটবার:</strong> শনিবার, বুধবার</div>
+            <div><strong>সময়:</strong> দুপুর ৩টা – রাত ৯টা</div>
+            <div><strong>অবস্থান:</strong> পাররামপুর ইউনিয়ন, ঝালোরচর বাসস্টপ সংলগ্ন</div>
+          </div>
+          <div class="mt-3">
+            <span class="text-xs font-bold text-slate-700">প্রধান পণ্য:</span>
+            <ul class="mt-1 text-xs text-slate-600 space-y-0.5">
+              <li>• দুধ ও ছানার বাজার</li><li>• স্থানীয় তাঁত ও পোশাক</li><li>• কৃষিফসল ও ধান-চাল</li><li>• কাঠ ও বাঁশের হাট</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e]">বাহাদুরাবাদ ইউনিয়ন</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">বাহাদুরাবাদ ঘাট বাজার</h3>
+          <div class="mt-3 p-2.5 bg-slate-50 rounded-lg text-xs space-y-1">
+            <div><strong>হাটবার:</strong> প্রতিদিন ও নদী তীরবর্তী লেনদেন</div>
+            <div><strong>সময়:</strong> সকাল ৬টা – সন্ধ্যা ৭টা</div>
+            <div><strong>অবস্থান:</strong> ঐতিহাসিক বাহাদুরাবাদ ঘাট সংলগ্ন</div>
+          </div>
+          <div class="mt-3">
+            <span class="text-xs font-bold text-slate-700">প্রধান পণ্য:</span>
+            <ul class="mt-1 text-xs text-slate-600 space-y-0.5">
+              <li>• নদীর টাটকা ইলিশ, বোয়াল ও দেশি মাছ</li><li>• তরমুজ ও চরের মিষ্টি বাঙ্গি (মৌসুমে)</li><li>• নৌযানের জ্বালানি ও উপকরণ</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e]">বাহাদুরাবাদ ইউনিয়ন</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">মেউয়ার চর বাজার</h3>
+          <div class="mt-3 p-2.5 bg-slate-50 rounded-lg text-xs space-y-1">
+            <div><strong>হাটবার:</strong> রবিবার, বুধবার</div>
+            <div><strong>সময়:</strong> দুপুর ৩টা – রাত ৮টা</div>
+            <div><strong>অবস্থান:</strong> মেউয়ারচর উচ্চ বিদ্যালয় সংলগ্ন</div>
+          </div>
+          <div class="mt-3">
+            <span class="text-xs font-bold text-slate-700">প্রধান পণ্য:</span>
+            <ul class="mt-1 text-xs text-slate-600 space-y-0.5">
+              <li>• দেশি গরু-ছাগল</li><li>• তাজা দুধের পাইকারি বিক্রয়</li><li>• চরের বাদাম ও ভুট্টা</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e]">ডাংধরা ইউনিয়ন</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">ডাংধরা বাজার</h3>
+          <div class="mt-3 p-2.5 bg-slate-50 rounded-lg text-xs space-y-1">
+            <div><strong>হাটবার:</strong> মঙ্গলবার, শনিবার</div>
+            <div><strong>সময়:</strong> দুপুর ২টা – রাত ৯টা</div>
+            <div><strong>অবস্থান:</strong> ডাংধরা কেন্দ্র</div>
+          </div>
+          <div class="mt-3">
+            <span class="text-xs font-bold text-slate-700">প্রধান পণ্য:</span>
+            <ul class="mt-1 text-xs text-slate-600 space-y-0.5">
+              <li>• রবিশস্য ও ডাল</li><li>• তাজা শাকসবজি</li><li>• মুদি ও তৈজসপত্র</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e]">দেওয়ানগঞ্জ সদর ইউনিয়ন</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">খোলাবাড়ী হাট ও বাজার</h3>
+          <div class="mt-3 p-2.5 bg-slate-50 rounded-lg text-xs space-y-1">
+            <div><strong>হাটবার:</strong> সোমবার, বৃহস্পতিবার</div>
+            <div><strong>সময়:</strong> দুপুর ২টা – রাত ৮টা</div>
+            <div><strong>অবস্থান:</strong> খোলাবাড়ী গ্রাম, দেওয়ানগঞ্জ সদর</div>
+          </div>
+          <div class="mt-3">
+            <span class="text-xs font-bold text-slate-700">প্রধান পণ্য:</span>
+            <ul class="mt-1 text-xs text-slate-600 space-y-0.5">
+              <li>• সরিষা ও সরিষার খাঁটি তেল</li><li>• স্থানীয় তরিতরকারি</li><li>• হাঁস-মুরগি ও কবুতর</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e]">চুকাইবাড়ী ইউনিয়ন</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">চুকাইবাড়ী বাজার</h3>
+          <div class="mt-3 p-2.5 bg-slate-50 rounded-lg text-xs space-y-1">
+            <div><strong>হাটবার:</strong> রবিবার, বুধবার</div>
+            <div><strong>সময়:</strong> দুপুর ৩টা – রাত ৯টা</div>
+            <div><strong>অবস্থান:</strong> চুকাইবাড়ী হাই স্কুল সংলগ্ন</div>
+          </div>
+          <div class="mt-3">
+            <span class="text-xs font-bold text-slate-700">প্রধান পণ্য:</span>
+            <ul class="mt-1 text-xs text-slate-600 space-y-0.5">
+              <li>• আখ চাষের উপকরণ ও গুড়</li><li>• ভুট্টা ও মরিচ</li><li>• কৃষি সামগ্রী</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e]">চিকাজানী ইউনিয়ন</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">চিকাজানী বাজার</h3>
+          <div class="mt-3 p-2.5 bg-slate-50 rounded-lg text-xs space-y-1">
+            <div><strong>হাটবার:</strong> সোমবার, শুক্রবার</div>
+            <div><strong>সময়:</strong> দুপুর ৩টা – রাত ৯টা</div>
+            <div><strong>অবস্থান:</strong> চিকাজানী কেন্দ্র</div>
+          </div>
+          <div class="mt-3">
+            <span class="text-xs font-bold text-slate-700">প্রধান পণ্য:</span>
+            <ul class="mt-1 text-xs text-slate-600 space-y-0.5">
+              <li>• পাট ও সোনালী আঁশ</li><li>• চরের তরমুজ ও আলু</li><li>• দেশি মাছ</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e]">চর আমখাওয়া ইউনিয়ন</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">মাগুরার হাট</h3>
+          <div class="mt-3 p-2.5 bg-slate-50 rounded-lg text-xs space-y-1">
+            <div><strong>হাটবার:</strong> সোমবার, শুক্রবার</div>
+            <div><strong>সময়:</strong> দুপুর ৩টা – রাত ৮টা</div>
+            <div><strong>অবস্থান:</strong> মাগুরার হাট, চর আমখাওয়া</div>
+          </div>
+          <div class="mt-3">
+            <span class="text-xs font-bold text-slate-700">প্রধান পণ্য:</span>
+            <ul class="mt-1 text-xs text-slate-600 space-y-0.5">
+              <li>• দেশি হাঁস-মুরগি ও ডিমের আড়ত</li><li>• স্থানীয় মৌসুমি ফলমূল ও শাকসবজি</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e]">ডাংধরা ইউনিয়ন</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">পাথরের চর হাট</h3>
+          <div class="mt-3 p-2.5 bg-slate-50 rounded-lg text-xs space-y-1">
+            <div><strong>হাটবার:</strong> রবিবার, বৃহস্পতিবার</div>
+            <div><strong>সময়:</strong> দুপুর ২টা – রাত ৮টা</div>
+            <div><strong>অবস্থান:</strong> পাথরের চর মোড়</div>
+          </div>
+          <div class="mt-3">
+            <span class="text-xs font-bold text-slate-700">প্রধান পণ্য:</span>
+            <ul class="mt-1 text-xs text-slate-600 space-y-0.5">
+              <li>• চরের চীনাবাদাম ও ডাল</li><li>• গবাদিপশুর খাদ্য ও খড়</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e]">হাতীভাঙ্গা ইউনিয়ন</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">জিগার তলী হাট</h3>
+          <div class="mt-3 p-2.5 bg-slate-50 rounded-lg text-xs space-y-1">
+            <div><strong>হাটবার:</strong> মঙ্গলবার, শুক্রবার</div>
+            <div><strong>সময়:</strong> বিকাল ৩টা – রাত ৮টা</div>
+            <div><strong>অবস্থান:</strong> জিগার তলী মোড়</div>
+          </div>
+          <div class="mt-3">
+            <span class="text-xs font-bold text-slate-700">প্রধান পণ্য:</span>
+            <ul class="mt-1 text-xs text-slate-600 space-y-0.5">
+              <li>• স্থানীয় শাকসবজি ও চরের তরকারি</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e]">চুকাইবাড়ী ইউনিয়ন</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">ফুলতলী মোড় বাজার</h3>
+          <div class="mt-3 p-2.5 bg-slate-50 rounded-lg text-xs space-y-1">
+            <div><strong>হাটবার:</strong> প্রতিদিন বিকাল</div>
+            <div><strong>সময়:</strong> বিকাল ৪টা – রাত ৯টা</div>
+            <div><strong>অবস্থান:</strong> ফুলতলী ত্রি-মোহনী মোড়</div>
+          </div>
+          <div class="mt-3">
+            <span class="text-xs font-bold text-slate-700">প্রধান পণ্য:</span>
+            <ul class="mt-1 text-xs text-slate-600 space-y-0.5">
+              <li>• চায়ের আড্ডা, নাস্তা ও দৈনন্দিন কাঁচাবাজার</li>
+            </ul>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- 4. TRANSPORT -->
+    <section id="transport">
+      <div class="border-b-2 border-[#006a4e] pb-2 mb-6">
+        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">যোগাযোগ ও যাতায়াত</span>
+        <h2 class="text-2xl font-bold font-serif text-[#006a4e]">দেওয়ানগঞ্জ বাজার রেলওয়ে স্টেশন, বাস ও সিএনজি স্ট্যান্ড</h2>
+      </div>
+      <div class="bg-white border border-slate-300 rounded-xl p-5 mb-6 overflow-x-auto shadow-xs">
+        <h3 class="text-base font-bold text-slate-900 mb-3">🚂 বাংলাদেশ রেলওয়ে - দেওয়ানগঞ্জ ট্রেনের সময়সূচি</h3>
+        <table class="w-full text-left text-xs sm:text-sm">
+          <thead class="bg-slate-100 text-slate-700 font-bold">
+            <tr>
+              <th class="p-2.5">ট্রেন নং ও নাম</th>
+              <th class="p-2.5">ছাড়ার সময়</th>
+              <th class="p-2.5">গন্তব্য ও সময়</th>
+              <th class="p-2.5">ছুটির দিন</th>
+              <th class="p-2.5">ধরন</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200">
+            
+            <tr>
+              <td class="p-2.5 font-bold">তিস্তা এক্সপ্রেস (আন্তঃনগর) (৭০৭ / ৭০৮)</td>
+              <td class="p-2.5 font-bold text-[#006a4e]">বিকাল ০৩:০০</td>
+              <td class="p-2.5">ঢাকা (কমলাপুর) (রাত ০৯:২৫)</td>
+              <td class="p-2.5">সোমবার</td>
+              <td class="p-2.5 font-semibold">আন্তঃনগর</td>
+            </tr>
+            
+            <tr>
+              <td class="p-2.5 font-bold">ব্রহ্মপুত্র এক্সপ্রেস (আন্তঃনগর) (৭৪৩ / ৭৪৪)</td>
+              <td class="p-2.5 font-bold text-[#006a4e]">সকাল ০৬:৪০</td>
+              <td class="p-2.5">ঢাকা (কমলাপুর) (দুপুর ১২:৪০)</td>
+              <td class="p-2.5">নেই (প্রতিদিন চলে)</td>
+              <td class="p-2.5 font-semibold">আন্তঃনগর</td>
+            </tr>
+            
+            <tr>
+              <td class="p-2.5 font-bold">দেওয়ানগঞ্জ কমিউটার (মেইল/কমিউটার) (৪৭ / ৪৮)</td>
+              <td class="p-2.5 font-bold text-[#006a4e]">সকাল ০৫:০০</td>
+              <td class="p-2.5">ঢাকা (কমলাপুর) (দুপুর ১২:২০)</td>
+              <td class="p-2.5">নেই (প্রতিদিন চলে)</td>
+              <td class="p-2.5 font-semibold">কমিউটার</td>
+            </tr>
+            
+            <tr>
+              <td class="p-2.5 font-bold">জামালপুর কমিউটার (কমিউটার) (৫১ / ৫২)</td>
+              <td class="p-2.5 font-bold text-[#006a4e]">দুপুর ০৩:৪৫</td>
+              <td class="p-2.5">ঢাকা (কমলাপুর) (রাত ১০:১৫)</td>
+              <td class="p-2.5">নেই (প্রতিদিন চলে)</td>
+              <td class="p-2.5 font-semibold">কমিউটার</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-4 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e] uppercase">রেলওয়ে স্টেশন</span>
+          <h3 class="text-base font-bold text-slate-900 mt-1">দেওয়ানগঞ্জ বাজার রেলওয়ে জংশন / টার্মিনাল স্টেশন</h3>
+          <div class="text-xs text-slate-600 mt-2"><strong>অবস্থান:</strong> দেওয়ানগঞ্জ বাজার, পৌরসভা ওয়ার্ড নং ১</div>
+          <div class="text-xs text-emerald-800 font-bold mt-1">ফোন: ০১৭৩৩-০৮৫৮৫২ (স্টেশন মাস্টার)</div>
+          <div class="mt-2 text-xs text-slate-600">
+            <strong>রুট:</strong> দেওয়ানগঞ্জ ↔ জামালপুর ↔ ময়মনসিংহ ↔ ঢাকা, দেওয়ানগঞ্জ ↔ তারাকান্দি ↔ বঙ্গবন্ধু সেতু পূর্ব
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-4 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e] uppercase">রেলওয়ে স্টেশন</span>
+          <h3 class="text-base font-bold text-slate-900 mt-1">বাহাদুরাবাদ ঘাট রেলওয়ে স্টেশন (ঐতিহাসিক ট্রানজিট)</h3>
+          <div class="text-xs text-slate-600 mt-2"><strong>অবস্থান:</strong> বাহাদুরাবাদ ঘাট, বাহাদুরাবাদ ইউনিয়ন</div>
+          <div class="text-xs text-emerald-800 font-bold mt-1">ফোন: স্থানীয় স্টেশন কার্যালয়</div>
+          <div class="mt-2 text-xs text-slate-600">
+            <strong>রুট:</strong> বাহাদুরাবাদ ↔ তিস্তামুখ ঘাট ঐতিহ্যবাহী সংযোগ
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-4 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e] uppercase">বাস টার্মিনাল</span>
+          <h3 class="text-base font-bold text-slate-900 mt-1">দেওয়ানগঞ্জ কেন্দ্রীয় বাস টার্মিনাল ও কাউন্টার</h3>
+          <div class="text-xs text-slate-600 mt-2"><strong>অবস্থান:</strong> সদর রোড, দেওয়ানগঞ্জ পৌরসভা</div>
+          <div class="text-xs text-emerald-800 font-bold mt-1">ফোন: ০১৭৫১-৮৯০১২৩ (বাস কাউন্টার মাস্টার)</div>
+          <div class="mt-2 text-xs text-slate-600">
+            <strong>রুট:</strong> দেওয়ানগঞ্জ ↔ ঢাকা (মহাখালী), দেওয়ানগঞ্জ ↔ জামালপুর সদর, দেওয়ানগঞ্জ ↔ ময়মনসিংহ, দেওয়ানগঞ্জ ↔ শেরপুর, দেওয়ানগঞ্জ ↔ টাঙ্গাইল
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-4 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e] uppercase">বাস টার্মিনাল</span>
+          <h3 class="text-base font-bold text-slate-900 mt-1">সানন্দবাড়ী বাস কাউন্টার ও স্ট্যান্ড</h3>
+          <div class="text-xs text-slate-600 mt-2"><strong>অবস্থান:</strong> সানন্দবাড়ী কলেজ মোড় সংলগ্ন</div>
+          <div class="text-xs text-emerald-800 font-bold mt-1">ফোন: ০১৭২০-৯৮৭৬৫৪</div>
+          <div class="mt-2 text-xs text-slate-600">
+            <strong>রুট:</strong> সানন্দবাড়ী ↔ ঢাকা (মহাখালী), সানন্দবাড়ী ↔ জামালপুর ↔ ময়মনসিংহ, সানন্দবাড়ী ↔ রৌমারী ↔ রাজিবপুর
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-4 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e] uppercase">বাস টার্মিনাল</span>
+          <h3 class="text-base font-bold text-slate-900 mt-1">ঝালোরচর বাস মোড় ও স্টপেজ</h3>
+          <div class="text-xs text-slate-600 mt-2"><strong>অবস্থান:</strong> ঝালোরচর বাজার, পাররামপুর ইউনিয়ন</div>
+          <div class="text-xs text-emerald-800 font-bold mt-1">ফোন: ০১৭৩৩-৬৭৮৯০১</div>
+          <div class="mt-2 text-xs text-slate-600">
+            <strong>রুট:</strong> ঝালোরচর ↔ দেওয়ানগঞ্জ সদর ↔ জামালপুর
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-4 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e] uppercase">বাস টার্মিনাল</span>
+          <h3 class="text-base font-bold text-slate-900 mt-1">তারাটিয়া বাস স্টপেজ</h3>
+          <div class="text-xs text-slate-600 mt-2"><strong>অবস্থান:</strong> তারাটিয়া প্রধান চৌরাস্তা</div>
+          <div class="text-xs text-emerald-800 font-bold mt-1">ফোন: ০১৭৭৬-৫৪৩২১০</div>
+          <div class="mt-2 text-xs text-slate-600">
+            <strong>রুট:</strong> তারাটিয়া ↔ দেওয়ানগঞ্জ ↔ বকশীগঞ্জ ↔ জামালপুর
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-4 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e] uppercase">সিএনজি স্ট্যান্ড</span>
+          <h3 class="text-base font-bold text-slate-900 mt-1">দেওয়ানগঞ্জ কলেজ মোড় প্রধান সিএনজি ও অটো টার্মিনাল</h3>
+          <div class="text-xs text-slate-600 mt-2"><strong>অবস্থান:</strong> সরকারি কলেজ মোড়, দেওয়ানগঞ্জ পৌরসভা</div>
+          <div class="text-xs text-emerald-800 font-bold mt-1">ফোন: ০১৭২৮-৩৪৫৬৭৮ (সিএনজি চালক সমিতি)</div>
+          <div class="mt-2 text-xs text-slate-600">
+            <strong>রুট:</strong> দেওয়ানগঞ্জ ↔ সানন্দবাড়ী, দেওয়ানগঞ্জ ↔ তারাটিয়া ও বকশীগঞ্জ, দেওয়ানগঞ্জ ↔ বাহাদুরাবাদ ঘাট, দেওয়ানগঞ্জ ↔ ইসলামপুর ও জামালপুর
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-4 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e] uppercase">সিএনজি স্ট্যান্ড</span>
+          <h3 class="text-base font-bold text-slate-900 mt-1">দেওয়ানগঞ্জ রেলওয়ে স্টেশন সিএনজি ও টেম্পু স্ট্যান্ড</h3>
+          <div class="text-xs text-slate-600 mt-2"><strong>অবস্থান:</strong> দেওয়ানগঞ্জ রেলওয়ে স্টেশন গোলচত্বর</div>
+          <div class="text-xs text-emerald-800 font-bold mt-1">ফোন: ০১৭৫৯-১১২২৩৩</div>
+          <div class="mt-2 text-xs text-slate-600">
+            <strong>রুট:</strong> স্টেশন ↔ পৌরসভা বিভিন্ন ওয়ার্ড, স্টেশন ↔ তারাটিয়া, স্টেশন ↔ ডাংধরা, স্টেশন ↔ চুকাইবাড়ী
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-4 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e] uppercase">সিএনজি স্ট্যান্ড</span>
+          <h3 class="text-base font-bold text-slate-900 mt-1">সানন্দবাড়ী কেন্দ্রীয় সিএনজি ও অটো স্টেশন</h3>
+          <div class="text-xs text-slate-600 mt-2"><strong>অবস্থান:</strong> সানন্দবাড়ী বাজার তিনরাস্তার মোড়</div>
+          <div class="text-xs text-emerald-800 font-bold mt-1">ফোন: ০১৭৭৮-৮৭৬৫৪৩</div>
+          <div class="mt-2 text-xs text-slate-600">
+            <strong>রুট:</strong> সানন্দবাড়ী ↔ দেওয়ানগঞ্জ সদর, সানন্দবাড়ী ↔ রৌমারী (কুড়িগ্রাম), সানন্দবাড়ী ↔ রাজিবপুর, সানন্দবাড়ী ↔ বকশীগঞ্জ, সানন্দবাড়ী ↔ কাউনিয়ার চর
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-4 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e] uppercase">সিএনজি স্ট্যান্ড</span>
+          <h3 class="text-base font-bold text-slate-900 mt-1">তারাটিয়া সিএনজি ও মাহিন্দ্রা স্টেশন</h3>
+          <div class="text-xs text-slate-600 mt-2"><strong>অবস্থান:</strong> তারাটিয়া মোড়</div>
+          <div class="text-xs text-emerald-800 font-bold mt-1">ফোন: ০১৭৮৯-৩২১০৯৮</div>
+          <div class="mt-2 text-xs text-slate-600">
+            <strong>রুট:</strong> তারাটিয়া ↔ দেওয়ানগঞ্জ সদর, তারাটিয়া ↔ বকশীগঞ্জ, তারাটিয়া ↔ সানন্দবাড়ী
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-4 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e] uppercase">সিএনজি স্ট্যান্ড</span>
+          <h3 class="text-base font-bold text-slate-900 mt-1">বাহাদুরাবাদ ঘাট সিএনজি ও অটো স্ট্যান্ড</h3>
+          <div class="text-xs text-slate-600 mt-2"><strong>অবস্থান:</strong> বাহাদুরাবাদ লঞ্চ ঘাট সংলগ্ন</div>
+          <div class="text-xs text-emerald-800 font-bold mt-1">ফোন: ০১৭৬০-৯৮৭৪১২</div>
+          <div class="mt-2 text-xs text-slate-600">
+            <strong>রুট:</strong> বাহাদুরাবাদ ঘাট ↔ দেওয়ানগঞ্জ বাজার ↔ রেলওয়ে স্টেশন
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-4 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e] uppercase">সিএনজি স্ট্যান্ড</span>
+          <h3 class="text-base font-bold text-slate-900 mt-1">কাউনিয়ার চর ও ডাংধরা সিএনজি স্ট্যান্ড</h3>
+          <div class="text-xs text-slate-600 mt-2"><strong>অবস্থান:</strong> কাউনিয়ার চর বাজার মোড়</div>
+          <div class="text-xs text-emerald-800 font-bold mt-1">ফোন: ০১৭৪১-৫৫৪৪৩৩</div>
+          <div class="mt-2 text-xs text-slate-600">
+            <strong>রুট:</strong> কাউনিয়ার চর ↔ সানন্দবাড়ী ↔ দেওয়ানগঞ্জ
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- 5. POLICE, HEALTH & COURIER -->
+    <section id="police">
+      <div class="border-b-2 border-[#006a4e] pb-2 mb-6">
+        <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">নাগরিক সেবা</span>
+        <h2 class="text-2xl font-bold font-serif text-[#006a4e]">থানা, হাসপাতাল ও স্টিডফাস্ট কুরিয়ার</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-indigo-800 uppercase">বাংলাদেশ পুলিশ</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">দেওয়ানগঞ্জ মডেল থানা (Dewanganj Model Police Station)</h3>
+          <div class="mt-3 pt-3 border-t border-slate-200 text-xs space-y-1">
+            <div><strong>ঠিকানা:</strong> থানা রোড, দেওয়ানগঞ্জ পৌরসভা</div>
+            <div class="text-indigo-800 font-bold"><strong>ওসি নম্বর:</strong> ০১৩২০-১০৩৩৫৭ (অফিসার ইনচার্জ - ওসি)</div>
+            <div><strong>ডিউটি অফিসার:</strong> ০১৩২০-১০৩৩৬২ (ডিউটি অফিসার - ২৪ ঘণ্টা)</div>
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-indigo-800 uppercase">বাংলাদেশ পুলিশ</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">সানন্দবাড়ী পুলিশ তদন্ত কেন্দ্র (Sanandabari Police Outpost)</h3>
+          <div class="mt-3 pt-3 border-t border-slate-200 text-xs space-y-1">
+            <div><strong>ঠিকানা:</strong> সানন্দবাড়ী বাজার, চর আমখাওয়া ইউনিয়ন</div>
+            <div class="text-indigo-800 font-bold"><strong>ওসি নম্বর:</strong> ০১৩২০-১০৩৩৭০ (ইনচার্জ/আইসি)</div>
+            <div><strong>ডিউটি অফিসার:</strong> ০১৩২০-১০৩৩৭২ (ডিউটি অফিসার)</div>
+          </div>
+        </div>
+        
+        <div class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-indigo-800 uppercase">বাংলাদেশ পুলিশ</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">বাহাদুরাবাদ নৌ পুলিশ ফাঁড়ি (Bahadurabad River Police Outpost)</h3>
+          <div class="mt-3 pt-3 border-t border-slate-200 text-xs space-y-1">
+            <div><strong>ঠিকানা:</strong> বাহাদুরাবাদ ঘাট, বাহাদুরাবাদ ইউনিয়ন</div>
+            <div class="text-indigo-800 font-bold"><strong>ওসি নম্বর:</strong> ০১৩২০-১২৪৫৭৮ (ফাঁড়ি ইনচার্জ)</div>
+            <div><strong>ডিউটি অফিসার:</strong> ০১৩২০-১২৪৫৭৯ (ডিউটি সেল)</div>
+          </div>
+        </div>
+        
+
+        
+        <div id="hospital" class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-rose-800 uppercase">হাসপাতাল</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">দেওয়ানগঞ্জ উপজেলা স্বাস্থ্য কমপ্লেক্স (৫০ শয্যা)</h3>
+          <div class="mt-3 pt-3 border-t border-slate-200 text-xs space-y-1">
+            <div><strong>ঠিকানা:</strong> হাসপাতাল রোড, দেওয়ানগঞ্জ পৌরসভা</div>
+            <div class="text-rose-700 font-bold"><strong>জরুরি কল:</strong> ০১৭৩০-৩২৪২৯১ (ইমার্জেন্সি ও কন্ট্রোল রুম)</div>
+            <div><strong>সময়:</strong> জরুরি বিভাগ: ২৪ ঘণ্টা সার্বক্ষণিক | বহির্বিভাগ: সকাল ৮:৩০ – দুপুর ২:৩০</div>
+          </div>
+        </div>
+        
+        <div id="hospital" class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-rose-800 uppercase">হাসপাতাল</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">সানন্দবাড়ী ১০ শয্যা বিশিষ্ট মা ও শিশু কল্যাণ কেন্দ্র / উপ-স্বাস্থ্য কেন্দ্র</h3>
+          <div class="mt-3 pt-3 border-t border-slate-200 text-xs space-y-1">
+            <div><strong>ঠিকানা:</strong> সানন্দবাড়ী বাজার সংলগ্ন, চর আমখাওয়া ইউনিয়ন</div>
+            <div class="text-rose-700 font-bold"><strong>জরুরি কল:</strong> ০১৭২৯-৮৮৭৭৬৬</div>
+            <div><strong>সময়:</strong> সকাল ৯:০০টা – বিকাল ৫:০০টা (জরুরি সেবা উপলভ্য)</div>
+          </div>
+        </div>
+        
+        <div id="hospital" class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-rose-800 uppercase">হাসপাতাল</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">ডাংধরা ইউনিয়ন উপ-স্বাস্থ্য কেন্দ্র</h3>
+          <div class="mt-3 pt-3 border-t border-slate-200 text-xs space-y-1">
+            <div><strong>ঠিকানা:</strong> কাউনিয়ার চর, ডাংধরা ইউনিয়ন</div>
+            <div class="text-rose-700 font-bold"><strong>জরুরি কল:</strong> ০১৭৩৫-৪১২৯৮৭</div>
+            <div><strong>সময়:</strong> সকাল ৯:০০টা – দুপুর ৩:০০টা</div>
+          </div>
+        </div>
+        
+
+        
+        <div id="courier" class="bg-white border border-[#006a4e] bg-emerald-50/20 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e] uppercase">কুরিয়ার অফিস</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">স্টিডফাস্ট কুরিয়ার (Steadfast Courier)</h3>
+          <div class="text-xs text-slate-600 font-semibold">দেওয়ানগঞ্জ হাব ও হোম ডেলিভারি পয়েন্ট</div>
+          <div class="mt-3 pt-3 border-t border-slate-200 text-xs space-y-1">
+            <div><strong>ঠিকানা:</strong> স্টেশন রোড, হাজী মার্কেট (রেলওয়ে স্টেশন সংলগ্ন), দেওয়ানগঞ্জ বাজার</div>
+            <div><strong>ফোন:</strong> ০৯৬১২-০০১০১০ (হেল্পলাইন)</div>
+          </div>
+        </div>
+        
+        <div id="courier" class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e] uppercase">কুরিয়ার অফিস</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">সুন্দরবন কুরিয়ার সার্ভিস (Sundarban Courier)</h3>
+          <div class="text-xs text-slate-600 font-semibold">দেওয়ানগঞ্জ প্রধান শাখা</div>
+          <div class="mt-3 pt-3 border-t border-slate-200 text-xs space-y-1">
+            <div><strong>ঠিকানা:</strong> কলেজ রোড মোড়, দেওয়ানগঞ্জ পৌরসভা</div>
+            <div><strong>ফোন:</strong> ০১৯৮৮-০২১৮১৮</div>
+          </div>
+        </div>
+        
+        <div id="courier" class="bg-white border border-slate-300 rounded-xl p-5 shadow-xs">
+          <span class="text-xs font-bold text-[#006a4e] uppercase">কুরিয়ার অফিস</span>
+          <h3 class="text-lg font-bold text-slate-900 mt-1">এস এ পরিবহন (SA Paribahan)</h3>
+          <div class="text-xs text-slate-600 font-semibold">দেওয়ানগঞ্জ বুকিং ও ডেলিভারি কাউন্টার</div>
+          <div class="mt-3 pt-3 border-t border-slate-200 text-xs space-y-1">
+            <div><strong>ঠিকানা:</strong> সদর বাজার রোড, দেওয়ানগঞ্জ</div>
+            <div><strong>ফোন:</strong> ০১৭২০-৩৪১২৫৬</div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- 6. EMERGENCY -->
+    <section id="emergency" class="bg-rose-50 border-2 border-rose-300 rounded-2xl p-6">
+      <h2 class="text-xl font-bold font-serif text-rose-950 mb-3">🚨 জরুরি হটলাইন নম্বর</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs">
+        
+        <div class="bg-white p-3 rounded-lg border border-rose-200">
+          <span class="font-bold text-rose-700">জাতীয়:</span>
+          <div class="font-bold text-slate-900">জাতীয় জরুরি সেবা (পুলিশ, অ্যাম্বুলেন্স, ফায়ার)</div>
+          <a href="tel:${e.phone.split(' ')[0]}" class="text-rose-700 font-mono font-bold text-sm block mt-1">৯৯৯</a>
+        </div>
+        
+        <div class="bg-white p-3 rounded-lg border border-rose-200">
+          <span class="font-bold text-rose-700">প্রশাসন:</span>
+          <div class="font-bold text-slate-900">উপজেলা নির্বাহী অফিসার (ইউএনও)</div>
+          <a href="tel:${e.phone.split(' ')[0]}" class="text-rose-700 font-mono font-bold text-sm block mt-1">০১৭৮৯-৪৫৬১২৩</a>
+        </div>
+        
+        <div class="bg-white p-3 rounded-lg border border-rose-200">
+          <span class="font-bold text-rose-700">পুলিশ:</span>
+          <div class="font-bold text-slate-900">অফিসার ইনচার্জ (ওসি), দেওয়ানগঞ্জ থানা</div>
+          <a href="tel:${e.phone.split(' ')[0]}" class="text-rose-700 font-mono font-bold text-sm block mt-1">০১৩২০-১০৩৩৫৭</a>
+        </div>
+        
+        <div class="bg-white p-3 rounded-lg border border-rose-200">
+          <span class="font-bold text-rose-700">পুলিশ:</span>
+          <div class="font-bold text-slate-900">থানা ডিউটি অফিসার (জরুরি পুলিশ)</div>
+          <a href="tel:${e.phone.split(' ')[0]}" class="text-rose-700 font-mono font-bold text-sm block mt-1">০১৩২০-১০৩৩৬২</a>
+        </div>
+        
+        <div class="bg-white p-3 rounded-lg border border-rose-200">
+          <span class="font-bold text-rose-700">পুলিশ:</span>
+          <div class="font-bold text-slate-900">সানন্দবাড়ী পুলিশ তদন্ত কেন্দ্র ইনচার্জ</div>
+          <a href="tel:${e.phone.split(' ')[0]}" class="text-rose-700 font-mono font-bold text-sm block mt-1">০১৩২০-১০৩৩৭০</a>
+        </div>
+        
+        <div class="bg-white p-3 rounded-lg border border-rose-200">
+          <span class="font-bold text-rose-700">ফায়ার সার্ভিস:</span>
+          <div class="font-bold text-slate-900">দেওয়ানগঞ্জ ফায়ার সার্ভিস ও সিভিল ডিফেন্স স্টেশন</div>
+          <a href="tel:${e.phone.split(' ')[0]}" class="text-rose-700 font-mono font-bold text-sm block mt-1">০১৯১১-২২৩৩৪৪ / ০১৭২০-৫৮৫৮৫৮</a>
+        </div>
+        
+        <div class="bg-white p-3 rounded-lg border border-rose-200">
+          <span class="font-bold text-rose-700">স্বাস্থ্য:</span>
+          <div class="font-bold text-slate-900">উপজেলা স্বাস্থ্য কমপ্লেক্স কন্ট্রোল রুম</div>
+          <a href="tel:${e.phone.split(' ')[0]}" class="text-rose-700 font-mono font-bold text-sm block mt-1">০১৭৩০-৩২৪২৯১</a>
+        </div>
+        
+        <div class="bg-white p-3 rounded-lg border border-rose-200">
+          <span class="font-bold text-rose-700">স্বাস্থ্য:</span>
+          <div class="font-bold text-slate-900">দেওয়ানগঞ্জ সরকারি অ্যাম্বুলেন্স ড্রাইভার</div>
+          <a href="tel:${e.phone.split(' ')[0]}" class="text-rose-700 font-mono font-bold text-sm block mt-1">০১৭৩৯-৯৮১২৩৪</a>
+        </div>
+        
+        <div class="bg-white p-3 rounded-lg border border-rose-200">
+          <span class="font-bold text-rose-700">বিদ্যুৎ:</span>
+          <div class="font-bold text-slate-900">পল্লী বিদ্যুৎ অভিযোগ কেন্দ্র (দেওয়ানগঞ্জ জোনাল অফিস)</div>
+          <a href="tel:${e.phone.split(' ')[0]}" class="text-rose-700 font-mono font-bold text-sm block mt-1">০১৭৬৯-৪০০৫০১ / ০১৭৬৯-৪০০৫০২</a>
+        </div>
+        
+        <div class="bg-white p-3 rounded-lg border border-rose-200">
+          <span class="font-bold text-rose-700">রেলওয়ে:</span>
+          <div class="font-bold text-slate-900">দেওয়ানগঞ্জ রেলস্টেশন অনুসন্ধান ও মাস্টার</div>
+          <a href="tel:${e.phone.split(' ')[0]}" class="text-rose-700 font-mono font-bold text-sm block mt-1">০১৭৩৩-০৮৫৮৫২</a>
+        </div>
+        
+        <div class="bg-white p-3 rounded-lg border border-rose-200">
+          <span class="font-bold text-rose-700">রক্তদান:</span>
+          <div class="font-bold text-slate-900">দেওয়ানগঞ্জ রক্তদান সেবা ও যুব রক্তদাতা সংগঠন</div>
+          <a href="tel:${e.phone.split(' ')[0]}" class="text-rose-700 font-mono font-bold text-sm block mt-1">০১৭৪৫-৬৭৮৯১০ / ০১৭৯২-৩৪৫৬৭৮</a>
+        </div>
+        
+      </div>
+    </section>
+
+  </main>
+
+  <!-- OFFICIAL FOOTER -->
+  <footer class="bg-[#0b1f17] text-slate-300 py-8 px-4 text-center text-xs border-t-4 border-[#006a4e]">
+    <div class="font-bold text-white text-base">দেওয়ানগঞ্জ ইনফো · দেওয়ানগঞ্জ উপজেলা তথ্য ভাণ্ডার</div>
+    <div class="text-slate-400 mt-1">দেওয়ানগঞ্জের ২ লক্ষাধিক মানুষের তথ্যের সুবিধার্থে উন্মুক্ত জনসেবা উদ্যোগ</div>
+    <div class="text-slate-500 mt-2">দেওয়ানগঞ্জ, জামালপুর - ২০৪০ · সর্বস্বত্ব সংরক্ষিত ২০২৬</div>
+  </footer>
+
+  <!-- SCRIPT FOR LIVE CLOCK & WEATHER -->
+  <script>
+    function toBn(num) {
+      const bnDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+      return num.toString().replace(/[0-9]/g, d => bnDigits[d]);
+    }
+
+    function updateLiveClock() {
+      const now = new Date();
+      const days = ['রবিবার', 'সোমবার', 'মঙ্গলবার', 'বুধবার', 'বৃহস্পতিবার', 'শুক্রবার', 'শনিবার'];
+      const months = ['জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'];
+
+      let hours = now.getHours();
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+
+      const period = hours >= 4 && hours < 12 ? 'সকাল' : hours >= 12 && hours < 15 ? 'দুপুর' : hours >= 15 && hours < 18 ? 'বিকাল' : hours >= 18 && hours < 20 ? 'সন্ধ্যা' : 'রাত';
+      const displayHours = hours % 12 || 12;
+
+      const timeStr = period + ' ' + toBn(displayHours) + ':' + toBn(minutes.toString().padStart(2, '0')) + ':' + toBn(seconds.toString().padStart(2, '0'));
+      const dateStr = days[now.getDay()] + ', ' + toBn(now.getDate()) + ' ' + months[now.getMonth()] + ' ' + toBn(now.getFullYear()) + ' খ্রি.';
+
+      const topTimeEl = document.getElementById('top-live-time');
+      const topDateEl = document.getElementById('top-live-date');
+      const heroClockEl = document.getElementById('hero-clock');
+      const heroDateEl = document.getElementById('hero-date');
+
+      if (topTimeEl) topTimeEl.textContent = timeStr;
+      if (topDateEl) topDateEl.textContent = dateStr;
+      if (heroClockEl) heroClockEl.textContent = timeStr;
+      if (heroDateEl) heroDateEl.textContent = dateStr;
+    }
+
+    setInterval(updateLiveClock, 1000);
+    updateLiveClock();
+
+    async function fetchWeather() {
+      try {
+        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=25.1437&longitude=89.7758&current=temperature_2m&timezone=Asia%2FDhaka');
+        if (!res.ok) return;
+        const data = await res.json();
+        const temp = Math.round(data.current.temperature_2m);
+        const topEl = document.getElementById('top-live-temp');
+        const heroEl = document.getElementById('weather-temp');
+        if (topEl) topEl.textContent = '🌡️ দেওয়ানগঞ্জ: ' + toBn(temp) + '°সে';
+        if (heroEl) heroEl.textContent = toBn(temp) + '°সে';
+      } catch (e) {}
+    }
+    fetchWeather();
+  </script>
+
+</body>
+</html>
