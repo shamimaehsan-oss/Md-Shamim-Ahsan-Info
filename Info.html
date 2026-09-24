@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>দেওয়ানগঞ্জ ইনফো - দেওয়ানগঞ্জের সকল সেবা এক ঠিকানায়</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #0f5132;
+            --accent-color: #ffc107;
+            --dark-color: #212529;
+            --light-bg: #f8f9fa;
+            --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* হেডার ও নেভিগেশন */
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        .top-bar {
+            background: #093822;
+            padding: 6px 5%;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar span {
+            margin-right: 15px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 5%;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* হিরো সেকশন */
+        .hero {
+            background: linear-gradient(rgba(15, 81, 50, 0.88), rgba(13, 110, 253, 0.75)), 
+                        url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80') center/cover;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            padding: 5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .search-box input {
+            border: none;
+            padding: 12px 20px;
+            width: 100%;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .search-box button {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .search-box button:hover {
+            background: #093822;
+        }
+
+        /* মূল কন্টেইনার */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        /* সার্ভিস গ্রিড */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            transition: 0.3s;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card a {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .service-card a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* জরুরি নম্বর সেকশন */
+        .emergency-section {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            margin-top: 50px;
+        }
+
+        .emergency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .emergency-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .emergency-box i {
+            font-size: 2rem;
+            color: #856404;
+        }
+
+        .emergency-box h4 {
+            font-size: 1.1rem;
+            color: #856404;
+        }
+
+        .emergency-box p {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        /* দর্শনীয় স্থান */
+        .places-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .place-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+
+        .place-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .place-info {
+            padding: 20px;
+        }
+
+        .place-info h3 {
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+        }
+
+        /* হেল্পলাইন ও নোটিশ */
+        .notice-board {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--card-shadow);
+            margin-top: 50px;
+        }
+
+        .notice-item {
+            padding: 12px 0;
+            border-bottom: 1px dashed #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .notice-item:last-child {
+            border-bottom: none;
+        }
+
+        .notice-badge {
+            background: #e7f1ff;
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* যোগাযোগ ফর্ম */
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .btn-submit {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #093822;
+        }
+
+        /* ফুটার */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 50px 5% 20px;
+            margin-top: 70px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* রেসপন্সিভ ডিজাইন */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- টপ বার -->
+    <div class="top-bar">
+        <div>
+            <span><i class="fa-solid fa-location-dot"></i> দেওয়ানগঞ্জ উপজেলা, জামালপুর</span>
+            <span><i class="fa-solid fa-phone"></i> জরুরী হটলাইন: ৯৯৯</span>
+        </div>
+        <div>
+            <span><i class="fa-solid fa-clock"></i> ২৪/৭ ডিজিটাল সেবা সেবা পোর্টাল</span>
+        </div>
+    </div>
+
+    <!-- হেডার -->
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <i class="fa-solid fa-building-columns"></i> দেওয়ানগঞ্জ ইনফো
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">হোম</a></li>
+                <li><a href="#services">সকল সেবা</a></li>
+                <li><a href="#emergency">জরুরী নম্বর</a></li>
+                <li><a href="#places">দর্শনীয় স্থান</a></li>
+                <li><a href="#notice">নোটিশ বোর্ড</a></li>
+                <li><a href="#contact">যোগাযোগ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- হিরো সেকশন -->
+    <section class="hero" id="home">
+        <h1>দেওয়ানগঞ্জের সকল সেবা এক ঠিকানায়</h1>
+        <p>আপনার প্রয়োজনীয় যেকোনো তথ্য, চিকিৎসাসেবা, প্রশাসন ও জরুরি যোগাযোগ এক ক্লিকেই</p>
+        
+        <div class="search-box">
+            <input type="text" placeholder="আপনি কি সেবা খুঁজছেন? (যেমন: হাসপাতাল, পুলিশ, বাস সারণী...)">
+            <button><i class="fa-solid fa-magnifying-glass"></i> খুঁজুন</button>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- সকল সেবা সেকশন -->
+        <section id="services">
+            <h2 class="section-title">আমাদের সেবাসমূহ</h2>
+            <p class="section-subtitle">দেওয়ানগঞ্জের নাগরিক সুবিধার জন্য প্রয়োজনীয় সকল তথ্য ক্যাটাগরি অনুযায়ী সাজানো</p>
+
+            <div class="services-grid">
+                
+                <div class="service-card">
+                    <i class="fa-solid fa-hospital-user"></i>
+                    <h3>স্বাস্থ্য ও চিকিৎসা</h3>
+                    <p>দেওয়ানগঞ্জ উপজেলা স্বাস্থ্য কমপ্লেক্স, প্রাইভেট ক্লিনিক ও বিশেষজ্ঞ ডাক্তারদের তালিকা</p>
+                    <a href="#">বিস্তারিত দেখুন &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <i class="fa-solid fa-droplet" style="color: #d9534f;"></i>
+                    <h3>রক্তদান ও এ্যাম্বুলেন্স</h3>
+                    <p>জরুরী রক্তদাতা ক্লাব এবং ২৪ ঘণ্টা এ্যাম্বুলেন্স সার্ভিসের ড্রাইভারদের নম্বর</p>
+                    <a href="#">বিস্তারিত দেখুন &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <i class="fa-solid fa-building-shield"></i>
+                    <h3>প্রশাসন ও থানা সেবা</h3>
+                    <p>ইউএনও অফিস, দেওয়ানগঞ্জ মডেল থানা ও ইউনিয়ন পরিষদের তথ্যাদি</p>
+                    <a href="#">বিস্তারিত দেখুন &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <i class="fa-solid fa-bus"></i>
+                    <h3>পরিবহন ও বাস/ট্রেন</h3>
+                    <p>দেওয়ানগঞ্জ রেলওয়ে স্টেশন সময়সূচী ও দূরপাল্লার বাসের যোগাযোগের নম্বর</p>
+                    <a href="#">বিস্তারিত দেখুন &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <h3>শিক্ষা প্রতিষ্ঠান</h3>
+                    <p>উপজেলার সকল স্কুল, কলেজ, মাদ্রাসা ও কোচিং সেন্টারের তালিকা</p>
+                    <a href="#">বিস্তারিত দেখুন &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <i class="fa-solid fa-bolt"></i>
+                    <h3>পল্লী বিদ্যুৎ ও ইউটিলিটি</h3>
+                    <p>বিদ্যুৎ অফিস অভিযোগ নম্বর, বিল পরিশোধ কেন্দ্র ও পয়েন্ট সমূহের তালিকা</p>
+                    <a href="#">বিস্তারিত দেখুন &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <i class="fa-solid fa-wheat-awn"></i>
+                    <h3>কৃষি ও প্রাণিসম্পদ</h3>
+                    <p>উপজেলা কৃষি সম্প্রসারণ অফিস, সার-বীজ ডিলার এবং প্রাণিসম্পদ চিকিৎসা সেবা</p>
+                    <a href="#">বিস্তারিত দেখুন &rarr;</a>
+                </div>
+
+                <div class="service-card">
+                    <i class="fa-solid fa-newspaper"></i>
+                    <h3>স্থানীয় সংবাদ ও তথ্য</h3>
+                    <p>দেওয়ানগঞ্জ উপজেলার দৈনিক ও সাপ্তাহিক তাজা খবরের আপডেট</p>
+                    <a href="#">বিস্তারিত দেখুন &rarr;</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- জরুরী যোগাযোগ নম্বর -->
+        <section class="emergency-section" id="emergency">
+            <h2 class="section-title">জরুরী ফোন ডিরেক্টরি</h2>
+            <p class="section-subtitle">যেকোনো মুহূর্তে প্রয়োজনীয় জরুরি যোগাযোগের অফিশিয়াল নম্বরসমূহ</p>
+
+            <div class="emergency-grid">
+                <div class="emergency-box">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <div>
+                        <h4>দেওয়ানগঞ্জ মডেল থানা</h4>
+                        <p>০১৭১৩-৩৭৩২৪৬</p>
+                    </div>
+                </div>
+
+                <div class="emergency-box">
+                    <i class="fa-solid fa-fire-extinguisher"></i>
+                    <div>
+                        <h4>ফায়ার সার্ভিস স্টেশন</h4>
+                        <p>০৯৮২৩-৫৬০০১</p>
+                    </div>
+                </div>
+
+                <div class="emergency-box">
+                    <i class="fa-solid fa-truck-medical"></i>
+                    <div>
+                        <h4>উপজেলা স্বাস্থ্য কমপ্লেক্স</h4>
+                        <p>০১৭১২-৩৪৫৬৭৮</p>
+                    </div>
+                </div>
+
+                <div class="emergency-box">
+                    <i class="fa-solid fa-plug"></i>
+                    <div>
+                        <h4>পল্লী বিদ্যুৎ অভিযোগ</h4>
+                        <p>০১৭৬৯-৪০০৩০০</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- દર્શનીય স্থান -->
+        <section id="places" style="margin-top: 50px;">
+            <h2 class="section-title">দেওয়ানগঞ্জের দর্শনীয় স্থান</h2>
+            <p class="section-subtitle">আমাদের উপজেলার সুন্দর ও ঐতিহাসিক পর্যটন কেন্দ্রসমূহ</p>
+
+            <div class="places-grid">
+                <div class="place-card">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80" alt="যমুনা নদী">
+                    <div class="place-info">
+                        <h3>যমুনা নদীর তীর ও চরাঞ্চল</h3>
+                        <p>দেওয়ানগঞ্জের ফুটানি বাজার ও বাহাদুরাবাদ ঘাটের যমুনা নদীর মনোরম প্রাকৃতিক দৃশ্য ও সূর্যাস্ত অত্যন্ত চমৎকার।</p>
+                    </div>
+                </div>
+
+                <div class="place-card">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80" alt="সুগার মিলস">
+                    <div class="place-info">
+                        <h3>দেওয়ানগঞ্জ সুগার মিলস</h3>
+                        <p>উত্তরবঙ্গের অন্যতম ঐতিহাসিক চিনি কল জোন, যা শিল্প ও ঐতিহ্য বহন করে আসছে।</p>
+                    </div>
+                </div>
+
+                <div class="place-card">
+                    <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80" alt="রেলওয়ে স্টেশন">
+                    <div class="place-info">
+                        <h3>ঐতিহাসিক দেওয়ানগঞ্জ বাজার স্টেশন</h3>
+                        <p>ব্রিটিশ আমলে নির্মিত জামালপুর জেলার অন্যতম গুরুত্বপূর্ণ ও ঐতিহাসিক শেষ রেলওয়ে টার্মিনাল।</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- নোটিশ বোর্ড -->
+        <section class="notice-board" id="notice">
+            <h2 class="section-title">জরুরী নোটিশ ও আপডেট</h2>
+            
+            <div class="notice-item">
+                <p><strong><i class="fa-solid fa-bell" style="color: #ffc107;"></i> উপজেলা পর্যায়ে টিসিবি পণ্যের কার্ড বিতরণ তথ্য</strong></p>
+                <span class="notice-badge">আজকের আপডেট</span>
+            </div>
+            <div class="notice-item">
+                <p><strong><i class="fa-solid fa-bell" style="color: #ffc107;"></i> তিস্তা ও তিস্তাপাড়ের চরাঞ্চলে বন্যার আগাম সতর্কবার্তা</strong></p>
+                <span class="notice-badge">২০২৫ প্রজ্ঞাপন</span>
+            </div>
+            <div class="notice-item">
+                <p><strong><i class="fa-solid fa-bell" style="color: #ffc107;"></i> দেওয়ানগঞ্জ রেলওয়ে স্টেশনে আন্তঃনগর ট্রেনের নতুন সময়সূচী</strong></p>
+                <span class="notice-badge">রেল সেবা</span>
+            </div>
+        </section>
+
+        <!-- যোগাযোগ ও নাগরিক মতামত -->
+        <section id="contact">
+            <div class="contact-section">
+                
+                <div class="contact-form">
+                    <h3>নাগরিক মতামত ও অভিযোগ বক্স</h3>
+                    <p style="margin-bottom: 20px; color: #666; font-size: 0.95rem;">দেওয়ানগঞ্জের উন্নয়নের জন্য আপনার কোনো মতামত বা অভিযোগ থাকলে আমাদের জানান।</p>
+                    
+                    <form action="#">
+                        <div class="form-group">
+                            <label>আপনার নাম</label>
+                            <input type="text" placeholder="পূর্ণ নাম লিখুন">
+                        </div>
+                        <div class="form-group">
+                            <label>মোবাইল নম্বর</label>
+                            <input type="tel" placeholder="০১৭XXXXXXXX">
+                        </div>
+                        <div class="form-group">
+                            <label>সেবার ধরন নির্বাচন করুন</label>
+                            <select>
+                                <option>মতামত</option>
+                                <option>অভিযোগ</option>
+                                <option>নতুন সেবা যুক্ত করার আবেদন</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>আপনার বার্তা/বিবরণ</label>
+                            <textarea rows="4" placeholder="বিস্তারিত লিখুন..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">জমা দিন</button>
+                    </form>
+                </div>
+
+                <div style="background: var(--secondary-color); color: white; padding: 30px; border-radius: 12px; display: flex; flex-direction: column; justify-content: center;">
+                    <h2 style="color: var(--accent-color); margin-bottom: 15px;">দেওয়ানগঞ্জ ইনফো ডিজিটাল টিম</h2>
+                    <p style="margin-bottom: 15px;">এটি একটি অলাভজনক ও তথ্যমূলক ডিজিটাল পোর্টাল। দেওয়ানগঞ্জের সাধারণ মানুষের তথ্য সেবা সহজ করাই আমাদের উদ্দেশ্য।</p>
+                    <p><i class="fa-solid fa-location-dot"></i> অবস্থান: দেওয়ানগঞ্জ বাজার, জামালপুর</p>
+                    <p><i class="fa-solid fa-envelope"></i> ইমেইল: info@dewanganj.gov.bd / info@dewanganj.info</p>
+                    <p><i class="fa-solid fa-globe"></i> ওয়েবসাইট: dewanganj.info</p>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ফুটার -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>দেওয়ানগঞ্জ ইনফো</h4>
+                <p style="color: #ccc; font-size: 0.95rem;">দেওয়ানগঞ্জের সমস্ত নাগরিক ও জরুরী সেবা এক ছাদের নিচে পৌঁছে দেয়ার ডিজিটাল প্রয়াস।</p>
+            </div>
+            <div class="footer-col">
+                <h4>জরুরী সেবা</h4>
+                <ul>
+                    <li><a href="#">ফায়ার সার্ভিস</a></li>
+                    <li><a href="#">থানা পুলিশ</a></li>
+                    <li><a href="#">উপজেলা হাসপাতাল</a></li>
+                    <li><a href="#">অ্যাম্বুলেন্স সার্ভিস</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>গুরুত্বপূর্ণ লিংক</h4>
+                <ul>
+                    <li><a href="#">জাতীয় তথ্য বাতায়ন</a></li>
+                    <li><a href="#">উপজেলা পরিষদ কার্যালয়</a></li>
+                    <li><a href="#">বাংলাদেশ রেলওয়ে</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>আমাদের সোশ্যাল মিডিয়া</h4>
+                <p style="color: #ccc; margin-bottom: 10px;">ফেসবুক গ্রুপ ও পেজে যুক্ত থাকুন:</p>
+                <a href="#" style="color: var(--accent-color); font-size: 1.5rem; margin-right: 15px;"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" style="color: var(--accent-color); font-size: 1.5rem; margin-right: 15px;"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; ২০২৬ দেওয়ানগঞ্জ ইনফো পোর্টাল | সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+</body>
+</html>
