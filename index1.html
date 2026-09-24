@@ -3089,9 +3089,7 @@
         const data = await res.json();
         const temp = Math.round(data.current.temperature_2m);
         const topEl = document.getElementById('top-live-temp');
-        const heroEl = document.getElementById('weather-temp');
-    
-        if (heroEl) heroEl.textContent = toBn(temp) + '°সে';
+        const heroEl = document.getElementById('weather-temp');    
       } catch (e) {}
     }
     fetchWeather();
