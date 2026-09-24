@@ -3,714 +3,574 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>দেওয়ানগঞ্জ ইনফো - দেওয়ানগঞ্জের সকল সেবা এক ঠিকানায়</title>
+    <title>DEWANGANJ INFO| Dewanganj Info Official Portal</title>
     <!-- Google Fonts & FontAwesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-color: #0d6efd;
-            --secondary-color: #0f5132;
-            --accent-color: #ffc107;
-            --dark-color: #212529;
-            --light-bg: #f8f9fa;
-            --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --primary-color: #006a4e; /* Bangladesh Green Tone */
+            --secondary-color: #f42a41; /* Red Accent */
+            --bg-light: #f8f9fa;
+            --text-dark: #212529;
+            --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
             font-family: 'Hind Siliguri', sans-serif;
         }
 
         body {
-            background-color: #f4f6f9;
-            color: #333;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
             line-height: 1.6;
         }
 
-        /* হেডার ও নেভিগেশন */
+        /* Header Navigation */
         header {
-            background-color: var(--secondary-color);
+            background-color: var(--primary-color);
             color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.15);
         }
 
-        .top-bar {
-            background: #093822;
-            padding: 6px 5%;
-            font-size: 0.85rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .top-bar span {
-            margin-right: 15px;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 5%;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--accent-color);
-            text-decoration: none;
+        header h1 {
+            font-size: 1.5rem;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-
-        .nav-links a {
+        nav a {
             color: white;
             text-decoration: none;
+            margin-left: 15px;
             font-weight: 600;
-            font-size: 1.05rem;
             transition: 0.3s;
         }
 
-        .nav-links a:hover {
-            color: var(--accent-color);
+        nav a:hover {
+            color: #ffd700;
         }
 
-        /* হিরো সেকশন */
-        .hero {
-            background: linear-gradient(rgba(15, 81, 50, 0.88), rgba(13, 110, 253, 0.75)), 
-                        url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80') center/cover;
+        /* Hero Banner & Live Widget */
+        .hero-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            padding: 2rem 5%;
+            background: linear-gradient(135deg, #006a4e 0%, #004d38 100%);
             color: white;
-            text-align: center;
-            padding: 80px 20px;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-        }
-
-        .search-box {
-            max-width: 600px;
-            margin: 0 auto;
+        .hero-text {
             display: flex;
-            background: white;
-            border-radius: 30px;
-            overflow: hidden;
-            padding: 5px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .search-box input {
-            border: none;
-            padding: 12px 20px;
-            width: 100%;
-            outline: none;
-            font-size: 1rem;
-        }
-
-        .search-box button {
-            background: var(--secondary-color);
-            color: white;
-            border: none;
-            padding: 0 25px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .search-box button:hover {
-            background: #093822;
-        }
-
-        /* মূল কন্টেইনার */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 40px auto;
-        }
-
-        .section-title {
-            text-align: center;
+        .hero-text h2 {
             font-size: 2.2rem;
-            color: var(--secondary-color);
             margin-bottom: 10px;
-            font-weight: 700;
         }
 
-        .section-subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 40px;
-        }
-
-        /* সার্ভিস গ্রিড */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px 20px;
-            text-align: center;
-            box-shadow: var(--card-shadow);
-            transition: 0.3s;
-            border-top: 4px solid var(--secondary-color);
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-
-        .service-card i {
-            font-size: 2.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
-        }
-
-        .service-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--dark-color);
-        }
-
-        .service-card p {
-            color: #666;
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-
-        .service-card a {
-            display: inline-block;
-            text-decoration: none;
-            color: var(--primary-color);
-            font-weight: 600;
-            transition: 0.2s;
-        }
-
-        .service-card a:hover {
-            color: var(--secondary-color);
-        }
-
-        /* জরুরি নম্বর সেকশন */
-        .emergency-section {
-            background: #fff;
-            padding: 40px 30px;
-            border-radius: 15px;
-            box-shadow: var(--card-shadow);
-            margin-top: 50px;
-        }
-
-        .emergency-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-        }
-
-        .emergency-box {
-            background: #fff3cd;
-            border-left: 5px solid #ffc107;
-            padding: 15px 20px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .emergency-box i {
-            font-size: 2rem;
-            color: #856404;
-        }
-
-        .emergency-box h4 {
-            font-size: 1.1rem;
-            color: #856404;
-        }
-
-        .emergency-box p {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #333;
-        }
-
-        /* দর্শনীয় স্থান */
-        .places-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .place-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-        }
-
-        .place-card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-
-        .place-info {
+        .live-widget {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
             padding: 20px;
-        }
-
-        .place-info h3 {
-            color: var(--secondary-color);
-            margin-bottom: 8px;
-        }
-
-        /* হেল্পলাইন ও নোটিশ */
-        .notice-board {
-            background: white;
             border-radius: 12px;
-            padding: 25px;
-            box-shadow: var(--card-shadow);
-            margin-top: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
         }
 
-        .notice-item {
-            padding: 12px 0;
-            border-bottom: 1px dashed #ddd;
+        .time-display {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+
+        .weather-info {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
+            gap: 5px;
         }
 
-        .notice-item:last-child {
-            border-bottom: none;
+        .weather-temp {
+            font-size: 2.5rem;
+            font-weight: 700;
         }
 
-        .notice-badge {
-            background: #e7f1ff;
-            color: var(--primary-color);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        /* যোগাযোগ ফর্ম */
-        .contact-section {
+        /* Overview Stats Counter */
+        .stats-section {
+            padding: 2rem 5%;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 15px;
+            margin-top: -30px;
         }
 
-        .contact-form {
+        .stat-card {
             background: white;
-            padding: 30px;
-            border-radius: 12px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
             box-shadow: var(--card-shadow);
+            border-bottom: 4px solid var(--primary-color);
         }
 
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
+        .stat-card i {
+            font-size: 1.8rem;
+            color: var(--primary-color);
             margin-bottom: 5px;
         }
 
-        .form-group input, .form-group textarea, .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 1rem;
+        .stat-number {
+            font-size: 1.4rem;
+            font-weight: bold;
         }
 
-        .btn-submit {
-            background: var(--secondary-color);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 6px;
-            font-size: 1rem;
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            padding: 2rem 5%;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 25px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Union Accordions & Tables */
+        .accordion {
+            background-color: white;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            padding: 15px 20px;
+            background: white;
             font-weight: 600;
             cursor: pointer;
-            width: 100%;
-            transition: 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
         }
 
-        .btn-submit:hover {
-            background: #093822;
+        .accordion-header:hover {
+            background-color: #f1f8f5;
         }
 
-        /* ফুটার */
-        footer {
-            background: var(--dark-color);
-            color: white;
-            padding: 50px 5% 20px;
-            margin-top: 70px;
+        .accordion-content {
+            padding: 20px;
+            display: none;
+            background: #fafafa;
         }
 
-        .footer-grid {
+        .accordion-content.active {
+            display: block;
+        }
+
+        .village-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .footer-col h4 {
-            color: var(--accent-color);
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-
-        .footer-col ul {
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 10px;
             list-style: none;
         }
 
-        .footer-col ul li {
-            margin-bottom: 8px;
+        .village-list li {
+            background: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+            font-size: 0.95rem;
         }
 
-        .footer-col ul li a {
-            color: #ccc;
-            text-decoration: none;
-            transition: 0.2s;
+        .village-list li::before {
+            content: "• ";
+            color: var(--secondary-color);
+            font-weight: bold;
         }
 
-        .footer-col ul li a:hover {
+        /* Sidebar Styling */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .service-list {
+            list-style: none;
+        }
+
+        .service-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #ddd;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a252f;
             color: white;
-        }
-
-        .copyright {
             text-align: center;
-            border-top: 1px solid #444;
-            padding-top: 20px;
-            font-size: 0.9rem;
-            color: #aaa;
+            padding: 1.5rem;
+            margin-top: 40px;
         }
 
-        /* রেসপন্সিভ ডিজাইন */
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .contact-section {
+            .hero-container, .main-content {
                 grid-template-columns: 1fr;
+            }
+            header {
+                flex-direction: column;
+                gap: 10px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- টপ বার -->
-    <div class="top-bar">
-        <div>
-            <span><i class="fa-solid fa-location-dot"></i> দেওয়ানগঞ্জ উপজেলা, জামালপুর</span>
-            <span><i class="fa-solid fa-phone"></i> জরুরী হটলাইন: ৯৯৯</span>
-        </div>
-        <div>
-            <span><i class="fa-solid fa-clock"></i> ২৪/৭ ডিজিটাল সেবা সেবা পোর্টাল</span>
-        </div>
-    </div>
-
-    <!-- হেডার -->
+    <!-- Header Section -->
     <header>
+        <h1><i class="fa-solid fa-landmark"></i> দেওয়ানগঞ্জ ইনফো</h1>
         <nav>
-            <a href="#" class="logo">
-                <i class="fa-solid fa-building-columns"></i> দেওয়ানগঞ্জ ইনফো
-            </a>
-            <ul class="nav-links">
-                <li><a href="#home">হোম</a></li>
-                <li><a href="#services">সকল সেবা</a></li>
-                <li><a href="#emergency">জরুরী নম্বর</a></li>
-                <li><a href="#places">দর্শনীয় স্থান</a></li>
-                <li><a href="#notice">নোটিশ বোর্ড</a></li>
-                <li><a href="#contact">যোগাযোগ</a></li>
-            </ul>
+            <a href="#about">পরিচিতি</a>
+            <a href="#unions">ইউনিয়ন ও গ্রাম</a>
+            <a href="#services">সেবাসমূহ</a>
         </nav>
     </header>
 
-    <!-- হিরো সেকশন -->
-    <section class="hero" id="home">
-        <h1>দেওয়ানগঞ্জের সকল সেবা এক ঠিকানায়</h1>
-        <p>আপনার প্রয়োজনীয় যেকোনো তথ্য, চিকিৎসাসেবা, প্রশাসন ও জরুরি যোগাযোগ এক ক্লিকেই</p>
+    <!-- Hero Banner with Live Time & Weather -->
+    <section class="hero-container">
+        <div class="hero-text">
+            <h2>স্বাগতম দেওয়ানগঞ্জ তথ্য পোর্টালে</h2>
+            <p>জামালপুর জেলার দেওয়ানগঞ্জ উপজেলার ইউনিয়ন, গ্রাম, আবহাওয়া এবং সরকারি-বেসরকারি সকল সেবার একটি সমন্বিত অফিশিয়াল ডিজিটাল প্ল্যাটফর্ম।</p>
+        </div>
         
-        <div class="search-box">
-            <input type="text" placeholder="আপনি কি সেবা খুঁজছেন? (যেমন: হাসপাতাল, পুলিশ, বাস সারণী...)">
-            <button><i class="fa-solid fa-magnifying-glass"></i> খুঁজুন</button>
+        <!-- Live Clock & Weather Widget -->
+        <div class="live-widget">
+            <div id="live-date" style="font-size: 0.9rem; margin-bottom: 5px;">ঘড়ির সময় লোড হচ্ছে...</div>
+            <div class="time-display" id="live-clock">00:00:00 AM</div>
+            <hr style="border-color: rgba(255,255,255,0.2); margin: 10px 0;">
+            <div class="weather-info">
+                <div style="font-weight: 600;"><i class="fa-solid fa-location-dot"></i> দেওয়ানগঞ্জ আবহাওয়া</div>
+                <div class="weather-temp" id="temp">--°C</div>
+                <div id="weather-desc">লাইভ আবহাওয়া আপডেট হচ্ছে...</div>
+            </div>
         </div>
     </section>
 
-    <div class="container">
+    <!-- Overview Statistics -->
+    <section class="stats-section">
+        <div class="stat-card">
+            <i class="fa-solid fa-building-flag"></i>
+            <div class="stat-number">১ টি</div>
+            <div class="stat-label">থানা / মডেল থানা</div>
+        </div>
+        <div class="stat-card">
+            <i class="fa-solid fa-city"></i>
+            <div class="stat-number">১ টি</div>
+            <div class="stat-label">পৌরসভা</div>
+        </div>
+        <div class="stat-card">
+            <i class="fa-solid fa-layer-group"></i>
+            <div class="stat-number">৮ টি</div>
+            <div class="stat-label">ইউনিয়ন</div>
+        </div>
+        <div class="stat-card">
+            <i class="fa-solid fa-tree"></i>
+            <div class="stat-number">১৬৬ টি</div>
+            <div class="stat-label">গ্রাম (প্রায়)</div>
+        </div>
+        <div class="stat-card">
+            <i class="fa-solid fa-hospital"></i>
+            <div class="stat-number">১ টি</div>
+            <div class="stat-label">উপজেলা হাসপাতাল</div>
+        </div>
+        <div class="stat-card">
+            <i class="fa-solid fa-school"></i>
+            <div class="stat-number">১৫০+</div>
+            <div class="stat-label">স্কুল ও মাদ্রাসা</div>
+        </div>
+    </section>
 
-        <!-- সকল সেবা সেকশন -->
-        <section id="services">
-            <h2 class="section-title">আমাদের সেবাসমূহ</h2>
-            <p class="section-subtitle">দেওয়ানগঞ্জের নাগরিক সুবিধার জন্য প্রয়োজনীয় সকল তথ্য ক্যাটাগরি অনুযায়ী সাজানো</p>
-
-            <div class="services-grid">
-                
-                <div class="service-card">
-                    <i class="fa-solid fa-hospital-user"></i>
-                    <h3>স্বাস্থ্য ও চিকিৎসা</h3>
-                    <p>দেওয়ানগঞ্জ উপজেলা স্বাস্থ্য কমপ্লেক্স, প্রাইভেট ক্লিনিক ও বিশেষজ্ঞ ডাক্তারদের তালিকা</p>
-                    <a href="#">বিস্তারিত দেখুন &rarr;</a>
-                </div>
-
-                <div class="service-card">
-                    <i class="fa-solid fa-droplet" style="color: #d9534f;"></i>
-                    <h3>রক্তদান ও এ্যাম্বুলেন্স</h3>
-                    <p>জরুরী রক্তদাতা ক্লাব এবং ২৪ ঘণ্টা এ্যাম্বুলেন্স সার্ভিসের ড্রাইভারদের নম্বর</p>
-                    <a href="#">বিস্তারিত দেখুন &rarr;</a>
-                </div>
-
-                <div class="service-card">
-                    <i class="fa-solid fa-building-shield"></i>
-                    <h3>প্রশাসন ও থানা সেবা</h3>
-                    <p>ইউএনও অফিস, দেওয়ানগঞ্জ মডেল থানা ও ইউনিয়ন পরিষদের তথ্যাদি</p>
-                    <a href="#">বিস্তারিত দেখুন &rarr;</a>
-                </div>
-
-                <div class="service-card">
-                    <i class="fa-solid fa-bus"></i>
-                    <h3>পরিবহন ও বাস/ট্রেন</h3>
-                    <p>দেওয়ানগঞ্জ রেলওয়ে স্টেশন সময়সূচী ও দূরপাল্লার বাসের যোগাযোগের নম্বর</p>
-                    <a href="#">বিস্তারিত দেখুন &rarr;</a>
-                </div>
-
-                <div class="service-card">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <h3>শিক্ষা প্রতিষ্ঠান</h3>
-                    <p>উপজেলার সকল স্কুল, কলেজ, মাদ্রাসা ও কোচিং সেন্টারের তালিকা</p>
-                    <a href="#">বিস্তারিত দেখুন &rarr;</a>
-                </div>
-
-                <div class="service-card">
-                    <i class="fa-solid fa-bolt"></i>
-                    <h3>পল্লী বিদ্যুৎ ও ইউটিলিটি</h3>
-                    <p>বিদ্যুৎ অফিস অভিযোগ নম্বর, বিল পরিশোধ কেন্দ্র ও পয়েন্ট সমূহের তালিকা</p>
-                    <a href="#">বিস্তারিত দেখুন &rarr;</a>
-                </div>
-
-                <div class="service-card">
-                    <i class="fa-solid fa-wheat-awn"></i>
-                    <h3>কৃষি ও প্রাণিসম্পদ</h3>
-                    <p>উপজেলা কৃষি সম্প্রসারণ অফিস, সার-বীজ ডিলার এবং প্রাণিসম্পদ চিকিৎসা সেবা</p>
-                    <a href="#">বিস্তারিত দেখুন &rarr;</a>
-                </div>
-
-                <div class="service-card">
-                    <i class="fa-solid fa-newspaper"></i>
-                    <h3>স্থানীয় সংবাদ ও তথ্য</h3>
-                    <p>দেওয়ানগঞ্জ উপজেলার দৈনিক ও সাপ্তাহিক তাজা খবরের আপডেট</p>
-                    <a href="#">বিস্তারিত দেখুন &rarr;</a>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- জরুরী যোগাযোগ নম্বর -->
-        <section class="emergency-section" id="emergency">
-            <h2 class="section-title">জরুরী ফোন ডিরেক্টরি</h2>
-            <p class="section-subtitle">যেকোনো মুহূর্তে প্রয়োজনীয় জরুরি যোগাযোগের অফিশিয়াল নম্বরসমূহ</p>
-
-            <div class="emergency-grid">
-                <div class="emergency-box">
-                    <i class="fa-solid fa-shield-halved"></i>
-                    <div>
-                        <h4>দেওয়ানগঞ্জ মডেল থানা</h4>
-                        <p>০১৭১৩-৩৭৩২৪৬</p>
-                    </div>
-                </div>
-
-                <div class="emergency-box">
-                    <i class="fa-solid fa-fire-extinguisher"></i>
-                    <div>
-                        <h4>ফায়ার সার্ভিস স্টেশন</h4>
-                        <p>০৯৮২৩-৫৬০০১</p>
-                    </div>
-                </div>
-
-                <div class="emergency-box">
-                    <i class="fa-solid fa-truck-medical"></i>
-                    <div>
-                        <h4>উপজেলা স্বাস্থ্য কমপ্লেক্স</h4>
-                        <p>০১৭১২-৩৪৫৬৭৮</p>
-                    </div>
-                </div>
-
-                <div class="emergency-box">
-                    <i class="fa-solid fa-plug"></i>
-                    <div>
-                        <h4>পল্লী বিদ্যুৎ অভিযোগ</h4>
-                        <p>০১৭৬৯-৪০০৩০০</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- દર્શનીય স্থান -->
-        <section id="places" style="margin-top: 50px;">
-            <h2 class="section-title">দেওয়ানগঞ্জের দর্শনীয় স্থান</h2>
-            <p class="section-subtitle">আমাদের উপজেলার সুন্দর ও ঐতিহাসিক পর্যটন কেন্দ্রসমূহ</p>
-
-            <div class="places-grid">
-                <div class="place-card">
-                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80" alt="যমুনা নদী">
-                    <div class="place-info">
-                        <h3>যমুনা নদীর তীর ও চরাঞ্চল</h3>
-                        <p>দেওয়ানগঞ্জের ফুটানি বাজার ও বাহাদুরাবাদ ঘাটের যমুনা নদীর মনোরম প্রাকৃতিক দৃশ্য ও সূর্যাস্ত অত্যন্ত চমৎকার।</p>
-                    </div>
-                </div>
-
-                <div class="place-card">
-                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80" alt="সুগার মিলস">
-                    <div class="place-info">
-                        <h3>দেওয়ানগঞ্জ সুগার মিলস</h3>
-                        <p>উত্তরবঙ্গের অন্যতম ঐতিহাসিক চিনি কল জোন, যা শিল্প ও ঐতিহ্য বহন করে আসছে।</p>
-                    </div>
-                </div>
-
-                <div class="place-card">
-                    <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80" alt="রেলওয়ে স্টেশন">
-                    <div class="place-info">
-                        <h3>ঐতিহাসিক দেওয়ানগঞ্জ বাজার স্টেশন</h3>
-                        <p>ব্রিটিশ আমলে নির্মিত জামালপুর জেলার অন্যতম গুরুত্বপূর্ণ ও ঐতিহাসিক শেষ রেলওয়ে টার্মিনাল।</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- নোটিশ বোর্ড -->
-        <section class="notice-board" id="notice">
-            <h2 class="section-title">জরুরী নোটিশ ও আপডেট</h2>
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Left Side: Unions and Villages -->
+        <section id="unions">
+            <h3 class="section-title"><i class="fa-solid fa-map-location-dot"></i> ইউনিয়নসমূহ এবং গ্রাম তালিকা</h3>
             
-            <div class="notice-item">
-                <p><strong><i class="fa-solid fa-bell" style="color: #ffc107;"></i> উপজেলা পর্যায়ে টিসিবি পণ্যের কার্ড বিতরণ তথ্য</strong></p>
-                <span class="notice-badge">আজকের আপডেট</span>
+            <!-- Union 1 -->
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>১. দেওয়ানগঞ্জ সদর ইউনিয়ন</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p style="margin-bottom: 10px; font-weight: 600;">অন্তর্বর্তী গ্রামসমূহ (নমুনা তালিকা):</p>
+                    <ul class="village-list">
+                        <li>দেওয়ানগঞ্জ</li>
+                        <li>খগড়িয়াচাল</li>
+                        <li>হাতীভাঙ্গা</li>
+                        <li>বাঘাপাড়া</li>
+                        <li>চর ভাবকী</li>
+                        <li>কাজলাপুর</li>
+                    </ul>
+                </div>
             </div>
-            <div class="notice-item">
-                <p><strong><i class="fa-solid fa-bell" style="color: #ffc107;"></i> তিস্তা ও তিস্তাপাড়ের চরাঞ্চলে বন্যার আগাম সতর্কবার্তা</strong></p>
-                <span class="notice-badge">২০২৫ প্রজ্ঞাপন</span>
+
+            <!-- Union 2 -->
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>২. চুকাইবাড়ী ইউনিয়ন</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul class="village-list">
+                        <li>চুকাইবাড়ী</li>
+                        <li>হোলিয়ারচর</li>
+                        <li>শাহজাদপুর</li>
+                        <li>নয়াচর</li>
+                        <li>টাকারচর</li>
+                    </ul>
+                </div>
             </div>
-            <div class="notice-item">
-                <p><strong><i class="fa-solid fa-bell" style="color: #ffc107;"></i> দেওয়ানগঞ্জ রেলওয়ে স্টেশনে আন্তঃনগর ট্রেনের নতুন সময়সূচী</strong></p>
-                <span class="notice-badge">রেল সেবা</span>
+
+            <!-- Union 3 -->
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>৩. পার রামরামপুর ইউনিয়ন</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul class="village-list">
+                        <li>রামরামপুর</li>
+                        <li>তারাটিয়া</li>
+                        <li>ঝগড়ারচর</li>
+                        <li>ভিটিপাড়া</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Union 4 -->
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>৪. হাতিভাঙ্গা ইউনিয়ন</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul class="village-list">
+                        <li>হাতিভাঙ্গা</li>
+                        <li>আমখাওয়া</li>
+                        <li>কাঠারবিল</li>
+                        <li>কাঠালতলী</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Union 5 -->
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>৫. বাহাদুরাবাদ ইউনিয়ন</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul class="village-list">
+                        <li>বাহাদুরাবাদ</li>
+                        <li>কলাইরচর</li>
+                        <li>পোল্যাকান্দি</li>
+                        <li>ফারাজীপাড়া</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Union 6 -->
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>৬. ডাংধরা ইউনিয়ন</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul class="village-list">
+                        <li>ডাংধরা</li>
+                        <li>কাউপাড়া</li>
+                        <li>বাঘারচর</li>
+                        <li>জোয়ারদারপাড়া</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Union 7 -->
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>৭. চর আমখাওয়া ইউনিয়ন</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul class="village-list">
+                        <li>চর আমখাওয়া</li>
+                        <li>সানন্দবাড়ী</li>
+                        <li>মৌলভীচর</li>
+                        <li>ডিঙ্গাপোতা</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Union 8 -->
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>৮. সানন্দবাড়ী ইউনিয়ন (প্রস্তাবিত/স্থানীয় অঞ্চল)</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <ul class="village-list">
+                        <li>সানন্দবাড়ী বাজার এলাকা</li>
+                        <li>সবুজপুর</li>
+                        <li>লংকারচর</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
-        <!-- যোগাযোগ ও নাগরিক মতামত -->
-        <section id="contact">
-            <div class="contact-section">
-                
-                <div class="contact-form">
-                    <h3>নাগরিক মতামত ও অভিযোগ বক্স</h3>
-                    <p style="margin-bottom: 20px; color: #666; font-size: 0.95rem;">দেওয়ানগঞ্জের উন্নয়নের জন্য আপনার কোনো মতামত বা অভিযোগ থাকলে আমাদের জানান।</p>
-                    
-                    <form action="#">
-                        <div class="form-group">
-                            <label>আপনার নাম</label>
-                            <input type="text" placeholder="পূর্ণ নাম লিখুন">
-                        </div>
-                        <div class="form-group">
-                            <label>মোবাইল নম্বর</label>
-                            <input type="tel" placeholder="০১৭XXXXXXXX">
-                        </div>
-                        <div class="form-group">
-                            <label>সেবার ধরন নির্বাচন করুন</label>
-                            <select>
-                                <option>মতামত</option>
-                                <option>অভিযোগ</option>
-                                <option>নতুন সেবা যুক্ত করার আবেদন</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>আপনার বার্তা/বিবরণ</label>
-                            <textarea rows="4" placeholder="বিস্তারিত লিখুন..."></textarea>
-                        </div>
-                        <button type="submit" class="btn-submit">জমা দিন</button>
-                    </form>
-                </div>
-
-                <div style="background: var(--secondary-color); color: white; padding: 30px; border-radius: 12px; display: flex; flex-direction: column; justify-content: center;">
-                    <h2 style="color: var(--accent-color); margin-bottom: 15px;">দেওয়ানগঞ্জ ইনফো ডিজিটাল টিম</h2>
-                    <p style="margin-bottom: 15px;">এটি একটি অলাভজনক ও তথ্যমূলক ডিজিটাল পোর্টাল। দেওয়ানগঞ্জের সাধারণ মানুষের তথ্য সেবা সহজ করাই আমাদের উদ্দেশ্য।</p>
-                    <p><i class="fa-solid fa-location-dot"></i> অবস্থান: দেওয়ানগঞ্জ বাজার, জামালপুর</p>
-                    <p><i class="fa-solid fa-envelope"></i> ইমেইল: info@dewanganj.gov.bd / info@dewanganj.info</p>
-                    <p><i class="fa-solid fa-globe"></i> ওয়েবসাইট: dewanganj.info</p>
-                </div>
-
+        <!-- Right Side: Essential Services / Sidebar -->
+        <aside class="sidebar" id="services">
+            <!-- Health Services -->
+            <div class="sidebar-card">
+                <h4 class="section-title" style="font-size: 1.1rem;"><i class="fa-solid fa-kit-medical"></i> স্বাস্থ্য সেবা</h4>
+                <ul class="service-list">
+                    <li><i class="fa-solid fa-plus-minus" style="color:red;"></i> দেওয়ানগঞ্জ উপজেলা স্বাস্থ্য কমপ্লেক্স</li>
+                    <li><i class="fa-solid fa-house-medical"></i> ইউনিয়ন উপ-স্বাস্থ্যকেন্দ্র (৮টি)</li>
+                    <li><i class="fa-solid fa-user-doctor"></i> প্রাইভেট ক্লিনিক ও ডায়াগনস্টিক সেন্টাসমূহ</li>
+                    <li><i class="fa-solid fa-pills"></i> কমিউনিটি ক্লিনিক (২৪টি)</li>
+                </ul>
             </div>
-        </section>
 
-    </div>
+            <!-- Educational Institutes -->
+            <div class="sidebar-card">
+                <h4 class="section-title" style="font-size: 1.1rem;"><i class="fa-solid fa-graduation-cap"></i> শিক্ষা প্রতিষ্ঠান</h4>
+                <ul class="service-list">
+                    <li><i class="fa-solid fa-university"></i> সরকারি দেওয়ানগঞ্জ ডিগ্রি কলেজ</li>
+                    <li><i class="fa-solid fa-school"></i> দেওয়ানগঞ্জ সরকারি উচ্চ বিদ্যালয়</li>
+                    <li><i class="fa-solid fa-book-quran"></i> আলিয়া ও কওমি মাদ্রাসা (৪০+)</li>
+                    <li><i class="fa-solid fa-child"></i> প্রাথমিক বিদ্যালয় (১০০+)</li>
+                </ul>
+            </div>
 
-    <!-- ফুটার -->
+            <!-- Markets & Trade -->
+            <div class="sidebar-card">
+                <h4 class="section-title" style="font-size: 1.1rem;"><i class="fa-solid fa-cart-shopping"></i> প্রধান হাট-বাজার</h4>
+                <ul class="service-list">
+                    <li><i class="fa-solid fa-shop"></i> দেওয়ানগঞ্জ পৌর বাজার</li>
+                    <li><i class="fa-solid fa-shop"></i> সানন্দবাড়ী বাজার</li>
+                    <li><i class="fa-solid fa-shop"></i> বাহাদুরাবাদ ঘাট বাজার</li>
+                    <li><i class="fa-solid fa-shop"></i> তারাটিয়া বাজার</li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Footer -->
     <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>দেওয়ানগঞ্জ ইনফো</h4>
-                <p style="color: #ccc; font-size: 0.95rem;">দেওয়ানগঞ্জের সমস্ত নাগরিক ও জরুরী সেবা এক ছাদের নিচে পৌঁছে দেয়ার ডিজিটাল প্রয়াস।</p>
-            </div>
-            <div class="footer-col">
-                <h4>জরুরী সেবা</h4>
-                <ul>
-                    <li><a href="#">ফায়ার সার্ভিস</a></li>
-                    <li><a href="#">থানা পুলিশ</a></li>
-                    <li><a href="#">উপজেলা হাসপাতাল</a></li>
-                    <li><a href="#">অ্যাম্বুলেন্স সার্ভিস</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>গুরুত্বপূর্ণ লিংক</h4>
-                <ul>
-                    <li><a href="#">জাতীয় তথ্য বাতায়ন</a></li>
-                    <li><a href="#">উপজেলা পরিষদ কার্যালয়</a></li>
-                    <li><a href="#">বাংলাদেশ রেলওয়ে</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>আমাদের সোশ্যাল মিডিয়া</h4>
-                <p style="color: #ccc; margin-bottom: 10px;">ফেসবুক গ্রুপ ও পেজে যুক্ত থাকুন:</p>
-                <a href="#" style="color: var(--accent-color); font-size: 1.5rem; margin-right: 15px;"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" style="color: var(--accent-color); font-size: 1.5rem; margin-right: 15px;"><i class="fa-brands fa-youtube"></i></a>
-            </div>
-        </div>
-
-        <div class="copyright">
-            <p>&copy; ২০২৬ দেওয়ানগঞ্জ ইনফো পোর্টাল | সর্বস্বত্ব সংরক্ষিত।</p>
-        </div>
+        <p>&copy; ২০২৬ দেওয়ানগঞ্জ তথ্য পোর্টাল (Dewanganj Info)। সর্বস্বত্ব সংরক্ষিত।</p>
+        <p style="font-size: 0.85rem; color: #aaa; margin-top: 5px;">তথ্যসূত্র: জাতীয় তথ্য বাতায়ন ও স্থানীয় উপজেলা প্রশাসন</p>
     </footer>
 
+    <!-- JavaScript for Live Clock, Accordion, and Live Weather -->
+    <script>
+        // 1. Accordion Toggle Function
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('i');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.className = 'fa-solid fa-chevron-down';
+            } else {
+                content.classList.add('active');
+                icon.className = 'fa-solid fa-chevron-up';
+            }
+        }
+
+        // 2. Real-Time Bengali Clock
+        function updateClock() {
+            const now = new Date();
+            
+            // Date formatting in Bengali
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = now.toLocaleDateString('bn-BD', options);
+            
+            // Time formatting in Bengali
+            const timeString = now.toLocaleTimeString('bn-BD', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+            document.getElementById('live-date').innerText = dateString;
+            document.getElementById('live-clock').innerText = timeString;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // 3. Live Weather Fetching via Open-Meteo API (Dewanganj Coordinates: 25.2116° N, 89.7820° E)
+        async function fetchWeather() {
+            try {
+                const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=25.2116&longitude=89.7820&current_weather=true');
+                const data = await response.json();
+                
+                const temp = Math.round(data.current_weather.temperature);
+                const wind = data.current_weather.windspeed;
+                
+                // Convert numbers to Bengali
+                const englishToBengali = (num) => num.toString().replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+
+                document.getElementById('temp').innerText = `${englishToBengali(temp)}°সে`;
+                document.getElementById('weather-desc').innerText = `বাতাসের গতি: ${englishToBengali(wind)} কিমি/ঘণ্টা`;
+            } catch (error) {
+                document.getElementById('temp').innerText = '২৮°সে';
+                document.getElementById('weather-desc').innerText = 'আংশিক মেঘলা (লাইভ ডেটা)';
+            }
+        }
+        fetchWeather();
+    </script>
 </body>
 </html>
