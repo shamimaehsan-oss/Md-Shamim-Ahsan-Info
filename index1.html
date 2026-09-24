@@ -88,7 +88,7 @@
       <!-- Real-time Live Clock -->
       <div class="lg:col-span-7 bg-white rounded-xl border border-slate-300 p-6 shadow-sm flex flex-col justify-between">
         <div class="flex items-center justify-between border-b border-slate-200 pb-3">
-          <span class="text-xs font-bold text-[#006a4e] uppercase tracking-wider">রিয়েল-টাইম লাইভ ঘড়ি (বাংলাদেশ সময়)</span>
+          <span class="text-xs font-bold text-[#006a4e] uppercase tracking-wider">রিয়েল-টাইম লাইভ ঘড়ি (দেওয়ানগঞ্জ সময়)</span>
           <span class="text-[11px] text-slate-500 bg-slate-100 px-2 py-0.5 rounded">প্রতি সেকেন্ডে আপডেট</span>
         </div>
         <div class="my-6 text-center">
@@ -3088,8 +3088,7 @@
         if (!res.ok) return;
         const data = await res.json();
         const temp = Math.round(data.current.temperature_2m);
-        const topEl = document.getElementById('top-live-temp');
-        const heroEl = document.getElementById('weather-temp');
+        
         if (topEl) topEl.textContent = '🌡️ দেওয়ানগঞ্জ: ' + toBn(temp) + '°সে';
         if (heroEl) heroEl.textContent = toBn(temp) + '°সে';
       } catch (e) {}
