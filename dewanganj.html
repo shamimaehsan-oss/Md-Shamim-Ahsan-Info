@@ -9,38 +9,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-light: #f0f9ff;
+      --bg-white: #ffffff;
+      --sky-light: #e0f2fe;
+      --sky-border: #bae6fd;
+      --sky-accent: #38bdf8;
+      --sky-primary: #0284c7;
+      --text-dark: #0c4a6e;
+      --text-muted: #0369a1;
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Hind Siliguri', sans-serif;
-      background-color: #f0f9ff;
-      color: #0f172a;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
       line-height: 1.6;
     }
     .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
-    header {
-      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-      color: white;
-      padding: 32px 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .header-title { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
-    .header-sub { font-size: 15px; opacity: 0.9; }
-    .banner-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
-      margin-top: 24px;
-    }
-    .banner-card {
-      background: rgba(255,255,255,0.12);
-      border-radius: 12px;
-      padding: 16px;
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.2);
-    }
+
+    /* জরুরি হটলাইন স্ট্রিপ */
     .emergency-strip {
-      background: #0369a1;
-      color: white;
+      background: var(--sky-light);
+      color: var(--text-dark);
       padding: 12px 16px;
       font-size: 14px;
       display: flex;
@@ -49,92 +41,123 @@
       justify-content: center;
       align-items: center;
       text-align: center;
+      border-bottom: 1px solid var(--sky-border);
     }
     .emergency-strip a {
-      color: #bae6fd;
+      color: var(--sky-primary);
       font-weight: 700;
       text-decoration: underline;
       margin-left: 4px;
     }
+
+    /* হেডার */
+    header {
+      background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+      color: #ffffff;
+      padding: 36px 16px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
+    }
+    .header-title { font-size: 30px; font-weight: 700; margin-bottom: 6px; }
+    .header-sub { font-size: 16px; opacity: 0.95; max-width: 800px; margin: 0 auto; }
+
+    /* নেভিগেশন ট্যাব */
     .nav-tabs {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      padding: 20px 0;
-      border-bottom: 2px solid #e2e8f0;
-      background: white;
+      gap: 8px;
+      padding: 16px 0;
+      border-bottom: 2px solid var(--sky-border);
+      background: var(--bg-white);
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.06);
     }
     .tab-btn {
-      background: #f0f9ff;
-      color: #0369a1;
-      border: 1px solid #bae6fd;
-      border-radius: 20px;
-      padding: 8px 18px;
+      background: var(--sky-light);
+      border: 1px solid var(--sky-border);
+      color: var(--text-dark);
+      border-radius: 8px;
+      padding: 10px 16px;
       font-size: 14px;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      transition: all 0.2s ease-in-out;
     }
-    .tab-btn:hover {
-      background: #e0f2fe;
-      color: #0284c7;
-      border-color: #38bdf8;
-      transform: translateY(-1px);
+    .tab-btn:hover, .tab-btn.active {
+      background: var(--sky-primary);
+      color: var(--bg-white);
+      border-color: var(--sky-primary);
     }
-    .tab-btn.active {
-      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-      color: white;
-      border-color: #0284c7;
-      box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
+
+    /* সার্চ বার */
+    .search-box {
+      width: 100%;
+      padding: 14px 18px;
+      font-size: 16px;
+      border: 2px solid var(--sky-border);
+      border-radius: 10px;
+      margin: 20px 0 10px 0;
+      font-family: inherit;
+      background: var(--bg-white);
+      color: var(--text-dark);
     }
-    .section-content { display: none; padding: 28px 0; }
+    .search-box:focus {
+      outline: none;
+      border-color: var(--sky-primary);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
+    }
+
+    /* কনটেন্ট সেকশন */
+    .section-content { display: none; padding: 24px 0; }
     .section-content.active { display: block; }
     .section-heading {
       font-size: 22px;
       font-weight: 700;
-      color: #0369a1;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      color: var(--sky-primary);
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--sky-light);
     }
+
+    /* কার্ড গ্রিড */
     .grid-cards {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 20px;
     }
     .item-card {
-      background: white;
-      border: 1px solid #e2e8f0;
+      background: var(--bg-white);
+      border: 1px solid var(--sky-border);
       border-radius: 12px;
       padding: 20px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.04);
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
     }
     .item-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-      border-color: #cbd5e1;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(2, 132, 199, 0.12);
+      border-color: var(--sky-accent);
     }
     .card-title {
       font-size: 18px;
       font-weight: 700;
-      color: #0f172a;
+      color: var(--sky-primary);
       margin-bottom: 8px;
     }
     .card-meta {
       font-size: 13px;
-      color: #64748b;
+      color: var(--text-muted);
       margin-bottom: 12px;
+      background: var(--sky-light);
+      padding: 4px 8px;
+      border-radius: 4px;
+      display: inline-block;
     }
     .card-body {
       font-size: 14px;
-      color: #334155;
+      color: var(--text-dark);
     }
     .card-row {
       margin-bottom: 6px;
@@ -142,47 +165,77 @@
       align-items: flex-start;
       gap: 6px;
     }
-    .card-row strong { color: #0f172a; min-width: 90px; }
+    .card-row strong { color: var(--sky-primary); min-width: 95px; }
+
+    /* বাটন ও লিঙ্ক */
     .phone-link {
       display: inline-block;
       margin-top: 10px;
-      background: #f0f9ff;
-      color: #0369a1;
-      padding: 6px 12px;
+      background: var(--sky-light);
+      color: var(--sky-primary);
+      padding: 8px 14px;
       border-radius: 6px;
       text-decoration: none;
       font-weight: 600;
-      border: 1px solid #bae6fd;
+      font-size: 13px;
+      border: 1px solid var(--sky-border);
+      transition: background 0.2s;
     }
-    .phone-link:hover { background: #e0f2fe; }
-    .flood-meter {
-      background: #f0f9ff;
-      border: 1px solid #bae6fd;
+    .phone-link:hover {
+      background: var(--sky-accent);
+      color: var(--bg-white);
+      border-color: var(--sky-accent);
+    }
+
+    /* হোম পেজ স্টাইল */
+    .home-hero {
+      background: var(--bg-white);
+      border: 1px solid var(--sky-border);
       border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 28px;
+      padding: 30px;
+      text-align: center;
+      margin-bottom: 24px;
     }
+    .home-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .home-card {
+      background: var(--bg-white);
+      border: 1px solid var(--sky-border);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+    .home-card:hover {
+      background: var(--sky-light);
+      border-color: var(--sky-primary);
+      transform: translateY(-3px);
+    }
+    .home-card-icon { font-size: 32px; margin-bottom: 8px; }
+    .home-card-title { font-size: 16px; font-weight: 700; color: var(--sky-primary); }
+
+    /* ওয়েদার ও টাইম বক্স */
+    .widget-box {
+      background: var(--bg-white);
+      border: 1px solid var(--sky-border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    /* ফুটার */
     .footer {
-      background: #0f172a;
-      color: #94a3b8;
+      background: var(--bg-white);
+      color: var(--text-dark);
       text-align: center;
       padding: 32px 16px;
       margin-top: 48px;
       font-size: 14px;
-    }
-    .footer a { color: #38bdf8; text-decoration: none; }
-    .search-box {
-      width: 100%;
-      padding: 12px 16px;
-      font-size: 16px;
-      border: 2px solid #cbd5e1;
-      border-radius: 8px;
-      margin: 16px 0;
-      font-family: inherit;
-    }
-    .search-box:focus {
-      outline: none;
-      border-color: #0284c7;
+      border-top: 2px solid var(--sky-border);
     }
   </style>
 </head>
@@ -202,26 +255,6 @@
     <div class="container">
       <h1 class="header-title">🏛️ দেওয়ানগঞ্জ তথ্য বাতায়ন ও নাগরিক সেবা পোর্টাল</h1>
       <p class="header-sub">জামালপুর জেলা | প্রায় ২ লক্ষ মানুষের নাগরিক তথ্য, ইউনিয়ন, পরিবহন, চিকিৎসা ও সেবার সমন্বিত প্ল্যাটফর্ম</p>
-      
-      <div class="banner-grid">
-        <div class="banner-card">
-          <div style="font-size: 13px; opacity: 0.85;">⏰ বর্তমান স্থানীয় সময়</div>
-          <div id="liveClock" style="font-size: 20px; font-weight: 700; margin-top: 4px;">লোড হচ্ছে...</div>
-          <div style="font-size: 12px; opacity: 0.8;">বাংলাদেশ স্ট্যান্ডার্ড টাইম (BST)</div>
-        </div>
-
-        <div class="banner-card">
-          <div style="font-size: 13px; opacity: 0.85;">🌦️ দেওয়ানগঞ্জ আবহাওয়া</div>
-          <div style="font-size: 20px; font-weight: 700; margin-top: 4px;">২৮°C (আংশিক মেঘলা)</div>
-          <div style="font-size: 12px; opacity: 0.8;">আর্দ্রতা: ৭২% | বাতাস: উত্তর-পূর্ব ১০ কিমি/ঘণ্টা</div>
-        </div>
-
-        <div class="banner-card">
-          <div style="font-size: 13px; opacity: 0.85;">🌊 নদী ও বন্যার পূর্বাভাস</div>
-          <div style="font-size: 20px; font-weight: 700; margin-top: 4px; color: #bae6fd;">স্বাভাবিক (বিপদসীমার নিচে)</div>
-          <div style="font-size: 12px; opacity: 0.8;">বাহাদুরাবাদ ঘাট পয়েন্ট: ১৮.২৫ মি (বিপদসীমা ১৯.৫০ মি)</div>
-        </div>
-      </div>
     </div>
   </header>
 
@@ -231,24 +264,86 @@
     <!-- সার্চ বার -->
     <input type="text" id="searchInput" class="search-box" placeholder="🔍 দেওয়ানগঞ্জের যে কোনো সেবা, ইউনিয়ন, হাসপাতাল, ট্রেন, বাজার বা নম্বর খুঁজুন..." oninput="handleSearch()">
 
-    <!-- নেভিগেশন ট্যাব -->
+    <!-- নেভিগেশন ট্যাব (মেনু) -->
     <div class="nav-tabs" id="tabBar">
-      <button class="tab-btn active" onclick="switchTab('unions')">🏛️ ৯টি ইউনিয়ন ও পৌরসভা (9)</button>
-      <button class="tab-btn" onclick="switchTab('hospitals')">🏥 হাসপাতাল ও স্বাস্থ্যসেবা (6)</button>
-      <button class="tab-btn" onclick="switchTab('transports')">🚆 ট্রেন ও বাস সার্ভিস (7)</button>
-      <button class="tab-btn" onclick="switchTab('institutions')">🕌 মসজিদ ও মাদ্রাসা (7)</button>
-      <button class="tab-btn" onclick="switchTab('markets')">🛒 বাজার ও হাটসমূহ (5)</button>
-      <button class="tab-btn" onclick="switchTab('couriers')">📦 কুরিয়ার সার্ভিস (4)</button>
-      <button class="tab-btn" onclick="switchTab('journalists')">📰 সাংবাদিকবৃন্দ (5)</button>
-      <button class="tab-btn" onclick="switchTab('banks')">🏦 ব্যাংক ও এটিএম (6)</button>
-      <button class="tab-btn" onclick="switchTab('ghats')">⚓ ঐতিহাসিক ঘাট ও স্থান (4)</button>
-      <button class="tab-btn" onclick="switchTab('electricity')">⚡ বিদ্যুৎ অভিযোগ কেন্দ্র (4)</button>
-      <button class="tab-btn" onclick="switchTab('bkash')">📱 বিকাশ ও মোবাইল ব্যাংকিং (4)</button>
-      <button class="tab-btn" onclick="switchTab('flood')">🌊 বন্যার পূর্বাভাস ও নদী</button>
+      <button class="tab-btn active" onclick="switchTab('home')">🏠 মূল পাতা (হোম)</button>
+      <button class="tab-btn" onclick="switchTab('unions')">🏛️ ৯টি ইউনিয়ন ও পৌরসভা</button>
+      <button class="tab-btn" onclick="switchTab('hospitals')">🏥 হাসপাতাল ও স্বাস্থ্যসেবা</button>
+      <button class="tab-btn" onclick="switchTab('transports')">🚆 ট্রেন ও বাস সার্ভিস</button>
+      <button class="tab-btn" onclick="switchTab('institutions')">🕌 মসজিদ ও মাদ্রাসা</button>
+      <button class="tab-btn" onclick="switchTab('markets')">🛒 বাজার ও হাটসমূহ</button>
+      <button class="tab-btn" onclick="switchTab('couriers')">📦 কুরিয়ার সার্ভিস</button>
+      <button class="tab-btn" onclick="switchTab('journalists')">📰 সাংবাদিকবৃন্দ</button>
+      <button class="tab-btn" onclick="switchTab('banks')">🏦 ব্যাংক ও এটিএম</button>
+      <button class="tab-btn" onclick="switchTab('ghats')">⚓ ঐতিহাসিক স্থান</button>
+      <button class="tab-btn" onclick="switchTab('electricity')">⚡ বিদ্যুৎ অভিযোগ</button>
+      <button class="tab-btn" onclick="switchTab('bkash')">📱 মোবাইল ব্যাংকিং</button>
+      <button class="tab-btn" onclick="switchTab('weather')">⏱️ সময়, আবহাওয়া ও নদী</button>
     </div>
 
+    <!-- ০. হোম পেজ (নতুন যুক্ত করা হয়েছে) -->
+    <section id="sec-home" class="section-content active">
+      <div class="home-hero">
+        <h2 style="color: var(--sky-primary); font-size: 24px; margin-bottom: 8px;">স্বাগতম দেওয়ানগঞ্জ নাগরিক সেবা পোর্টালে</h2>
+        <p style="color: var(--text-dark);">আপনার প্রয়োজনীয় যেকোনো সেবা, ফোন নম্বর বা তথ্য দ্রুত খুঁজে পেতে নিচের যেকোনো ক্যাটাগরিতে ক্লিক করুন অথবা সার্চ বার ব্যবহার করুন।</p>
+      </div>
+
+      <div class="home-grid">
+        <div class="home-card" onclick="switchTab('unions')">
+          <div class="home-card-icon">🏛️</div>
+          <div class="home-card-title">ইউনিয়ন ও পৌরসভা</div>
+          <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">৯টি ইউনিয়ন ও পৌরসভা তথ্য</p>
+        </div>
+        <div class="home-card" onclick="switchTab('hospitals')">
+          <div class="home-card-icon">🏥</div>
+          <div class="home-card-title">হাসপাতাল ও স্বাস্থ্যসেবা</div>
+          <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">জরুরি চিকিৎসা ও অ্যাম্বুলেন্স</p>
+        </div>
+        <div class="home-card" onclick="switchTab('transports')">
+          <div class="home-card-icon">🚆</div>
+          <div class="home-card-title">ট্রেন ও বাস সার্ভিস</div>
+          <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">সময়সূচী ও যোগাযোগের নম্বর</p>
+        </div>
+        <div class="home-card" onclick="switchTab('institutions')">
+          <div class="home-card-icon">🕌</div>
+          <div class="home-card-title">মসজিদ ও মাদ্রাসা</div>
+          <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">ঐতিহাসিক স্থান ও প্রতিষ্ঠান</p>
+        </div>
+        <div class="home-card" onclick="switchTab('markets')">
+          <div class="home-card-icon">🛒</div>
+          <div class="home-card-title">বাজার ও হাটসমূহ</div>
+          <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">হাটবার ও স্থানীয় বাজার</p>
+        </div>
+        <div class="home-card" onclick="switchTab('couriers')">
+          <div class="home-card-icon">📦</div>
+          <div class="home-card-title">কুরিয়ার সার্ভিস</div>
+          <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">পার্সেল ও ডেলিভারি পয়েন্ট</p>
+        </div>
+        <div class="home-card" onclick="switchTab('journalists')">
+          <div class="home-card-icon">📰</div>
+          <div class="home-card-title">সাংবাদিকবৃন্দ</div>
+          <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">প্রেসক্লাব ও মিডিয়া প্রতিনিধি</p>
+        </div>
+        <div class="home-card" onclick="switchTab('banks')">
+          <div class="home-card-icon">🏦</div>
+          <div class="home-card-title">ব্যাংক ও এটিএম</div>
+          <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">শাখা ও এটিএম বুথ তথ্য</p>
+        </div>
+        <div class="home-card" onclick="switchTab('electricity')">
+          <div class="home-card-icon">⚡</div>
+          <div class="home-card-title">বিদ্যুৎ অভিযোগ</div>
+          <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">পল্লী বিদ্যুৎ জোনাল কেন্দ্র</p>
+        </div>
+        <div class="home-card" onclick="switchTab('weather')">
+          <div class="home-card-icon">⏱️</div>
+          <div class="home-card-title">সময়, আবহাওয়া ও নদী</div>
+          <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">লাইভ সময়, তাপমাত্রা ও পূর্বাভাস</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ১. ইউনিয়ন সমূহ -->
-    <section id="sec-unions" class="section-content active">
+    <section id="sec-unions" class="section-content">
       <div class="section-heading">
         <span>🏛️ দেওয়ানগঞ্জ উপজেলার ইউনিয়ন ও পৌরসভা সমূহ (৯টি)</span>
       </div>
@@ -266,7 +361,7 @@
               <div style="margin-top: 10px; font-size: 13px; color: #475569;">দেওয়ানগঞ্জ উপজেলার প্রাণকেন্দ্র ও প্রশাসনিক সদর দপ্তর। এটি একটি ক-শ্রেণীর পৌরসভা, যেখানে রয়েছে ঐতিহ্যবাহী রেলওয়ে স্টেশন ও চিনিকল।</div>
               <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
                 <a class="phone-link" href="tel:">📞 কল: ০১৭২৭-৬৬৬৯৯৯</a>
-                <a class="phone-link" style="background: #f0f9ff; color: #0284c7; border-color: #bae6fd;" href="https://dewanganj.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
+                <a class="phone-link" href="https://dewanganj.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
               </div>
             </div>
           </div>
@@ -283,7 +378,7 @@
               <div style="margin-top: 10px; font-size: 13px; color: #475569;">যমুনা নদীর কোলঘেঁষে অবস্থিত ঐতিহ্যবাহী ইউনিয়ন। এককালে তিস্তা ও যমুনার রেল ফেরি সার্ভিসের জন্য বাহাদুরাবাদ ঘাট বিশ্বখ্যাত ছিল।</div>
               <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
                 <a class="phone-link" href="tel:">📞 কল: ০১৭৩৮-৪৫৬০১০</a>
-                <a class="phone-link" style="background: #f0f9ff; color: #0284c7; border-color: #bae6fd;" href="https://bahadurabadup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
+                <a class="phone-link" href="https://bahadurabadup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
               </div>
             </div>
           </div>
@@ -300,7 +395,7 @@
               <div style="margin-top: 10px; font-size: 13px; color: #475569;">দেওয়ানগঞ্জ উপজেলার একটি অন্যতম বৃহৎ ইউনিয়ন। কৃষি প্রধান এবং সানন্দবাড়ী বাণিজ্য অঞ্চলের সাথে ঘনিষ্ঠভাবে সংযুক্ত।</div>
               <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
                 <a class="phone-link" href="tel:">📞 কল: ০১৭৫২-৯৮৪৫১২</a>
-                <a class="phone-link" style="background: #f0f9ff; color: #0284c7; border-color: #bae6fd;" href="https://dangdharaup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
+                <a class="phone-link" href="https://dangdharaup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
               </div>
             </div>
           </div>
@@ -317,7 +412,7 @@
               <div style="margin-top: 10px; font-size: 13px; color: #475569;">সানন্দবাড়ী হাট এই ইউনিয়নে অবস্থিত, যা জামালপুর ও কুড়িগ্রাম সীমান্তবর্তী সবচেয়ে বড় বাণিজ্যিক কেন্দ্র হিসেবে পরিচিত।</div>
               <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
                 <a class="phone-link" href="tel:">📞 কল: ০১৭২৭-১২৩৪৫৬</a>
-                <a class="phone-link" style="background: #f0f9ff; color: #0284c7; border-color: #bae6fd;" href="https://charamkhawaup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
+                <a class="phone-link" href="https://charamkhawaup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
               </div>
             </div>
           </div>
@@ -334,7 +429,7 @@
               <div style="margin-top: 10px; font-size: 13px; color: #475569;">দেওয়ানগঞ্জের পূর্বাঞ্চলের শান্তিপ্রিয় ইউনিয়ন, ব্যবসা-বাণিজ্য ও কৃষি উৎপাদনের জন্য অত্যন্ত উর্বর।</div>
               <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
                 <a class="phone-link" href="tel:">📞 কল: ০১৭৩৯-৮৭৬৫৪৩</a>
-                <a class="phone-link" style="background: #f0f9ff; color: #0284c7; border-color: #bae6fd;" href="https://parrampurup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
+                <a class="phone-link" href="https://parrampurup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
               </div>
             </div>
           </div>
@@ -351,7 +446,7 @@
               <div style="margin-top: 10px; font-size: 13px; color: #475569;">সবুজে ঘেরা ঐতিহ্যবাহী ইউনিয়ন, মৎস্য ও কৃষির জন্য বিখ্যাত।</div>
               <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
                 <a class="phone-link" href="tel:">📞 কল: ০১৭২০-৩৩৪৫৫৬</a>
-                <a class="phone-link" style="background: #f0f9ff; color: #0284c7; border-color: #bae6fd;" href="https://hathibhangaup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
+                <a class="phone-link" href="https://hathibhangaup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
               </div>
             </div>
           </div>
@@ -368,7 +463,7 @@
               <div style="margin-top: 10px; font-size: 13px; color: #475569;">সদর সংলগ্ন ব্রহ্মপুত্র নদের কূলবর্তী একটি ইউনিয়ন। বর্ষাকালে নদী প্রকৃতির অপূর্ব সৌন্দর্য ফুটে ওঠে।</div>
               <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
                 <a class="phone-link" href="tel:">📞 কল: ০১৭৬১-১১২২৩৩</a>
-                <a class="phone-link" style="background: #f0f9ff; color: #0284c7; border-color: #bae6fd;" href="https://chikajaniup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
+                <a class="phone-link" href="https://chikajaniup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
               </div>
             </div>
           </div>
@@ -384,8 +479,8 @@
               <div class="card-row"><strong>দর্শনীয় স্থান:</strong> <span>বাঘারচর চর এলাকা, খোলাবাড়ী ঘাট, দেওয়ানগঞ্জ মডেল উচ্চ বিদ্যালয় সংলগ্ন এলাকা</span></div>
               <div style="margin-top: 10px; font-size: 13px; color: #475569;">পৌরসভার চারপাশ ঘিরে দেওয়ানগঞ্জ সদর ইউনিয়ন বিস্তৃত। এর অধিকাংশ মানুষের জীবিকা কৃষি ও স্থানীয় ব্যবসা।</div>
               <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
-                <a class="phone-link" href="tel:">📞 কল: ০১৭৪৫-৬৭৭৮৮</a>
-                <a class="phone-link" style="background: #f0f9ff; color: #0284c7; border-color: #bae6fd;" href="https://dewanganjsadarup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
+                <a class="phone-link" href="tel:">📞 কল: ০১৭৪৫-৬৬৭৭৮৮</a>
+                <a class="phone-link" href="https://dewanganjsadarup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
               </div>
             </div>
           </div>
@@ -402,7 +497,7 @@
               <div style="margin-top: 10px; font-size: 13px; color: #475569;">দেওয়ানগঞ্জের উত্তরের সীমান্ত ও নদীবেষ্টিত জনপদ যা ব্যবসা ও নদী সুরক্ষায় অন্যতম গুরুত্বপূর্ণ।</div>
               <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
                 <a class="phone-link" href="tel:">📞 কল: ০১৭৭৮-৯৯০০১১</a>
-                <a class="phone-link" style="background: #f0f9ff; color: #0284c7; border-color: #bae6fd;" href="https://dewanganj.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
+                <a class="phone-link" href="https://dewanganj.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
               </div>
             </div>
           </div>
@@ -432,7 +527,7 @@
               </div>
               <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
                 <a class="phone-link" href="tel:">🚨 জরুরি: ০১৭৩০-৩২৪৪৭৭</a>
-                <a class="phone-link" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;" href="tel:">🚑 অ্যাম্বুলেন্স: ০১৭২০-৮৮৯৯০০</a>
+                <a class="phone-link" href="tel:">🚑 অ্যাম্বুলেন্স: ০১৭২০-৮৮৯৯০০</a>
               </div>
             </div>
           </div>
@@ -452,7 +547,7 @@
               </div>
               <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
                 <a class="phone-link" href="tel:">🚨 জরুরি: ০১৭৩২-৭৭৪৪১১</a>
-                <a class="phone-link" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;" href="tel:">🚑 অ্যাম্বুলেন্স: ০১৭৪৫-৩৩৪৪৭৭</a>
+                <a class="phone-link" href="tel:">🚑 অ্যাম্বুলেন্স: ০১৭৪৫-৩৩৪৪৭৭</a>
               </div>
             </div>
           </div>
@@ -472,7 +567,7 @@
               </div>
               <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
                 <a class="phone-link" href="tel:">🚨 জরুরি: ০১৭২৭-৫৫৮৮৯৯</a>
-                <a class="phone-link" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;" href="tel:">🚑 অ্যাম্বুলেন্স: ০১৭২৭-৫৫৮৮০০</a>
+                <a class="phone-link" href="tel:">🚑 অ্যাম্বুলেন্স: ০১৭২৭-৫৫৮৮০০</a>
               </div>
             </div>
           </div>
@@ -492,7 +587,7 @@
               </div>
               <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
                 <a class="phone-link" href="tel:">🚨 জরুরি: ০১৭২৯-৪৪০৫৫০</a>
-                <a class="phone-link" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;" href="tel:">🚑 অ্যাম্বুলেন্স: ০১৭৩০-৩২৪৪৭৭ (সেন্ট্রাল)</a>
+                <a class="phone-link" href="tel:">🚑 অ্যাম্বুলেন্স: ০১৭৩০-৩২৪৪৭৭ (সেন্ট্রাল)</a>
               </div>
             </div>
           </div>
@@ -512,7 +607,7 @@
               </div>
               <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
                 <a class="phone-link" href="tel:">🚨 জরুরি: ০১৭৭৮-১২৯৯০০</a>
-                <a class="phone-link" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;" href="tel:">🚑 অ্যাম্বুলেন্স: ০১৭৭৮-১২৯৯০১</a>
+                <a class="phone-link" href="tel:">🚑 অ্যাম্বুলেন্স: ০১৭৭৮-১২৯৯০১</a>
               </div>
             </div>
           </div>
@@ -532,7 +627,7 @@
               </div>
               <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
                 <a class="phone-link" href="tel:">🚨 জরুরি: ০১৭৬৬-৮৮৯৯২২</a>
-                <a class="phone-link" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;" href="tel:">🚑 অ্যাম্বুলেন্স: ০১৭২০-৮৮৯৯০০</a>
+                <a class="phone-link" href="tel:">🚑 অ্যাম্বুলেন্স: ০১৭২০-৮৮৯৯০০</a>
               </div>
             </div>
           </div>
@@ -1033,7 +1128,7 @@
               <div class="card-row"><strong>অবস্থান:</strong> <span>বাহাদুরাবাদ ইউনিয়ন, দেওয়ানগঞ্জ</span></div>
               <p style="font-size: 13px; color: #475569; margin: 8px 0;">ব্রিটিশ ও পাকিস্তান আমল থেকে শুরু করে যমুনা সেতু হওয়ার পূর্ব পর্যন্ত উত্তরবঙ্গের সাথে ঢাকার যোগাযোগের মূল কেন্দ্র ছিল এই বাহাদুরাবাদ ঘাট। এখান থেকে গাইবান্ধার বালাসী ঘাটে চলাচল করত সুবিশাল রেল-ফেরি।</p>
               <div class="card-row"><strong>নৌকা রুট:</strong> <span>বাহাদুরাবাদ ↔ বালাসী ঘাট (নৌকা ও কার্গো ট্রলার), বাহাদুরাবাদ ↔ চরাঞ্চল</span></div>
-              <div style="font-size: 13px; color: #0369a1; margin-top: 6px;">💡 পরামর্শ: বিকেলে সূর্যাস্ত দেখতে এবং ঐতিহ্যবাহী নদীর তাজা মাছ কিনতে বহু পর্যটক আসেন।</div>
+              <div style="font-size: 13px; color: var(--sky-primary); margin-top: 6px;">💡 পরামর্শ: বিকেলে সূর্যাস্ত দেখতে এবং ঐতিহ্যবাহী নদীর তাজা মাছ কিনতে বহু পর্যটক আসেন।</div>
               <a class="phone-link" href="tel:">📞 ঘাট যোগাযোগ: ০১৭৩৮-৪৫৬০১০ (ঘাট ইজারাদার ও সহায়তা)</a>
             </div>
           </div>
@@ -1045,7 +1140,7 @@
               <div class="card-row"><strong>অবস্থান:</strong> <span>দেওয়ানগঞ্জ পৌরসভা চত্বর সংলগ্ন</span></div>
               <p style="font-size: 13px; color: #475569; margin: 8px 0;">১৯৫৮ সালে স্থাপিত বৃহত্তর ময়মনসিংহের অন্যতম প্রাচীন ও বৃহত্তম চিনি কল। সুগার মিল কলোনি, সুবিশাল আখের মাঠ এবং ঐতিহ্যবাহী কারখানাটি দেওয়ানগঞ্জের গর্ব।</p>
               
-              <div style="font-size: 13px; color: #0369a1; margin-top: 6px;">💡 পরামর্শ: মাড়াই মৌসুমে চিনি উৎপাদনের মনোরম কর্মচাঞ্চল্য ও ব্রিটিশ-উত্তর স্থাপত্যশৈলীর সুন্দর পরিবেশ দেখতে পারেন।</div>
+              <div style="font-size: 13px; color: var(--sky-primary); margin-top: 6px;">💡 পরামর্শ: মাড়াই মৌসুমে চিনি উৎপাদনের মনোরম কর্মচাঞ্চল্য ও ব্রিটিশ-উত্তর স্থাপত্যশৈলীর সুন্দর পরিবেশ দেখতে পারেন।</div>
               <a class="phone-link" href="tel:">📞 ঘাট যোগাযোগ: ০২৯৯৭৭৬৩০০৩ (মিল কন্ট্রোল অফিস)</a>
             </div>
           </div>
@@ -1057,7 +1152,7 @@
               <div class="card-row"><strong>অবস্থান:</strong> <span>সানন্দবাড়ী বাজার সংলগ্ন, দেওয়ানগঞ্জ</span></div>
               <p style="font-size: 13px; color: #475569; margin: 8px 0;">মেঘালয় পাহাড় থেকে নেমে আসা জিঞ্জিরাম ও ব্রহ্মপুত্রের মোহনা সংলগ্ন এক নয়নাভিরাম স্থান। এখানকার রাবার ড্যাম ও ব্রিজ পয়েন্টে বর্ষায় অপূর্ব জলরাশি দেখা যায়।</p>
               <div class="card-row"><strong>নৌকা রুট:</strong> <span>সানন্দবাড়ী ↔ রৌমারী, সানন্দবাড়ী ↔ ব্রহ্মপুত্র চরসমূহ</span></div>
-              <div style="font-size: 13px; color: #0369a1; margin-top: 6px;">💡 পরামর্শ: নৌভ্রমণ ও পারিবারিক বিকেলে ঘুরে বেড়ানোর চমৎকার স্থান।</div>
+              <div style="font-size: 13px; color: var(--sky-primary); margin-top: 6px;">💡 পরামর্শ: নৌভ্রমণ ও পারিবারিক বিকেলে ঘুরে বেড়ানোর চমৎকার স্থান।</div>
               <a class="phone-link" href="tel:">📞 ঘাট যোগাযোগ: ০১৭৩৫-১২৩৪৫৬</a>
             </div>
           </div>
@@ -1069,7 +1164,7 @@
               <div class="card-row"><strong>অবস্থান:</strong> <span>চিকাজানী সংলগ্ন, দেওয়ানগঞ্জ</span></div>
               <p style="font-size: 13px; color: #475569; margin: 8px 0;">ব্রহ্মপুত্রের বিস্তীর্ণ চরাঞ্চল এবং তাজা দখিনা বাতাসের দারুণ রিভার পয়েন্ট। বর্ষায় নদীর রূপ মনমুগ্ধকর হয়।</p>
               <div class="card-row"><strong>নৌকা রুট:</strong> <span>ফুটানী বাজার ↔ ওপারের বিস্তীর্ণ চর ও দ্বীপগ্রাম</span></div>
-              <div style="font-size: 13px; color: #0369a1; margin-top: 6px;">💡 পরামর্শ: বর্ষা মৌসুমে নৌকায় ঘুরতে গেলে লাইফ জ্যাকেট ব্যবহার করার পরামর্শ দেওয়া হয়।</div>
+              <div style="font-size: 13px; color: var(--sky-primary); margin-top: 6px;">💡 পরামর্শ: বর্ষা মৌসুমে নৌকায় ঘুরতে গেলে লাইফ জ্যাকেট ব্যবহার করার পরামর্শ দেওয়া হয়।</div>
               <a class="phone-link" href="tel:">📞 ঘাট যোগাযোগ: ০১৭৬১-১১২২৩৩</a>
             </div>
           </div>
@@ -1091,7 +1186,7 @@
               <div class="card-row"><strong>দায়িত্বে:</strong> <span>ডেপুটি জেনারেল ম্যানেজার (ডিজিএম)</span></div>
               <div class="card-row"><strong>অফিস:</strong> <span>কলেজ রোড সংলগ্ন, দেওয়ানগঞ্জ পৌরসভা, জামালপুর</span></div>
               <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
-                <a class="phone-link" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;" href="tel:০১৭৬৯-৪০০৩০০">🚨 অভিযোগ হটলাইন: ০১৭৬৯-৪০০৩০০</a>
+                <a class="phone-link" href="tel:০১৭৬৯-৪০০৩০০">🚨 অভিযোগ হটলাইন: ০১৭৬৯-৪০০৩০০</a>
                 <a class="phone-link" href="tel:০১৭৬৯-৪০০৩০১">📞 মোবাইল: ০১৭৬৯-৪০০৩০১</a>
               </div>
             </div>
@@ -1104,7 +1199,7 @@
               <div class="card-row"><strong>দায়িত্বে:</strong> <span>ডিউটি অফিসার ও লাইন সুপারভাইজার</span></div>
               <div class="card-row"><strong>অফিস:</strong> <span>সাব-স্টেশন কম্পাউন্ড, দেওয়ানগঞ্জ</span></div>
               <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
-                <a class="phone-link" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;" href="tel:০১৭৬৯-৪০০৩০৫">🚨 অভিযোগ হটলাইন: ০১৭৬৯-৪০০৩০৫</a>
+                <a class="phone-link" href="tel:০১৭৬৯-৪০০৩০৫">🚨 অভিযোগ হটলাইন: ০১৭৬৯-৪০০৩০৫</a>
                 <a class="phone-link" href="tel:০১৭৬৯-৪০০৩০৬">📞 মোবাইল: ০১৭৬৯-৪০০৩০৬</a>
               </div>
             </div>
@@ -1117,7 +1212,7 @@
               <div class="card-row"><strong>দায়িত্বে:</strong> <span>সহকারী জেনারেল ম্যানেজার (এজিএম)</span></div>
               <div class="card-row"><strong>অফিস:</strong> <span>সানন্দবাড়ী বাজার মোড়, দেওয়ানগঞ্জ</span></div>
               <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
-                <a class="phone-link" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;" href="tel:০১৭৬৯-৪০০৩১০">🚨 অভিযোগ হটলাইন: ০১৭৬৯-৪০০৩১০</a>
+                <a class="phone-link" href="tel:০১৭৬৯-৪০০৩১০">🚨 অভিযোগ হটলাইন: ০১৭৬৯-৪০০৩১০</a>
                 <a class="phone-link" href="tel:০১৭৬৯-৪০০৩১১">📞 মোবাইল: ০১৭৬৯-৪০০৩১১</a>
               </div>
             </div>
@@ -1130,7 +1225,7 @@
               <div class="card-row"><strong>দায়িত্বে:</strong> <span>হেড লাইনম্যান ও প্রকৌশলী</span></div>
               <div class="card-row"><strong>অফিস:</strong> <span>পল্লী বিদ্যুৎ অফিস ক্যাম্প</span></div>
               <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
-                <a class="phone-link" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd;" href="tel:০১৭৬৯-৪০০৩১৫">🚨 অভিযোগ হটলাইন: ০১৭৬৯-৪০০৩১৫</a>
+                <a class="phone-link" href="tel:০১৭৬৯-৪০০৩১৫">🚨 অভিযোগ হটলাইন: ০১৭৬৯-৪০০৩১৫</a>
                 <a class="phone-link" href="tel:০১৭৬৯-৪০০৩১৬">📞 মোবাইল: ০১৭৬৯-৪০০৩১৬</a>
               </div>
             </div>
@@ -1189,34 +1284,52 @@
       </div>
     </section>
 
-    <!-- ১২. বন্যার পূর্বাভাস -->
-    <section id="sec-flood" class="section-content">
+    <!-- ১২. সময়, আবহাওয়া ও বন্যার পূর্বাভাস (আলাদা ট্যাবে স্থানান্তর করা হয়েছে) -->
+    <section id="sec-weather" class="section-content">
       <div class="section-heading">
-        <span>🌊 বাহাদুরাবাদ ঘাট পয়েন্ট: নদী ও বন্যার পূর্বাভাস</span>
+        <span>⏱️ সময়, আবহাওয়া ও নদীর পূর্বাভাস</span>
       </div>
-      <div class="flood-meter">
-        <h3 style="font-size: 18px; font-weight: 700; color: #0f172a;">বাহাদুরাবাদ ঘাট পয়েন্ট (যমুনা / ব্রহ্মপুত্র নদ)</h3>
-        <p style="font-size: 14px; color: #0284c7; margin-top: 4px;">সর্বশেষ আপডেট: আজ বিকাল ৩:০০ টা</p>
+
+      <div class="grid-cards" style="margin-bottom: 24px;">
+        <!-- লাইভ সময় -->
+        <div class="widget-box">
+          <div style="font-size: 14px; color: var(--text-muted); font-weight: 600;">⏰ বর্তমান স্থানীয় সময়</div>
+          <div id="liveClock" style="font-size: 22px; font-weight: 700; color: var(--sky-primary); margin-top: 6px;">লোড হচ্ছে...</div>
+          <div style="font-size: 12px; color: #64748b; margin-top: 4px;">বাংলাদেশ স্ট্যান্ডার্ড টাইম (BST)</div>
+        </div>
+
+        <!-- আবহাওয়া -->
+        <div class="widget-box">
+          <div style="font-size: 14px; color: var(--text-muted); font-weight: 600;">🌦️ দেওয়ানগঞ্জ আবহাওয়া</div>
+          <div style="font-size: 22px; font-weight: 700; color: var(--sky-primary); margin-top: 6px;">২৮°C (আংশিক মেঘলা)</div>
+          <div style="font-size: 12px; color: #64748b; margin-top: 4px;">আর্দ্রতা: ৭২% | বাতাস: উত্তর-পূর্ব ১০ কিমি/ঘণ্টা</div>
+        </div>
+      </div>
+
+      <!-- নদী ও বন্যার পূর্বাভাস -->
+      <div class="widget-box" style="border-color: var(--sky-border);">
+        <h3 style="font-size: 18px; font-weight: 700; color: var(--sky-primary);">🌊 বাহাদুরাবাদ ঘাট পয়েন্ট (যমুনা / ব্রহ্মপুত্র নদ)</h3>
+        <p style="font-size: 13px; color: var(--text-muted); margin-top: 2px;">সর্বশেষ আপডেট: আজ বিকাল ৩:০০ টা</p>
         
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 16px;">
-          <div style="background: white; padding: 14px; border-radius: 8px; border: 1px solid #bae6fd;">
-            <div style="font-size: 13px; color: #64748b;">বর্তমান পানির স্তর</div>
-            <div style="font-size: 22px; font-weight: 700; color: #0369a1;">18.25 মিটার</div>
+          <div style="background: var(--sky-light); padding: 14px; border-radius: 8px; border: 1px solid var(--sky-border);">
+            <div style="font-size: 13px; color: var(--text-muted);">বর্তমান পানির স্তর</div>
+            <div style="font-size: 20px; font-weight: 700; color: var(--sky-primary);">18.25 মিটার</div>
           </div>
-          <div style="background: white; padding: 14px; border-radius: 8px; border: 1px solid #bae6fd;">
-            <div style="font-size: 13px; color: #64748b;">বিপদসীমা (Danger Mark)</div>
-            <div style="font-size: 22px; font-weight: 700; color: #0284c7;">19.5 মিটার</div>
+          <div style="background: var(--sky-light); padding: 14px; border-radius: 8px; border: 1px solid var(--sky-border);">
+            <div style="font-size: 13px; color: var(--text-muted);">বিপদসীমা (Danger Mark)</div>
+            <div style="font-size: 20px; font-weight: 700; color: #0284c7;">19.5 মিটার</div>
           </div>
-          <div style="background: white; padding: 14px; border-radius: 8px; border: 1px solid #bae6fd;">
-            <div style="font-size: 13px; color: #64748b;">বিপদসীমা থেকে পার্থক্য</div>
-            <div style="font-size: 22px; font-weight: 700; color: #0284c7;">1.25 মিটার নিচে (নিরাপদ)</div>
+          <div style="background: var(--sky-light); padding: 14px; border-radius: 8px; border: 1px solid var(--sky-border);">
+            <div style="font-size: 13px; color: var(--text-muted);">বিপদসীমা থেকে পার্থক্য</div>
+            <div style="font-size: 20px; font-weight: 700; color: var(--sky-primary);">1.25 মিটার নিচে (নিরাপদ)</div>
           </div>
         </div>
 
-        <div style="margin-top: 16px; background: white; padding: 14px; border-radius: 8px; font-size: 14px; border: 1px solid #bae6fd;">
+        <div style="margin-top: 16px; background: var(--sky-light); padding: 14px; border-radius: 8px; font-size: 14px; border: 1px solid var(--sky-border);">
           <strong>আগামী ৪৮ ঘণ্টার পূর্বাভাস:</strong> পানি স্তর বিপদসীমার নিচে স্থিতিশীল থাকার সম্ভাবনা রয়েছে। কোনো আকস্মিক বন্যার আশঙ্কা নেই।
           <div style="margin-top: 8px; font-size: 13px; color: #475569;">
-            নজরদারিতে থাকা নিচু ইউনিয়নসমূহ: বাহাদুরাবাদ, চিকাজানী, চরআমখাওয়া, ডাংধরা | প্রস্তুত আশ্রয়কেন্দ্র: 28 টি
+            নজরদারিতে থাকা নিচু ইউনিয়নসমূহ: বাহাদুরাবাদ, চিকাজানী, চরআমখাওয়া, ডাংধরা | প্রস্তুত আশ্রয়কেন্দ্র: ২৮ টি
           </div>
         </div>
       </div>
@@ -1227,7 +1340,7 @@
   <!-- ফুটার -->
   <footer class="footer">
     <div class="container">
-      <p style="font-weight: 600; color: #f8fafc; font-size: 16px;">🏛️ দেওয়ানগঞ্জ তথ্য বাতায়ন ও নাগরিক সেবা পোর্টাল</p>
+      <p style="font-weight: 700; color: var(--sky-primary); font-size: 16px;">🏛️ দেওয়ানগঞ্জ তথ্য বাতায়ন ও নাগরিক সেবা পোর্টাল</p>
       <p style="margin-top: 6px;">দেওয়ানগঞ্জ উপজেলার প্রায় ২ লক্ষ মানুষের কল্যাণ ও দ্রুত তথ্যপ্রাপ্তির উদ্দেশ্যে তৈরি।</p>
       <p style="margin-top: 12px; font-size: 13px;">জরুরি সেবা পেতে সর্বদা ৯৯৯ বা স্থানীয় প্রশাসন ও থানা পুলিশের সাথে যোগাযোগ করুন।</p>
     </div>
@@ -1256,7 +1369,9 @@
       const targetSec = document.getElementById('sec-' + tabId);
       if (targetSec) targetSec.classList.add('active');
       
-      event.currentTarget.classList.add('active');
+      if (event && event.currentTarget && event.currentTarget.classList) {
+        event.currentTarget.classList.add('active');
+      }
     }
 
     // লাইভ সার্চ
@@ -1269,7 +1384,7 @@
         return;
       }
 
-      // Show all sections when searching
+      // সার্চ চলাকালীন সময়ে সকল সেকশন দৃশ্যমান রাখা
       document.querySelectorAll('.section-content').forEach(s => s.classList.add('active'));
 
       cards.forEach(card => {
