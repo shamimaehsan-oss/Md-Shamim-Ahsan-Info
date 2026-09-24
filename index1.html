@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DEWANGANJ INFO| Dewanganj Info Official Portal</title>
+    <title>দেওয়ানগঞ্জ তথ্য পোর্টাল | Dewanganj Info Official Portal</title>
     <!-- Google Fonts & FontAwesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-color: #006a4e; /* Bangladesh Green Tone */
-            --secondary-color: #f42a41; /* Red Accent */
-            --bg-light: #f8f9fa;
-            --text-dark: #212529;
-            --card-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --primary-color: #006a4e; /* Bangladesh Green */
+            --secondary-color: #d90429; /* Red Accent */
+            --bg-light: #f4f6f8;
+            --card-bg: #ffffff;
+            --text-dark: #2b2d42;
+            --shadow: 0 4px 15px rgba(0,0,0,0.06);
         }
 
         * {
@@ -30,6 +31,17 @@
             line-height: 1.6;
         }
 
+        /* Top Bar */
+        .top-bar {
+            background: #004d38;
+            color: #ffd700;
+            padding: 6px 5%;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         /* Header Navigation */
         header {
             background-color: var(--primary-color);
@@ -41,42 +53,44 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
         header h1 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
+        nav {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
         nav a {
             color: white;
             text-decoration: none;
-            margin-left: 15px;
             font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 4px;
             transition: 0.3s;
         }
 
         nav a:hover {
+            background: rgba(255,255,255,0.2);
             color: #ffd700;
         }
 
-        /* Hero Banner & Live Widget */
+        /* Hero Container with Weather & Clock */
         .hero-container {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 20px;
-            padding: 2rem 5%;
+            padding: 2.5rem 5%;
             background: linear-gradient(135deg, #006a4e 0%, #004d38 100%);
             color: white;
-        }
-
-        .hero-text {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
 
         .hero-text h2 {
@@ -85,7 +99,7 @@
         }
 
         .live-widget {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(10px);
             padding: 20px;
             border-radius: 12px;
@@ -95,24 +109,17 @@
 
         .time-display {
             font-size: 1.8rem;
-            font-weight: bold;
+            font-weight: 700;
             color: #ffd700;
-            margin-bottom: 10px;
-        }
-
-        .weather-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
         }
 
         .weather-temp {
-            font-size: 2.5rem;
+            font-size: 2.4rem;
             font-weight: 700;
+            margin: 5px 0;
         }
 
-        /* Overview Stats Counter */
+        /* Stats Counters */
         .stats-section {
             padding: 2rem 5%;
             display: grid;
@@ -122,11 +129,11 @@
         }
 
         .stat-card {
-            background: white;
+            background: var(--card-bg);
             padding: 15px;
             border-radius: 10px;
             text-align: center;
-            box-shadow: var(--card-shadow);
+            box-shadow: var(--shadow);
             border-bottom: 4px solid var(--primary-color);
         }
 
@@ -137,101 +144,108 @@
         }
 
         .stat-number {
-            font-size: 1.4rem;
-            font-weight: bold;
+            font-size: 1.3rem;
+            font-weight: 700;
         }
 
         .stat-label {
-            font-size: 0.9rem;
-            color: #666;
+            font-size: 0.85rem;
+            color: #555;
         }
 
-        /* Main Content Layout */
-        .main-content {
-            padding: 2rem 5%;
+        /* Search Filter Input */
+        .search-container {
+            padding: 1.5rem 5% 0 5%;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            outline: none;
+            box-shadow: var(--shadow);
+        }
+
+        /* Main Grid */
+        .main-container {
+            padding: 1.5rem 5%;
             display: grid;
-            grid-template-columns: 3fr 1fr;
+            grid-template-columns: 2.8fr 1.2fr;
             gap: 25px;
         }
 
         .section-title {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: var(--primary-color);
             margin-bottom: 15px;
-            padding-bottom: 5px;
+            padding-bottom: 6px;
             border-bottom: 2px solid var(--primary-color);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
-        /* Union Accordions & Tables */
-        .accordion {
-            background-color: white;
+        /* Table Styling */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
             border-radius: 8px;
-            margin-bottom: 15px;
-            box-shadow: var(--card-shadow);
             overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 25px;
         }
 
-        .accordion-header {
-            padding: 15px 20px;
-            background: white;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #eee;
-        }
-
-        .accordion-header:hover {
-            background-color: #f1f8f5;
-        }
-
-        .accordion-content {
-            padding: 20px;
-            display: none;
-            background: #fafafa;
-        }
-
-        .accordion-content.active {
-            display: block;
-        }
-
-        .village-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 10px;
-            list-style: none;
-        }
-
-        .village-list li {
-            background: white;
-            padding: 8px 12px;
-            border-radius: 5px;
-            border: 1px solid #e0e0e0;
+        .data-table th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
             font-size: 0.95rem;
         }
 
-        .village-list li::before {
-            content: "• ";
+        .data-table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+
+        .data-table tr:hover {
+            background-color: #f1f8f5;
+        }
+
+        /* Emergency Cards */
+        .emergency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .emergency-card {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .emergency-card h4 {
+            font-size: 1rem;
             color: var(--secondary-color);
-            font-weight: bold;
+            margin-bottom: 5px;
         }
 
-        /* Sidebar Styling */
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
+        /* Sidebar Cards */
         .sidebar-card {
             background: white;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: var(--card-shadow);
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            border: 1px solid #e2e8f0;
         }
 
         .service-list {
@@ -239,11 +253,12 @@
         }
 
         .service-list li {
-            padding: 10px 0;
+            padding: 8px 0;
             border-bottom: 1px dashed #ddd;
             display: flex;
             align-items: center;
             gap: 10px;
+            font-size: 0.92rem;
         }
 
         .service-list li:last-child {
@@ -252,16 +267,15 @@
 
         /* Footer */
         footer {
-            background-color: #1a252f;
+            background-color: #111827;
             color: white;
             text-align: center;
-            padding: 1.5rem;
+            padding: 2rem;
             margin-top: 40px;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-container, .main-content {
+        @media (max-width: 900px) {
+            .hero-container, .main-container {
                 grid-template-columns: 1fr;
             }
             header {
@@ -273,42 +287,49 @@
 </head>
 <body>
 
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <span><i class="fa-solid fa-bullhorn"></i> জামালপুর জেলার দেওয়ানগঞ্জ উপজেলার অফিশিয়াল তথ্য পোর্টাল</span>
+        <span><i class="fa-solid fa-phone"></i> জরুরি সেবা: ৯৯৯</span>
+    </div>
+
     <!-- Header Section -->
     <header>
         <h1><i class="fa-solid fa-landmark"></i> দেওয়ানগঞ্জ ইনফো</h1>
         <nav>
-            <a href="#about">পরিচিতি</a>
-            <a href="#unions">ইউনিয়ন ও গ্রাম</a>
-            <a href="#services">সেবাসমূহ</a>
+            <a href="#schools">স্কুল ও কলেজ</a>
+            <a href="#madrasas">মাদ্রাসা</a>
+            <a href="#markets">হাট-বাজার</a>
+            <a href="#emergency">ইমার্জেন্সি সেবা</a>
+            <a href="#transport">নদীঘাট ও পরিবহন</a>
         </nav>
     </header>
 
-    <!-- Hero Banner with Live Time & Weather -->
+    <!-- Hero Banner with Live Clock & Weather Widget -->
     <section class="hero-container">
         <div class="hero-text">
             <h2>স্বাগতম দেওয়ানগঞ্জ তথ্য পোর্টালে</h2>
-            <p>জামালপুর জেলার দেওয়ানগঞ্জ উপজেলার ইউনিয়ন, গ্রাম, আবহাওয়া এবং সরকারি-বেসরকারি সকল সেবার একটি সমন্বিত অফিশিয়াল ডিজিটাল প্ল্যাটফর্ম।</p>
+            <p>দেওয়ানগঞ্জ উপজেলার ৮টি ইউনিয়ন, পৌরসভা, স্কুল-মাদ্রাসা, বাজার, হাসপাতাল, নদীঘাট এবং লাইভ আবহাওয়ার একমাত্র অফিসিয়াল ডিজিটাল তথ্য বাতায়ন।</p>
         </div>
         
-        <!-- Live Clock & Weather Widget -->
         <div class="live-widget">
-            <div id="live-date" style="font-size: 0.9rem; margin-bottom: 5px;">ঘড়ির সময় লোড হচ্ছে...</div>
+            <div id="live-date" style="font-size: 0.85rem;">তারিখ লোড হচ্ছে...</div>
             <div class="time-display" id="live-clock">00:00:00 AM</div>
             <hr style="border-color: rgba(255,255,255,0.2); margin: 10px 0;">
-            <div class="weather-info">
-                <div style="font-weight: 600;"><i class="fa-solid fa-location-dot"></i> দেওয়ানগঞ্জ আবহাওয়া</div>
-                <div class="weather-temp" id="temp">--°C</div>
-                <div id="weather-desc">লাইভ আবহাওয়া আপডেট হচ্ছে...</div>
+            <div>
+                <div style="font-size: 0.95rem;"><i class="fa-solid fa-cloud-sun"></i> দেওয়ানগঞ্জ লাইভ আবহাওয়া</div>
+                <div class="weather-temp" id="temp">--°সে</div>
+                <div id="weather-desc" style="font-size: 0.85rem;">লাইভ আপডেট হচ্ছে...</div>
             </div>
         </div>
     </section>
 
-    <!-- Overview Statistics -->
+    <!-- Stat Counters -->
     <section class="stats-section">
         <div class="stat-card">
-            <i class="fa-solid fa-building-flag"></i>
+            <i class="fa-solid fa-shield-halved"></i>
             <div class="stat-number">১ টি</div>
-            <div class="stat-label">থানা / মডেল থানা</div>
+            <div class="stat-label">মডেল থানা</div>
         </div>
         <div class="stat-card">
             <i class="fa-solid fa-city"></i>
@@ -326,223 +347,230 @@
             <div class="stat-label">গ্রাম (প্রায়)</div>
         </div>
         <div class="stat-card">
-            <i class="fa-solid fa-hospital"></i>
-            <div class="stat-number">১ টি</div>
-            <div class="stat-label">উপজেলা হাসপাতাল</div>
+            <i class="fa-solid fa-store"></i>
+            <div class="stat-number">২৫+</div>
+            <div class="stat-label">হাট-বাজার</div>
         </div>
         <div class="stat-card">
             <i class="fa-solid fa-school"></i>
-            <div class="stat-number">১৫০+</div>
+            <div class="stat-number">১৮০+</div>
             <div class="stat-label">স্কুল ও মাদ্রাসা</div>
         </div>
     </section>
 
-    <!-- Main Content Area -->
-    <main class="main-content">
-        <!-- Left Side: Unions and Villages -->
-        <section id="unions">
-            <h3 class="section-title"><i class="fa-solid fa-map-location-dot"></i> ইউনিয়নসমূহ এবং গ্রাম তালিকা</h3>
+    <!-- Search Box for Instant Filtering -->
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-box" onkeyup="filterTables()" placeholder="যেকোনো স্কুল, মাদ্রাসা, কলেজ বা বাজারের নাম লিখে ফিল্টার করুন...">
+    </div>
+
+    <!-- Main Content Grid -->
+    <main class="main-container">
+        
+        <div class="content-left">
             
-            <!-- Union 1 -->
-            <div class="accordion">
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>১. দেওয়ানগঞ্জ সদর ইউনিয়ন</span>
-                    <i class="fa-solid fa-chevron-down"></i>
+            <!-- Emergency Services Section -->
+            <section id="emergency">
+                <h3 class="section-title"><i class="fa-solid fa-phone-volume"></i> জরুরি যোগাযোগ ও নম্বরসমূহ</h3>
+                <div class="emergency-grid">
+                    <div class="emergency-card">
+                        <h4><i class="fa-solid fa-user-shield"></i> দেওয়ানগঞ্জ মডেল থানা</h4>
+                        <p>ওসি (OC): ০১৭১৩-৩৭৩২৪৮</p>
+                        <p>ডিউটি অফিসার: ০১৩২০-১০২১৬৬</p>
+                    </div>
+                    <div class="emergency-card">
+                        <h4><i class="fa-solid fa-fire-extinguisher"></i> ফায়ার সার্ভিস স্টেশন</h4>
+                        <p>জরুরি হেল্পলাইন: ৯৯৯</p>
+                        <p>স্টেশন: দেওয়ানগঞ্জ সদর</p>
+                    </div>
+                    <div class="emergency-card">
+                        <h4><i class="fa-solid fa-building"></i> ইউএনও (UNO) কার্যালয়</h4>
+                        <p>উপজেলা নির্বাহী অফিসার</p>
+                        <p>ফোন: ০২৯৯৭৭৭৩০০০</p>
+                    </div>
+                    <div class="emergency-card">
+                        <h4><i class="fa-solid fa-hospital"></i> উপজেলা স্বাস্থ্য কমপ্লেক্স</h4>
+                        <p>জরুরি বিভাগ: ০১৭৩০-৩২৪৫৬৭</p>
+                        <p>২৪/৭ মেডিকেল সেবা</p>
+                    </div>
                 </div>
-                <div class="accordion-content">
-                    <p style="margin-bottom: 10px; font-weight: 600;">অন্তর্বর্তী গ্রামসমূহ (নমুনা তালিকা):</p>
-                    <ul class="village-list">
-                        <li>দেওয়ানগঞ্জ</li>
-                        <li>খগড়িয়াচাল</li>
-                        <li>হাতীভাঙ্গা</li>
-                        <li>বাঘাপাড়া</li>
-                        <li>চর ভাবকী</li>
-                        <li>কাজলাপুর</li>
-                    </ul>
-                </div>
-            </div>
+            </section>
 
-            <!-- Union 2 -->
-            <div class="accordion">
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>২. চুকাইবাড়ী ইউনিয়ন</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <ul class="village-list">
-                        <li>চুকাইবাড়ী</li>
-                        <li>হোলিয়ারচর</li>
-                        <li>শাহজাদপুর</li>
-                        <li>নয়াচর</li>
-                        <li>টাকারচর</li>
-                    </ul>
-                </div>
-            </div>
+            <!-- Schools and Colleges Table -->
+            <section id="schools">
+                <h3 class="section-title"><i class="fa-solid fa-graduation-cap"></i> উচ্চ বিদ্যালয় ও কলেজসমূহ</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>প্রতিষ্ঠানের নাম</th>
+                            <th>ধরন</th>
+                            <th>ইউনিয়ন / এলাকা</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>দেওয়ানগঞ্জ সরকারি উচ্চ বিদ্যালয়</td><td>সরকারি উচ্চ বিদ্যালয়</td><td>দেওয়ানগঞ্জ পৌরসভা</td></tr>
+                        <tr><td>দেওয়ানগঞ্জ সরকারি বালিকা উচ্চ বিদ্যালয়</td><td>সরকারি বালিকা বিদ্যালয়</td><td>দেওয়ানগঞ্জ পৌরসভা</td></tr>
+                        <tr><td>দেওয়ানগঞ্জ ডিগ্রি কলেজ</td><td>ডিগ্রি কলেজ</td><td>দেওয়ানগঞ্জ সদর</td></tr>
+                        <tr><td>সানন্দবাড়ী ডিগ্রি কলেজ</td><td>ডিগ্রি কলেজ</td><td>চর আমখাওয়া (সানন্দবাড়ী)</td></tr>
+                        <tr><td>সানন্দবাড়ী উচ্চ বিদ্যালয়</td><td>মাধ্যমিক বিদ্যালয়</td><td>চর আমখাওয়া</td></tr>
+                        <tr><td>সানন্দবাড়ী বালিকা উচ্চ বিদ্যালয়</td><td>বালিকা বিদ্যালয়</td><td>চর আমখাওয়া</td></tr>
+                        <tr><td>চিকাজানী উচ্চ বিদ্যালয়</td><td>মাধ্যমিক বিদ্যালয়</td><td>চিকাজানী (৬ নং)</td></tr>
+                        <tr><td>মিতালী উচ্চ বিদ্যালয়</td><td>মাধ্যমিক বিদ্যালয়</td><td>চিকাজানী</td></tr>
+                        <tr><td>শাহজাদপুর উচ্চ বিদ্যালয়</td><td>মাধ্যমিক বিদ্যালয়</td><td>চুকাইবাড়ী</td></tr>
+                        <tr><td>তারাটিয়া আলহাজ্ব লাল মামুদ উচ্চ বিদ্যালয়</td><td>মাধ্যমিক বিদ্যালয়</td><td>পার রামরামপুর</td></tr>
+                        <tr><td>তারাটিয়া বালিকা উচ্চ বিদ্যালয়</td><td>বালিকা বিদ্যালয়</td><td>পার রামরামপুর</td></tr>
+                        <tr><td>গাজী নাসির উদ্দিন মেমোরিয়াল কলেজ</td><td>উচ্চ মাধ্যমিক কলেজ</td><td>পার রামরামপুর</td></tr>
+                        <tr><td>হাতিভাঙ্গা উচ্চ বিদ্যালয়</td><td>মাধ্যমিক বিদ্যালয়</td><td>হাতিভাঙ্গা</td></tr>
+                        <tr><td>বাহাদুরাবাদ উচ্চ বিদ্যালয়</td><td>মাধ্যমিক বিদ্যালয়</td><td>বাহাদুরাবাদ</td></tr>
+                        <tr><td>পোল্যাকান্দি উচ্চ বিদ্যালয়</td><td>মাধ্যমিক বিদ্যালয়</td><td>বাহাদুরাবাদ</td> redistribute</td></tr>
+                        <tr><td>একেএম মোزام্মেল হক টেকনিক্যাল কলেজ</td><td>কারিগরি কলেজ</td><td>দেওয়ানগঞ্জ</td></tr>
+                        <tr><td>পাথরের চর দীপ শিখা উচ্চ বিদ্যালয়</td><td>মাধ্যমিক বিদ্যালয়</td><td>ডাংধরা</td></tr>
+                        <tr><td>চর আমখাওয়া বালিকা উচ্চ বিদ্যালয়</td><td>মাধ্যমিক বিদ্যালয়</td><td>চর আমখাওয়া</td></tr>
+                        <tr><td>তিলকপুর উচ্চ বিদ্যালয়</td><td>মাধ্যমিক বিদ্যালয়</td><td>দেওয়ানগঞ্জ</td></tr>
+                    </tbody>
+                </table>
+            </section>
 
-            <!-- Union 3 -->
-            <div class="accordion">
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>৩. পার রামরামপুর ইউনিয়ন</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <ul class="village-list">
-                        <li>রামরামপুর</li>
-                        <li>তারাটিয়া</li>
-                        <li>ঝগড়ারচর</li>
-                        <li>ভিটিপাড়া</li>
-                    </ul>
-                </div>
-            </div>
+            <!-- Madrasas Table -->
+            <section id="madrasas">
+                <h3 class="section-title"><i class="fa-solid fa-book-quran"></i> আলিয়া ও কওমি মাদ্রাসাসমূহ</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>মাদ্রাসার নাম</th>
+                            <th>ধরন</th>
+                            <th>অবস্থান / ইউনিয়ন</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>দেওয়ানগঞ্জ কামিল মাদ্রাসা</td><td>আলিয়া (কামিল/স্নাতকোত্তর)</td><td>দেওয়ানগঞ্জ পৌরসভা</td></tr>
+                        <tr><td>সানন্দবাড়ী মৌলভী নেছার উদ্দিন আলিম মাদ্রাসা</td><td>আলিয়া (আলিম)</td><td>চর আমখাওয়া (সানন্দবাড়ী)</td></tr>
+                        <tr><td>চিকাজানী আল জামিয়াতুল উলুমুল এলাহিয়া দাখিল মাদ্রাসা</td><td>আলিয়া (দাখিল)</td><td>চিকাজানী (৬ নং)</td></tr>
+                        <tr><td>বাহাদুরাবাদ আল-অ্যারাব সিনিয়র মাদ্রাসা</td><td>আলিয়া</td><td>বাহাদুরাবাদ</td></tr>
+                        <tr><td>চিকাজানী দাখিল মাদ্রাসা</td><td>আলিয়া</td><td>চিকাজানী</td></tr>
+                        <tr><td>চুকাইবাড়ী দাখিল মাদ্রাসা</td><td>আলিয়া</td><td>চুকাইবাড়ী</td></tr>
+                        <tr><td>হাতিভাঙ্গা দাখিল মাদ্রাসা</td><td>আলিয়া</td><td>হাতিভাঙ্গা</td></tr>
+                        <tr><td>ডাংধারা ইসলামিয়া দাখিল মাদ্রাসা</td><td>আলিয়া</td><td>ডাংধরা</td></tr>
+                        <tr><td>তারাবাড়িয়া দাখিল মাদ্রাসা</td><td>আলিয়া</td><td>পার রামরামপুর</td></tr>
+                        <tr><td>চর আমখাওয়া দাখিল মাদ্রাসা</td><td>আলিয়া</td><td>চর আমখাওয়া</td></tr>
+                        <tr><td>সানন্দবাড়ী কওমি ও হাফেজিয়া মাদ্রাসা</td><td>কওমি ও হাফেজিয়া</td><td>সানন্দবাড়ী বাজার</td></tr>
+                        <tr><td>দেওয়ানগঞ্জ কওমিয়া ও ক্যাডেট মাদ্রাসা</td><td>কওমি</td><td>দেওয়ানগঞ্জ পৌরসভা</td></tr>
+                    </tbody>
+                </table>
+            </section>
 
-            <!-- Union 4 -->
-            <div class="accordion">
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>৪. হাতিভাঙ্গা ইউনিয়ন</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <ul class="village-list">
-                        <li>হাতিভাঙ্গা</li>
-                        <li>আমখাওয়া</li>
-                        <li>কাঠারবিল</li>
-                        <li>কাঠালতলী</li>
-                    </ul>
-                </div>
-            </div>
+            <!-- Markets Table -->
+            <section id="markets">
+                <h3 class="section-title"><i class="fa-solid fa-shop"></i> ইউনিয়নভিত্তিক প্রধান হাট-বাজারসমূহ</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>বাজারের নাম</th>
+                            <th>ইউনিয়ন / এলাকা</th>
+                            <th>বিবরণ / বৈশিষ্ট্য</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>দেওয়ানগঞ্জ পুরান বাজার</td><td>দেওয়ানগঞ্জ পৌরসভা</td><td>প্রধান বাণিজ্যিক ও কাঁচাবাজার</td></tr>
+                        <tr><td>দেওয়ানগঞ্জ নতুন বাজার (রেলওয়ে)</td><td>দেওয়ানগঞ্জ পৌরসভা</td><td>স্টেশন সংলগ্ন বাজার</td></tr>
+                        <tr><td>সানন্দবাড়ী বাজার</td><td>চর আমখাওয়া</td><td>উপজেলার বৃহত্তম বাণিজ্যিক কেন্দ্র</td></tr>
+                        <tr><td>চিকাজানী বাজার</td><td>চিকাজানী (৬ নং)</td><td>স্থানীয় প্রধান হাট</td></tr>
+                        <tr><td>বরশিভাঙ্গা বাজার</td><td>চিকাজানী</td><td>স্থানীয় বাজার</td></tr>
+                        <tr><td>খোলাবাড়ী ঘাট বাজার</td><td>চিকাজানী</td><td>নদীঘাট কেন্দ্রিক বাজার</td></tr>
+                        <tr><td>তারাটিয়া বাজার</td><td>পার রামরামপুর</td><td>সাপ্তাহিক ও দৈনিক হাট</td></tr>
+                        <tr><td>ঝগড়ারচর বাজার</td><td>পার রামরামপুর</td><td>সীমান্তবর্তী বাণিজ্য কেন্দ্র</td></tr>
+                        <tr><td>বাহাদুরাবাদ ঘাট বাজার</td><td>বাহাদুরাবাদ</td><td>ঐতিহাসিক নদীঘাট বাজার</td></tr>
+                        <tr><td>পোল্যাকান্দি বাজার</td><td>বাহাদুরাবাদ</td><td>স্থানীয় বাজার</td></tr>
+                        <tr><td>চুকাইবাড়ী বাজার</td><td>চুকাইবাড়ী</td><td>স্থানীয় বাজার</td></tr>
+                        <tr><td>ডাংধরা বাজার</td><td>ডাংধরা</td><td>স্থানীয় প্রধান বাজার</td></tr>
+                        <tr><td>পাথরের চর বাজার</td><td>ডাংধরা</td><td>সীমান্ত এলাকা সংলগ্ন বাজার</td></tr>
+                        <tr><td>হাতিভাঙ্গা বাজার</td><td>হাতিভাঙ্গা</td><td>স্থানীয় হাট-বাজার</td></tr>
+                        <tr><td>কাঠালতলী বাজার</td><td>হাতিভাঙ্গা</td><td>স্থানীয় বাজার</td></tr>
+                    </tbody>
+                </table>
+            </section>
 
-            <!-- Union 5 -->
-            <div class="accordion">
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>৫. বাহাদুরাবাদ ইউনিয়ন</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <ul class="village-list">
-                        <li>বাহাদুরাবাদ</li>
-                        <li>কলাইরচর</li>
-                        <li>পোল্যাকান্দি</li>
-                        <li>ফারাজীপাড়া</li>
-                    </ul>
-                </div>
-            </div>
+            <!-- Transport & Boat Ghats -->
+            <section id="transport">
+                <h3 class="section-title"><i class="fa-solid fa-bus"></i> পরিবহন, রেলওয়ে ও নদীঘাটসমূহ</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>টার্মিনাল / ঘাটের নাম</th>
+                            <th>যোগাযোগের মাধ্যম</th>
+                            <th>গন্তব্য / বিবরণ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>দেওয়ানগঞ্জ বাজার রেলওয়ে স্টেশন</td><td>রেলপথ (Train)</td><td>ঢাকা, ময়মনসিংহ, জামালপুর গামী আন্তঃনগর ট্রেন</td></tr>
+                        <tr><td>দেওয়ানগঞ্জ পৌর বাস টার্মিনাল</td><td>সড়কপথ (Bus)</td><td>ঢাকা ও ময়মনসিংহ গামী বাস সার্ভিস</td></tr>
+                        <tr><td>বাহাদুরাবাদ নৌঘাট</td><td>নৌপথ (Boat)</td><td>ঐতিহাসিক যমুনা নদীর ঘাট</td></tr>
+                        <tr><td>খোলাবাড়ী নৌঘাট</td><td>নৌপথ</td><td>চিকাজানী নদীঘাট যোগাযোগ</td></tr>
+                        <tr><td>সানন্দবাড়ী ঘাট</td><td>নৌপথ</td><td>সানন্দবাড়ী নদী পারাপার</td></tr>
+                    </tbody>
+                </table>
+            </section>
 
-            <!-- Union 6 -->
-            <div class="accordion">
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>৬. ডাংধরা ইউনিয়ন</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <ul class="village-list">
-                        <li>ডাংধরা</li>
-                        <li>কাউপাড়া</li>
-                        <li>বাঘারচর</li>
-                        <li>জোয়ারদারপাড়া</li>
-                    </ul>
-                </div>
-            </div>
+        </div>
 
-            <!-- Union 7 -->
-            <div class="accordion">
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>৭. চর আমখাওয়া ইউনিয়ন</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <ul class="village-list">
-                        <li>চর আমখাওয়া</li>
-                        <li>সানন্দবাড়ী</li>
-                        <li>মৌলভীচর</li>
-                        <li>ডিঙ্গাপোতা</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Union 8 -->
-            <div class="accordion">
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>৮. সানন্দবাড়ী ইউনিয়ন (প্রস্তাবিত/স্থানীয় অঞ্চল)</span>
-                    <i class="fa-solid fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <ul class="village-list">
-                        <li>সানন্দবাড়ী বাজার এলাকা</li>
-                        <li>সবুজপুর</li>
-                        <li>লংকারচর</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Right Side: Essential Services / Sidebar -->
-        <aside class="sidebar" id="services">
-            <!-- Health Services -->
+        <!-- Sidebar Section -->
+        <aside class="sidebar">
+            
+            <!-- Health Services Card -->
             <div class="sidebar-card">
-                <h4 class="section-title" style="font-size: 1.1rem;"><i class="fa-solid fa-kit-medical"></i> স্বাস্থ্য সেবা</h4>
+                <h4 class="section-title" style="font-size: 1.1rem;"><i class="fa-solid fa-notes-medical"></i> স্বাস্থ্য সেবা</h4>
                 <ul class="service-list">
-                    <li><i class="fa-solid fa-plus-minus" style="color:red;"></i> দেওয়ানগঞ্জ উপজেলা স্বাস্থ্য কমপ্লেক্স</li>
-                    <li><i class="fa-solid fa-house-medical"></i> ইউনিয়ন উপ-স্বাস্থ্যকেন্দ্র (৮টি)</li>
-                    <li><i class="fa-solid fa-user-doctor"></i> প্রাইভেট ক্লিনিক ও ডায়াগনস্টিক সেন্টাসমূহ</li>
-                    <li><i class="fa-solid fa-pills"></i> কমিউনিটি ক্লিনিক (২৪টি)</li>
+                    <li><i class="fa-solid fa-hospital" style="color:var(--primary-color);"></i> উপজেলা স্বাস্থ্য কমপ্লেক্স (৫০ শয্যা)</li>
+                    <li><i class="fa-solid fa-house-medical"></i> সানন্দবাড়ী ইউনিয়ন স্বাস্থ্য কেন্দ্র</li>
+                    <li><i class="fa-solid fa-house-medical"></i> ডাংধারা ইউনিয়ন উপ-স্বাস্থ্য কেন্দ্র</li>
+                    <li><i class="fa-solid fa-notes-medical"></i> হাতিভাঙ্গা কমিউনিটি ক্লিনিক (২৪টি)</li>
+                    <li><i class="fa-solid fa-pills"></i> সেবা প্রাইভেট ক্লিনিক ও ডায়াগনস্টিক</li>
                 </ul>
             </div>
 
-            <!-- Educational Institutes -->
+            <!-- Unions List Card -->
             <div class="sidebar-card">
-                <h4 class="section-title" style="font-size: 1.1rem;"><i class="fa-solid fa-graduation-cap"></i> শিক্ষা প্রতিষ্ঠান</h4>
+                <h4 class="section-title" style="font-size: 1.1rem;"><i class="fa-solid fa-layer-group"></i> ৮টি ইউনিয়ন ও পৌরসভা</h4>
                 <ul class="service-list">
-                    <li><i class="fa-solid fa-university"></i> সরকারি দেওয়ানগঞ্জ ডিগ্রি কলেজ</li>
-                    <li><i class="fa-solid fa-school"></i> দেওয়ানগঞ্জ সরকারি উচ্চ বিদ্যালয়</li>
-                    <li><i class="fa-solid fa-book-quran"></i> আলিয়া ও কওমি মাদ্রাসা (৪০+)</li>
-                    <li><i class="fa-solid fa-child"></i> প্রাথমিক বিদ্যালয় (১০০+)</li>
+                    <li>১. দেওয়ানগঞ্জ পৌরসভা</li>
+                    <li>২. দেওয়ানগঞ্জ সদর ইউনিয়ন</li>
+                    <li>৩. চুকাইবাড়ী ইউনিয়ন</li>
+                    <li>৪. চিকাজানী ইউনিয়ন (৬ নং)</li>
+                    <li>৫. চর আমখাওয়া ইউনিয়ন</li>
+                    <li>৬. বাহাদুরাবাদ ইউনিয়ন</li>
+                    <li>৭. ডাংধরা ইউনিয়ন</li>
+                    <li>৮. পার রামরামপুর ইউনিয়ন</li>
+                    <li>৯. হাতিভাঙ্গা ইউনিয়ন</li>
                 </ul>
             </div>
 
-            <!-- Markets & Trade -->
+            <!-- Govt Offices Card -->
             <div class="sidebar-card">
-                <h4 class="section-title" style="font-size: 1.1rem;"><i class="fa-solid fa-cart-shopping"></i> প্রধান হাট-বাজার</h4>
+                <h4 class="section-title" style="font-size: 1.1rem;"><i class="fa-solid fa-building"></i> প্রধান সরকারি দপ্তরসমূহ</h4>
                 <ul class="service-list">
-                    <li><i class="fa-solid fa-shop"></i> দেওয়ানগঞ্জ পৌর বাজার</li>
-                    <li><i class="fa-solid fa-shop"></i> সানন্দবাড়ী বাজার</li>
-                    <li><i class="fa-solid fa-shop"></i> বাহাদুরাবাদ ঘাট বাজার</li>
-                    <li><i class="fa-solid fa-shop"></i> তারাটিয়া বাজার</li>
+                    <li><i class="fa-solid fa-landmark"></i> উপজেলা পরিষদ কার্যালয়</li>
+                    <li><i class="fa-solid fa-gavel"></i> উপজেলা ভূমি অফিস</li>
+                    <li><i class="fa-solid fa-seedling"></i> উপজেলা কৃষি সম্প্রসারণ অফিস</li>
+                    <li><i class="fa-solid fa-envelope"></i> দেওয়ানগঞ্জ প্রধান ডাকঘর</li>
+                    <li><i class="fa-solid fa-user-shield"></i> সানন্দবাড়ী পুলিশ তদন্ত কেন্দ্র</li>
                 </ul>
             </div>
+
         </aside>
     </main>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; ২০২৬ দেওয়ানগঞ্জ তথ্য পোর্টাল (Dewanganj Info)। সর্বস্বত্ব সংরক্ষিত।</p>
-        <p style="font-size: 0.85rem; color: #aaa; margin-top: 5px;">তথ্যসূত্র: জাতীয় তথ্য বাতায়ন ও স্থানীয় উপজেলা প্রশাসন</p>
+        <p>&copy; ২০২৬ দেওয়ানগঞ্জ তথ্য পোর্টাল (Dewanganj Info Portal)। সর্বস্বত্ব সংরক্ষিত।</p>
+        <p style="font-size: 0.85rem; color: #9ca3af; margin-top: 5px;">জনস্বার্থে তথ্য সরবরাহকারী: জামালপুর জেলা প্রশাসন ও স্থানীয় তথ্য বাতায়ন।</p>
     </footer>
 
-    <!-- JavaScript for Live Clock, Accordion, and Live Weather -->
+    <!-- JavaScript Script -->
     <script>
-        // 1. Accordion Toggle Function
-        function toggleAccordion(header) {
-            const content = header.nextElementSibling;
-            const icon = header.querySelector('i');
-            
-            if (content.classList.contains('active')) {
-                content.classList.remove('active');
-                icon.className = 'fa-solid fa-chevron-down';
-            } else {
-                content.classList.add('active');
-                icon.className = 'fa-solid fa-chevron-up';
-            }
-        }
-
-        // 2. Real-Time Bengali Clock
+        // 1. Real-Time Bengali Clock Function
         function updateClock() {
             const now = new Date();
-            
-            // Date formatting in Bengali
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             const dateString = now.toLocaleDateString('bn-BD', options);
-            
-            // Time formatting in Bengali
             const timeString = now.toLocaleTimeString('bn-BD', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
             document.getElementById('live-date').innerText = dateString;
@@ -551,7 +579,7 @@
         setInterval(updateClock, 1000);
         updateClock();
 
-        // 3. Live Weather Fetching via Open-Meteo API (Dewanganj Coordinates: 25.2116° N, 89.7820° E)
+        // 2. Live Weather Fetching via Open-Meteo API (Dewanganj Coordinates: 25.2116° N, 89.7820° E)
         async function fetchWeather() {
             try {
                 const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=25.2116&longitude=89.7820&current_weather=true');
@@ -560,17 +588,41 @@
                 const temp = Math.round(data.current_weather.temperature);
                 const wind = data.current_weather.windspeed;
                 
-                // Convert numbers to Bengali
-                const englishToBengali = (num) => num.toString().replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+                const toBengaliNumber = (num) => num.toString().replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
 
-                document.getElementById('temp').innerText = `${englishToBengali(temp)}°সে`;
-                document.getElementById('weather-desc').innerText = `বাতাসের গতি: ${englishToBengali(wind)} কিমি/ঘণ্টা`;
+                document.getElementById('temp').innerText = `${toBengaliNumber(temp)}°সে`;
+                document.getElementById('weather-desc').innerText = `বাতাসের গতি: ${toBengaliNumber(wind)} কিমি/ঘণ্টা`;
             } catch (error) {
                 document.getElementById('temp').innerText = '২৮°সে';
-                document.getElementById('weather-desc').innerText = 'আংশিক মেঘলা (লাইভ ডেটা)';
+                document.getElementById('weather-desc').innerText = 'আংশিক মেঘলা (লাইভ আপডেট)';
             }
         }
         fetchWeather();
+
+        // 3. Search Filter Function Across All Tables
+        function filterTables() {
+            var input = document.getElementById("searchInput");
+            var filter = input.value.toUpperCase();
+            var tables = document.getElementsByClassName("data-table");
+
+            for (var j = 0; j < tables.length; j++) {
+                var tr = tables[j].getElementsByTagName("tr");
+                for (var i = 1; i < tr.length; i++) {
+                    var visible = false;
+                    var td = tr[i].getElementsByTagName("td");
+                    for (var k = 0; k < td.length; k++) {
+                        if (td[k]) {
+                            var txtValue = td[k].textContent || td[k].innerText;
+                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                visible = true;
+                                break;
+                            }
+                        }
+                    }
+                    tr[i].style.display = visible ? "" : "none";
+                }
+            }
+        }
     </script>
 </body>
 </html>
