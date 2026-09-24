@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>দেওয়ানগঞ্জ তথ্য বাতায়ন ও নাগরিক সেবা পোর্টাল</title>
+  <meta name="description" content="দেওয়ানগঞ্জ উপজেলার ইউনিয়ন, হাসপাতাল, পরিবহন, নদী ও বন্যার পূর্বাভাস, বাজার ও নাগরিক সেবা সমূহ">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Hind Siliguri', sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.6;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+    header {
+      background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+      color: white;
+      padding: 32px 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .header-title { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+    .header-sub { font-size: 15px; opacity: 0.9; }
+    .banner-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .banner-card {
+      background: rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 16px;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .emergency-strip {
+      background: #dc2626;
+      color: white;
+      padding: 12px 16px;
+      font-size: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .emergency-strip a {
+      color: #fef08a;
+      font-weight: 700;
+      text-decoration: underline;
+      margin-left: 4px;
+    }
+    .nav-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 20px 0;
+      border-bottom: 2px solid #e2e8f0;
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .tab-btn {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn:hover, .tab-btn.active {
+      background: #047857;
+      color: white;
+      border-color: #047857;
+    }
+    .section-content { display: none; padding: 28px 0; }
+    .section-content.active { display: block; }
+    .section-heading {
+      font-size: 22px;
+      font-weight: 700;
+      color: #065f46;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .item-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .item-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      border-color: #cbd5e1;
+    }
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+    .card-meta {
+      font-size: 13px;
+      color: #64748b;
+      margin-bottom: 12px;
+    }
+    .card-body {
+      font-size: 14px;
+      color: #334155;
+    }
+    .card-row {
+      margin-bottom: 6px;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .card-row strong { color: #0f172a; min-width: 90px; }
+    .phone-link {
+      display: inline-block;
+      margin-top: 10px;
+      background: #ecfdf5;
+      color: #047857;
+      padding: 6px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid #a7f3d0;
+    }
+    .phone-link:hover { background: #d1fae5; }
+    .flood-meter {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 28px;
+    }
+    .footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 32px 16px;
+      margin-top: 48px;
+      font-size: 14px;
+    }
+    .footer a { color: #34d399; text-decoration: none; }
+    .search-box {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 16px;
+      border: 2px solid #cbd5e1;
+      border-radius: 8px;
+      margin: 16px 0;
+      font-family: inherit;
+    }
+    .search-box:focus {
+      outline: none;
+      border-color: #047857;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- জরুরি হটলাইন স্ট্রিপ -->
+  <div class="emergency-strip">
+    <span>🚨 দেওয়ানগঞ্জ জরুরি সেবা:</span>
+    <span>জাতীয় কল: <a href="tel:999">৯৯৯</a></span> |
+    <span>থানা পুলিশ: <a href="tel:01320100200">০১৩২০-১০০২০০</a></span> |
+    <span>ফায়ার সার্ভিস: <a href="tel:01731587788">০১৭৩১-৫৮৭৭৮৮</a></span> |
+    <span>হাসপাতাল অ্যাম্বুলেন্স: <a href="tel:01730324477">০১৭৩০-৩২৪৪৭৭</a></span>
+  </div>
+
+  <!-- হেডার -->
+  <header>
+    <div class="container">
+      <h1 class="header-title">🏛️ দেওয়ানগঞ্জ তথ্য বাতায়ন ও নাগরিক সেবা পোর্টাল</h1>
+      <p class="header-sub">জামালপুর জেলা | প্রায় ২ লক্ষ মানুষের নাগরিক তথ্য, ইউনিয়ন, পরিবহন, চিকিৎসা ও সেবার সমন্বিত প্ল্যাটফর্ম</p>
+      
+      <div class="banner-grid">
+        <div class="banner-card">
+          <div style="font-size: 13px; opacity: 0.85;">⏰ বর্তমান স্থানীয় সময়</div>
+          <div id="liveClock" style="font-size: 20px; font-weight: 700; margin-top: 4px;">লোড হচ্ছে...</div>
+          <div style="font-size: 12px; opacity: 0.8;">বাংলাদেশ স্ট্যান্ডার্ড টাইম (BST)</div>
+        </div>
+
+        <div class="banner-card">
+          <div style="font-size: 13px; opacity: 0.85;">🌦️ দেওয়ানগঞ্জ আবহাওয়া</div>
+          <div style="font-size: 20px; font-weight: 700; margin-top: 4px;">২৮°C (আংশিক মেঘলা)</div>
+          <div style="font-size: 12px; opacity: 0.8;">আর্দ্রতা: ৭২% | বাতাস: উত্তর-পূর্ব ১০ কিমি/ঘণ্টা</div>
+        </div>
+
+        <div class="banner-card">
+          <div style="font-size: 13px; opacity: 0.85;">🌊 নদী ও বন্যার পূর্বাভাস</div>
+          <div style="font-size: 20px; font-weight: 700; margin-top: 4px; color: #a7f3d0;">স্বাভাবিক (বিপদসীমার নিচে)</div>
+          <div style="font-size: 12px; opacity: 0.8;">বাহাদুরাবাদ ঘাট পয়েন্ট: ১৮.২৫ মি (বিপদসীমা ১৯.৫০ মি)</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- প্রধান কনটেইনার -->
+  <div class="container">
+
+    <!-- সার্চ বার -->
+    <input type="text" id="searchInput" class="search-box" placeholder="🔍 দেওয়ানগঞ্জের যে কোনো সেবা, ইউনিয়ন, হাসপাতাল, ট্রেন, বাজার বা নম্বর খুঁজুন..." oninput="handleSearch()">
+
+    <!-- নেভিগেশন ট্যাব -->
+    <div class="nav-tabs" id="tabBar">
+      <button class="tab-btn active" onclick="switchTab('unions')">🏛️ ৯টি ইউনিয়ন ও পৌরসভা (9)</button>
+      <button class="tab-btn" onclick="switchTab('hospitals')">🏥 হাসপাতাল ও স্বাস্থ্যসেবা (6)</button>
+      <button class="tab-btn" onclick="switchTab('transports')">🚆 ট্রেন ও বাস সার্ভিস (7)</button>
+      <button class="tab-btn" onclick="switchTab('institutions')">🕌 মসজিদ ও মাদ্রাসা (7)</button>
+      <button class="tab-btn" onclick="switchTab('markets')">🛒 বাজার ও হাটসমূহ (5)</button>
+      <button class="tab-btn" onclick="switchTab('couriers')">📦 কুরিয়ার সার্ভিস (4)</button>
+      <button class="tab-btn" onclick="switchTab('journalists')">📰 সাংবাদিকবৃন্দ (5)</button>
+      <button class="tab-btn" onclick="switchTab('banks')">🏦 ব্যাংক ও এটিএম (6)</button>
+      <button class="tab-btn" onclick="switchTab('ghats')">⚓ ঐতিহাসিক ঘাট ও স্থান (4)</button>
+      <button class="tab-btn" onclick="switchTab('electricity')">⚡ বিদ্যুৎ অভিযোগ কেন্দ্র (4)</button>
+      <button class="tab-btn" onclick="switchTab('bkash')">📱 বিকাশ ও মোবাইল ব্যাংকিং (4)</button>
+      <button class="tab-btn" onclick="switchTab('flood')">🌊 বন্যার পূর্বাভাস ও নদী</button>
+    </div>
+
+    <!-- ১. ইউনিয়ন সমূহ -->
+    <section id="sec-unions" class="section-content active">
+      <div class="section-heading">
+        <span>🏛️ দেওয়ানগঞ্জ উপজেলার ইউনিয়ন ও পৌরসভা সমূহ (৯টি)</span>
+      </div>
+      <div class="grid-cards">
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">দেওয়ানগঞ্জ পৌরসভা</h3>
+            <div class="card-meta">Dewanganj Pourashava · জনসংখ্যা: ৪৫,০০০+ জন · আয়তন: ২০.১৬ বর্গ কিমি</div>
+            <div class="card-body">
+              <div class="card-row"><strong>কার্যালয়:</strong> <span>পৌর ভবন, রেলস্টেশন রোড, দেওয়ানগঞ্জ সদর, জামালপুর</span></div>
+              <div class="card-row"><strong>ইউপি প্রশাসক:</strong> <span>পৌর প্রশাসক / মেয়র কার্যালয়</span></div>
+              <div class="card-row"><strong>সচিব:</strong> <span>নির্বাহী কর্মকর্তা / পৌর সচিব</span></div>
+              <div class="card-row"><strong>ওয়ার্ড সংখ্যা:</strong> <span>9 টি (গ্রাম: 24 টি)</span></div>
+              <div class="card-row"><strong>দর্শনীয় স্থান:</strong> <span>দেওয়ানগঞ্জ রেলওয়ে স্টেশন, জিলবাংলা সুগার মিলস, উপজেলা পরিষদ চত্বর, কেন্দ্রীয় জামে মসজিদ</span></div>
+              <div style="margin-top: 10px; font-size: 13px; color: #475569;">দেওয়ানগঞ্জ উপজেলার প্রাণকেন্দ্র ও প্রশাসনিক সদর দপ্তর। এটি একটি ক-শ্রেণীর পৌরসভা, যেখানে রয়েছে ঐতিহ্যবাহী রেলওয়ে স্টেশন ও চিনিকল।</div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+                <a class="phone-link" href="tel:">📞 কল: ০১৭২৭-৬৬৬৯৯৯</a>
+                <a class="phone-link" style="background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe;" href="https://dewanganj.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">বাহাদুরাবাদ ইউনিয়ন</h3>
+            <div class="card-meta">Bahadurabad Union · জনসংখ্যা: ৩৩,২০০ জন · আয়তন: ৩২.৫ বর্গ কিমি</div>
+            <div class="card-body">
+              <div class="card-row"><strong>কার্যালয়:</strong> <span>ইউপি ভবন, বাহাদুরাবাদ ঘাট বাজার, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>ইউপি প্রশাসক:</strong> <span>ইউপি চেয়ারম্যান কার্যালয়</span></div>
+              <div class="card-row"><strong>সচিব:</strong> <span>ইউনিয়ন পরিষদ সচিব</span></div>
+              <div class="card-row"><strong>ওয়ার্ড সংখ্যা:</strong> <span>9 টি (গ্রাম: 18 টি)</span></div>
+              <div class="card-row"><strong>দর্শনীয় স্থান:</strong> <span>ঐতিহাসিক বাহাদুরাবাদ ঘাট, যমুনা নদী বাঁধ, বাহাদুরাবাদ উচ্চ বিদ্যালয়, ঘাট বাজার</span></div>
+              <div style="margin-top: 10px; font-size: 13px; color: #475569;">যমুনা নদীর কোলঘেঁষে অবস্থিত ঐতিহ্যবাহী ইউনিয়ন। এককালে তিস্তা ও যমুনার রেল ফেরি সার্ভিসের জন্য বাহাদুরাবাদ ঘাট বিশ্বখ্যাত ছিল।</div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+                <a class="phone-link" href="tel:">📞 কল: ০১৭৩৮-৪৫৬০১০</a>
+                <a class="phone-link" style="background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe;" href="https://bahadurabadup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">ডাংধরা ইউনিয়ন</h3>
+            <div class="card-meta">Dangdhara Union · জনসংখ্যা: ৪৬,০০০ জন · আয়তন: ৩৮.২ বর্গ কিমি</div>
+            <div class="card-body">
+              <div class="card-row"><strong>কার্যালয়:</strong> <span>ইউপি কার্যালয়, কাউনিয়ার চর / কাটারপাড়া বাজার, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>ইউপি প্রশাসক:</strong> <span>ইউপি চেয়ারম্যান কার্যালয়</span></div>
+              <div class="card-row"><strong>সচিব:</strong> <span>ইউপি সচিব</span></div>
+              <div class="card-row"><strong>ওয়ার্ড সংখ্যা:</strong> <span>9 টি (গ্রাম: 22 টি)</span></div>
+              <div class="card-row"><strong>দর্শনীয় স্থান:</strong> <span>কাটারপাড়া বাজার, কাউনিয়ার চর, জিঞ্জিরাম নদী তীর, ডাংধরা উচ্চ বিদ্যালয়</span></div>
+              <div style="margin-top: 10px; font-size: 13px; color: #475569;">দেওয়ানগঞ্জ উপজেলার একটি অন্যতম বৃহৎ ইউনিয়ন। কৃষি প্রধান এবং সানন্দবাড়ী বাণিজ্য অঞ্চলের সাথে ঘনিষ্ঠভাবে সংযুক্ত।</div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+                <a class="phone-link" href="tel:">📞 কল: ০১৭৫২-৯৮৪৫১২</a>
+                <a class="phone-link" style="background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe;" href="https://dangdharaup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">চরআমখাওয়া ইউনিয়ন</h3>
+            <div class="card-meta">Char Amkhawa Union · জনসংখ্যা: ৩৮,৫০০ জন · আয়তন: ৩৫.৮ বর্গ কিমি</div>
+            <div class="card-body">
+              <div class="card-row"><strong>কার্যালয়:</strong> <span>ইউপি ভবন, সানন্দবাড়ী বাজার সংলগ্ন, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>ইউপি প্রশাসক:</strong> <span>ইউপি চেয়ারম্যান কার্যালয়</span></div>
+              <div class="card-row"><strong>সচিব:</strong> <span>ইউপি সচিব</span></div>
+              <div class="card-row"><strong>ওয়ার্ড সংখ্যা:</strong> <span>9 টি (গ্রাম: 19 টি)</span></div>
+              <div class="card-row"><strong>দর্শনীয় স্থান:</strong> <span>ঐতিহাসিক সানন্দবাড়ী হাট, সানন্দবাড়ী ডিগ্রি কলেজ, জিঞ্জিরাম নদী ব্রিজ পয়েন্ট</span></div>
+              <div style="margin-top: 10px; font-size: 13px; color: #475569;">সানন্দবাড়ী হাট এই ইউনিয়নে অবস্থিত, যা জামালপুর ও কুড়িগ্রাম সীমান্তবর্তী সবচেয়ে বড় বাণিজ্যিক কেন্দ্র হিসেবে পরিচিত।</div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+                <a class="phone-link" href="tel:">📞 কল: ০১৭২৭-১২৩৪৫৬</a>
+                <a class="phone-link" style="background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe;" href="https://charamkhawaup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">পাররামপুর ইউনিয়ন</h3>
+            <div class="card-meta">Parrampur Union · জনসংখ্যা: ৩১,০০০ জন · আয়তন: ২৯.৪ বর্গ কিমি</div>
+            <div class="card-body">
+              <div class="card-row"><strong>কার্যালয়:</strong> <span>ইউপি কমপ্লেক্স, তারাটিয়া বাজার, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>ইউপি প্রশাসক:</strong> <span>ইউপি চেয়ারম্যান কার্যালয়</span></div>
+              <div class="card-row"><strong>সচিব:</strong> <span>ইউপি সচিব</span></div>
+              <div class="card-row"><strong>ওয়ার্ড সংখ্যা:</strong> <span>9 টি (গ্রাম: 16 টি)</span></div>
+              <div class="card-row"><strong>দর্শনীয় স্থান:</strong> <span>তারাটিয়া বাজার, তারাটিয়া হাফিজিয়া মাদ্রাসা, পাররামপুর স্বাস্থ্য কেন্দ্র</span></div>
+              <div style="margin-top: 10px; font-size: 13px; color: #475569;">দেওয়ানগঞ্জের পূর্বাঞ্চলের শান্তিপ্রিয় ইউনিয়ন, ব্যবসা-বাণিজ্য ও কৃষি উৎপাদনের জন্য অত্যন্ত উর্বর।</div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+                <a class="phone-link" href="tel:">📞 কল: ০১৭৩৯-৮৭৬৫৪৩</a>
+                <a class="phone-link" style="background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe;" href="https://parrampurup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">হাতীভাঙ্গা ইউনিয়ন</h3>
+            <div class="card-meta">Hathibhanga Union · জনসংখ্যা: ২৭,৮০০ জন · আয়তন: ২৭.০ বর্গ কিমি</div>
+            <div class="card-body">
+              <div class="card-row"><strong>কার্যালয়:</strong> <span>ইউপি কার্যালয়, কাঠারবিল বাজার, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>ইউপি প্রশাসক:</strong> <span>ইউপি চেয়ারম্যান কার্যালয়</span></div>
+              <div class="card-row"><strong>সচিব:</strong> <span>ইউপি সচিব</span></div>
+              <div class="card-row"><strong>ওয়ার্ড সংখ্যা:</strong> <span>9 টি (গ্রাম: 15 টি)</span></div>
+              <div class="card-row"><strong>দর্শনীয় স্থান:</strong> <span>কাঠারবিল বাজার, হাতীভাঙ্গা বালিকা বিদ্যালয়, বড় বিল এলাকা</span></div>
+              <div style="margin-top: 10px; font-size: 13px; color: #475569;">সবুজে ঘেরা ঐতিহ্যবাহী ইউনিয়ন, মৎস্য ও কৃষির জন্য বিখ্যাত।</div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+                <a class="phone-link" href="tel:">📞 কল: ০১৭২০-৩৩৪৫৫৬</a>
+                <a class="phone-link" style="background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe;" href="https://hathibhangaup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">চিকাজানী ইউনিয়ন</h3>
+            <div class="card-meta">Chikajani Union · জনসংখ্যা: ২৬,২০০ জন · আয়তন: ২৪.৫ বর্গ কিমি</div>
+            <div class="card-body">
+              <div class="card-row"><strong>কার্যালয়:</strong> <span>ইউপি ভবন, বরিতলী / চিকাজানী, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>ইউপি প্রশাসক:</strong> <span>ইউপি চেয়ারম্যান কার্যালয়</span></div>
+              <div class="card-row"><strong>সচিব:</strong> <span>ইউপি সচিব</span></div>
+              <div class="card-row"><strong>ওয়ার্ড সংখ্যা:</strong> <span>9 টি (গ্রাম: 14 টি)</span></div>
+              <div class="card-row"><strong>দর্শনীয় স্থান:</strong> <span>চিকাজানী পুরাতন ব্রহ্মপুত্র তীর, বরিতলী ঘাট, চিকাজানী উচ্চ বিদ্যালয়</span></div>
+              <div style="margin-top: 10px; font-size: 13px; color: #475569;">সদর সংলগ্ন ব্রহ্মপুত্র নদের কূলবর্তী একটি ইউনিয়ন। বর্ষাকালে নদী প্রকৃতির অপূর্ব সৌন্দর্য ফুটে ওঠে।</div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+                <a class="phone-link" href="tel:">📞 কল: ০১৭৬১-১১২২৩৩</a>
+                <a class="phone-link" style="background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe;" href="https://chikajaniup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">দেওয়ানগঞ্জ সদর ইউনিয়ন</h3>
+            <div class="card-meta">Dewanganj Sadar Union · জনসংখ্যা: ২৮,৯০০ জন · আয়তন: ২৬.৮ বর্গ কিমি</div>
+            <div class="card-body">
+              <div class="card-row"><strong>কার্যালয়:</strong> <span>ইউপি ভবন, বাঘারচর / খোলাবাড়ী, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>ইউপি প্রশাসক:</strong> <span>ইউপি চেয়ারম্যান কার্যালয়</span></div>
+              <div class="card-row"><strong>সচিব:</strong> <span>ইউপি সচিব</span></div>
+              <div class="card-row"><strong>ওয়ার্ড সংখ্যা:</strong> <span>9 টি (গ্রাম: 17 টি)</span></div>
+              <div class="card-row"><strong>দর্শনীয় স্থান:</strong> <span>বাঘারচর চর এলাকা, খোলাবাড়ী ঘাট, দেওয়ানগঞ্জ মডেল উচ্চ বিদ্যালয় সংলগ্ন এলাকা</span></div>
+              <div style="margin-top: 10px; font-size: 13px; color: #475569;">পৌরসভার চারপাশ ঘিরে দেওয়ানগঞ্জ সদর ইউনিয়ন বিস্তৃত। এর অধিকাংশ মানুষের জীবিকা কৃষি ও স্থানীয় ব্যবসা।</div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+                <a class="phone-link" href="tel:">📞 কল: ০১৭৪৫-৬৬৭৭৮৮</a>
+                <a class="phone-link" style="background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe;" href="https://dewanganjsadarup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">সানন্দবাড়ী বিশেষ নদী অঞ্চল ও মিতালী ইউনিয়ন সার্কেল</h3>
+            <div class="card-meta">Sanandabari Riverine Zone & Mitali Union Circle · জনসংখ্যা: ২৩,০০০ জন · আয়তন: ২১.৩ বর্গ কিমি</div>
+            <div class="card-body">
+              <div class="card-row"><strong>কার্যালয়:</strong> <span>সানন্দবাড়ী বাজার রোড, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>ইউপি প্রশাসক:</strong> <span>প্রশাসনিক সমন্বয়কারী ও ইউপি প্রতিনিধি</span></div>
+              <div class="card-row"><strong>সচিব:</strong> <span>সার্কেল কর্মকর্তা</span></div>
+              <div class="card-row"><strong>ওয়ার্ড সংখ্যা:</strong> <span>9 টি (গ্রাম: 12 টি)</span></div>
+              <div class="card-row"><strong>দর্শনীয় স্থান:</strong> <span>সানন্দবাড়ী রাবার ড্যাম এলাকা, জিঞ্জিরাম চর ও নদীবন্দর ঘাট</span></div>
+              <div style="margin-top: 10px; font-size: 13px; color: #475569;">দেওয়ানগঞ্জের উত্তরের সীমান্ত ও নদীবেষ্টিত জনপদ যা ব্যবসা ও নদী সুরক্ষায় অন্যতম গুরুত্বপূর্ণ।</div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+                <a class="phone-link" href="tel:">📞 কল: ০১৭৭৮-৯৯০০১১</a>
+                <a class="phone-link" style="background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe;" href="https://dewanganj.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+
+    <!-- ২. হাসপাতাল সমূহ -->
+    <section id="sec-hospitals" class="section-content">
+      <div class="section-heading">
+        <span>🏥 হাসপাতাল ও স্বাস্থ্যসেবা প্রতিষ্ঠান</span>
+      </div>
+      <div class="grid-cards">
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">দেওয়ানগঞ্জ উপজেলা স্বাস্থ্য কমপ্লেক্স (সরকারি ৫০ শয্যা)</h3>
+            <div class="card-meta">উপজেলা স্বাস্থ্য কমপ্লেক্স · ৫০ শয্যা</div>
+            <div class="card-body">
+              <div class="card-row"><strong>দায়িত্বপ্রাপ্ত:</strong> <span>উপজেলা স্বাস্থ্য ও পরিবার পরিকল্পনা কর্মকর্তা (UH&FPO)</span></div>
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>হাসপাতাল রোড, দেওয়ানগঞ্জ পৌরসভা, জামালপুর</span></div>
+              <div class="card-row"><strong>সেবার সময়:</strong> <span>জরুরি বিভাগ: ২৪ ঘণ্টা সার্বক্ষণিক | বহির্বিভাগ: সকাল ৮:০০ - দুপুর ২:৩০</span></div>
+              <div style="margin-top: 8px;">
+                <strong>মূল সেবাসমূহ:</strong>
+                <ul style="margin-left: 20px; margin-top: 4px; font-size: 13px;">
+                  <li>২৪ ঘণ্টা জরুরি চিকিৎসা বিভাগ</li><li>ইনডোর ও আউটডোর সেবা</li><li>প্রসূতি ও সিজারিয়ান ডেলিভারি ও নরমাল ডেলিভারি</li><li>ডিজিটাল এক্স-রে ও ইসিজি</li><li>প্যাথলজি ল্যাবরেটরি টেস্ট</li><li>সরকারি ন্যায্যমূল্যের ওষুধ বিতরণ</li><li>২৪ ঘণ্টা অক্সিজেন ও জরুরি অ্যাম্বুলেন্স</li>
+                </ul>
+              </div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+                <a class="phone-link" href="tel:">🚨 জরুরি: ০১৭৩০-৩২৪৪৭৭</a>
+                <a class="phone-link" style="background: #fee2e2; color: #b91c1c; border-color: #fecaca;" href="tel:">🚑 অ্যাম্বুলেন্স: ০১৭২০-৮৮৯৯০০</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">সানন্দবাড়ী ২০ শয্যা বিশিষ্ট হাসপাতাল ও উপস্বাস্থ্য কেন্দ্র</h3>
+            <div class="card-meta">উপস্বাস্থ্য কেন্দ্র · ২০ শয্যা</div>
+            <div class="card-body">
+              <div class="card-row"><strong>দায়িত্বপ্রাপ্ত:</strong> <span>মেডিকেল অফিসার</span></div>
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>সানন্দবাড়ী বাজার মোড়, চরআমখাওয়া, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>সেবার সময়:</strong> <span>সকাল ৮:০০ - বিকাল ৩:০০ (জরুরি সেবা চলমান)</span></div>
+              <div style="margin-top: 8px;">
+                <strong>মূল সেবাসমূহ:</strong>
+                <ul style="margin-left: 20px; margin-top: 4px; font-size: 13px;">
+                  <li>প্রাথমিক জরুরি চিকিৎসা</li><li>মাতৃ ও শিশু স্বাস্থ্য সেবা</li><li>টিকাদান ও পুষ্টি কর্মসূচি</li><li>সাধারণ প্যাথলজিক্যাল টেস্ট</li>
+                </ul>
+              </div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+                <a class="phone-link" href="tel:">🚨 জরুরি: ০১৭৩২-৭৭৪৪১১</a>
+                <a class="phone-link" style="background: #fee2e2; color: #b91c1c; border-color: #fecaca;" href="tel:">🚑 অ্যাম্বুলেন্স: ০১৭৪৫-৩৩৪৪৭৭</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">সেবা ডিজিটাল ডায়াগনস্টিক সেন্টার ও ক্লিনিক</h3>
+            <div class="card-meta">বেসরকারি ক্লিনিক · ১৫ শয্যা</div>
+            <div class="card-body">
+              <div class="card-row"><strong>দায়িত্বপ্রাপ্ত:</strong> <span>ডাঃ মোস্তাফিজুর রহমান (এমবিবিএস)</span></div>
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>রেলওয়ে স্টেশন রোড, দেওয়ানগঞ্জ বাজার</span></div>
+              <div class="card-row"><strong>সেবার সময়:</strong> <span>প্রতিদিন সকাল ৮:০০ - রাত ৯:০০</span></div>
+              <div style="margin-top: 8px;">
+                <strong>মূল সেবাসমূহ:</strong>
+                <ul style="margin-left: 20px; margin-top: 4px; font-size: 13px;">
+                  <li>ভিজিটিং বিশেষজ্ঞ চিকিৎসক পরামর্শ</li><li>আল্ট্রাসনোগ্রাম (৪D)</li><li>ডিজিটাল এক্স-রে</li><li>সম্পূর্ণ স্বয়ংক্রিয় রক্ত ও প্রস্রাব পরীক্ষা</li><li>সার্জারি ও সিজারিয়ান অপারেশন</li>
+                </ul>
+              </div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+                <a class="phone-link" href="tel:">🚨 জরুরি: ০১৭২৭-৫৫৮৮৯৯</a>
+                <a class="phone-link" style="background: #fee2e2; color: #b91c1c; border-color: #fecaca;" href="tel:">🚑 অ্যাম্বুলেন্স: ০১৭২৭-৫৫৮৮০০</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">তারাটিয়া ইউনিয়ন উপ-স্বাস্থ্য কেন্দ্র</h3>
+            <div class="card-meta">উপস্বাস্থ্য কেন্দ্র · ১০ শয্যা</div>
+            <div class="card-body">
+              <div class="card-row"><strong>দায়িত্বপ্রাপ্ত:</strong> <span>সহকারী সার্জন</span></div>
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>তারাটিয়া বাজার, পাররামপুর ইউনিয়ন, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>সেবার সময়:</strong> <span>সকাল ৯:০০ - দুপুর ২:০০</span></div>
+              <div style="margin-top: 8px;">
+                <strong>মূল সেবাসমূহ:</strong>
+                <ul style="margin-left: 20px; margin-top: 4px; font-size: 13px;">
+                  <li>সাধারণ চিকিৎসাসেবা</li><li>গর্ভবতী মায়েদের পরীক্ষা</li><li>ফ্রি সরকারি ওষুধ</li>
+                </ul>
+              </div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+                <a class="phone-link" href="tel:">🚨 জরুরি: ০১৭২৯-৪৪০৫৫০</a>
+                <a class="phone-link" style="background: #fee2e2; color: #b91c1c; border-color: #fecaca;" href="tel:">🚑 অ্যাম্বুলেন্স: ০১৭৩০-৩২৪৪৭৭ (সেন্ট্রাল)</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">লাইফ কেয়ার ক্লিনিক ও প্যাথলজি</h3>
+            <div class="card-meta">ডায়াগনস্টিক সেন্টার · ১০ শয্যা</div>
+            <div class="card-body">
+              <div class="card-row"><strong>দায়িত্বপ্রাপ্ত:</strong> <span>কনসালট্যান্ট ডায়াগনস্টিকস</span></div>
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>দেওয়ানগঞ্জ সরকারি কলেজ রোড, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>সেবার সময়:</strong> <span>সকাল ৮:০০ - রাত ৮:৩০</span></div>
+              <div style="margin-top: 8px;">
+                <strong>মূল সেবাসমূহ:</strong>
+                <ul style="margin-left: 20px; margin-top: 4px; font-size: 13px;">
+                  <li>রক্তের সম্পূর্ণ বায়োকেমিস্ট্রি</li><li>ইসিজি</li><li>ডায়াবেটিস চেকআপ</li><li>অভিজ্ঞ নার্সিং কেয়ার</li>
+                </ul>
+              </div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+                <a class="phone-link" href="tel:">🚨 জরুরি: ০১৭৭৮-১২৯৯০০</a>
+                <a class="phone-link" style="background: #fee2e2; color: #b91c1c; border-color: #fecaca;" href="tel:">🚑 অ্যাম্বুলেন্স: ০১৭৭৮-১২৯৯০১</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">বাহাদুরাবাদ ইউনিয়ন পরিবার কল্যাণ কেন্দ্র (UH&FWC)</h3>
+            <div class="card-meta">কমিউনিটি ক্লিনিক · ৫ শয্যা</div>
+            <div class="card-body">
+              <div class="card-row"><strong>দায়িত্বপ্রাপ্ত:</strong> <span>পরিবার পরিকল্পনা পরিদর্শক ও উপসহকারী কমিউনিটি মেডিকেল অফিসার</span></div>
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>বাহাদুরাবাদ বাজার সংলগ্ন, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>সেবার সময়:</strong> <span>সকাল ৯:০০ - দুপুর ২:০০</span></div>
+              <div style="margin-top: 8px;">
+                <strong>মূল সেবাসমূহ:</strong>
+                <ul style="margin-left: 20px; margin-top: 4px; font-size: 13px;">
+                  <li>মা ও শিশু স্বাস্থ্য</li><li>সাধারণ পরামর্শ</li><li>কমিউনিটি স্বাস্থ্য শিক্ষা</li>
+                </ul>
+              </div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+                <a class="phone-link" href="tel:">🚨 জরুরি: ০১৭৬৬-৮৮৯৯২২</a>
+                <a class="phone-link" style="background: #fee2e2; color: #b91c1c; border-color: #fecaca;" href="tel:">🚑 অ্যাম্বুলেন্স: ০১৭২০-৮৮৯৯০০</a>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+
+    <!-- ৩. পরিবহন (বাস ও ট্রেন) -->
+    <section id="sec-transports" class="section-content">
+      <div class="section-heading">
+        <span>🚆 দেওয়ানগঞ্জ বাজার রেলওয়ে স্টেশন ও বাস সার্ভিস</span>
+      </div>
+      <div class="grid-cards">
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">তিস্তা এক্সপ্রেস (৭০৭/৭০৮) - আন্তঃনগর</h3>
+            <div class="card-meta">টাইপ: ট্রেন · রুট: দেওয়ানগঞ্জ বাজার ↔ জামালপুর ↔ ময়মনসিংহ ↔ ঢাকা কমলাপুর</div>
+            <div class="card-body">
+              <div class="card-row"><strong>কাউন্টার:</strong> <span>দেওয়ানগঞ্জ বাজার রেলওয়ে স্টেশন ১নং কাউন্টার ও অনলাইন Rail Sheba অ্যাপ</span></div>
+              <div class="card-row"><strong>ভাড়া:</strong> <span>শোভন চেয়ার: ২৬৫/- | স্নিগ্ধা (এসি): ৫০৫/- | এসি সিট: ৬০৫/-</span></div>
+              <div style="margin: 8px 0;">
+                <strong>সময়সূচী:</strong>
+                <ul style="margin-left: 20px; font-size: 13px;">
+                  <li>দেওয়ানগঞ্জ থেকে ছাড়ে: ভোর ০৩:০০ টা (পৌঁছায় সকাল ৯:০৫ টা)</li><li>ঢাকা কমলাপুর থেকে ছাড়ে: দুপুর ০৩:১৫ টা (দেওয়ানগঞ্জ পৌঁছে রাত ৯:৩০ টা)</li>
+                </ul>
+              </div>
+              <p style="font-size: 13px; color: #64748b; margin-top: 6px;">দেওয়ানগঞ্জ থেকে রাজধানী ঢাকায় দ্রুত ও আরামদায়ক যাতায়াতের সবচেয়ে জনপ্রিয় ও নির্ভরযোগ্য আন্তঃনগর ট্রেন।</p>
+              <a class="phone-link" href="tel:">📞 যোগাযোগ: ০২৯৯৭৭৬৩০০২ (স্টেশন মাস্টার)</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">ব্রহ্মপুত্র এক্সপ্রেস (৭৪৩/৭৪৪) - আন্তঃনগর</h3>
+            <div class="card-meta">টাইপ: ট্রেন · রুট: দেওয়ানগঞ্জ বাজার ↔ পিয়ারপুর ↔ ময়মনসিংহ ↔ ঢাকা কমলাপুর</div>
+            <div class="card-body">
+              <div class="card-row"><strong>কাউন্টার:</strong> <span>দেওয়ানগঞ্জ রেলওয়ে স্টেশন কাউন্টার ও সহজ.কম (Shohoz/Rail App)</span></div>
+              <div class="card-row"><strong>ভাড়া:</strong> <span>শোভন চেয়ার: ২৬৫/- | স্নিগ্ধা: ৫০৫/-</span></div>
+              <div style="margin: 8px 0;">
+                <strong>সময়সূচী:</strong>
+                <ul style="margin-left: 20px; font-size: 13px;">
+                  <li>দেওয়ানগঞ্জ থেকে ছাড়ে: সকাল ০৬:৪০ টা (ঢাকা পৌঁছায় দুপুর ১২:৪০ টা)</li><li>ঢাকা থেকে ছাড়ে: সন্ধ্যা ০৬:১৫ টা (দেওয়ানগঞ্জ পৌঁছে রাত ১১:৫৫ টা)</li>
+                </ul>
+              </div>
+              <p style="font-size: 13px; color: #64748b; margin-top: 6px;">দিনের বেলা ঢাকায় যাওয়ার সেরা আন্তঃনগর ট্রেন। অফ-ডে নেই, নিয়মিত চলাচল করে।</p>
+              <a class="phone-link" href="tel:">📞 যোগাযোগ: ০১৭৫২-৯৯৮৮৭৭ (বুকিং ইনকোয়ারি)</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">দেওয়ানগঞ্জ কমিউটার (মেইল/কমিউটার)</h3>
+            <div class="card-meta">টাইপ: ট্রেন · রুট: দেওয়ানগঞ্জ বাজার ↔ জামালপুর ↔ গফরগাঁও ↔ ঢাকা কমলাপুর</div>
+            <div class="card-body">
+              <div class="card-row"><strong>কাউন্টার:</strong> <span>দেওয়ানগঞ্জ রেলওয়ে স্টেশন লোকাল কাউন্টার</span></div>
+              <div class="card-row"><strong>ভাড়া:</strong> <span>সুলভ/শোভন: ১২০/- থেকে ১৮০/-</span></div>
+              <div style="margin: 8px 0;">
+                <strong>সময়সূচী:</strong>
+                <ul style="margin-left: 20px; font-size: 13px;">
+                  <li>দেওয়ানগঞ্জ থেকে ছাড়ে: বিকাল ০৩:৪৫ টা</li><li>ঢাকা থেকে ছাড়ে: ভোর ০৫:৪৫ টা</li>
+                </ul>
+              </div>
+              <p style="font-size: 13px; color: #64748b; margin-top: 6px;">স্বল্প ভাড়ায় প্রতিদিন শত শত সাধারণ যাত্রী ও ব্যবসায়ীদের ঢাকার সাথে যোগাযোগের ট্রেন।</p>
+              <a class="phone-link" href="tel:">📞 যোগাযোগ: ০২৯৯৭৭৬৩০০২</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">জামালপুর কমিউটার ট্রেন</h3>
+            <div class="card-meta">টাইপ: ট্রেন · রুট: দেওয়ানগঞ্জ বাজার ↔ জামালপুর ↔ ময়মনসিংহ ↔ ঢাকা</div>
+            <div class="card-body">
+              <div class="card-row"><strong>কাউন্টার:</strong> <span>স্টেশন প্ল্যাটফর্ম কাউন্টার</span></div>
+              <div class="card-row"><strong>ভাড়া:</strong> <span>লোকাল টিকিটের হার (১০০/- থেকে ১৪০/-)</span></div>
+              <div style="margin: 8px 0;">
+                <strong>সময়সূচী:</strong>
+                <ul style="margin-left: 20px; font-size: 13px;">
+                  <li>দেওয়ানগঞ্জ থেকে ছাড়ে: দুপুর ০১:১৫ টা</li><li>ঢাকা থেকে ছাড়ে: সকাল ১০:০০ টা</li>
+                </ul>
+              </div>
+              <p style="font-size: 13px; color: #64748b; margin-top: 6px;">মাঝারি দূরত্বের স্টপেজ সম্বলিত নির্ভরযোগ্য মেইল/কমিউটার ট্রেন।</p>
+              <a class="phone-link" href="tel:">📞 যোগাযোগ: ০২৯৯৭৭৬৩০০২</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">রাজীব পরিবহন (এসি ও নন-এসি)</h3>
+            <div class="card-meta">টাইপ: বাস · রুট: দেওয়ানগঞ্জ পৌর বাসস্ট্যান্ড ↔ শেরপুর বাইপাস ↔ মহাখালী বাস টার্মিনাল, ঢাকা</div>
+            <div class="card-body">
+              <div class="card-row"><strong>কাউন্টার:</strong> <span>দেওয়ানগঞ্জ পৌর বাস টার্মিনাল কাউন্টার ও কলেজ মোড়</span></div>
+              <div class="card-row"><strong>ভাড়া:</strong> <span>নন-এসি: ৪০০/- থেকে ৫০০/- | এসি: ৭০০/- থেকে ৮৫০/-</span></div>
+              <div style="margin: 8px 0;">
+                <strong>সময়সূচী:</strong>
+                <ul style="margin-left: 20px; font-size: 13px;">
+                  <li>সকাল ০৬:০০, ০৭:৩০, ০৯:০০, ১১:০০</li><li>দুপুর ০১:০০, ০৩:৩০</li><li>রাত ০৯:০০, ১০:৩০, ১১:৪৫</li>
+                </ul>
+              </div>
+              <p style="font-size: 13px; color: #64748b; margin-top: 6px;">দেওয়ানগঞ্জ থেকে সরাসরি রাজধানী ঢাকার মহাখালী রুটের প্রধান ও বিশ্বস্ত বাস সার্ভিস।</p>
+              <a class="phone-link" href="tel:">📞 যোগাযোগ: ০১৭২৬-৪৫৫৬৬৭, ০১৯১১-২২৩৩৪৪</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">ইসলাম পরিবহন ও শেরপুর ডিলাক্স</h3>
+            <div class="card-meta">টাইপ: বাস · রুট: দেওয়ানগঞ্জ / সানন্দবাড়ী ↔ জামালপুর ↔ ঢাকা গাবতলী ও মহাখালী</div>
+            <div class="card-body">
+              <div class="card-row"><strong>কাউন্টার:</strong> <span>সানন্দবাড়ী বাজার কাউন্টার ও দেওয়ানগঞ্জ মাদ্রাসা মোড়</span></div>
+              <div class="card-row"><strong>ভাড়া:</strong> <span>৪৫০/- থেকে ৬০০/-</span></div>
+              <div style="margin: 8px 0;">
+                <strong>সময়সূচী:</strong>
+                <ul style="margin-left: 20px; font-size: 13px;">
+                  <li>সকাল ০৮:০০, ১০:০০</li><li>রাত ০৯:৩০, ১০:০০, ১১:০০</li>
+                </ul>
+              </div>
+              <p style="font-size: 13px; color: #64748b; margin-top: 6px;">সানন্দবাড়ী ও দেওয়ানগঞ্জ বাসীদের জন্য ঢাকার বিভিন্ন প্রান্তে সরাসরি পৌঁছানোর ব্যবস্থা।</p>
+              <a class="phone-link" href="tel:">📞 যোগাযোগ: ০১৭৫০-৮৮৯৯১১</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">দেওয়ানগঞ্জ ↔ সানন্দবাড়ী সিএনজি ও অটো স্ট্যান্ড</h3>
+            <div class="card-meta">টাইপ: সিএনজি/অটো · রুট: দেওয়ানগঞ্জ বাজার মোড় ↔ পাররামপুর ↔ তারাটিয়া ↔ সানন্দবাড়ী বাজার</div>
+            <div class="card-body">
+              <div class="card-row"><strong>কাউন্টার:</strong> <span>দেওয়ানগঞ্জ জিরো পয়েন্ট ও সানন্দবাড়ী ব্রিজ মোড়</span></div>
+              <div class="card-row"><strong>ভাড়া:</strong> <span>জনপ্রতি ৫০/- থেকে ৮০/- টাকা</span></div>
+              <div style="margin: 8px 0;">
+                <strong>সময়সূচী:</strong>
+                <ul style="margin-left: 20px; font-size: 13px;">
+                  <li>প্রতি ৫-১০ মিনিট পর পর সার্বক্ষণিক সিএনজি ও অটোরিকশা সার্ভিস</li>
+                </ul>
+              </div>
+              <p style="font-size: 13px; color: #64748b; margin-top: 6px;">উপজেলার অভ্যন্তরীণ সবচেয়ে ব্যস্ত ও জনপ্রিয় যাতায়াত মাধ্যম।</p>
+              <a class="phone-link" href="tel:">📞 যোগাযোগ: ০১৭২৮-৪৪৫৫৬৬ (স্ট্যান্ড সুপারভাইজার)</a>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+
+    <!-- ৪. মসজিদ ও মাদ্রাসা -->
+    <section id="sec-institutions" class="section-content">
+      <div class="section-heading">
+        <span>🕌 দেওয়ানগঞ্জের ঐতিহ্যবাহী মসজিদ ও মাদ্রাসা</span>
+      </div>
+      <div class="grid-cards">
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">দেওয়ানগঞ্জ কেন্দ্রীয় জামে মসজিদ</h3>
+            <div class="card-meta">মসজিদ · স্থাপিত: ১৯৫২</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ইমাম/মুহতামিম:</strong> <span>মাওলানা মুফতি আব্দুর রহিম (খতিব)</span></div>
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>পৌর বাজার সংলগ্ন, দেওয়ানগঞ্জ সদর, জামালপুর</span></div>
+              <div class="card-row"><strong>সুবিধাদি:</strong> <span>বিশাল তিন তলা শীতাতপ সুবিধাযুক্ত ভবন, সুসজ্জিত অজুখানা ও ওয়াশরুম, মহিলাদের নামাজ কক্ষ, নিয়মিত জুমা ও তাফসির মাহফিল</span></div>
+              <p style="font-size: 13px; color: #64748b; margin-top: 6px;">দেওয়ানগঞ্জ পৌরসভার সবচেয়ে ঐতিহ্যবাহী ও প্রধান কেন্দ্রীয় মসজিদ। জুমার দিনে হাজারো মুসল্লির সমাগম ঘটে।</p>
+              <a class="phone-link" href="tel:">📞 যোগাযোগ: ০১৭২৫-৩৩৪৪০৯</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">সানন্দবাড়ী বাজার ঐতিহাসিক কেন্দ্রীয় জামে মসজিদ</h3>
+            <div class="card-meta">মসজিদ · স্থাপিত: ১৯৬৪</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ইমাম/মুহতামিম:</strong> <span>মাওলানা নূরুল ইসলাম (ইমাম ও খতিব)</span></div>
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>সানন্দবাড়ী প্রধান বাজার, চরআমখাওয়া, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>সুবিধাদি:</strong> <span>বিশাল ধারণক্ষমতা (১৫০০+ মুসল্লি), আধুনিক অজুর ব্যবস্থা, হিফজুল কুরআন বিভাগ</span></div>
+              <p style="font-size: 13px; color: #64748b; margin-top: 6px;">উত্তর জামালপুরের অন্যতম বৃহৎ হাট জামে মসজিদ।</p>
+              <a class="phone-link" href="tel:">📞 যোগাযোগ: ০১৭৪৮-৭৭৮৮৯৯</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">জিলবাংলা সুগার মিলস কেন্দ্রীয় জামে মসজিদ</h3>
+            <div class="card-meta">মসজিদ · স্থাপিত: ১৯৫৮</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ইমাম/মুহতামিম:</strong> <span>হাফেজ ক্বারী আব্দুল কাদের</span></div>
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>জিলবাংলা চিনিকল কলোনি চত্বর, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>সুবিধাদি:</strong> <span>মনোরম ও শান্ত পরিবেশ, উন্মুক্ত বাগান ও অজু পুকুর, তারাবিহ ও লাইলাতুল কদর স্পেশাল জামাত</span></div>
+              <p style="font-size: 13px; color: #64748b; margin-top: 6px;">চিনিকলের আবাসিক কলোনি ও মিল কর্মীদের ঐতিহাসিক কেন্দ্রীয় মসজিদ।</p>
+              <a class="phone-link" href="tel:">📞 যোগাযোগ: ০১৭২২-৪৫৬৭৮৯</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">বাহাদুরাবাদ ঘাট জামে মসজিদ</h3>
+            <div class="card-meta">মসজিদ · স্থাপিত: ১৯৭০</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ইমাম/মুহতামিম:</strong> <span>মাওলানা মোঃ সাইফুল ইসলাম</span></div>
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>বাহাদুরাবাদ পুরাতন ঘাট, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>সুবিধাদি:</strong> <span>নদী তীরবর্তী মনোরম বাতাবরণ, মুসাফিরদের নামাজের সুব্যবস্থা</span></div>
+              <p style="font-size: 13px; color: #64748b; margin-top: 6px;">যমুনা তীরের শান্ত ও স্মৃতিবিজড়িত একটি সুন্দর জামে মসজিদ।</p>
+              <a class="phone-link" href="tel:">📞 যোগাযোগ: ০১৭৬৬-৮৮৪৪০৯</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">দেওয়ানগঞ্জ কামিল (মাস্টার্স) মাদ্রাসা</h3>
+            <div class="card-meta">মাদ্রাসা · স্থাপিত: ১৯৬১</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ইমাম/মুহতামিম:</strong> <span>অধ্যক্ষ মাওলানা মোঃ আতিকুর রহমান</span></div>
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>কলেজ রোড, দেওয়ানগঞ্জ পৌরসভা</span></div>
+              <div class="card-row"><strong>সুবিধাদি:</strong> <span>কামিল (মাস্টার্স) সমমান ক্লাস, ছাত্র হোস্টেল সুবিধা, সমৃদ্ধ ইসলামি পাঠাগার, কম্পিউটার ল্যাব</span></div>
+              <p style="font-size: 13px; color: #64748b; margin-top: 6px;">দেওয়ানগঞ্জের সর্বোচ্চ ইসলামি শিক্ষা প্রতিষ্ঠান। এখান থেকে হাজারো আলেম ও স্কলার শিক্ষা গ্রহণ করেছেন।</p>
+              <a class="phone-link" href="tel:">📞 যোগাযোগ: ০১৭২৭-৯৮৭৬৫৪</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">সানন্দবাড়ী দারুল উলুম কওমি ও হাফিজিয়া মাদ্রাসা</h3>
+            <div class="card-meta">মাদ্রাসা · স্থাপিত: ১৯৭৫</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ইমাম/মুহতামিম:</strong> <span>মুহতামিম মুফতি হাবিবুর রহমান</span></div>
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>সানন্দবাড়ী বাজার পূর্বপাড়া, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>সুবিধাদি:</strong> <span>দাওরায়ে হাদিস, হিফজ বিভাগ, লিল্লাহ বোর্ডিং ও এতিমখানা, মেধাবী শিক্ষার্থীদের ফ্রি থাকা-খাওয়া</span></div>
+              <p style="font-size: 13px; color: #64748b; margin-top: 6px;">অত্র অঞ্চলের প্রখ্যাত দ্বীনি প্রতিষ্ঠান যেখানে দুই শতাধিক এতিম ও দরিদ্র শিক্ষার্থী দ্বীনি জ্ঞান অর্জন করছে।</p>
+              <a class="phone-link" href="tel:">📞 যোগাযোগ: ০১৭৩৮-৯৯০০১১</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">তারাটিয়া এতিমখানা ও হাফিজিয়া মাদ্রাসা</h3>
+            <div class="card-meta">মাদ্রাসা · স্থাপিত: ১৯৮৮</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ইমাম/মুহতামিম:</strong> <span>হাফেজ মাওলানা আবুল কালাম</span></div>
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>তারাটিয়া বাজার রোড, পাররামপুর, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>সুবিধাদি:</strong> <span>হিফজুল কুরআন, এতিম শিশুদের বাসস্থান ও খাদ্য, কোরআন তেলওয়াত প্রশিক্ষণ</span></div>
+              <p style="font-size: 13px; color: #64748b; margin-top: 6px;">শত শত কোরআনের হাফেজ তৈরির একটি নির্ভরযোগ্য দ্বীনি শিক্ষাকেন্দ্র।</p>
+              <a class="phone-link" href="tel:">📞 যোগাযোগ: ০১৭৪৪-৫৫৬৬৭৭</a>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+
+    <!-- ৫. বাজার ও হাট -->
+    <section id="sec-markets" class="section-content">
+      <div class="section-heading">
+        <span>🛒 দেওয়ানগঞ্জের প্রধান হাট ও বাজার সমূহ</span>
+      </div>
+      <div class="grid-cards">
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">দেওয়ানগঞ্জ পৌর প্রধান বাজার ও হাট</h3>
+            <div class="card-meta">হাটবার: প্রতি সোমবার ও বৃহস্পতিবার (বড় হাটবার)</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>পৌর বাজার চত্বর, রেলস্টেশন ও থানা রোড, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>প্রধান পণ্য:</strong> <span>তাজা নদী ও বিলের মাছ, স্থানীয় শাকসবজি, পাট ও শস্য, মুদি পাইকারি পণ্য, কাপড় ও প্রসাধন</span></div>
+              <p style="font-size: 13px; color: #64748b; margin-top: 6px;">দেওয়ানগঞ্জের সবচেয়ে প্রাচীন ও সর্ববৃহৎ পাইকারি ও খুচরা কেনাকাটার মূল কেন্দ্র।</p>
+              <a class="phone-link" href="tel:">📞 বণিক সমিতি: ০১৭২৬-৩৩৪৪৩৩</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">সানন্দবাড়ী ঐতিহাসিক মহা-হাট ও বাজার</h3>
+            <div class="card-meta">হাটবার: প্রতি শুক্রবার ও সোমবার</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>সানন্দবাড়ী বাজার, চরআমখাওয়া, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>প্রধান পণ্য:</strong> <span>বৃহৎ গরু-ছাগলের হাট, কাঁচা পাট ও ধান-গম, ব্রহ্মপুত্র-যমুনার বিখ্যাত ইলিশ ও বাতাসি মাছ, কুটির শিল্প</span></div>
+              <p style="font-size: 13px; color: #64748b; margin-top: 6px;">উত্তর জামালপুর ও কুড়িগ্রামের রৌমারী সীমান্ত এলাকার সবচেয়ে বড় ঐতিহ্যবাহী হাট। প্রতি হাটে কোটি টাকার কেনাবেচা হয়।</p>
+              <a class="phone-link" href="tel:">📞 বণিক সমিতি: ০১৭৩৫-১২৩৪৫৬</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">বাহাদুরাবাদ ঘাট তাজা মাছের বাজার</h3>
+            <div class="card-meta">হাটবার: প্রতিদিন সকাল ও বিকাল</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>বাহাদুরাবাদ ঘাট সংলগ্ন, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>প্রধান পণ্য:</strong> <span>যমুনা নদীর তাজা আইড়, বোয়াল, চিতল ও রুই মাছ, নদীর তাজা শুঁটকি</span></div>
+              <p style="font-size: 13px; color: #64748b; margin-top: 6px;">নদী থেকে সরাসরি ধরা পড়া সুস্বাদু তাজা মাছ কেনার জন্য দূরদূরান্ত থেকে ক্রেতারা ভোরবেলায় ভিড় করেন।</p>
+              <a class="phone-link" href="tel:">📞 বণিক সমিতি: ০১৭৬৬-৪৫৬৭৮৯</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">তারাটিয়া বাজার ও হাট</h3>
+            <div class="card-meta">হাটবার: প্রতি বুধবার ও শনিবার</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>তারাটিয়া জংশন পয়েন্ট, পাররামপুর, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>প্রধান পণ্য:</strong> <span>কৃষিপণ্য, ধান-চাল পাইকারি, স্থানীয় সবজি ও ডাল</span></div>
+              <p style="font-size: 13px; color: #64748b; margin-top: 6px;">পাররামপুর ইউনিয়নের প্রধান বাণিজ্যিক মিলনমেলা।</p>
+              <a class="phone-link" href="tel:">📞 বণিক সমিতি: ০১৭২৭-৬৬৭৭৮৮</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">ঝালোরচর বাজার</h3>
+            <div class="card-meta">হাটবার: রবিবার ও বুধবার</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>ঝালোরচর, ডাংধরা রোড, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>প্রধান পণ্য:</strong> <span>মরিচ, পটল, আলু ও মৌসুমি শাকসবজি, হাঁস-মুরগির পাইকারি ক্রয়</span></div>
+              <p style="font-size: 13px; color: #64748b; margin-top: 6px;">কৃষকদের উৎপাদিত পণ্য সরাসরি পাইকারদের কাছে বিক্রির আদর্শ বাজার।</p>
+              <a class="phone-link" href="tel:">📞 বণিক সমিতি: ০১৭৫২-৩৩৪১২৩</a>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+
+    <!-- ৬. কুরিয়ার সার্ভিস -->
+    <section id="sec-couriers" class="section-content">
+      <div class="section-heading">
+        <span>📦 দেওয়ানগঞ্জ কুরিয়ার সার্ভিস শাখা সমূহ</span>
+      </div>
+      <div class="grid-cards">
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">সুন্দরবন কুরিয়ার সার্ভিস প্রাঃ লিঃ</h3>
+            <div class="card-meta">ইনচার্জ: মোঃ আশরাফুল আলম (শাখা ইনচার্জ) · সময়: সকাল ৯:০০ - রাত ৮:০০ (শুক্রবার আংশিক খোলা)</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>কলেজ রোড (সোনালী ব্যাংকের বিপরীত পাশে), দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>সেবাসমূহ:</strong> <span>ডকুমেন্ট ও পার্সেল ডেলিভারি, কন্ডিশন পার্সেল বুকিং, হোম ডেলিভারি, মানি ট্রান্সফার</span></div>
+              <a class="phone-link" href="tel:">📞 হেল্পলাইন: ০১৭২৮-৭৬৭৬৭৬, ০১৯১২-৩৪৫৬৭৮</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">করতোয়া কুরিয়ার সার্ভিস</h3>
+            <div class="card-meta">ইনচার্জ: মোঃ রফিকুল ইসলাম · সময়: সকাল ৯:৩০ - রাত ৮:৩০</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>রেলওয়ে স্টেশন রোড, দেওয়ানগঞ্জ বাজার</span></div>
+              <div class="card-row"><strong>সেবাসমূহ:</strong> <span>ভারী কার্গো বুকিং, মার্চেন্ডাইজ ও শস্য প্যাকেট পার্সেল, সারা দেশব্যাপী কন্ডিশন বুকিং</span></div>
+              <a class="phone-link" href="tel:">📞 হেল্পলাইন: ০১৭৩৫-৮৮৯৯০০</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">এসএ পরিবহন (পার্সেল হাব ও কালেকশন পয়েন্ট)</h3>
+            <div class="card-meta">ইনচার্জ: ম্যানেজার, দেওয়ানগঞ্জ কালেকশন পয়েন্ট · সময়: সকাল ৯:০০ - সন্ধ্যা ৭:০০</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>মেইন রোড, দেওয়ানগঞ্জ পৌরসভা</span></div>
+              <div class="card-row"><strong>সেবাসমূহ:</strong> <span>জরুরি পার্সেল বুকিং, মূল্যবান মালামাল পরিবহন</span></div>
+              <a class="phone-link" href="tel:">📞 হেল্পলাইন: ০১৭২১-০০১১২২</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">রেডএক্স / পাঠাও লজিস্টিকস পয়েন্ট (দেওয়ানগঞ্জ হাব)</h3>
+            <div class="card-meta">ইনচার্জ: হাব কোঅর্ডিনেটর · সময়: সকাল ৮:৩০ - রাত ৮:০০</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>মাদ্রাসা রোড, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>সেবাসমূহ:</strong> <span>ই-কমার্স হোম ডেলিভারি, ক্যাশ অন ডেলিভারি, রিটার্ন পার্সেল কালেকশন</span></div>
+              <a class="phone-link" href="tel:">📞 হেল্পলাইন: ০১৭৯৯-৮৮৭৭৬৬</a>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+
+    <!-- ৭. সাংবাদিক ও গণমাধ্যম -->
+    <section id="sec-journalists" class="section-content">
+      <div class="section-heading">
+        <span>📰 দেওয়ানগঞ্জ প্রেসক্লাব ও কর্মরত সাংবাদিকবৃন্দ</span>
+      </div>
+      <div class="grid-cards">
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">মোঃ রেজাউল করিম</h3>
+            <div class="card-meta">দৈনিক প্রথম আলো / চ্যানেল আই প্রতিনিধি · সিনিয়র সাংবাদিক</div>
+            <div class="card-body">
+              <div class="card-row"><strong>প্রেসক্লাব পদবী:</strong> <span>সভাপতি, দেওয়ানগঞ্জ প্রেসক্লাব</span></div>
+              <div class="card-row"><strong>অফিস/ঠিকানা:</strong> <span>প্রেসক্লাব ভবন, উপজেলা পরিষদ চত্বর, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>ইমেইল:</strong> <span>dewanganjpress.reza@gmail.com</span></div>
+              <a class="phone-link" href="tel:">📞 সরাসরি ফোন: ০১৭২৬-৯৮৭৬৫৪</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">মোঃ মোস্তাফিজুর রহমান বাবু</h3>
+            <div class="card-meta">দৈনিক ইত্তেফাক ও সময় টিভি · উপজেলা প্রতিনিধি</div>
+            <div class="card-body">
+              <div class="card-row"><strong>প্রেসক্লাব পদবী:</strong> <span>সাধারণ সম্পাদক, দেওয়ানগঞ্জ প্রেসক্লাব</span></div>
+              <div class="card-row"><strong>অফিস/ঠিকানা:</strong> <span>রেলস্টেশন রোড, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>ইমেইল:</strong> <span>mostafiz.dewanganj@gmail.com</span></div>
+              <a class="phone-link" href="tel:">📞 সরাসরি ফোন: ০১৭২৭-৪৫৫৬৬৭</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">কাজী শাহাদাত হোসেন</h3>
+            <div class="card-meta">দৈনিক যুগান্তর ও যমুনা টেলিভিশন · বিশেষ প্রতিনিধি</div>
+            <div class="card-body">
+              <div class="card-row"><strong>প্রেসক্লাব পদবী:</strong> <span>সদস্য, কার্যনির্বাহী কমিটি</span></div>
+              <div class="card-row"><strong>অফিস/ঠিকানা:</strong> <span>দেওয়ানগঞ্জ সদর</span></div>
+              
+              <a class="phone-link" href="tel:">📞 সরাসরি ফোন: ০১৭৩৬-৮৮৭৭৬৬</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">মোঃ তারেক মাহমুদ</h3>
+            <div class="card-meta">দৈনিক সমকাল ও বাংলাভিশন · স্টাফ রিপোর্টার</div>
+            <div class="card-body">
+              <div class="card-row"><strong>প্রেসক্লাব পদবী:</strong> <span>সাংগঠনিক সম্পাদক, প্রেসক্লাব</span></div>
+              <div class="card-row"><strong>অফিস/ঠিকানা:</strong> <span>সানন্দবাড়ী / দেওয়ানগঞ্জ</span></div>
+              
+              <a class="phone-link" href="tel:">📞 সরাসরি ফোন: ০১৭৪৮-৩৩২২১১</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">আব্দুল হাকিম তালুকদার</h3>
+            <div class="card-meta">দৈনিক কালের কণ্ঠ ও জামালপুর বার্তা · উপজেলা প্রতিনিধি</div>
+            <div class="card-body">
+              
+              <div class="card-row"><strong>অফিস/ঠিকানা:</strong> <span>দেওয়ানগঞ্জ পৌরসভা</span></div>
+              
+              <a class="phone-link" href="tel:">📞 সরাসরি ফোন: ০১৭৫০-৯৯৮৮৭৭</a>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+
+    <!-- ৮. ব্যাংক ও এটিএম -->
+    <section id="sec-banks" class="section-content">
+      <div class="section-heading">
+        <span>🏦 দেওয়ানগঞ্জের ব্যাংক শাখা ও এটিএম বুথ</span>
+      </div>
+      <div class="grid-cards">
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">সোনালী ব্যাংক পিএলসি (দেওয়ানগঞ্জ শাখা)</h3>
+            <div class="card-meta">সরকারি ব্যাংক · 🏧 এটিএম বুথ আছে</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ব্যবস্থাপক:</strong> <span>শাখা ব্যবস্থাপক (সিনিয়র প্রিন্সিপাল অফিসার)</span></div>
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>কলেজ রোড, দেওয়ানগঞ্জ বাজার, জামালপুর</span></div>
+              <div class="card-row"><strong>রাউটিং নম্বর:</strong> <span>২০০৪৫০০০১</span></div>
+              <a class="phone-link" href="tel:">📞 ব্যাংক ফোন: ০২৯৯৭৭৬৩০০৫, ০১৭৩০-০৮৮৮৮৮</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">বাংলাদেশ কৃষি ব্যাংক (BKB) (দেওয়ানগঞ্জ প্রধান শাখা)</h3>
+            <div class="card-meta">বিশেষায়িত ব্যাংক · 🏧 এটিএম নেই</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ব্যবস্থাপক:</strong> <span>ব্যবস্থাপক</span></div>
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>থানা রোড, দেওয়ানগঞ্জ পৌরসভা</span></div>
+              <div class="card-row"><strong>রাউটিং নম্বর:</strong> <span>০৪৫০০০৮৮১</span></div>
+              <a class="phone-link" href="tel:">📞 ব্যাংক ফোন: ০১৭২৭-৬৬৭৭০০</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">বাংলাদেশ কৃষি ব্যাংক (BKB) (সানন্দবাড়ী শাখা)</h3>
+            <div class="card-meta">বিশেষায়িত ব্যাংক · 🏧 এটিএম নেই</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ব্যবস্থাপক:</strong> <span>শাখা ব্যবস্থাপক</span></div>
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>সানন্দবাড়ী বাজার, চরআমখাওয়া, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>রাউটিং নম্বর:</strong> <span>০৪৫০০০৮৮২</span></div>
+              <a class="phone-link" href="tel:">📞 ব্যাংক ফোন: ০১৭২৮-৪৪৫৫০০</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">জনতা ব্যাংক পিএলসি (দেওয়ানগঞ্জ শাখা)</h3>
+            <div class="card-meta">সরকারি ব্যাংক · 🏧 এটিএম বুথ আছে</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ব্যবস্থাপক:</strong> <span>ম্যানেজার</span></div>
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>রেলওয়ে স্টেশন রোড, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>রাউটিং নম্বর:</strong> <span>১৩৫০০০৯৯১</span></div>
+              <a class="phone-link" href="tel:">📞 ব্যাংক ফোন: ০২৯৯৭৭৬৩০০৬</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">ব্র্যাক ব্যাংক পিএলসি - এজেন্ট ব্যাংকিং ও এটিএম বুথ (দেওয়ানগঞ্জ সেন্ট্রাল আউটলেট)</h3>
+            <div class="card-meta">বেসরকারি ব্যাংক · 🏧 এটিএম বুথ আছে</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ব্যবস্থাপক:</strong> <span>এজেন্ট আউটলেট ইনচার্জ</span></div>
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>পৌর বাজার মোড়, দেওয়ানগঞ্জ</span></div>
+              
+              <a class="phone-link" href="tel:">📞 ব্যাংক ফোন: ০১৭৭৮-৫৫৬৬৭৭</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">ইসলামী ব্যাংক বাংলাদেশ পিএলসি - এজেন্ট ব্যাংকিং শাখা (দেওয়ানগঞ্জ বাজার এজেন্ট শাখা)</h3>
+            <div class="card-meta">বেসরকারি ব্যাংক · 🏧 এটিএম বুথ আছে</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ব্যবস্থাপক:</strong> <span>এজেন্ট ইনচার্জ</span></div>
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>হাসপাতাল রোড, দেওয়ানগঞ্জ</span></div>
+              
+              <a class="phone-link" href="tel:">📞 ব্যাংক ফোন: ০১৭৬৬-৪৪৩৩২২</a>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+
+    <!-- ৯. ঘাট ও ঐতিহাসিক স্থান -->
+    <section id="sec-ghats" class="section-content">
+      <div class="section-heading">
+        <span>⚓ ঐতিহাসিক বাহাদুরাবাদ ঘাট ও নদী পর্যটন স্থান</span>
+      </div>
+      <div class="grid-cards">
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">ঐতিহাসিক বাহাদুরাবাদ ঘাট (স্মৃতিবিজড়িত নদীঘাট)</h3>
+            <div class="card-meta">নদী/প্রকৃতি: যমুনা নদী ও পুরাতন রেলওয়ে ফেরি ঘাট</div>
+            <div class="card-body">
+              <div class="card-row"><strong>অবস্থান:</strong> <span>বাহাদুরাবাদ ইউনিয়ন, দেওয়ানগঞ্জ</span></div>
+              <p style="font-size: 13px; color: #475569; margin: 8px 0;">ব্রিটিশ ও পাকিস্তান আমল থেকে শুরু করে যমুনা সেতু হওয়ার পূর্ব পর্যন্ত উত্তরবঙ্গের সাথে ঢাকার যোগাযোগের মূল কেন্দ্র ছিল এই বাহাদুরাবাদ ঘাট। এখান থেকে গাইবান্ধার বালাসী ঘাটে চলাচল করত সুবিশাল রেল-ফেরি।</p>
+              <div class="card-row"><strong>নৌকা রুট:</strong> <span>বাহাদুরাবাদ ↔ বালাসী ঘাট (নৌকা ও কার্গো ট্রলার), বাহাদুরাবাদ ↔ চরাঞ্চল</span></div>
+              <div style="font-size: 13px; color: #047857; margin-top: 6px;">💡 পরামর্শ: বিকেলে সূর্যাস্ত দেখতে এবং ঐতিহ্যবাহী নদীর তাজা মাছ কিনতে বহু পর্যটক আসেন।</div>
+              <a class="phone-link" href="tel:">📞 ঘাট যোগাযোগ: ০১৭৩৮-৪৫৬০১০ (ঘাট ইজারাদার ও সহায়তা)</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">জিলবাংলা সুগার মিলস লিমিটেড (Zill Bangla Sugar Mills)</h3>
+            <div class="card-meta">নদী/প্রকৃতি: ঐতিহাসিক ভারী শিল্পপ্রতিষ্ঠান (স্থাপিত ১৯৫৮)</div>
+            <div class="card-body">
+              <div class="card-row"><strong>অবস্থান:</strong> <span>দেওয়ানগঞ্জ পৌরসভা চত্বর সংলগ্ন</span></div>
+              <p style="font-size: 13px; color: #475569; margin: 8px 0;">১৯৫৮ সালে স্থাপিত বৃহত্তর ময়মনসিংহের অন্যতম প্রাচীন ও বৃহত্তম চিনি কল। সুগার মিল কলোনি, সুবিশাল আখের মাঠ এবং ঐতিহ্যবাহী কারখানাটি দেওয়ানগঞ্জের গর্ব।</p>
+              
+              <div style="font-size: 13px; color: #047857; margin-top: 6px;">💡 পরামর্শ: মাড়াই মৌসুমে চিনি উৎপাদনের মনোরম কর্মচাঞ্চল্য ও ব্রিটিশ-উত্তর স্থাপত্যশৈলীর সুন্দর পরিবেশ দেখতে পারেন।</div>
+              <a class="phone-link" href="tel:">📞 ঘাট যোগাযোগ: ০২৯৯৭৭৬৩০০৩ (মিল কন্ট্রোল অফিস)</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">সানন্দবাড়ী ব্রিজ ও জিঞ্জিরাম নদী তীর</h3>
+            <div class="card-meta">নদী/প্রকৃতি: জিঞ্জিরাম নদী ও সানন্দবাড়ী নদী বন্দর</div>
+            <div class="card-body">
+              <div class="card-row"><strong>অবস্থান:</strong> <span>সানন্দবাড়ী বাজার সংলগ্ন, দেওয়ানগঞ্জ</span></div>
+              <p style="font-size: 13px; color: #475569; margin: 8px 0;">মেঘালয় পাহাড় থেকে নেমে আসা জিঞ্জিরাম ও ব্রহ্মপুত্রের মোহনা সংলগ্ন এক নয়নাভিরাম স্থান। এখানকার রাবার ড্যাম ও ব্রিজ পয়েন্টে বর্ষায় অপূর্ব জলরাশি দেখা যায়।</p>
+              <div class="card-row"><strong>নৌকা রুট:</strong> <span>সানন্দবাড়ী ↔ রৌমারী, সানন্দবাড়ী ↔ ব্রহ্মপুত্র চরসমূহ</span></div>
+              <div style="font-size: 13px; color: #047857; margin-top: 6px;">💡 পরামর্শ: নৌভ্রমণ ও পারিবারিক বিকেলে ঘুরে বেড়ানোর চমৎকার স্থান।</div>
+              <a class="phone-link" href="tel:">📞 ঘাট যোগাযোগ: ০১৭৩৫-১২৩৪৫৬</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">ফুটানী বাজার ঘাট ও ব্রহ্মপুত্র রিভার ভিউ পয়েন্ট</h3>
+            <div class="card-meta">নদী/প্রকৃতি: ব্রহ্মপুত্র নদ</div>
+            <div class="card-body">
+              <div class="card-row"><strong>অবস্থান:</strong> <span>চিকাজানী সংলগ্ন, দেওয়ানগঞ্জ</span></div>
+              <p style="font-size: 13px; color: #475569; margin: 8px 0;">ব্রহ্মপুত্রের বিস্তীর্ণ চরাঞ্চল এবং তাজা দখিনা বাতাসের দারুণ রিভার পয়েন্ট। বর্ষায় নদীর রূপ মনমুগ্ধকর হয়।</p>
+              <div class="card-row"><strong>নৌকা রুট:</strong> <span>ফুটানী বাজার ↔ ওপারের বিস্তীর্ণ চর ও দ্বীপগ্রাম</span></div>
+              <div style="font-size: 13px; color: #047857; margin-top: 6px;">💡 পরামর্শ: বর্ষা মৌসুমে নৌকায় ঘুরতে গেলে লাইফ জ্যাকেট ব্যবহার করার পরামর্শ দেওয়া হয়।</div>
+              <a class="phone-link" href="tel:">📞 ঘাট যোগাযোগ: ০১৭৬১-১১২২৩৩</a>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+
+    <!-- ১০. বিদ্যুৎ অভিযোগ কেন্দ্র -->
+    <section id="sec-electricity" class="section-content">
+      <div class="section-heading">
+        <span>⚡ জামালপুর পল্লী বিদ্যুৎ সমিতি-১ (দেওয়ানগঞ্জ অভিযোগ কেন্দ্র)</span>
+      </div>
+      <div class="grid-cards">
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">জামালপুর পল্লী বিদ্যুৎ সমিতি-১ (দেওয়ানগঞ্জ জোনাল অফিস)</h3>
+            <div class="card-meta">জোনাল অফিস · সমগ্র দেওয়ানগঞ্জ উপজেলা (পৌরসভা, বাহাদুরাবাদ, ডাংধরা, চিকাজানী ইত্যাদি)</div>
+            <div class="card-body">
+              <div class="card-row"><strong>দায়িত্বে:</strong> <span>ডেপুটি জেনারেল ম্যানেজার (ডিজিএম)</span></div>
+              <div class="card-row"><strong>অফিস:</strong> <span>কলেজ রোড সংলগ্ন, দেওয়ানগঞ্জ পৌরসভা, জামালপুর</span></div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+                <a class="phone-link" style="background: #fef2f2; color: #b91c1c; border-color: #fecaca;" href="tel:০১৭৬৯-৪০০৩০০">🚨 অভিযোগ হটলাইন: ০১৭৬৯-৪০০৩০০</a>
+                <a class="phone-link" href="tel:০১৭৬৯-৪০০৩০১">📞 মোবাইল: ০১৭৬৯-৪০০৩০১</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">দেওয়ানগঞ্জ জরুরি বিদ্যুৎ অভিযোগ কেন্দ্র (২৪ ঘণ্টা কন্ট্রোল রুম)</h3>
+            <div class="card-meta">অভিযোগ কেন্দ্র · দেওয়ানগঞ্জ পৌর এলাকা ও নিকটবর্তী ৩টি ইউনিয়ন</div>
+            <div class="card-body">
+              <div class="card-row"><strong>দায়িত্বে:</strong> <span>ডিউটি অফিসার ও লাইন সুপারভাইজার</span></div>
+              <div class="card-row"><strong>অফিস:</strong> <span>সাব-স্টেশন কম্পাউন্ড, দেওয়ানগঞ্জ</span></div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+                <a class="phone-link" style="background: #fef2f2; color: #b91c1c; border-color: #fecaca;" href="tel:০১৭৬৯-৪০০৩০৫">🚨 অভিযোগ হটলাইন: ০১৭৬৯-৪০০৩০৫</a>
+                <a class="phone-link" href="tel:০১৭৬৯-৪০০৩০৬">📞 মোবাইল: ০১৭৬৯-৪০০৩০৬</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">সানন্দবাড়ী পল্লী বিদ্যুৎ সাব-জোনাল অফিস ও অভিযোগ কেন্দ্র</h3>
+            <div class="card-meta">সাব-জোনাল অফিস · সানন্দবাড়ী, চরআমখাওয়া, ডাংধরা ও সীমান্ত চরসমূহ</div>
+            <div class="card-body">
+              <div class="card-row"><strong>দায়িত্বে:</strong> <span>সহকারী জেনারেল ম্যানেজার (এজিএম)</span></div>
+              <div class="card-row"><strong>অফিস:</strong> <span>সানন্দবাড়ী বাজার মোড়, দেওয়ানগঞ্জ</span></div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+                <a class="phone-link" style="background: #fef2f2; color: #b91c1c; border-color: #fecaca;" href="tel:০১৭৬৯-৪০০৩১০">🚨 অভিযোগ হটলাইন: ০১৭৬৯-৪০০৩১০</a>
+                <a class="phone-link" href="tel:০১৭৬৯-৪০০৩১১">📞 মোবাইল: ০১৭৬৯-৪০০৩১১</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">জরুরি লাইন মেরামত ও ট্রান্সফরমার ফল্ট টিম (দেওয়ানগঞ্জ)</h3>
+            <div class="card-meta">জরুরি অভিযোগ টিম · ঝড়ে তার ছিঁড়ে যাওয়া, ট্রান্সফরমার বিস্ফোরণ বা অগ্নিকাণ্ডের জরুরি লাইন ডিসকানেক্ট</div>
+            <div class="card-body">
+              <div class="card-row"><strong>দায়িত্বে:</strong> <span>হেড লাইনম্যান ও প্রকৌশলী</span></div>
+              <div class="card-row"><strong>অফিস:</strong> <span>পল্লী বিদ্যুৎ অফিস ক্যাম্প</span></div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px;">
+                <a class="phone-link" style="background: #fef2f2; color: #b91c1c; border-color: #fecaca;" href="tel:০১৭৬৯-৪০০৩১৫">🚨 অভিযোগ হটলাইন: ০১৭৬৯-৪০০৩১৫</a>
+                <a class="phone-link" href="tel:০১৭৬৯-৪০০৩১৬">📞 মোবাইল: ০১৭৬৯-৪০০৩১৬</a>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+
+    <!-- ১১. বিকাশ ও মোবাইল ব্যাংকিং -->
+    <section id="sec-bkash" class="section-content">
+      <div class="section-heading">
+        <span>📱 বিকাশ, নগদ ও মোবাইল ব্যাংকিং পয়েন্ট সমূহ</span>
+      </div>
+      <div class="grid-cards">
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">মেসার্স ভাই ভাই টেলিকম ও বিকাশ কাস্টমার পয়েন্ট</h3>
+            <div class="card-meta">বিকাশ কাস্টমার কেয়ার · প্রোপ্রাইটর: মোঃ রফিকুল ইসলাম</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>দেওয়ানগঞ্জ পৌর বাজার মেইন গেটের সামনে</span></div>
+              <div class="card-row"><strong>সেবাসমূহ:</strong> <span>বিকাশ ক্যাশ ইন / ক্যাশ আউট, পিন রিসেট ও এনআইডি আপডেট সহায়তা, নগদ ও রকেট লেনদেন, বিদ্যুৎ বিল প্রদান</span></div>
+              <a class="phone-link" href="tel:">📞 যোগাযোগ: ০১৭২৬-৫৫৬৬৭৭</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">সানন্দবাড়ী বিকাশ ও ডিজিটাল ব্যাংকিং হাব</h3>
+            <div class="card-meta">বিকাশ ডিস্ট্রিবিউটর এজেন্ট · প্রোপ্রাইটর: মোঃ মোশাররফ হোসেন</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>সানন্দবাড়ী প্রধান বাজার চৌরাস্তা, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>সেবাসমূহ:</strong> <span>বিকাশ ডিস্ট্রিবিউশন সেবা, নগদ ক্যাশ পয়েন্ট, ব্যাংক একাউন্ট ডিপোজিট, মোবাইল রিচার্জ</span></div>
+              <a class="phone-link" href="tel:">📞 যোগাযোগ: ০১৭৩৫-৯৯৮৮০০</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">জননী এন্টারপ্রাইজ ও মোবাইল ব্যাংকিং</h3>
+            <div class="card-meta">টপ বিকাশ পয়েন্ট · প্রোপ্রাইটর: মোঃ আল-আমিন</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>রেলস্টেশন রোড, দেওয়ানগঞ্জ</span></div>
+              <div class="card-row"><strong>সেবাসমূহ:</strong> <span>বিকাশ মার্চেন্ট পেমেন্ট, ২৪ ঘণ্টা ক্যাশ আউট সুবিধা, টাকা পাঠানো</span></div>
+              <a class="phone-link" href="tel:">📞 যোগাযোগ: ০১৭৪৮-১১২২৩৩</a>
+            </div>
+          </div>
+        
+          <div class="item-card searchable-card">
+            <h3 class="card-title">তারাটিয়া ডিজিটাল সেন্টার ও বিকাশ পয়েন্ট</h3>
+            <div class="card-meta">নগদ/রকেট এজেন্ট · প্রোপ্রাইটর: মোঃ কবির হোসেন</div>
+            <div class="card-body">
+              <div class="card-row"><strong>ঠিকানা:</strong> <span>তারাটিয়া বাজার চত্বর, পাররামপুর</span></div>
+              <div class="card-row"><strong>সেবাসমূহ:</strong> <span>বিকাশ ও নগদ রেমিট্যান্স উত্তোলন, অনলাইন আবেদন ও প্রিন্টিং সেবা</span></div>
+              <a class="phone-link" href="tel:">📞 যোগাযোগ: ০১৭২৭-৪৪৯৯১১</a>
+            </div>
+          </div>
+        
+      </div>
+    </section>
+
+    <!-- ১২. বন্যার পূর্বাভাস -->
+    <section id="sec-flood" class="section-content">
+      <div class="section-heading">
+        <span>🌊 বাহাদুরাবাদ ঘাট পয়েন্ট: নদী ও বন্যার পূর্বাভাস</span>
+      </div>
+      <div class="flood-meter">
+        <h3 style="font-size: 18px; font-weight: 700; color: #1e3a8a;">বাহাদুরাবাদ ঘাট পয়েন্ট (যমুনা / ব্রহ্মপুত্র নদ)</h3>
+        <p style="font-size: 14px; color: #3b82f6; margin-top: 4px;">সর্বশেষ আপডেট: আজ বিকাল ৩:০০ টা</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 16px;">
+          <div style="background: white; padding: 14px; border-radius: 8px; border: 1px solid #bfdbfe;">
+            <div style="font-size: 13px; color: #64748b;">বর্তমান পানির স্তর</div>
+            <div style="font-size: 22px; font-weight: 700; color: #047857;">18.25 মিটার</div>
+          </div>
+          <div style="background: white; padding: 14px; border-radius: 8px; border: 1px solid #bfdbfe;">
+            <div style="font-size: 13px; color: #64748b;">বিপদসীমা (Danger Mark)</div>
+            <div style="font-size: 22px; font-weight: 700; color: #dc2626;">19.5 মিটার</div>
+          </div>
+          <div style="background: white; padding: 14px; border-radius: 8px; border: 1px solid #bfdbfe;">
+            <div style="font-size: 13px; color: #64748b;">বিপদসীমা থেকে পার্থক্য</div>
+            <div style="font-size: 22px; font-weight: 700; color: #2563eb;">1.25 মিটার নিচে (নিরাপদ)</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 16px; background: white; padding: 14px; border-radius: 8px; font-size: 14px; border: 1px solid #bfdbfe;">
+          <strong>আগামী ৪৮ ঘণ্টার পূর্বাভাস:</strong> পানি স্তর বিপদসীমার নিচে স্থিতিশীল থাকার সম্ভাবনা রয়েছে। কোনো আকস্মিক বন্যার আশঙ্কা নেই।
+          <div style="margin-top: 8px; font-size: 13px; color: #475569;">
+            নজরদারিতে থাকা নিচু ইউনিয়নসমূহ: বাহাদুরাবাদ, চিকাজানী, চরআমখাওয়া, ডাংধরা | প্রস্তুত আশ্রয়কেন্দ্র: 28 টি
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ফুটার -->
+  <footer class="footer">
+    <div class="container">
+      <p style="font-weight: 600; color: #f8fafc; font-size: 16px;">🏛️ দেওয়ানগঞ্জ তথ্য বাতায়ন ও নাগরিক সেবা পোর্টাল</p>
+      <p style="margin-top: 6px;">দেওয়ানগঞ্জ উপজেলার প্রায় ২ লক্ষ মানুষের কল্যাণ ও দ্রুত তথ্যপ্রাপ্তির উদ্দেশ্যে তৈরি।</p>
+      <p style="margin-top: 12px; font-size: 13px;">জরুরি সেবা পেতে সর্বদা ৯৯৯ বা স্থানীয় প্রশাসন ও থানা পুলিশের সাথে যোগাযোগ করুন।</p>
+    </div>
+  </footer>
+
+  <script>
+    // লাইভ ঘড়ি
+    function updateClock() {
+      const now = new Date();
+      const options = { timeZone: 'Asia/Dhaka', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+      const timeStr = now.toLocaleTimeString('bn-BD', options);
+      const dateStr = now.toLocaleDateString('bn-BD', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Dhaka' });
+      const clockEl = document.getElementById('liveClock');
+      if (clockEl) {
+        clockEl.innerText = timeStr + ' | ' + dateStr;
+      }
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // ট্যাব পরিবর্তন
+    function switchTab(tabId) {
+      document.querySelectorAll('.section-content').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      
+      const targetSec = document.getElementById('sec-' + tabId);
+      if (targetSec) targetSec.classList.add('active');
+      
+      event.currentTarget.classList.add('active');
+    }
+
+    // লাইভ সার্চ
+    function handleSearch() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.searchable-card');
+      
+      if (!query) {
+        cards.forEach(c => c.style.display = 'block');
+        return;
+      }
+
+      // Show all sections when searching
+      document.querySelectorAll('.section-content').forEach(s => s.classList.add('active'));
+
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        if (text.includes(query)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
