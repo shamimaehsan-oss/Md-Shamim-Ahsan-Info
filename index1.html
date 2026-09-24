@@ -3088,8 +3088,9 @@
         if (!res.ok) return;
         const data = await res.json();
         const temp = Math.round(data.current.temperature_2m);
-        
-        if (topEl) topEl.textContent = '🌡️ দেওয়ানগঞ্জ: ' + toBn(temp) + '°সে';
+        const topEl = document.getElementById('top-live-temp');
+        const heroEl = document.getElementById('weather-temp');
+    
         if (heroEl) heroEl.textContent = toBn(temp) + '°সে';
       } catch (e) {}
     }
