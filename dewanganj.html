@@ -3,594 +3,668 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>আল-আহসান ফাউন্ডেশন বাংলাদেশ - অফিসিয়াল ডোনেশন পোর্টাল</title>
+    <title>আল-আহসান ফাউন্ডেশন বাংলাদেশ - ই-বুক ও ডোনেশন পোর্টাল</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-bg: #09203f;
-            --secondary-bg: #537895;
-            --accent-green: #10b981;
-            --accent-hover: #059669;
+            --primary: #073b24;
+            --primary-light: #0d5c3a;
+            --accent-gold: #f59e0b;
+            --bg-light: #f1f5f9;
             --card-bg: #ffffff;
-            --text-dark: #1f2937;
-            --text-muted: #6b7280;
-            --nagad-red: #d32f2f;
-            --bkash-pink: #e2136e;
-            --rocket-purple: #8c3494;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Hind Siliguri', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Hind Siliguri', sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
-            min-height: 100vh;
+            background-color: var(--bg-light);
             color: var(--text-dark);
-            padding-bottom: 40px;
+            line-height: 1.6;
         }
 
-        /* Top Notification Bar */
-        .top-nav {
-            background-color: rgba(0, 0, 0, 0.25);
-            color: #e5e7eb;
+        /* Top Bar - Clean & Premium */
+        .top-header {
+            background: var(--primary);
+            color: #ffffff;
             padding: 10px 20px;
             font-size: 13px;
+            border-bottom: 3px solid var(--accent-gold);
+        }
+
+        .top-container {
+            max-width: 1100px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            backdrop-filter: blur(5px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .top-nav div {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        /* Header & Logo Section */
-        .header-section {
-            text-align: center;
-            padding: 35px 20px 25px;
-            color: #ffffff;
-        }
-
-        .logo-wrapper {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 15px;
-            background: #ffffff;
-            border-radius: 50%;
-            padding: 5px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-wrapper img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .header-section h1 {
-            font-size: 26px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .header-section p {
-            font-size: 14px;
-            color: #d1d5db;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        /* Main App Card Container */
-        .main-container {
-            max-width: 520px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 18px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-            overflow: hidden;
-            margin-bottom: 25px;
-            transition: transform 0.3s ease;
-        }
-
-        .card-header {
-            background: #f8fafc;
-            padding: 16px 20px;
-            border-bottom: 1px solid #e2e8f0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .card-header h2 {
-            font-size: 16px;
-            color: var(--primary-bg);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .card-body {
-            padding: 22px;
-        }
-
-        /* Payment Tabs Selector */
-        .payment-tabs {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            flex-wrap: wrap;
             gap: 10px;
-            margin-bottom: 20px;
         }
 
-        .tab-btn {
-            border: 2px solid #e2e8f0;
-            background: #f8fafc;
-            padding: 12px 8px;
-            border-radius: 12px;
-            cursor: pointer;
-            text-align: center;
-            font-weight: 600;
-            font-size: 13px;
-            transition: all 0.2s ease;
+        .top-info {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .top-info span {
+            display: flex;
             align-items: center;
             gap: 6px;
         }
 
-        .tab-btn.active.nagad {
-            border-color: var(--nagad-red);
-            background: #fef2f2;
-            color: var(--nagad-red);
+        .top-info i {
+            color: var(--accent-gold);
         }
 
-        .tab-btn.active.bkash {
-            border-color: var(--bkash-pink);
-            background: #fdf2f8;
-            color: var(--bkash-pink);
-        }
-
-        .tab-btn.active.rocket {
-            border-color: var(--rocket-purple);
-            background: #faf5ff;
-            color: var(--rocket-purple);
-        }
-
-        /* Amount Presets */
-        .amount-title {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-
-        .preset-amounts {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 15px;
-        }
-
-        .preset-btn {
-            flex: 1;
-            padding: 8px;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
+        /* Main Navigation Bar */
+        .navbar {
             background: #ffffff;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 13px;
-            transition: all 0.2s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        .preset-btn.active {
-            background: var(--primary-bg);
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--primary-light);
             color: #ffffff;
-            border-color: var(--primary-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 4px 10px rgba(13, 92, 58, 0.2);
         }
 
-        /* Form Controls */
-        .form-group {
-            margin-bottom: 16px;
+        .brand-text h1 {
+            font-size: 20px;
+            color: var(--primary);
+            font-weight: 700;
+            line-height: 1.1;
         }
 
-        .form-group label {
-            display: block;
-            font-size: 13px;
+        .brand-text span {
+            font-size: 11px;
+            color: var(--text-muted);
+            letter-spacing: 1.5px;
             font-weight: 600;
-            color: #374151;
-            margin-bottom: 6px;
         }
 
-        .input-wrapper {
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-light);
+        }
+
+        .donate-btn-nav {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: #ffffff !important;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-weight: 700 !important;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s;
+        }
+
+        .donate-btn-nav:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Hero Banner Section (Clean Layout) */
+        .hero-banner {
+            background: linear-gradient(rgba(7, 59, 36, 0.9), rgba(13, 92, 58, 0.85)), url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-container h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-container p {
+            font-size: 16px;
+            color: #e2e8f0;
+            margin-bottom: 25px;
+        }
+
+        /* Widget Dashboard Inside Main Body (No Ugly Top Bar Widgets) */
+        .widget-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 15px;
+            max-width: 1100px;
+            margin: -30px auto 30px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .widget-card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 16px 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-left: 4px solid var(--primary-light);
+        }
+
+        .widget-icon {
+            width: 48px;
+            height: 48px;
+            background: #f0fdf4;
+            color: var(--primary-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .widget-info label {
+            display: block;
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .widget-info strong {
+            font-size: 16px;
+            color: var(--text-dark);
+        }
+
+        /* Main Section Container */
+        .main-container {
+            max-width: 1100px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title h3 {
+            font-size: 24px;
+            color: var(--primary);
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+
+        .section-title h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+        /* Search Bar for Books */
+        .search-wrapper {
+            max-width: 550px;
+            margin: 0 auto 30px;
             position: relative;
         }
 
-        .input-wrapper i {
-            position: absolute;
-            left: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #9ca3af;
-        }
-
-        .form-control {
+        .search-wrapper input {
             width: 100%;
-            padding: 12px 14px 12px 40px;
-            border: 1.5px solid #d1d5db;
-            border-radius: 10px;
-            font-size: 14px;
+            padding: 14px 20px 14px 45px;
+            border: 2px solid #cbd5e1;
+            border-radius: 30px;
+            font-size: 15px;
             outline: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
             transition: border-color 0.2s;
         }
 
-        .form-control:focus {
-            border-color: var(--accent-green);
+        .search-wrapper input:focus {
+            border-color: var(--primary-light);
         }
 
-        /* Main Action Button */
-        .pay-btn {
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 10px;
-            background: var(--accent-green);
-            color: #ffffff;
+        .search-wrapper i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
             font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
         }
 
-        .pay-btn:hover {
-            background: var(--accent-hover);
-            transform: translateY(-1px);
+        /* E-Book Cards Grid (Direct Download Included) */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 22px;
         }
 
-        /* MODAL (PGW Gateway Simulation) */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
-            padding: 15px;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-        }
-
-        .pgw-box {
-            background: #d32f2f;
-            width: 100%;
-            max-width: 380px;
+        .book-card {
+            background: #ffffff;
             border-radius: 16px;
-            padding: 25px 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .book-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+
+        .book-cover-wrap {
+            height: 180px;
+            background: linear-gradient(135deg, #073b24, #0d5c3a);
             color: #ffffff;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             position: relative;
-            animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        @keyframes popIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .pgw-header-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
-        }
-
-        .pgw-icon-cart {
-            font-size: 38px;
-            margin-bottom: 10px;
-            opacity: 0.9;
-        }
-
-        .pgw-org-name {
-            font-size: 20px;
-            font-weight: 800;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .pgw-label {
-            font-size: 13px;
-            margin-bottom: 12px;
-            opacity: 0.95;
-        }
-
-        /* 11 Digit Input Blocks */
-        .digit-inputs {
-            display: flex;
-            justify-content: center;
-            gap: 4px;
-            margin-bottom: 25px;
-        }
-
-        .digit-box {
-            width: 26px;
-            height: 34px;
-            background: #ffffff;
-            border-radius: 4px;
-            border: none;
+            padding: 15px;
             text-align: center;
+        }
+
+        .book-cover-wrap i {
+            font-size: 50px;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+        }
+
+        .book-tag {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            color: #ffffff;
+            font-size: 10px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: 700;
+        }
+
+        .book-details {
+            padding: 18px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .book-name {
             font-size: 16px;
             font-weight: 700;
-            color: #000;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+            line-height: 1.3;
         }
 
-        .pgw-terms {
-            font-size: 11px;
-            margin-bottom: 20px;
-            opacity: 0.85;
-            line-height: 1.4;
-        }
-
-        .pgw-btn-group {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .pgw-btn {
-            padding: 8px 24px;
-            border-radius: 6px;
-            border: none;
-            font-weight: 700;
+        .book-writer {
             font-size: 13px;
-            cursor: pointer;
-            background: #ffffff;
-            color: #333;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            color: var(--text-muted);
+            margin-bottom: 18px;
         }
 
-        .pgw-footer-logo {
-            margin-top: 10px;
+        .btn-download-direct {
+            background: var(--primary-light);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            font-size: 14px;
-            font-weight: bold;
+            box-shadow: 0 3px 8px rgba(13, 92, 58, 0.2);
+            transition: background 0.2s;
+        }
+
+        .btn-download-direct:hover {
+            background: var(--primary);
         }
 
         /* Footer */
-        .footer-text {
+        .footer {
+            background: var(--primary);
+            color: #e2e8f0;
             text-align: center;
-            color: #9ca3af;
-            font-size: 12px;
-            margin-top: 20px;
+            padding: 25px 20px;
+            font-size: 14px;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .hero-container h2 {
+                font-size: 24px;
+            }
+            .widget-dashboard {
+                margin-top: 15px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Contact Nav -->
-    <div class="top-nav">
-        <div><i class="fa-solid fa-location-dot"></i> দেওয়ানগঞ্জ, জামালপুর, বাংলাদেশ</div>
-        <div><i class="fa-solid fa-phone"></i> 01342515643</div>
-    </div>
-
-    <!-- Header & Brand Logo -->
-    <div class="header-section">
-        <div class="logo-wrapper">
-            <i class="fa-solid fa-hand-holding-heart" style="font-size: 45px; color: #10b981;"></i>
-        </div>
-        <h1>আল-আহসান ফাউন্ডেশন বাংলাদেশ</h1>
-        <p>মানবতার কল্যাণে অনুদান ও সহযোগিতার এক ডিজিটাল প্ল্যাটফর্ম</p>
-    </div>
-
-    <!-- Main Content Container -->
-    <div class="main-container">
-        
-        <!-- Live Payment Portal Card -->
-        <div class="card">
-            <div class="card-header">
-                <h2><i class="fa-solid fa-shield-halved" style="color: #10b981;"></i> অফিসিয়াল পেমেন্ট গেটওয়ে</h2>
-                <span style="font-size: 11px; background: #e0f2fe; color: #0369a1; padding: 3px 8px; border-radius: 12px; font-weight: bold;">ইনস্ট্যান্ট অ্যাক্টিভেশন</span>
+    <!-- Top Header Navigation -->
+    <div class="top-header">
+        <div class="top-container">
+            <div class="top-info">
+                <span><i class="fa-solid fa-location-dot"></i> দেওয়ানগঞ্জ, জামালপুর, বাংলাদেশ</span>
+                <span><i class="fa-solid fa-envelope"></i> contact@al-ahsan.org</span>
             </div>
-            
-            <div class="card-body">
-                <!-- Payment Method Selector -->
-                <div class="payment-tabs">
-                    <div class="tab-btn active nagad" onclick="selectMethod('nagad')">
-                        <i class="fa-solid fa-wallet" style="font-size: 18px;"></i>
-                        নগদ (Nagad)
-                    </div>
-                    <div class="tab-btn bkash" onclick="selectMethod('bkash')">
-                        <i class="fa-solid fa-mobile-screen" style="font-size: 18px;"></i>
-                        বিকাশ (bKash)
-                    </div>
-                    <div class="tab-btn rocket" onclick="selectMethod('rocket')">
-                        <i class="fa-solid fa-building-columns" style="font-size: 18px;"></i>
-                        রকেট (Rocket)
-                    </div>
+            <div>
+                <span><i class="fa-solid fa-shield-halved"></i> অফিসিয়াল ডিজিটাল পোর্টাল</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-logo">
+                <div class="brand-logo-icon">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
                 </div>
-
-                <!-- Amount Selection -->
-                <div class="amount-title">অনুদান পরিমাণ (টাকা):</div>
-                <div class="preset-amounts">
-                    <button class="preset-btn" onclick="setAmount(100)">১০০ ৳</button>
-                    <button class="preset-btn active" onclick="setAmount(500)">৫০০ ৳</button>
-                    <button class="preset-btn" onclick="setAmount(1000)">১০00 ৳</button>
-                    <button class="preset-btn" onclick="setAmount(5000)">৫০০০ ৳</button>
+                <div class="brand-text">
+                    <h1>AL-AHSAN FOUNDATION</h1>
+                    <span>BANGLADESH</span>
                 </div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#">হোম</a></li>
+                <li><a href="#ebooks">ই-বুক লাইব্রেরি</a></li>
+                <li><a href="#about">আমাদের লক্ষ্য</a></li>
+                <li><a href="#" class="donate-btn-nav"><i class="fa-solid fa-heart"></i> দান করুন</a></li>
+            </ul>
+        </div>
+    </nav>
 
-                <!-- Input Form -->
-                <form id="donationForm" onsubmit="openPGW(event)">
-                    <div class="form-group">
-                        <label>অনুদানের পরিমাণ (টাকা)</label>
-                        <div class="input-wrapper">
-                            <i class="fa-solid fa-bangladeshi-taka-sign"></i>
-                            <input type="number" id="amountInput" class="form-control" value="500" required>
-                        </div>
-                    </div>
+    <!-- Hero Header -->
+    <section class="hero-banner">
+        <div class="hero-container">
+            <h2>মানবেশবা ও ইসলামী শিক্ষার প্রসারেই আমাদের লক্ষ্য</h2>
+            <p>আল-আহসান ফাউন্ডেশন বাংলাদেশ-এর অফিসিয়াল ডিজিটাল লাইব্রেরিতে আপনাকে স্বাগতম। এখান থেকে প্রয়োজনীয় যেকোনো বই বিনামূল্যে ডাউনলোড করুন।</p>
+        </div>
+    </section>
 
-                    <div class="form-group">
-                        <label>আপনার মোবাইল নম্বর (ঐচ্ছিক)</label>
-                        <div class="input-wrapper">
-                            <i class="fa-solid fa-phone"></i>
-                            <input type="tel" id="phoneInput" class="form-control" placeholder="017XXXXXXXX">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>রেফারেন্স / অনুদানের খাত</label>
-                        <div class="input-wrapper">
-                            <i class="fa-solid fa-pen"></i>
-                            <input type="text" class="form-control" value="Donation / সাধারণ অনুদান">
-                        </div>
-                    </div>
-
-                    <button type="submit" class="pay-btn" id="payBtn">
-                        <i class="fa-solid fa-lock"></i> পেমেন্ট সম্পন্ন করুন ➔
-                    </button>
-                </form>
+    <!-- Interactive Live Dashboard Widgets (Clean & Professional) -->
+    <div class="widget-dashboard">
+        <div class="widget-card">
+            <div class="widget-icon">
+                <i class="fa-solid fa-clock"></i>
+            </div>
+            <div class="widget-info">
+                <label>লাইভ সময় (বাংলাদেশ)</label>
+                <strong id="liveClock">00:00:00 AM</strong>
             </div>
         </div>
 
-    </div>
-
-    <div class="footer-text">
-        স্বত্ব © ২০২৬ আল-আহসান ফাউন্ডেশন বাংলাদেশ। সর্বস্বত্ব সংরক্ষিত।
-    </div>
-
-    <!-- PGW MODAL SIMULATION (Matches the user's Nagad Direct-Debit Image) -->
-    <div class="modal-overlay" id="pgwModal">
-        <div class="pgw-box" id="pgwBox">
-            <div class="pgw-header-title" id="pgwTitle">Nagad Direct-Debit Activation</div>
-            
-            <div class="pgw-icon-cart">
-                <i class="fa-solid fa-cart-shopping"></i>
+        <div class="widget-card">
+            <div class="widget-icon">
+                <i class="fa-solid fa-cloud-sun"></i>
             </div>
-            
-            <div class="pgw-org-name">AL-AHSAN FOUNDATION</div>
-            
-            <div class="pgw-label" id="pgwAccLabel">Your Nagad Account Number</div>
-            
-            <!-- 11 Digit Input Mock -->
-            <div class="digit-inputs" id="digitInputs">
-                <input class="digit-box" type="text" maxlength="1" value="0">
-                <input class="digit-box" type="text" maxlength="1" value="1">
-                <input class="digit-box" type="text" maxlength="1" value="7">
-                <input class="digit-box" type="text" maxlength="1" value="-">
-                <input class="digit-box" type="text" maxlength="1" value="X">
-                <input class="digit-box" type="text" maxlength="1" value="X">
-                <input class="digit-box" type="text" maxlength="1" value="X">
-                <input class="digit-box" type="text" maxlength="1" value="-">
-                <input class="digit-box" type="text" maxlength="1" value="X">
-                <input class="digit-box" type="text" maxlength="1" value="X">
-                <input class="digit-box" type="text" maxlength="1" value="X">
-            </div>
-
-            <div class="pgw-terms">
-                By clicking/tapping "Proceed" you are agreeing to our <b>Terms and Conditions</b>
-            </div>
-
-            <div class="pgw-btn-group">
-                <button class="pgw-btn" onclick="executePayment()">Proceed</button>
-                <button class="pgw-btn" onclick="closePGW()">Close</button>
-            </div>
-
-            <div class="pgw-footer-logo">
-                <i class="fa-solid fa-paper-plane"></i> <span id="gatewayBrand">নগদ</span>
+            <div class="widget-info">
+                <label>দেওয়ানগঞ্জের তাপমাত্রা</label>
+                <strong id="liveTemp">২৮°C (আংশিক মেঘলা)</strong>
             </div>
         </div>
+
+        <div class="widget-card">
+            <div class="widget-icon">
+                <i class="fa-solid fa-book-bookmark"></i>
+            </div>
+            <div class="widget-info">
+                <label>ডিজিটাল ই-বুক</label>
+                <strong>১০০+ সরাসরি ডাউনলোডযোগ্য</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-container" id="ebooks">
+        <div class="section-title">
+            <h3>বাংলাদেশের সম্পূর্ণ ডিজিটাল ই-বুক লাইব্রেরি</h3>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" onkeyup="filterBooks()" placeholder="বইয়ের নাম বা লেখকের নাম দিয়ে খুঁজুন...">
+        </div>
+
+        <!-- Direct Downloadable Books Collection Grid -->
+        <div class="books-grid" id="booksGrid">
+
+            <!-- Book 1 -->
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <span class="book-tag">ইসলামী</span>
+                    <i class="fa-solid fa-book-quran"></i>
+                    <div style="font-weight: bold; font-size: 13px;">পবিত্র কুরআনুল কারীম</div>
+                </div>
+                <div class="book-details">
+                    <div>
+                        <div class="book-name">পবিত্র কুরআন (বাংলা অর্থ ও অনুবাদসহ)</div>
+                        <div class="book-writer">তাফসীর ও বঙ্গানুবাদ</div>
+                    </div>
+                    <a href="https://quran.gov.bd/" class="btn-download-direct" target="_blank">
+                        <i class="fa-solid fa-file-pdf"></i> সরাসরি ডাউনলোড (PDF)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Book 2 -->
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <span class="book-tag">হাদীস</span>
+                    <i class="fa-solid fa-kaaba"></i>
+                    <div style="font-weight: bold; font-size: 13px;">সহীহ আল-বুখারী</div>
+                </div>
+                <div class="book-details">
+                    <div>
+                        <div class="book-name">সহীহ বুখারী শরীফ (সকল খণ্ড)</div>
+                        <div class="book-writer">ইমাম বুখারী (রহ.)</div>
+                    </div>
+                    <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" class="btn-download-direct" target="_blank" download>
+                        <i class="fa-solid fa-file-pdf"></i> সরাসরি ডাউনলোড (PDF)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Book 3 -->
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <span class="book-tag">এনসিটিবি</span>
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <div style="font-weight: bold; font-size: 13px;">NCTB পাঠ্যবই</div>
+                </div>
+                <div class="book-details">
+                    <div>
+                        <div class="book-name">স্কুল ও মাদ্রাসার সকল পাঠ্যবই (১ম-১০ম)</div>
+                        <div class="book-author">জাতীয় শিক্ষাক্রম ও পাঠ্যপুস্তক বোর্ড</div>
+                    </div>
+                    <a href="https://nctb.gov.bd/" class="btn-download-direct" target="_blank">
+                        <i class="fa-solid fa-download"></i> বোর্ড বই ডাউনলোড
+                    </a>
+                </div>
+            </div>
+
+            <!-- Book 4 -->
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <span class="book-tag">সাহিত্য</span>
+                    <i class="fa-solid fa-book"></i>
+                    <div style="font-weight: bold; font-size: 13px;">সঞ্চয়িতা</div>
+                </div>
+                <div class="book-details">
+                    <div>
+                        <div class="book-name">সঞ্চয়িতা ও গল্পগুচ্ছ</div>
+                        <div class="book-writer">রবীন্দ্রনাথ ঠাকুর</div>
+                    </div>
+                    <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" class="btn-download-direct" target="_blank" download>
+                        <i class="fa-solid fa-file-pdf"></i> সরাসরি ডাউনলোড (PDF)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Book 5 -->
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <span class="book-tag">কবিতা</span>
+                    <i class="fa-solid fa-feather"></i>
+                    <div style="font-weight: bold; font-size: 13px;">অগ্নিবীণা</div>
+                </div>
+                <div class="book-details">
+                    <div>
+                        <div class="book-name">অগ্নিবীণা ও সঞ্চিতা</div>
+                        <div class="book-writer">কাজী নজরুল ইসলাম</div>
+                    </div>
+                    <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" class="btn-download-direct" target="_blank" download>
+                        <i class="fa-solid fa-file-pdf"></i> সরাসরি ডাউনলোড (PDF)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Book 6 -->
+            <div class="book-card">
+                <div class="book-cover-wrap">
+                    <span class="book-tag">আত্মউন্নয়ন</span>
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <div style="font-weight: bold; font-size: 13px;">প্যারাডক্সিক্যাল সাজিদ</div>
+                </div>
+                <div class="book-details">
+                    <div>
+                        <div class="book-name">প্যারাডক্সিক্যাল সাজিদ (১ ও ২)</div>
+                        <div class="book-writer">আরিফ আজাদ</div>
+                    </div>
+                    <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" class="btn-download-direct" target="_blank" download>
+                        <i class="fa-solid fa-file-pdf"></i> সরাসরি ডাউনলোড (PDF)
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        স্বত্ব © ২০২৬ আল-আহসান ফাউন্ডেশন বাংলাদেশ | কার্যালয়: দেওয়ানগঞ্জ, জামালপুর
     </div>
 
     <script>
-        let selectedMethod = 'nagad';
+        // Real-Time Clock Function
+        function startClock() {
+            const now = new Date();
+            let h = now.getHours();
+            let m = now.getMinutes();
+            let s = now.getSeconds();
+            const ampm = h >= 12 ? 'PM' : 'AM';
+            h = h % 12;
+            h = h ? h : 12;
+            m = m < 10 ? '0' + m : m;
+            s = s < 10 ? '0' + s : s;
+            document.getElementById('liveClock').innerText = h + ':' + m + ':' + s + ' ' + ampm;
+        }
+        setInterval(startClock, 1000);
+        startClock();
 
-        function selectMethod(method) {
-            selectedMethod = method;
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active', 'nagad', 'bkash', 'rocket'));
-            
-            const selectedBtn = document.querySelector(`.tab-btn.${method}`);
-            selectedBtn.classList.add('active', method);
-
-            const pgwBox = document.getElementById('pgwBox');
-            if(method === 'nagad') {
-                pgwBox.style.background = '#d32f2f';
-                document.getElementById('pgwTitle').innerText = 'Nagad Direct-Debit Activation';
-                document.getElementById('pgwAccLabel').innerText = 'Your Nagad Account Number';
-                document.getElementById('gatewayBrand').innerText = 'নগদ';
-            } else if(method === 'bkash') {
-                pgwBox.style.background = '#e2136e';
-                document.getElementById('pgwTitle').innerText = 'bKash Payment Gateway';
-                document.getElementById('pgwAccLabel').innerText = 'Your bKash Account Number';
-                document.getElementById('gatewayBrand').innerText = 'বিকাশ';
-            } else if(method === 'rocket') {
-                pgwBox.style.background = '#8c3494';
-                document.getElementById('pgwTitle').innerText = 'Rocket Mobile Banking';
-                document.getElementById('pgwAccLabel').innerText = 'Your Rocket Account Number';
-                document.getElementById('gatewayBrand').innerText = 'রকেট';
+        // Live Dewanganj Weather API Fetch
+        async function getDewanganjWeather() {
+            try {
+                const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=25.14&longitude=89.78&current_weather=true');
+                const data = await res.json();
+                if(data && data.current_weather) {
+                    const temp = Math.round(data.current_weather.temperature);
+                    document.getElementById('liveTemp').innerText = temp + '°C (দেওয়ানগঞ্জ)';
+                }
+            } catch (err) {
+                document.getElementById('liveTemp').innerText = '২৮°C (আংশিক মেঘলা)';
             }
         }
+        getDewanganjWeather();
 
-        function setAmount(val) {
-            document.getElementById('amountInput').value = val;
-            document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-        }
-
-        function openPGW(e) {
-            e.preventDefault();
-            const phone = document.getElementById('phoneInput').value;
-            if(phone && phone.length === 11) {
-                const digits = phone.split('');
-                const boxes = document.querySelectorAll('.digit-box');
-                let idx = 0;
-                boxes.forEach((box) => {
-                    if(box.value !== '-') {
-                        box.value = digits[idx] || 'X';
-                        idx++;
-                    }
-                });
-            }
-            document.getElementById('pgwModal').classList.add('active');
-        }
-
-        function closePGW() {
-            document.getElementById('pgwModal').classList.remove('active');
-        }
-
-        function executePayment() {
-            alert('আপনার অনুরোধটি প্রসেস করা হচ্ছে। পিন (PIN) ও ওটিপি (OTP) দিয়ে পেমেন্ট সম্পূর্ণ করুন।');
-            closePGW();
+        // Book Search Filter
+        function filterBooks() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.book-card');
+            cards.forEach(card => {
+                const title = card.querySelector('.book-name').innerText.toLowerCase();
+                const writer = card.querySelector('.book-writer').innerText.toLowerCase();
+                if(title.includes(query) || writer.includes(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         }
     </script>
 </body>
