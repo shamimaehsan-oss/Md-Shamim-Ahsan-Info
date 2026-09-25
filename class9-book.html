@@ -1,181 +1,492 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>জাতীয় ডিজিটাল পাঠাগার ও নবম-দশম লার্নিং প্ল্যাটফর্ম</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Hind Siliguri', sans-serif; background-color: #f8fafc; color: #0f172a; }
-    
-    header { position: sticky; top: 0; z-index: 50; background-color: #ffffff; border-bottom: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-    .nav-container { max-width: 1280px; margin: 0 auto; padding: 0 16px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
-    .logo-area { display: flex; align-items: center; gap: 12px; cursor: pointer; }
-    .logo-icon { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(to top right, #059669, #2563eb); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; font-size: 20px; }
-    
-    .nav-btns { display: flex; align-items: center; gap: 6px; }
-    .nav-btn { padding: 8px 12px; border-radius: 8px; font-size: 13px; font-weight: 600; border: none; cursor: pointer; background: transparent; color: #334155; }
-    .nav-btn.active { background-color: #059669; color: #ffffff; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>নবম শ্রেণী লার্নিং পোর্টাল</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-pink: #e91e63;
+            --secondary-blue: #0d47a1;
+            --dark-blue: #0b132b;
+            --light-bg: #f8f9fa;
+            --text-dark: #1c2541;
+            --white: #ffffff;
+        }
 
-    main { max-width: 1280px; margin: 0 auto; padding: 24px 16px; }
-    .hidden { display: none !important; }
-    
-    /* Layout Cards */
-    .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); margin-bottom: 20px; }
-    .banner { background: linear-gradient(to right, #064e3b, #0f172a); border-radius: 16px; padding: 24px; color: #fff; margin-bottom: 24px; }
-    
-    /* Book Grid */
-    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
-    .book-card { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; padding: 16px; cursor: pointer; transition: all 0.2s; }
-    .book-card:hover { border-color: #059669; background: #ecfdf5; }
-    
-    /* Calculator UI */
-    .calc-screen { width: 100%; height: 50px; background: #0f172a; color: #10b981; font-size: 24px; text-align: right; padding: 10px; border-radius: 8px; border: none; margin-bottom: 12px; font-family: monospace; }
-    .calc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-    .calc-btn { padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1; background: #f1f5f9; font-weight: bold; cursor: pointer; font-size: 16px; }
-    .calc-btn.op { background: #059669; color: #fff; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    footer { border-top: 1px solid #e2e8f0; background: #fff; padding: 24px; text-align: center; font-size: 12px; color: #64748b; margin-top: 40px; }
-  </style>
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+        }
+
+        /* Navbar Layout */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-pink);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-pink);
+        }
+
+        .helpline {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary-blue);
+            font-weight: bold;
+        }
+
+        /* Hero Banner Section */
+        .hero {
+            background: linear-gradient(135deg, #fff0f5 0%, #e6f0ff 100%);
+            padding: 50px 5%;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            color: var(--secondary-blue);
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-pink);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--primary-pink);
+            border: 2px solid var(--primary-pink);
+        }
+
+        /* Stats Section */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 30px 5%;
+            background-color: var(--white);
+            max-width: 1200px;
+            margin: 20px auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item h2 {
+            font-size: 28px;
+            color: var(--primary-pink);
+        }
+
+        .stat-item p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Feature Sections (Dark Theme Style like Shikho App) */
+        .features-section {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 50px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 40px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .card i {
+            font-size: 40px;
+            color: var(--primary-pink);
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        /* NCTB Books PDF Section */
+        .books-section {
+            padding: 50px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .book-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .book-card h4 {
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        /* Embedded Tools: PDF Viewer & Calculator */
+        .tools-section {
+            background-color: #f0f4f8;
+            padding: 50px 5%;
+        }
+
+        .tools-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tool-box {
+            flex: 1;
+            min-width: 320px;
+            background: var(--white);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        /* Scientific Calculator Design */
+        .calc-display {
+            width: 100%;
+            height: 50px;
+            background-color: #222;
+            color: #0f0;
+            font-size: 22px;
+            text-align: right;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .calc-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .calc-btn {
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .calc-btn.op {
+            background-color: var(--secondary-blue);
+            color: var(--white);
+        }
+
+        .calc-btn.action {
+            background-color: var(--primary-pink);
+            color: var(--white);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <div class="nav-container">
-      <div class="logo-area" onclick="switchTab('library')">
-        <div class="logo-icon">📚</div>
-        <div>
-          <span style="font-weight:bold; font-size:18px;">ডিজিটাল পাঠাগার ৯-১০</span>
-          <p style="font-size:11px; color:#64748b;">সকল পাঠ্যবই, গাইড, অনুশীলনী ও সায়েন্টিফিক সরঞ্জাম</p>
+    <!-- Header / Navigation -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <i class="fa-solid fa-graduation-cap"></i> শিখো ৯
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">হোম</a></li>
+                <li><a href="#features">ফিচারসমূহ</a></li>
+                <li><a href="#books">বোর্ড বই (PDF)</a></li>
+                <li><a href="#tools">ক্যালকুলেটর</a></li>
+            </ul>
+            <div class="helpline">
+                <i class="fa-solid fa-phone"></i> ১৬৭৮০
+            </div>
         </div>
-      </div>
+    </header>
 
-      <nav class="nav-btns">
-        <button id="nav-library" onclick="switchTab('library')" class="nav-btn active">📚 সকল পাঠ্যবই</button>
-        <button id="nav-guides" onclick="switchTab('guides')" class="nav-btn">📝 গাইড ও অনুশীলনী</button>
-        <button id="nav-calc" onclick="switchTab('calc')" class="nav-btn">🧮 ক্যালকুলেটর ও সরঞ্জাম</button>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <!-- TAB 1: ALL BOOKS -->
-    <section id="tab-library">
-      <div class="banner">
-        <h2>নবম-দশম শ্রেণির ১৪টি পাঠ্যবই লাইব্রেরি</h2>
-        <p style="font-size:13px; color:#cbd5e1; margin-top:4px;">বিজ্ঞান, মানবিক ও ব্যবসায় শিক্ষা শাখার অনুমোদিত সকল বইয়ের সংগ্রহশালা।</p>
-      </div>
-
-      <div class="grid-4">
-        <div class="book-card" onclick="alert('বিজ্ঞান বিষয়ের অধ্যায়গুলো লোড হচ্ছে...')">
-          <h3 style="color:#059669;">🧬 জীববিজ্ঞান</h3>
-          <p style="font-size:12px; color:#64748b; margin-top:4px;">১৪টি অধ্যায় • মেডিকেল কালার গাইড</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>একাডেমিক প্রস্তুতি নাও সেরা শিক্ষক ও প্রযুক্তির সাথে</h1>
+            <p>নবম শ্রেণীর সম্পূর্ণ সিলেবাসের এিমেটেড ভিডিও, লাইভ ক্লাস, স্মার্ট নোটস এবং কুইজ এখন এক জায়গায়।</p>
+            <div class="btn-container">
+                <button class="btn btn-primary">কোর্সসমূহ দেখো</button>
+                <button class="btn btn-secondary">শিখতে শুরু করো</button>
+            </div>
         </div>
-        <div class="book-card" onclick="alert('রসায়ন ফোল্ডার খুলছে...')">
-          <h3 style="color:#059669;">🧪 রসায়ন</h3>
-          <p style="font-size:12px; color:#64748b; margin-top:4px;">১২টি অধ্যায় • সংকেত ও সমীকরণ</p>
-        </div>
-        <div class="book-card" onclick="alert('পদার্থবিজ্ঞান ফোল্ডার খুলছে...')">
-          <h3 style="color:#059669;">⚡ পদার্থবিজ্ঞান</h3>
-          <p style="font-size:12px; color:#64748b; margin-top:4px;">১৪টি অধ্যায় • সূত্র ও গাণিতিক সমাধান</p>
-        </div>
-        <div class="book-card">
-          <h3 style="color:#059669;">📐 সাধারণ গণিত</h3>
-          <p style="font-size:12px; color:#64748b; margin-top:4px;">১৭টি অধ্যায় • অনুশীলনী সমাধান</p>
-        </div>
-        <div class="book-card">
-          <h3 style="color:#059669;">📊 উচ্চতর গণিত</h3>
-          <p style="font-size:12px; color:#64748b; margin-top:4px;">১৪টি অধ্যায় • জ্যামিতি ও স্থানাঙ্ক</p>
-        </div>
-        <div class="book-card">
-          <h3 style="color:#059669;">📖 বাংলা সাহিত্য</h3>
-          <p style="font-size:12px; color:#64748b; margin-top:4px;">গদ্য, পদ্য ও সহপাঠ উপন্যাস</p>
-        </div>
-        <div class="book-card">
-          <h3 style="color:#059669;">🔤 English For Today</h3>
-          <p style="font-size:12px; color:#64748b; margin-top:4px;">Units, Passages & Grammar</p>
-        </div>
-        <div class="book-card">
-          <h3 style="color:#059669;">💻 আইসিটি (ICT)</h3>
-          <p style="font-size:12px; color:#64748b; margin-top:4px;">৬টি অধ্যায় • প্রোগ্রামিং ও ই-হেলথ</p>
-        </div>
-      </div>
     </section>
 
-    <!-- TAB 2: GUIDES & EXERCISES -->
-    <section id="tab-guides" class="hidden">
-      <div class="card">
-        <h3>📝 বোর্ড গাইড ও সৃজনশীল প্রশ্ন (CQ) ব্যাংক</h3>
-        <p style="font-size:13px; color:#64748b; margin-top:8px;">
-          বাংলাদেশের ৮টি শিক্ষা বোর্ডের সেরা টেস্ট পেপার ও নৈর্ব্যক্তিক সমাধান এখানে যুক্ত করা সম্ভব।
-        </p>
-      </div>
-    </section>
-
-    <!-- TAB 3: CALCULATOR & TOOLS -->
-    <section id="tab-calc" class="hidden">
-      <div class="card" style="max-width:400px; margin:0 auto;">
-        <h3 style="margin-bottom:12px; text-align:center;">🧮 সায়েন্টিফিক ও ল্যাব ক্যালকুলেটর</h3>
-        <input type="text" id="calc-display" class="calc-screen" readonly value="0">
-        <div class="calc-grid">
-          <button class="calc-btn" onclick="clearCalc()">C</button>
-          <button class="calc-btn" onclick="pressCalc('(')">(</button>
-          <button class="calc-btn" onclick="pressCalc(')')">)</button>
-          <button class="calc-btn op" onclick="pressCalc('/')">/</button>
-          
-          <button class="calc-btn" onclick="pressCalc('7')">7</button>
-          <button class="calc-btn" onclick="pressCalc('8')">8</button>
-          <button class="calc-btn" onclick="pressCalc('9')">9</button>
-          <button class="calc-btn op" onclick="pressCalc('*')">*</button>
-          
-          <button class="calc-btn" onclick="pressCalc('4')">4</button>
-          <button class="calc-btn" onclick="pressCalc('5')">5</button>
-          <button class="calc-btn" onclick="pressCalc('6')">6</button>
-          <button class="calc-btn op" onclick="pressCalc('-')">-</button>
-          
-          <button class="calc-btn" onclick="pressCalc('1')">1</button>
-          <button class="calc-btn" onclick="pressCalc('2')">2</button>
-          <button class="calc-btn" onclick="pressCalc('3')">3</button>
-          <button class="calc-btn op" onclick="pressCalc('+')">+</button>
-          
-          <button class="calc-btn" onclick="pressCalc('0')">0</button>
-          <button class="calc-btn" onclick="pressCalc('.')">.</button>
-          <button class="calc-btn op" style="grid-column: span 2;" onclick="solveCalc()">=</button>
+    <!-- Stats Counter -->
+    <section class="stats">
+        <div class="stat-item">
+            <h2>৩০ লক্ষ+</h2>
+            <p>শিক্ষার্থী</p>
         </div>
-      </div>
+        <div class="stat-item">
+            <h2>২০ জন+</h2>
+            <p>অভিজ্ঞ মেন্টর</p>
+        </div>
+        <div class="stat-item">
+            <h2>৪৫ লক্ষ+</h2>
+            <p>অ্যাপ ডাউনলোড</p>
+        </div>
+        <div class="stat-item">
+            <h2>৫ লক্ষ+</h2>
+            <p>লার্নিং মেটেরিয়াল</p>
+        </div>
     </section>
-  </main>
 
-  <footer>
-    <p><strong>সর্বজনীন নবম-দশম শিক্ষা ও ডিজিটাল পাঠাগার উদ্যোগ</strong></p>
-    <p>সমগ্র বাংলাদেশের সকল শিক্ষার্থীর জন্য উন্মুক্ত শিক্ষার এক প্ল্যাটফর্ম।</p>
-  </footer>
+    <!-- Features Section (Shikho UI Dark Style) -->
+    <section class="features-section" id="features">
+        <h2 class="section-title">নবম শ্রেণীর লার্নিং প্রোগ্রামে যা যা থাকছে</h2>
+        <div class="grid-container">
+            <div class="card">
+                <i class="fa-solid fa-video"></i>
+                <h3>লাইভ ও রেকর্ড ক্লাসেস</h3>
+                <p>সেরা শিক্ষকদের সাথে প্রতিটি অধ্যায়ের সহজবোধ্য ব্যাখ্যামূলক ক্লাস।</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-play"></i>
+                <h3>অ্যানিমেটেড ভিডিও</h3>
+                <p>ভিজ্যুয়াল উদাহরণের সাহায্যে জটিল বিষয়গুলো সহজে বোঝার সুবিধা।</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-file-pen"></i>
+                <h3>স্মার্ট ও ক্লাস নোটস</h3>
+                <p>পরীক্ষার প্রস্তুতির জন্য গোছানো পিডিএফ নোটস ও সংক্ষিপ্ত সাজেশন।</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-clock"></i>
+                <h3>লাইভ MCQ টেস্ট</h3>
+                <p>সময়ভিত্তিক মডেল টেস্টের মাধ্যমে নিজের প্রস্তুতি যাচাই করার সুযোগ।</p>
+            </div>
+        </div>
+    </section>
 
-  <script>
-    function switchTab(tabId) {
-      ['library', 'guides', 'calc'].forEach(t => {
-        document.getElementById('tab-' + t).classList.add('hidden');
-        document.getElementById('nav-' + t).classList.remove('active');
-      });
-      document.getElementById('tab-' + tabId).classList.remove('hidden');
-      document.getElementById('nav-' + tabId).classList.add('active');
-    }
+    <!-- NCTB PDF Books Section -->
+    <section class="books-section" id="books">
+        <h2 class="section-title" style="color: var(--secondary-blue);">নবম শ্রেণীর এনসিটিবি (NCTB) বোর্ড বই (PDF)</h2>
+        <div class="book-grid">
+            <div class="book-card">
+                <h4>গণিত (Mathematics)</h4>
+                <button class="btn btn-primary" onclick="openPdf('https://nctb.portal.gov.bd/')">পড়ুন / ডাউনলোড</button>
+            </div>
+            <div class="book-card">
+                <h4>পদার্থবিজ্ঞান (Physics)</h4>
+                <button class="btn btn-primary" onclick="openPdf('https://nctb.portal.gov.bd/')">পড়ুন / ডাউনলোড</button>
+            </div>
+            <div class="book-card">
+                <h4>রসায়ন (Chemistry)</h4>
+                <button class="btn btn-primary" onclick="openPdf('https://nctb.portal.gov.bd/')">পড়ুন / ডাউনলোড</button>
+            </div>
+            <div class="book-card">
+                <h4>উচ্চতর গণিত (Higher Math)</h4>
+                <button class="btn btn-primary" onclick="openPdf('https://nctb.portal.gov.bd/')">পড়ুন / ডাউনলোড</button>
+            </div>
+        </div>
+    </section>
 
-    /* Calculator Script */
-    var screen = document.getElementById('calc-display');
-    function pressCalc(val) {
-      if (screen.value === '0') screen.value = val;
-      else screen.value += val;
-    }
-    function clearCalc() { screen.value = '0'; }
-    function solveCalc() {
-      try { screen.value = eval(screen.value); }
-      catch(e) { screen.value = 'Error'; }
-    }
-  </script>
+    <!-- Embedded Tools: PDF Reader & Calculator -->
+    <section class="tools-section" id="tools">
+        <div class="tools-wrapper">
+            
+            <!-- Embedded PDF Previewer -->
+            <div class="tool-box" style="flex: 2;">
+                <h3><i class="fa-solid fa-book-open"></i> সরাসরি বইয়ের PDF ভিউয়ার</h3>
+                <p style="margin-bottom: 15px; color: #666;">এখানে বোর্ড বইয়ের লিঙ্ক সংযুক্ত করে সরাসরি পোর্টালেই পড়া যাবে:</p>
+                <iframe id="pdfViewer" src="about:blank" style="width: 100%; height: 350px; border: 1px solid #ccc; border-radius: 8px;"></iframe>
+            </div>
+
+            <!-- Built-in Scientific Calculator -->
+            <div class="tool-box">
+                <h3><i class="fa-solid fa-calculator"></i> সায়েন্টিফিক ক্যালকুলেটর</h3>
+                <input type="text" id="calcDisplay" class="calc-display" readonly placeholder="0">
+                <div class="calc-buttons">
+                    <button class="calc-btn action" onclick="clearCalc()">C</button>
+                    <button class="calc-btn op" onclick="appendCalc('(')">(</button>
+                    <button class="calc-btn op" onclick="appendCalc(')')">)</button>
+                    <button class="calc-btn op" onclick="appendCalc('/')">/</button>
+
+                    <button class="calc-btn" onclick="appendCalc('7')">7</button>
+                    <button class="calc-btn" onclick="appendCalc('8')">8</button>
+                    <button class="calc-btn" onclick="appendCalc('9')">9</button>
+                    <button class="calc-btn op" onclick="appendCalc('*')">*</button>
+
+                    <button class="calc-btn" onclick="appendCalc('4')">4</button>
+                    <button class="calc-btn" onclick="appendCalc('5')">5</button>
+                    <button class="calc-btn" onclick="appendCalc('6')">6</button>
+                    <button class="calc-btn op" onclick="appendCalc('-')">-</button>
+
+                    <button class="calc-btn" onclick="appendCalc('1')">1</button>
+                    <button class="calc-btn" onclick="appendCalc('2')">2</button>
+                    <button class="calc-btn" onclick="appendCalc('3')">3</button>
+                    <button class="calc-btn op" onclick="appendCalc('+')">+</button>
+
+                    <button class="calc-btn" onclick="appendCalc('0')">0</button>
+                    <button class="calc-btn" onclick="appendCalc('.')">.</button>
+                    <button class="calc-btn op" onclick="appendCalc('Math.sin(')">sin</button>
+                    <button class="calc-btn action" onclick="calculateResult()">=</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 নবম শ্রেণী লার্নিং পোর্টাল। সর্বস্বত্ব সংরক্ষিত।</p>
+    </footer>
+
+    <!-- JavaScript logic -->
+    <script>
+        // Calculator Functions
+        const display = document.getElementById('calcDisplay');
+
+        function appendCalc(val) {
+            display.value += val;
+        }
+
+        function clearCalc() {
+            display.value = '';
+        }
+
+        function calculateResult() {
+            try {
+                display.value = eval(display.value);
+            } catch (e) {
+                display.value = 'Error';
+            }
+        }
+
+        // PDF Preview Function
+        function openPdf(url) {
+            document.getElementById('pdfViewer').src = url;
+        }
+    </script>
 </body>
-</html>
+  </html>
