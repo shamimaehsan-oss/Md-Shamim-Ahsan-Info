@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>মাই বুক - দেওয়ানগঞ্জ, জামালপুর শিক্ষা পোর্টাল</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --shikho-navy: #0d1b2a;
+            --shikho-blue: #1b263b;
+            --shikho-purple: #415a77;
+            --shikho-pink: #e91e63;
+            --shikho-btn: #d62828;
+            --shikho-bg: #f4f6f9;
+            --text-dark: #1b1b1b;
+            --text-light: #ffffff;
+            --accent-yellow: #ffb703;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Hind Siliguri', 'Segoe UI', Tahoma, sans-serif;
+        }
+
+        body {
+            background-color: var(--shikho-bg);
+            color: var(--text-dark);
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #080d1a;
+            color: var(--text-light);
+            padding: 8px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .location-badge {
+            background: rgba(233, 30, 99, 0.2);
+            color: #ff758c;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        /* Navbar */
+        header {
+            background-color: var(--shikho-navy);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--shikho-pink);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-yellow);
+        }
+
+        .coin-box {
+            background: linear-gradient(45deg, #ffb703, #fb8500);
+            color: #000;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #415a77 100%);
+            color: white;
+            padding: 50px 5%;
+            text-align: center;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+
+        .hero h1 {
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #cbd5e1;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 5%;
+        }
+
+        .section-header {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--shikho-navy);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 5px solid var(--shikho-pink);
+            padding-left: 12px;
+        }
+
+        /* Books & Guides Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-icon {
+            font-size: 36px;
+            color: var(--shikho-pink);
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .btn-action {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background: linear-gradient(45deg, var(--shikho-pink), #ff4081);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-action.guide {
+            background: linear-gradient(45deg, #10b981, #059669);
+        }
+
+        /* Scientific Calculator FX-991 EX/MS Style */
+        .calc-wrapper {
+            background: #1e293b;
+            padding: 25px;
+            border-radius: 20px;
+            max-width: 480px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 3px solid #334155;
+        }
+
+        .calc-screen {
+            background: #a3e635;
+            color: #111827;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: right;
+            margin-bottom: 20px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .calc-screen .expression {
+            font-size: 14px;
+            min-height: 18px;
+            color: #374151;
+        }
+
+        .calc-screen .result {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .calc-pad {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+        }
+
+        .c-btn {
+            padding: 12px 5px;
+            font-size: 13px;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            background: #334155;
+            color: white;
+            cursor: pointer;
+            transition: active 0.1s;
+        }
+
+        .c-btn:active {
+            transform: scale(0.95);
+        }
+
+        .c-btn.func { background: #475569; color: #38bdf8; }
+        .c-btn.shift { background: #d97706; }
+        .c-btn.alpha { background: #dc2626; }
+        .c-btn.danger { background: #ef4444; }
+        .c-btn.equal { background: #10b981; grid-column: span 2; }
+
+        /* General Knowledge Section */
+        .gk-box {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 15px;
+            border-left: 4px solid var(--shikho-purple);
+        }
+
+        .gk-box h4 {
+            color: var(--shikho-navy);
+            margin-bottom: 8px;
+        }
+
+        /* Quiz Box */
+        .quiz-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .quiz-option {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background: #f1f5f9;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .quiz-option:hover {
+            background: #e2e8f0;
+            border-color: var(--shikho-pink);
+        }
+
+        footer {
+            background: var(--shikho-navy);
+            color: #94a3b8;
+            text-align: center;
+            padding: 25px;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div>
+            <i class="fa-solid fa-location-dot"></i> <span class="location-badge">দেওয়ানগঞ্জ, জামালপুর</span>
+            <span style="margin-left:10px;"><i class="fa-solid fa-clock"></i> স্থানীয় সময়: <strong id="clock">00:00:00</strong></span>
+        </div>
+        <div>
+            <i class="fa-solid fa-cloud-sun"></i> আবহাওয়া: <strong>২৯° সেলসিয়াস (স্বাভাবিক)</strong>
+        </div>
+    </div>
+
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo"><i class="fa-solid fa-graduation-cap"></i> মাই<span>বুক</span></a>
+            <ul class="nav-links">
+                <li><a href="#books">পাঠ্যবই ও গাইড</a></li>
+                <li><a href="#calculator">সায়েন্টিফিক ক্যালকুলেটর</a></li>
+                <li><a href="#gk">সাধারণ জ্ঞান</a></li>
+                <li><a href="#quiz">লাইভ কুইজ</a></li>
+            </ul>
+            <div class="coin-box">
+                <i class="fa-solid fa-coins"></i>
+                <span>কয়েন: <strong id="coinCount">১৫০</strong></span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>নবম-দশম শ্রেণীর ডিজিটাল লার্নিং প্ল্যাটফর্ম</h1>
+        <p>শিখো অ্যাপের অভিজ্ঞতা নিয়ে জামালপুর অঞ্চলের শিক্ষার্থীদের জন্য ১০০% কার্যকরী ডিজিটাল শিক্ষা সেবা</p>
+    </section>
+
+    <div class="container" id="books">
+        <div class="section-header">
+            <i class="fa-solid fa-book-open"></i> পাঠ্যবই (NCTB) ও অধ্যায়ভিত্তিক সমাধান গাইড
+        </div>
+        
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-calculator"></i></div>
+                <h3>সাধারণ গণিত (General Math)</h3>
+                <p>নবম-দশম শ্রেণী মূল পাঠ্যবই ও পূর্ণাঙ্গ সমাধান গাইড।</p>
+                <button class="btn-action" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-file-pdf"></i> মূল বই ডাউনলোড</button>
+                <button class="btn-action guide" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-book-bookmark"></i> গাইড ও সমাধান</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-atom"></i></div>
+                <h3>পদার্থবিজ্ঞান (Physics)</h3>
+                <p>অধ্যায়ভিত্তিক নোট, গাণিতিক সূত্রাবলী ও বোর্ড প্রশ্ন।</p>
+                <button class="btn-action" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-file-pdf"></i> মূল বই ডাউনলোড</button>
+                <button class="btn-action guide" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-book-bookmark"></i> গাইড ও সমাধান</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-flask"></i></div>
+                <h3>রসায়ন (Chemistry)</h3>
+                <p>রাসায়নিক বিক্রিয়া, সমীকরণ ও প্র্যাকটিক্যাল গাইড।</p>
+                <button class="btn-action" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-file-pdf"></i> মূল বই ডাউনলোড</button>
+                <button class="btn-action guide" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-book-bookmark"></i> গাইড ও সমাধান</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-dna"></i></div>
+                <h3>জীববিজ্ঞান (Biology)</h3>
+                <p>চিত্রসহ বিস্তারিত অধ্যায়ভিত্তিক সমাধান ও নোট।</p>
+                <button class="btn-action" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-file-pdf"></i> মূল বই ডাউনলোড</button>
+                <button class="btn-action guide" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-book-bookmark"></i> গাইড ও সমাধান</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-square-root-variable"></i></div>
+                <h3>উচ্চতর গণিত (Higher Math)</h3>
+                <p>স্থানাঙ্ক জ্যামিতি, ভেক্টর ও ক্যালিফোর্নিয়া সমাধানের গাইড।</p>
+                <button class="btn-action" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-file-pdf"></i> মূল বই ডাউনলোড</button>
+                <button class="btn-action guide" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-book-bookmark"></i> গাইড ও সমাধান</button>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                <h3>তথ্য ও যোগাযোগ প্রযুক্তি (ICT)</h3>
+                <p>এমসিকিউ, প্রোগ্রামিং ও শর্টকাট প্রশ্ন উত্তর।</p>
+                <button class="btn-action" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-file-pdf"></i> মূল বই ডাউনলোড</button>
+                <button class="btn-action guide" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-book-bookmark"></i> গাইড ও সমাধান</button>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; background: white; padding: 20px; border-radius: 12px;">
+            <h3><i class="fa-solid fa-eye"></i> লাইভ বই ও গাইড রিডার প্যানেল</h3>
+            <iframe id="pdfViewer" src="https://nctb.portal.gov.bd/" style="width:100%; height:450px; border:1px solid #cbd5e1; border-radius:8px; margin-top:10px;"></iframe>
+        </div>
+    </div>
+
+    <div class="container" id="calculator">
+        <div class="section-header">
+            <i class="fa-solid fa-calculator"></i> অ্যাডভান্সড সায়েন্টিফিক ক্যালকুলেটর (FX-991EX Mode)
+        </div>
+
+        <div class="calc-wrapper">
+            <div class="calc-screen">
+                <div class="expression" id="calcExp"></div>
+                <div class="result" id="calcRes">0</div>
+            </div>
+
+            <div class="calc-pad">
+                <button class="c-btn shift">SHIFT</button>
+                <button class="c-btn alpha">ALPHA</button>
+                <button class="c-btn func" onclick="press('Math.abs(')">abs</button>
+                <button class="c-btn func" onclick="press('d/dx(')">d/dx</button>
+                <button class="c-btn danger" onclick="cls()">ON/AC</button>
+
+                <button class="c-btn func" onclick="press('Math.pow(')">xⁿ</button>
+                <button class="c-btn func" onclick="press('**2')">x²</button>
+                <button class="c-btn func" onclick="press('**3')">x³</button>
+                <button class="c-btn func" onclick="press('Math.log10(')">log</button>
+                <button class="c-btn func" onclick="press('Math.log(')">ln</button>
+
+                <button class="c-btn func" onclick="press('Math.sin(')">sin</button>
+                <button class="c-btn func" onclick="press('Math.cos(')">cos</button>
+                <button class="c-btn func" onclick="press('Math.tan(')">tan</button>
+                <button class="c-btn func" onclick="press('Math.sqrt(')">√</button>
+                <button class="c-btn func" onclick="press('(')">(</button>
+
+                <button class="c-btn func" onclick="press(')')">)</button>
+                <button class="c-btn" onclick="press('7')">7</button>
+                <button class="c-btn" onclick="press('8')">8</button>
+                <button class="c-btn" onclick="press('9')">9</button>
+                <button class="c-btn danger" onclick="del()">DEL</button>
+
+                <button class="c-btn func" onclick="press('Math.PI')">π</button>
+                <button class="c-btn" onclick="press('4')">4</button>
+                <button class="c-btn" onclick="press('5')">5</button>
+                <button class="c-btn" onclick="press('6')">6</button>
+                <button class="c-btn func" onclick="press('*')">×</button>
+
+                <button class="c-btn func" onclick="press('Math.E')">e</button>
+                <button class="c-btn" onclick="press('1')">1</button>
+                <button class="c-btn" onclick="press('2')">2</button>
+                <button class="c-btn" onclick="press('3')">3</button>
+                <button class="c-btn func" onclick="press('/')">÷</button>
+
+                <button class="c-btn" onclick="press('0')">0</button>
+                <button class="c-btn" onclick="press('.')">.</button>
+                <button class="c-btn func" onclick="press('+')">+</button>
+                <button class="c-btn func" onclick="press('-')">-</button>
+                <button class="c-btn equal" onclick="solve()">=</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="gk">
+        <div class="section-header">
+            <i class="fa-solid fa-brain"></i> সাধারণ জ্ঞান ভান্ডার (বাংলাদেশ ও দেওয়ানগঞ্জ সম্পর্কিত)
+        </div>
+
+        <div class="gk-box">
+            <h4>১. জামালপুর জেলা ও দেওয়ানগঞ্জ উপজেলা তথ্য:</h4>
+            <p>দেওয়ানগঞ্জ জামালপুর জেলার একটি ঐতিহাসিক বর্ডার উপজেলা। এর বুক চিরে প্রবাহিত হয়েছে পুরাতন ব্রহ্মপুত্র ও যমুনা নদী।</p>
+        </div>
+
+        <div class="gk-box">
+            <h4>২. বিজ্ঞান ও আধুনিক প্রযুক্তি:</h4>
+            <p>ক্যালকুলেটরের 'sin' ও 'cos' ত্রিকোণমিতিক অনুপাত বিজ্ঞানের বিভিন্ন তরঙ্গ ও স্থানাঙ্ক পরিমাপে ব্যবহৃত হয়।</p>
+        </div>
+
+        <div class="gk-box">
+            <h4>৩. সাম্প্রতিক আন্তর্জাতিক বিষয়াবলী:</h4>
+            <p>তথ্যপ্রযুক্তি ও কৃত্রিম বুদ্ধিমত্তা (AI) বর্তমানে বিশ্বজুড়ে শিক্ষার ধরণে বড় বিপ্লব আনছে।</p>
+        </div>
+    </div>
+
+    <div class="container" id="quiz">
+        <div class="section-header">
+            <i class="fa-solid fa-gamepad"></i> লাইভ কুইজ প্রতিযোগিতা (সঠিক উত্তর দিয়ে কয়েন জিতুন)
+        </div>
+
+        <div class="quiz-container">
+            <h3 id="quizQ">প্রশ্ন লোড হচ্ছে...</h3>
+            <div id="quizOpts" style="margin-top:20px;"></div>
+            <p id="quizRes" style="margin-top:15px; font-weight:bold;"></p>
+            <button id="nextQ" class="btn-action" style="display:none; width:auto; padding:10px 25px;" onclick="nextQuestion()">পরবর্তী প্রশ্ন</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; ২০২৬ মাই বুক পোর্টাল | দেওয়ানগঞ্জ, জামালপুর। সর্বস্বত্ব সংরক্ষিত।</p>
+    </footer>
+
+    <script>
+        // 1. Live DewanGanj Clock
+        function startClock() {
+            const now = new Date();
+            const h = String(now.getHours()).padStart(2, '0');
+            const m = String(now.getMinutes()).padStart(2, '0');
+            const s = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').innerText = `${h}:${m}:${s}`;
+        }
+        setInterval(startClock, 1000);
+        startClock();
+
+        // 2. Open PDF
+        function openPdf(url) {
+            document.getElementById('pdfViewer').src = url;
+            window.location.href = '#books';
+        }
+
+        // 3. FX-991EX Calculator Engine
+        let exp = '';
+        function press(val) {
+            exp += val;
+            document.getElementById('calcExp').innerText = exp;
+        }
+        function cls() {
+            exp = '';
+            document.getElementById('calcExp').innerText = '';
+            document.getElementById('calcRes').innerText = '0';
+        }
+        function del() {
+            exp = exp.slice(0, -1);
+            document.getElementById('calcExp').innerText = exp;
+        }
+        function solve() {
+            try {
+                let res = eval(exp);
+                document.getElementById('calcRes').innerText = res;
+            } catch (e) {
+                document.getElementById('calcRes').innerText = 'Error';
+            }
+        }
+
+        // 4. Interactive Quiz System
+        let coins = 150;
+        let qIndex = 0;
+        const quizData = [
+            {
+                q: "দেওয়ানগঞ্জ উপজেলা কোন নদীর তীরে অবস্থিত?",
+                opts: ["যমুনা ও ব্রহ্মপুত্র", "পদ্মা", "মেঘনা"],
+                a: 0
+            },
+            {
+                q: "সায়েন্টিফিক ক্যালকুলেটরে 'log' এর বেস (Base) সাধারণত কত ধরা হয়?",
+                opts: ["2", "10", "e"],
+                a: 1
+            },
+            {
+                q: "উচ্চতর গণিতে ত্রিকোণমিতির পাই (π) এর মান কত ডিগ্রির সমান?",
+                opts: ["90°", "360°", "180°"],
+                a: 2
+            }
+        ];
+
+        function loadQuiz() {
+            const current = quizData[qIndex];
+            document.getElementById('quizQ').innerText = `প্রশ্ন ${qIndex + 1}: ${current.q}`;
+            const optsDiv = document.getElementById('quizOpts');
+            optsDiv.innerHTML = '';
+            document.getElementById('quizRes').innerText = '';
+            document.getElementById('nextQ').style.display = 'none';
+
+            current.opts.forEach((opt, i) => {
+                const b = document.createElement('button');
+                b.className = 'quiz-option';
+                b.innerText = opt;
+                b.onclick = () => checkQuiz(i);
+                optsDiv.appendChild(b);
+            });
+        }
+
+        function checkQuiz(selected) {
+            const current = quizData[qIndex];
+            const res = document.getElementById('quizRes');
+            const btns = document.querySelectorAll('.quiz-option');
+            btns.forEach(b => b.disabled = true);
+
+            if(selected === current.a) {
+                coins += 20;
+                document.getElementById('coinCount').innerText = coins;
+                res.style.color = '#10b981';
+                res.innerText = 'অভিনন্দন! সঠিক উত্তর। আপনি ২০ কয়েন পেয়েছেন! 🎉';
+            } else {
+                res.style.color = '#ef4444';
+                res.innerText = `ভুল উত্তর! সঠিক উত্তর: ${current.opts[current.a]}`;
+            }
+            document.getElementById('nextQ').style.display = 'inline-block';
+        }
+
+        function nextQuestion() {
+            qIndex = (qIndex + 1) % quizData.length;
+            loadQuiz();
+        }
+
+        loadQuiz();
+    </script>
+</body>
+</html>
