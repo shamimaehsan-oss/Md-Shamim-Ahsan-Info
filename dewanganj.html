@@ -1,333 +1,281 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ট্রু কলার বাংলাদেশ - কলার আইডি ও বাটপার যাচাইকারী (Truecaller BD)</title>
-  <style>
-    /* Reset & Base */
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hind Siliguri", Arial, sans-serif; }
-    body { background-color: #0b1426; color: #f1f5f9; min-height: 100vh; padding-bottom: 50px; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>বাংলাদেশ ৬৪ জেলার লাইভ আবহাওয়া ও তথ্য</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
 
-    /* Truecaller Official Brand Header */
-    header { background: #08101e; border-bottom: 1px solid #1e293b; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
-    .header-inner { max-width: 1100px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; }
-    .logo-area { display: flex; align-items: center; gap: 12px; }
-    .tc-icon { width: 42px; height: 42px; background: #0087ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 22px; color: #fff; box-shadow: 0 0 15px rgba(0,135,255,0.4); }
-    .logo-text h1 { font-size: 19px; font-weight: 800; color: #ffffff; letter-spacing: -0.3px; }
-    .logo-text p { font-size: 12px; color: #94a3b8; }
-    .live-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px; }
-    .live-dot { width: 7px; height: 7px; background: #10b981; border-radius: 50%; }
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            padding: 20px;
+            min-height: 100vh;
+        }
 
-    /* Main Container */
-    .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
 
-    /* Search Box (Truecaller Style) */
-    .search-card { background: #111e38; border: 1px solid #1e335a; border-radius: 24px; padding: 28px 24px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin-bottom: 25px; }
-    .search-card h2 { font-size: 26px; font-weight: 800; margin-bottom: 8px; color: #ffffff; }
-    .search-card p { font-size: 14px; color: #94a3b8; margin-bottom: 22px; }
-    
-    .search-form { display: flex; gap: 10px; max-width: 650px; margin: 0 auto; position: relative; }
-    .country-code { background: #08101e; border: 2px solid #23385d; border-radius: 14px; color: #f1f5f9; padding: 0 16px; font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 6px; }
-    .search-input { flex: 1; background: #08101e; border: 2px solid #23385d; border-radius: 14px; color: #ffffff; padding: 16px 20px; font-size: 17px; font-weight: 600; outline: none; transition: 0.2s; font-family: monospace; }
-    .search-input:focus { border-color: #0087ff; box-shadow: 0 0 15px rgba(0,135,255,0.3); }
-    .search-btn { background: #0087ff; color: #ffffff; border: none; border-radius: 14px; padding: 0 26px; font-size: 16px; font-weight: 800; cursor: pointer; transition: 0.2s; display: flex; align-items: center; gap: 6px; }
-    .search-btn:hover { background: #0073db; }
+        h1 {
+            font-size: 2rem;
+            color: #00d2ff;
+            margin-bottom: 10px;
+        }
 
-    /* Quick Test Numbers */
-    .quick-tags { margin-top: 18px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; font-size: 12px; }
-    .quick-tags span { color: #64748b; font-weight: 600; }
-    .tag-btn { background: #08101e; border: 1px solid #1e335a; color: #93c5fd; padding: 5px 12px; border-radius: 8px; cursor: pointer; transition: 0.15s; font-family: monospace; font-size: 12px; }
-    .tag-btn:hover { background: #1e335a; border-color: #0087ff; color: #fff; }
-    .tag-btn.danger { border-color: rgba(239, 68, 68, 0.4); color: #fca5a5; }
-    .tag-btn.danger:hover { background: #7f1d1d; color: #fff; }
-    .tag-btn.safe { border-color: rgba(16, 185, 129, 0.4); color: #6ee7b7; }
-    .tag-btn.safe:hover { background: #064e3b; color: #fff; }
+        .search-box {
+            margin-top: 15px;
+        }
 
-    /* Loading Indicator */
-    #loadingBox { display: none; text-align: center; padding: 25px; }
-    .spinner { width: 36px; height: 36px; border: 4px solid #1e293b; border-top-color: #0087ff; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 10px; }
-    @keyframes spin { to { transform: rotate(360deg); } }
+        .search-box input {
+            padding: 10px 15px;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
 
-    /* Profile Result Card (Truecaller Identity Sheet) */
-    .profile-card { background: #111e38; border-radius: 24px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.6); margin-bottom: 30px; border: 2px solid #1e335a; }
-    
-    /* Danger Scammer Banner */
-    .banner-danger { background: linear-gradient(90deg, #dc2626, #991b1b); color: white; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; font-weight: 800; font-size: 15px; }
-    /* Safe Citizen Banner */
-    .banner-safe { background: linear-gradient(90deg, #059669, #047857); color: white; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; font-weight: 800; font-size: 15px; }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
 
-    .profile-body { padding: 30px 24px; }
-    .profile-header-row { display: flex; gap: 24px; align-items: center; border-bottom: 1px solid #1e335a; padding-bottom: 24px; }
-    
-    .avatar-wrapper { position: relative; }
-    .avatar-img { width: 105px; height: 105px; border-radius: 24px; object-fit: cover; border: 4px solid #1e335a; background: #08101e; display: block; }
-    .badge-icon { position: absolute; bottom: -8px; right: -8px; background: #dc2626; color: white; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 16px; border: 3px solid #111e38; }
-    .badge-icon.safe { background: #059669; }
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
 
-    .caller-headline h3 { font-size: 26px; font-weight: 800; color: #ffffff; line-height: 1.2; margin-bottom: 4px; }
-    .caller-alias { font-size: 14px; font-weight: 700; color: #f87171; margin-bottom: 6px; }
-    .caller-alias.safe { color: #34d399; }
-    .caller-phone { font-size: 18px; font-weight: 700; color: #93c5fd; font-family: monospace; display: inline-block; background: #08101e; padding: 4px 12px; border-radius: 8px; border: 1px solid #1e335a; }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 210, 255, 0.2);
+        }
 
-    /* Summary Stats Grid */
-    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-top: 24px; }
-    .stat-box { background: #08101e; border: 1px solid #1e335a; border-radius: 16px; padding: 16px; }
-    .stat-box.danger { background: rgba(220, 38, 38, 0.1); border-color: rgba(220, 38, 38, 0.3); }
-    .stat-box.safe { background: rgba(5, 150, 105, 0.1); border-color: rgba(5, 150, 105, 0.3); }
-    .stat-label { font-size: 12px; color: #94a3b8; margin-bottom: 6px; font-weight: 600; text-transform: uppercase; }
-    .stat-val { font-size: 20px; font-weight: 900; color: #ffffff; }
-    .stat-val.money { color: #f87171; font-family: monospace; }
-    .stat-val.safe-text { color: #34d399; }
+        .district-name {
+            font-size: 1.4rem;
+            color: #ffcb74;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 5px;
+        }
 
-    /* Detail Information Sections */
-    .section-title { font-size: 14px; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.5px; margin: 26px 0 14px; display: flex; align-items: center; gap: 8px; }
-    .info-table { width: 100%; border-collapse: collapse; background: #08101e; border: 1px solid #1e335a; border-radius: 16px; overflow: hidden; }
-    .info-table tr { border-bottom: 1px solid #142340; }
-    .info-table tr:last-child { border-bottom: none; }
-    .info-table td { padding: 14px 18px; font-size: 14px; }
-    .info-table td.label-col { width: 220px; color: #64748b; font-weight: 700; background: #0a1426; }
-    .info-table td.val-col { color: #f1f5f9; font-weight: 600; }
-    .highlight-location { color: #fbbf24; font-weight: 700; }
-    .highlight-danger { color: #fca5a5; font-weight: 700; }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0;
+            font-size: 0.95rem;
+        }
 
-    /* Complaints List */
-    .complaint-item { background: #08101e; border: 1px solid #1e335a; border-radius: 16px; padding: 18px; margin-bottom: 12px; }
-    .complaint-top { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 13px; }
-    .victim-name { font-weight: 800; color: #ffffff; }
-    .lost-amount { color: #ef4444; font-weight: 900; font-family: monospace; font-size: 15px; }
-    .complaint-desc { font-size: 13px; color: #cbd5e1; line-height: 1.5; margin-bottom: 8px; }
-    .complaint-meta { font-size: 11px; color: #64748b; font-family: monospace; display: flex; gap: 14px; }
+        .temp {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #00f2fe;
+        }
 
-    /* Directory Cards */
-    .directory-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin-top: 15px; }
-    .dir-card { background: #111e38; border: 1px solid #1e335a; border-radius: 18px; padding: 16px; cursor: pointer; transition: 0.2s; display: flex; align-items: center; gap: 14px; }
-    .dir-card:hover { transform: translateY(-3px); border-color: #0087ff; background: #152646; }
-    .dir-avatar { width: 56px; height: 56px; border-radius: 14px; object-fit: cover; border: 2px solid #23385d; }
-    .dir-info h4 { font-size: 15px; font-weight: 800; color: #ffffff; margin-bottom: 2px; }
-    .dir-info p { font-size: 12px; color: #94a3b8; font-family: monospace; }
-    .dir-tag { font-size: 11px; font-weight: 700; color: #f87171; margin-top: 3px; display: block; }
-    .dir-tag.safe { color: #34d399; }
+        .warning {
+            margin-top: 10px;
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            text-align: center;
+            font-weight: bold;
+        }
 
-    /* Mobile Responsive */
-    @media (max-width: 640px) {
-      .header-inner { flex-direction: column; gap: 10px; align-items: flex-start; }
-      .search-form { flex-direction: column; }
-      .profile-header-row { flex-direction: column; text-align: center; }
-      .info-table td.label-col { width: 130px; font-size: 13px; }
-      .info-table td.val-col { font-size: 13px; }
-    }
-  </style>
+        .safe { background: rgba(46, 204, 113, 0.2); color: #2ecc71; }
+        .rain-risk { background: rgba(241, 196, 15, 0.2); color: #f1c40f; }
+        .flood-risk { background: rgba(231, 76, 60, 0.2); color: #e74c3c; }
+
+        .loading {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #aaa;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="header-inner">
-      <div class="logo-area">
-        <div class="tc-icon">T</div>
-        <div class="logo-text">
-          <h1>ট্রু কলার বাংলাদেশ (Truecaller BD)</h1>
-          <p>কলার আইডি ও বাটপার শনাক্তকরণ সেন্ট্রাল ডাটাবেজ</p>
+    <header>
+        <h1>🇧🇩 বাংলাদেশ ৬৪ জেলার লাইভ আবহাওয়া ড্যাশবোর্ড</h1>
+        <p>লাইভ তাপমাত্রা, বৃষ্টির সম্ভাবনা ও পূর্বাভাসের নজরদারি</p>
+        <div class="search-box">
+            <input type="text" id="searchInput" onkeyup="filterDistricts()" placeholder="জেলার নাম লিখুন (যেমন: ঢাকা, সিলেট)...">
         </div>
-      </div>
-      <div class="live-badge">
-        <div class="live-dot"></div>
-        বাংলাদেশ লাইভ নেটওয়ার্ক সক্রিয়
-      </div>
-    </div>
-  </header>
+    </header>
 
-  <div class="container">
-    
-    <!-- Search Section -->
-    <div class="search-card">
-      <h2>অজানা কল বা সন্দেহভাজন বাটপার যাচাই</h2>
-      <p>যেকোনো মোবাইল নম্বর বা নাম লিখুন। সে বাটপার কিনা, তার আসল নাম, ছবি, বাপের নাম, এনআইডি ও বর্তমান এলাকা জেনে নিন।</p>
-      
-      <div class="search-form">
-        <div class="country-code">🇧🇩 +880</div>
-        <input 
-          type="text" 
-          id="callerSearchInput" 
-          class="search-input" 
-          placeholder="যেমন: 01712349812 বা নাম..."
-          onkeydown="if(event.key === 'Enter') executeSearch();"
-        >
-        <button class="search-btn" onclick="executeSearch()">
-          🔍 যাচাই করুন
-        </button>
-      </div>
-
-      <!-- Quick Test Tags -->
-      <div class="quick-tags">
-        <span>নমুনা বাটপার টেস্ট:</span>
-        <button class="tag-btn danger" onclick="quickFill('01712-349812')">01712-349812 (বিকাশ হ্যাকার)</button>
-        <button class="tag-btn danger" onclick="quickFill('01819-876543')">01819-876543 (ভিসা দালাল)</button>
-        <button class="tag-btn danger" onclick="quickFill('01912-334455')">01912-334455 (জমির জাল দলিল)</button>
-        <button class="tag-btn danger" onclick="quickFill('01711-987123')">01711-987123 (চাকরি ঘুষ)</button>
-        <button class="tag-btn safe" onclick="quickFill('01611-223344')">01611-223344 (বিশ্বস্ত নাগরিক)</button>
-      </div>
+    <div class="grid-container" id="weatherGrid">
+        <!-- জেলার কার্ডগুলো এখানে ডাইনামিকালি তৈরি হবে -->
     </div>
 
-    <!-- Loading Animation -->
-    <div id="loadingBox">
-      <div class="spinner"></div>
-      <p style="color: #94a3b8; font-size: 14px;">ট্রু কলার ডাটাবেজ থেকে কলার আইডি তথ্য খোঁজা হচ্ছে...</p>
-    </div>
+    <script>
+        // বাংলাদেশের ৬৪টি জেলার ল্যাটিটিউড এবং লঙ্গিটিউড ডাটা
+        const districts = [
+            { name: "ঢাকা", lat: 23.8103, lon: 90.4125 },
+            { name: "চট্টগ্রাম", lat: 22.3569, lon: 91.7832 },
+            { name: "সিলেট", lat: 24.8949, lon: 91.8687 },
+            { name: "রাজশাহী", lat: 24.3636, lon: 88.6241 },
+            { name: "খুলনা", lat: 22.8456, lon: 89.5403 },
+            { name: "বরিশাল", lat: 22.7010, lon: 90.3535 },
+            { name: "রংপুর", lat: 25.7439, lon: 89.2752 },
+            { name: "ময়মনসিংহ", lat: 24.7471, lon: 90.4203 },
+            { name: "কুমিল্লা", lat: 23.4607, lon: 91.1809 },
+            { name: "কক্সবাজার", lat: 21.4272, lon: 92.0058 },
+            { name: "নোয়াখালী", lat: 22.8696, lon: 91.0991 },
+            { name: "ফেনী", lat: 23.0159, lon: 91.3976 },
+            { name: "বগুড়া", lat: 24.8481, lon: 89.3730 },
+            { name: "পাবনা", lat: 24.0063, lon: 89.2493 },
+            { name: "যশোর", lat: 23.1664, lon: 89.2081 },
+            { name: "দিনাজপুর", lat: 25.6217, lon: 88.6354 },
+            { name: "কুষ্টিয়া", lat: 23.9013, lon: 89.1204 },
+            { name: "টাঙ্গাইল", lat: 24.2513, lon: 89.9167 },
+            { name: "ফরিদপুর", lat: 23.6070, lon: 89.8429 },
+            { name: "গাজীপুর", lat: 23.9999, lon: 90.4203 },
+            { name: "নারায়ণগঞ্জ", lat: 23.6238, lon: 90.5000 },
+            { name: "ব্রাহ্মণবাড়িয়া", lat: 23.9571, lon: 91.1119 },
+            { name: "চাঁদপুর", lat: 23.2333, lon: 90.6667 },
+            { name: "লক্ষ্মীপুর", lat: 22.9447, lon: 90.8282 },
+            { name: "হবিগঞ্জ", lat: 24.3749, lon: 91.4155 },
+            { name: "মৌলভীবাজার", lat: 24.4829, lon: 91.7774 },
+            { name: "সুনামগঞ্জ", lat: 25.0658, lon: 91.3950 },
+            { name: "নাটোর", lat: 24.4206, lon: 89.0000 },
+            { name: "নওগাঁ", lat: 24.7936, lon: 88.9318 },
+            { name: "সিরাজগঞ্জ", lat: 24.4534, lon: 89.7008 },
+            { name: "জয়পুরহাট", lat: 25.1008, lon: 89.0232 },
+            { name: "চাঁপাইনবাবগঞ্জ", lat: 24.5965, lon: 88.2775 },
+            { name: "কুড়িগ্রাম", lat: 25.8054, lon: 89.6361 },
+            { name: "গাইবান্ধা", lat: 25.3288, lon: 89.5403 },
+            { name: "লালমনিরহাট", lat: 25.9165, lon: 89.4532 },
+            { name: "নীলফামারী", lat: 25.9312, lon: 88.8560 },
+            { name: "পঞ্চগড়", lat: 26.3411, lon: 88.5541 },
+            { name: "ঠাকুরগাঁও", lat: 26.0337, lon: 88.4617 },
+            { name: "সাতক্ষীরা", lat: 22.7185, lon: 89.0705 },
+            { name: "বাগেরহাট", lat: 22.6516, lon: 89.7859 },
+            { name: "ঝিনাইদহ", lat: 23.5448, lon: 89.1539 },
+            { name: "মাগুরা", lat: 23.4873, lon: 89.4199 },
+            { name: "নড়াইল", lat: 23.1725, lon: 89.5126 },
+            { name: "মেহেরপুর", lat: 23.7622, lon: 88.6318 },
+            { name: "চুয়াডাঙ্গা", lat: 23.6402, lon: 88.8418 },
+            { name: "পটুয়াখালী", lat: 22.3596, lon: 90.3298 },
+            { name: "ভোলা", lat: 22.6859, lon: 90.6481 },
+            { name: "বরগুনা", lat: 22.1528, lon: 90.1256 },
+            { name: "ঝালকাঠি", lat: 22.6406, lon: 90.1987 },
+            { name: "পিরোজপুর", lat: 22.5841, lon: 89.9720 },
+            { name: "নেত্রকোণা", lat: 24.8709, lon: 90.7279 },
+            { name: "শেরপুর", lat: 25.0205, lon: 90.0153 },
+            { name: "জামালপুর", lat: 24.9375, lon: 89.9377 },
+            { name: "কিশোরগঞ্জ", lat: 24.4449, lon: 90.7765 },
+            { name: "মানিকগঞ্জ", lat: 23.8644, lon: 90.0047 },
+            { name: "মুন্সীগঞ্জ", lat: 23.5422, lon: 90.5305 },
+            { name: "রাজবাড়ী", lat: 23.7574, lon: 89.6444 },
+            { name: "মাদারীপুর", lat: 23.1641, lon: 90.1897 },
+            { name: "গোপালগঞ্জ", lat: 23.0051, lon: 89.8266 },
+            { name: "শরীয়তপুর", lat: 23.2423, lon: 90.4348 },
+            { name: "রাঙ্গামাটি", lat: 22.6533, lon: 92.1789 },
+            { name: "বান্দরবান", lat: 22.1953, lon: 92.2184 },
+            { name: "খাগড়াছড়ি", lat: 23.1192, lon: 91.9847 }
+        ];
 
-    <!-- Caller Result View -->
-    <div id="resultArea"></div>
+        const grid = document.getElementById('weatherGrid');
 
-    <!-- Directory of All Bangladesh Scammers -->
-    <div style="margin-top: 40px;">
-      <h3 style="font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 4px;">চিহ্নিত অপরাধী ও বাটপারদের তালিকা</h3>
-      <p style="font-size: 13px; color: #94a3b8;">যে কারো নামের ওপর ক্লিক করলেই তার পূর্ণাঙ্গ প্রোফাইল ও এলাকা বের হয়ে আসবে</p>
-      
-      <div class="directory-grid" id="directoryList"></div>
-    </div>
+        // কার্ড তৈরি করার প্রাথমিক ফাংশন
+        function createCards() {
+            districts.forEach((district, index) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.id = `card-${index}`;
+                card.innerHTML = `
+                    <div class="district-name">${district.name}</div>
+                    <div class="loading">লাইভ ডাটা লোড হচ্ছে...</div>
+                `;
+                grid.appendChild(card);
+                fetchWeather(district, index);
+            });
+        }
 
-  </div>
+        // লাইভ আবহাওয়া ডাটা API কল
+        async function fetchWeather(district, index) {
+            const url = `https://api.open-meteo.com/v1/forecast?latitude=${district.lat}&longitude=${district.lon}&current_weather=true&hourly=precipitation_probability,rain`;
+            
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
 
-  <!-- Truecaller Database & Logic Script -->
-  <script>
-    const BD_CALLER_DATABASE = [
-      {
-        id: "bd-01",
-        phone: "01712-349812",
-        name: "মো. রফিকুল ইসলাম",
-        alias: "বিকাশ রফিক / ওটিপি চোরা রফিক",
-        photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300",
-        isScammer: true,
-        riskScore: "৯৯% (অতি বিপজ্জনক বাটপার)",
-        category: "বিকাশ ও নগদ ওটিপি হ্যাকিং",
-        totalScammed: "৳১৮,৫০,০০০ (আঠারো লাখ পঞ্চাশ হাজার টাকা)",
-        complaintCount: 28,
-        operator: "Grameenphone (ভুয়া নামে প্রি-অ্যাক্টিভ সিম)",
-        fatherName: "মৃত আব্দুর রহমান মুন্সী",
-        motherName: "রাবেয়া খাতুন",
-        nidNumber: "19842691234567891",
-        permanentAddress: "গ্রাম: চরকাউনিয়া, ডাকঘর: পীরগঞ্জ বাজার, উপজেলা: পীরগঞ্জ, জেলা: রংপুর",
-        currentLocation: "মিরপুর-১০, পল্লবী ও গাবতলী বাস টার্মিনাল এলাকা, ঢাকা",
-        crimePattern: "নিজেকে বিকাশ প্রধান কার্যালয়ের সিনিয়র কর্মকর্তা পরিচয় দিয়ে কল দেয়। অ্যাকাউন্টে অস্বাভাবিক লেনদেনের ভয় দেখিয়ে পাসওয়ার্ড রিসেট ওটিপি নিয়ে সব টাকা মেরে সিম বন্ধ করে দেয়।",
-        policeCase: "মিরপুর মডেল থানা মামলা নং-২৪/২০২৬, সিআইডি সাইবার ক্রাইম ইউনিটে গ্রেপ্তারি পরোয়ানা জারি",
-        lastActive: "আজ সকাল ১০:৪৫ এ ঢাকা মিরপুরে সক্রিয় কল ট্র্যাকিং",
-        complaints: [
-          { victim: "সুলতান মাহমুদ", area: "মিরপুর-২, ঢাকা", amount: "৳৪৫,০০০", date: "২০২৬-০৩-২০", trx: "BL984219XK", desc: "অ্যাকাউন্ট ভেরিফিকেশনের কথা বলে ওটিপি নিয়ে অ্যাকাউন্টের ৪৫ হাজার টাকা মেরে নিয়েছে।" },
-          { victim: "মোছা. কুলসুম বেগম", area: "পীরগঞ্জ, রংপুর", amount: "৳৩০,০০০", date: "২০২৬-০২-১২", trx: "BL445109QR", desc: "ভুল করে টাকা চলে এসেছে বলে কান্নাকাটি করে বিকাশ এজেন্টের মাধ্যমে ক্যাশআউট করে নিয়েছে।" }
-        ]
-      },
-      {
-        id: "bd-02",
-        phone: "01819-876543",
-        name: "মোজাম্মেল হক চৌধুরী",
-        alias: "দালাল মোজাম্মেল / ভিসা মোজাম্মেল",
-        photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300",
-        isScammer: true,
-        riskScore: "৯৮% (আন্তর্জাতিক মানবপাচার ও ভিসা দালাল)",
-        category: "দুবাই, পোল্যান্ড ও রোমানিয়া ভিসা বাটপারি",
-        totalScammed: "৳১,৪৫,০০,০০০ (এক কোটি পঁয়তাল্লিশ লাখ টাকা)",
-        complaintCount: 34,
-        operator: "Robi Axiata",
-        fatherName: "আনোয়ার হোসেন চৌধুরী",
-        motherName: "নুরজাহান বেগম",
-        nidNumber: "19761591827364501",
-        permanentAddress: "গ্রাম: জালালপুর, ডাকঘর: বালাগঞ্জ, উপজেলা: বালাগঞ্জ, জেলা: সিলেট",
-        currentLocation: "পল্টন, তোপখানা রোড ও মতিঝিল ট্রাভেলস এলাকা, ঢাকা",
-        crimePattern: "নকল ভিসা সিল ও জাল ওয়ার্ক পারমিট দিয়ে বিদেশগামী তরুণদের থেকে ৫-৮ লাখ টাকা অগ্রিম নেয়। পরে এয়ারপোর্টে জাল টিকিট দিয়ে অফিস তালা ঝুলিয়ে পালায়।",
-        policeCase: "পল্টন মডেল থানা মামলা নং-৫৮ (মানবপাচার প্রতিরোধ ও দমন আইন), দেশত্যাগে নিষেধাজ্ঞা",
-        lastActive: "৩ দিন আগে মতিঝিলের একটি আবাসিক হোটেলে অবস্থান শনাক্ত",
-        complaints: [
-          { victim: "কামাল উদ্দিন ও আরও ৪ বন্ধু", area: "হবিগঞ্জ সদর", amount: "৳২৪,০০,০০০", date: "২০২৬-০১-১৫", trx: "CHQ-DBBL-98124", desc: "রোমানিয়া ওয়ার্ক পারমিটের ভুয়া কাগজ দিয়ে ২৪ লাখ টাকা নিয়ে লাপাত্তা হয়েছে।" }
-        ]
-      },
-      {
-        id: "bd-03",
-        phone: "01912-334455",
-        name: "হাজী বেলায়েত হোসেন ভূঁইয়া",
-        alias: "দলিল জালিয়াত বেলায়েত / ভুমিখেকো বেলায়েত",
-        photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300",
-        isScammer: true,
-        riskScore: "৯৬% (ভূমি জালিয়াত ও বাটপার)",
-        category: "জমি দখল, জাল দলিল ও একই জমি একাধিক বিক্রি",
-        totalScammed: "৳৩,৮০,০০,০০০ (তিন কোটি আশি লাখ টাকা)",
-        complaintCount: 19,
-        operator: "Banglalink",
-        fatherName: "মৃত কেরামত আলী ভূঁইয়া",
-        motherName: "মরিয়ম বেগম",
-        nidNumber: "19682619840291845",
-        permanentAddress: "গ্রাম: ভুলতা, ডাকঘর: ভুলতা, উপজেলা: রূপগঞ্জ, জেলা: নারায়ণগঞ্জ",
-        currentLocation: "রূপগঞ্জ, ডেমরা ও বাড্ডা এলাকা, ঢাকা",
-        crimePattern: "মৃত ব্যক্তির ভুয়া ওয়ারিশান সার্টিফিকেট তৈরি করে অন্যের জমি ও সরকারি খাস জমির বায়ানানামা করে কোটি কোটি টাকা অগ্রিম নিয়ে লাপাত্তা হয়ে যায়।",
-        policeCase: "নারায়ণগঞ্জ স্পেশাল কোর্ট পিটিশন-১২৯/২০২৫, রূপগঞ্জ থানায় ৪টি জিডি",
-        lastActive: "গতকাল নারায়ণগঞ্জে সাব-রেজিস্ট্রি অফিসের সামনে দেখা গেছে",
-        complaints: [
-          { victim: "প্রবাসী দেলোয়ার হোসেন", area: "যুক্তরাজ্য প্রবাসী (রূপগঞ্জ)", amount: "৳৬৫,০০,০০০", date: "২০২৫-১১-২০", trx: "BANK-TT-0912", desc: "১০ কাঠা জমির ভুয়া বায়া দলিল দিয়ে ৬৫ লাখ টাকা অগ্রিম নেয়, পরে জানা যায় জমিটি খাস।" }
-        ]
-      },
-      {
-        id: "bd-04",
-        phone: "01711-987123",
-        name: "তারেক মাহমুদ",
-        alias: "ভুয়া উপসচিব তারেক / চাকরি বাটপার তারেক",
-        photo: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=300",
-        isScammer: true,
-        riskScore: "৯৭% (সরকারি চাকরি নিয়োগ প্রতারক)",
-        category: "মন্ত্রণালয়ের চাকরি ও প্রাথমিক শিক্ষক নিয়োগ বাটপারি",
-        totalScammed: "৳৯২,০০,০০০ (বিরানব্বই লাখ টাকা)",
-        complaintCount: 16,
-        operator: "Grameenphone",
-        fatherName: "আব্দুস সোবহান মিয়া",
-        motherName: "রোকেয়া বেগম",
-        nidNumber: "19821219830219482",
-        permanentAddress: "গ্রাম: ঘাগড়া, উপজেলা: মিঠামইন, জেলা: কিশোরগঞ্জ",
-        currentLocation: "সেগুনবাগিচা, বিজয়নগর ও ফার্মগেট এলাকা, ঢাকা",
-        crimePattern: "মন্ত্রণালয়ের স্টিকারযুক্ত গাড়ি ব্যবহার করে নিজেকে অতিরিক্ত সচিবের পিএস পরিচয় দিয়ে ভুয়া নিয়োগপত্র (Appointment Letter) দিয়ে চাকরিপ্রার্থীদের থেকে ১০-১৫ লাখ টাকা হাতিয়ে নেয়।",
-        policeCase: "শাহবাগ থানা মামলা নং-১২, ডিবি সাইবার ক্রাইম ইউনিটের ওয়ান্টেড অপরাধী",
-        lastActive: "৪ দিন আগে ফার্মগেটে অবস্থান শনাক্ত",
-        complaints: [
-          { victim: "মো. শাহিন আলম", area: "কিশোরগঞ্জ", amount: "৳১২,০০,০০০", date: "২০২৬-০২-০৫", trx: "CHQ-881290", desc: "রেলওয়ের সহকারী স্টেশন মাস্টার পদে নকল নিয়োগপত্র দিয়ে ১২ লাখ টাকা নিয়ে ফোন বন্ধ করে।" }
-        ]
-      },
-      {
-        id: "bd-05",
-        phone: "01678-554433",
-        name: "ফারহানা আক্তার ইভা ওরফে তানিয়া",
-        alias: "চিটার ইভা / পার্সেল বাটপার ইভা",
-        photo: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300",
-        isScammer: true,
-        riskScore: "৯৪% (অনলাইন শপ ও পার্সেল বাটপার)",
-        category: "ফেসবুক পেজে ভুয়া পণ্য বিক্রি ও অগ্রিম টাকা চুরি",
-        totalScammed: "৳৩৪,০০,০০০ (চৌত্রিশ লাখ টাকা)",
-        complaintCount: 42,
-        operator: "Airtel",
-        fatherName: "বশির আহমেদ",
-        motherName: "সুলতানা জাহান",
-        nidNumber: "19952691238910293",
-        permanentAddress: "ছোট খোকা লেন, চকবাজার, কোতোয়ালী, চট্টগ্রাম",
-        currentLocation: "উত্তরা ও ধানমন্ডি (অনলাইন থেকে পরিচালিত)",
-        crimePattern: "ফেসবুকে আকর্ষণীয় ভিডিও দিয়ে ৫০% ছাড়ে আইফোন ও দামি কাপড় বিক্রির নামে অগ্রিম সম্পূর্ণ টাকা বা পার্সেল চার্জ বিকাশে নিয়ে সাথে সাথে ব্লক করে দেয়।",
-        policeCase: "উত্তরা পশ্চিম থানা জিডি নং-৭৭২, জাতীয় সাইবার পোর্টালে ৪২টি সক্রিয় অভিযোগ",
-        lastActive: "আজ দুপুর ১২টায় অনলাইনে সক্রিয় ছিল",
-        complaints: [
-          { victim: "তানজিলা হক", area: "ধানমন্ডি, ঢাকা", amount: "৳৩৮,০০০", date: "২০২৬-০৩-২২", trx: "BL192837ZZ", desc: "আইফোন ডেলিভারির নামে অগ্রিম ৩৮ হাজার টাকা নিয়ে ব্লক করে দিয়েছে।" }
-        ]
-      },
-      {
-        id: "bd-06",
-        phone: "01845-667788",
-        name: "মো. বাবুল হোসেন",
-        alias: "ভুয়া ডিবি বাবুল / নকল ম্যাজিস্ট্রেট",
-        photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300",
-        isScammer: true,
-        riskScore: "৯৯% (অপহরণকারী ও চাঁদাবাজ বাটপার)",
-        category: "ভুয়া ডিবি, ম্যাজিস্ট্রেট ও ওয়াকিটকি চক্র",
-        totalScammed: "৳৭৬,০০,০০০ (ছিয়াত্তর লাখ টাকা)",
-        complaintCount: 11,
-        operator: "Robi",
-        fatherName: "মুকবুল হোসেন",
-        motherName: "শাহিদা বেগম",
-        nidNumber: "19782619384726192",
-        permanentAddress: "দৌলতদিয়া ঘাট, গোয়ালন্দ, রাজবাড়ী",
-        currentLocation: "উত্তরা দিয়াবাড়ি, সাভার ও আশুলিয়া মহাসড়ক",
-        crimePattern:
+                const temp = data.current_weather.temperature;
+                const wind = data.current_weather.windspeed;
+                const rainProb = data.hourly.precipitation_probability[0] || 0;
+                const rainAmount = data.hourly.rain[0] || 0;
+
+                // বন্যার ঝুঁকি গণনা
+                let statusText = "স্বাভাবিক পরিবেশ";
+                let statusClass = "safe";
+
+                if (rainAmount > 10 || (rainProb > 70 && (district.name === "সিলেট" || district.name === "সুনামগঞ্জ" || district.name === "কুড়িগ্রাম" || district.name === "ফেনী"))) {
+                    statusText = "⚠️ বন্যার ঝুঁকিপূর্ণ এলাকা";
+                    statusClass = "flood-risk";
+                } else if (rainProb > 50 || rainAmount > 2) {
+                    statusText = "🌧️ বৃষ্টির সম্ভাবনা রয়েছে";
+                    statusClass = "rain-risk";
+                }
+
+                const card = document.getElementById(`card-${index}`);
+                card.innerHTML = `
+                    <div class="district-name">${district.name}</div>
+                    <div class="info-row">
+                        <span>তাপমাত্রা:</span>
+                        <span class="temp">${temp}°C</span>
+                    </div>
+                    <div class="info-row">
+                        <span>বাতাসের গতি:</span>
+                        <span>${wind} km/h</span>
+                    </div>
+                    <div class="info-row">
+                        <span>বৃষ্টির সম্ভাবনা:</span>
+                        <span>${rainProb}%</span>
+                    </div>
+                    <div class="warning ${statusClass}">${statusText}</div>
+                `;
+            } catch (error) {
+                const card = document.getElementById(`card-${index}`);
+                card.innerHTML = `
+                    <div class="district-name">${district.name}</div>
+                    <div style="color: #ff6b6b;">ডাটা লোড করা যায়নি!</div>
+                `;
+            }
+        }
+
+        // জেলা সার্চ করার সুবিধা
+        function filterDistricts() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.getElementsByClassName('card');
+
+            for (let i = 0; i < cards.length; i++) {
+                const districtName = cards[i].getElementsByClassName('district-name')[0].innerText;
+                if (districtName.toLowerCase().includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+
+        // পেজ লোড হলে কার্ডগুলো লোড হবে
+        window.onload = createCards;
+    </script>
+</body>
+</html>
