@@ -3,380 +3,179 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>নবম-দশম শ্রেণির ডিজিটাল পাঠাগার ও মেডিকেল একাডেমি</title>
+  <title>জাতীয় ডিজিটাল পাঠাগার ও নবম-দশম লার্নিং প্ল্যাটফর্ম</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Hind Siliguri', sans-serif; background-color: #f8fafc; color: #0f172a; transition: background-color 0.2s, color 0.2s; }
+    body { font-family: 'Hind Siliguri', sans-serif; background-color: #f8fafc; color: #0f172a; }
     
-    /* Header & Nav */
-    header { position: sticky; top: 0; z-index: 40; background-color: #ffffff; border-bottom: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    header { position: sticky; top: 0; z-index: 50; background-color: #ffffff; border-bottom: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
     .nav-container { max-width: 1280px; margin: 0 auto; padding: 0 16px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
     .logo-area { display: flex; align-items: center; gap: 12px; cursor: pointer; }
-    .logo-icon { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(to top right, #059669, #0d9488, #2563eb); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; font-size: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    .nav-btns { display: flex; align-items: center; gap: 8px; }
-    .nav-btn { padding: 8px 14px; border-radius: 8px; font-size: 14px; font-weight: 600; border: none; cursor: pointer; background: transparent; color: #334155; }
-    .nav-btn.active { background-color: #059669; color: #ffffff; }
+    .logo-icon { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(to top right, #059669, #2563eb); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; font-size: 20px; }
     
-    .theme-controls { display: flex; align-items: center; gap: 8px; }
-    .theme-box { display: flex; background: #f1f5f9; padding: 4px; border-radius: 8px; border: 1px solid #e2e8f0; }
-    .theme-btn { padding: 6px; border: none; background: transparent; cursor: pointer; border-radius: 4px; font-size: 14px; }
-    .print-btn { padding: 6px 12px; border-radius: 8px; background: #059669; color: #fff; border: none; font-size: 12px; font-weight: bold; cursor: pointer; }
+    .nav-btns { display: flex; align-items: center; gap: 6px; }
+    .nav-btn { padding: 8px 12px; border-radius: 8px; font-size: 13px; font-weight: 600; border: none; cursor: pointer; background: transparent; color: #334155; }
+    .nav-btn.active { background-color: #059669; color: #ffffff; }
 
-    /* Layout */
     main { max-width: 1280px; margin: 0 auto; padding: 24px 16px; }
     .hidden { display: none !important; }
     
-    /* Carousel / Book selector */
-    .book-selector { background: #fff; padding: 12px; border-radius: 16px; border: 1px solid #e2e8f0; display: flex; align-items: center; overflow-x: auto; gap: 8px; margin-bottom: 24px; }
-    .book-btn { padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: bold; border: none; cursor: pointer; white-space: nowrap; background: #f1f5f9; color: #334155; }
-    .book-btn.active { background: #059669; color: #fff; }
-
-    /* Grid */
-    .reader-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
-    @media (min-width: 1024px) { .reader-grid { grid-template-columns: 3fr 9fr; } }
-
-    .sidebar { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 16px; }
-    .chapter-btn { width: 100%; text-align: left; padding: 10px; border-radius: 8px; border: none; background: transparent; cursor: pointer; margin-bottom: 6px; font-family: inherit; font-size: 13px; color: #334155; }
-    .chapter-btn.active { background: #059669; color: #fff; font-weight: bold; }
-
-    .content-area { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px; }
+    /* Layout Cards */
+    .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); margin-bottom: 20px; }
+    .banner { background: linear-gradient(to right, #064e3b, #0f172a); border-radius: 16px; padding: 24px; color: #fff; margin-bottom: 24px; }
     
-    /* Cards */
-    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-    .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
-    .card-banner { background: linear-gradient(to right, #064e3b, #134e4a, #0f172a); border-radius: 16px; padding: 24px; color: #fff; margin-bottom: 24px; }
+    /* Book Grid */
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+    .book-card { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 12px; padding: 16px; cursor: pointer; transition: all 0.2s; }
+    .book-card:hover { border-color: #059669; background: #ecfdf5; }
     
-    .tip-box { background: #ecfdf5; border-radius: 12px; padding: 12px; font-size: 12px; color: #065f46; margin-top: 12px; }
-
-    /* Theme Styles */
-    body.dark { background-color: #020617; color: #f8fafc; }
-    body.dark header, body.dark .sidebar, body.dark .content-area, body.dark .card, body.dark .book-selector { background-color: #0f172a; border-color: #1e293b; }
-    body.dark .nav-btn, body.dark .chapter-btn { color: #cbd5e1; }
-    body.dark .book-btn { background: #1e293b; color: #cbd5e1; }
-    body.dark .tip-box { background: rgba(6, 95, 70, 0.3); color: #6ee7b7; }
-    
-    body.theme-sepia { background-color: #f8f3e6; color: #431407; }
-    body.theme-sepia header, body.theme-sepia .sidebar, body.theme-sepia .content-area, body.theme-sepia .card, body.theme-sepia .book-selector { background-color: #f4ecd8; border-color: #e2d5b6; color: #431407; }
+    /* Calculator UI */
+    .calc-screen { width: 100%; height: 50px; background: #0f172a; color: #10b981; font-size: 24px; text-align: right; padding: 10px; border-radius: 8px; border: none; margin-bottom: 12px; font-family: monospace; }
+    .calc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .calc-btn { padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1; background: #f1f5f9; font-weight: bold; cursor: pointer; font-size: 16px; }
+    .calc-btn.op { background: #059669; color: #fff; }
 
     footer { border-top: 1px solid #e2e8f0; background: #fff; padding: 24px; text-align: center; font-size: 12px; color: #64748b; margin-top: 40px; }
-    body.dark footer { background: #0f172a; border-color: #1e293b; color: #94a3b8; }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
   <header>
     <div class="nav-container">
-      <div class="logo-area" onclick="switchTab('reader')">
-        <div class="logo-icon">🩺</div>
+      <div class="logo-area" onclick="switchTab('library')">
+        <div class="logo-icon">📚</div>
         <div>
-          <div style="display:flex; align-items:center; gap:8px;">
-            <span style="font-weight:bold; font-size:18px;">মেডিকেল বুক ফন্ট</span>
-            <span style="font-size:10px; background:#d1fae5; color:#065f46; font-weight:bold; padding:2px 6px; border-radius:4px;">Medical Book Font</span>
-          </div>
-          <p style="font-size:11px; color:#64748b;">নবম-দশম শ্রেণির ১৪টি বই, গাইড ও অনুশীলনী PDF লাইব্রেরি</p>
+          <span style="font-weight:bold; font-size:18px;">ডিজিটাল পাঠাগার ৯-১০</span>
+          <p style="font-size:11px; color:#64748b;">সকল পাঠ্যবই, গাইড, অনুশীলনী ও সায়েন্টিফিক সরঞ্জাম</p>
         </div>
       </div>
 
       <nav class="nav-btns">
-        <button id="nav-reader" onclick="switchTab('reader')" class="nav-btn active">📚 পাঠ্যবই রিডার</button>
-        <button id="nav-medical" onclick="switchTab('medical')" class="nav-btn">🩺 মেডিকেল একাডেমি</button>
-        <button id="nav-guides" onclick="switchTab('guides')" class="nav-btn">📝 গাইড ও সৃজনশীল</button>
-        <button id="nav-quiz" onclick="switchTab('quiz')" class="nav-btn">✨ কুইজ ও অনুশীলন</button>
+        <button id="nav-library" onclick="switchTab('library')" class="nav-btn active">📚 সকল পাঠ্যবই</button>
+        <button id="nav-guides" onclick="switchTab('guides')" class="nav-btn">📝 গাইড ও অনুশীলনী</button>
+        <button id="nav-calc" onclick="switchTab('calc')" class="nav-btn">🧮 ক্যালকুলেটর ও সরঞ্জাম</button>
       </nav>
-
-      <div class="theme-controls">
-        <div class="theme-box">
-          <button onclick="setTheme('light')" class="theme-btn" title="লাইট মোড">☀️</button>
-          <button onclick="setTheme('sepia')" class="theme-btn" title="সেপিয়া মোড">☕</button>
-          <button onclick="setTheme('dark')" class="theme-btn" title="নাইট মোড">🌙</button>
-        </div>
-        <button onclick="window.print()" class="print-btn">🖨️ প্রিন্ট / PDF</button>
-      </div>
     </div>
   </header>
 
-  <!-- MAIN VIEWPORT -->
   <main>
-    <!-- TAB 1: TEXTBOOK READER -->
-    <section id="tab-reader">
-      <div class="book-selector">
-        <span style="font-size:12px; font-weight:bold; color:#64748b; margin-right:8px;">বই নির্বাচন:</span>
-        <button onclick="selectBook('bio')" id="book-btn-bio" class="book-btn active">জীববিজ্ঞান (Medical Focus)</button>
-        <button onclick="selectBook('chem')" id="book-btn-chem" class="book-btn">রসায়ন (Chemistry)</button>
-        <button onclick="selectBook('phy')" id="book-btn-phy" class="book-btn">পদার্থবিজ্ঞান (Physics)</button>
-        <button onclick="selectBook('math')" id="book-btn-math" class="book-btn">সাধারণ গণিত</button>
-        <button onclick="selectBook('hmath')" id="book-btn-hmath" class="book-btn">উচ্চতর গণিত</button>
-        <button onclick="selectBook('bangla')" id="book-btn-bangla" class="book-btn">বাংলা সাহিত্য</button>
-        <button onclick="selectBook('eng')" id="book-btn-eng" class="book-btn">English For Today</button>
-        <button onclick="selectBook('ict')" id="book-btn-ict" class="book-btn">আইসিটি (ICT)</button>
+    <!-- TAB 1: ALL BOOKS -->
+    <section id="tab-library">
+      <div class="banner">
+        <h2>নবম-দশম শ্রেণির ১৪টি পাঠ্যবই লাইব্রেরি</h2>
+        <p style="font-size:13px; color:#cbd5e1; margin-top:4px;">বিজ্ঞান, মানবিক ও ব্যবসায় শিক্ষা শাখার অনুমোদিত সকল বইয়ের সংগ্রহশালা।</p>
       </div>
 
-      <div class="reader-grid">
-        <aside class="sidebar">
-          <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:8px; border-bottom:1px solid #e2e8f0; margin-bottom:12px;">
-            <span style="font-weight:bold; font-size:14px;" id="current-book-sidebar-title">জীববিজ্ঞান অধ্যায়সমূহ</span>
-            <span style="font-size:10px; background:#d1fae5; color:#065f46; font-weight:bold; padding:2px 6px; border-radius:4px;">NCTB</span>
-          </div>
-          <div id="chapters-list-container"></div>
-        </aside>
-
-        <div class="content-area">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; border-bottom:1px solid #e2e8f0; padding-bottom:16px; margin-bottom:20px;">
-            <div>
-              <div style="font-size:12px; color:#059669; font-weight:bold;" id="reader-book-tag">নবম-দশম শ্রেণি • জীববিজ্ঞান</div>
-              <h1 style="font-size:24px; font-weight:bold; margin-top:4px;" id="reader-chapter-title">অধ্যায় ৬: জীবে পরিবহন (রক্ত ও হৃদপিণ্ড)</h1>
-              <p style="font-size:12px; color:#64748b; margin-top:2px;" id="reader-chapter-subtitle">Transport in Organisms • মেডিকেল প্রিভিউ হাই-ইম্পর্টেন্ট</p>
-            </div>
-            <div style="display:flex; gap:8px;">
-              <button onclick="readAloud()" style="padding:6px 12px; border:1px solid #cbd5e1; background:#f8fafc; border-radius:8px; font-size:12px; cursor:pointer;">🔊 অডিও শুনুন</button>
-              <button onclick="adjustFontSize(1)" style="padding:6px 10px; border:1px solid #cbd5e1; border-radius:8px; font-size:12px; font-weight:bold; cursor:pointer;">A+</button>
-              <button onclick="adjustFontSize(-1)" style="padding:6px 10px; border:1px solid #cbd5e1; border-radius:8px; font-size:12px; font-weight:bold; cursor:pointer;">A-</button>
-            </div>
-          </div>
-
-          <div id="reader-content-body" style="font-size:16px; line-height:1.7;"></div>
+      <div class="grid-4">
+        <div class="book-card" onclick="alert('বিজ্ঞান বিষয়ের অধ্যায়গুলো লোড হচ্ছে...')">
+          <h3 style="color:#059669;">🧬 জীববিজ্ঞান</h3>
+          <p style="font-size:12px; color:#64748b; margin-top:4px;">১৪টি অধ্যায় • মেডিকেল কালার গাইড</p>
+        </div>
+        <div class="book-card" onclick="alert('রসায়ন ফোল্ডার খুলছে...')">
+          <h3 style="color:#059669;">🧪 রসায়ন</h3>
+          <p style="font-size:12px; color:#64748b; margin-top:4px;">১২টি অধ্যায় • সংকেত ও সমীকরণ</p>
+        </div>
+        <div class="book-card" onclick="alert('পদার্থবিজ্ঞান ফোল্ডার খুলছে...')">
+          <h3 style="color:#059669;">⚡ পদার্থবিজ্ঞান</h3>
+          <p style="font-size:12px; color:#64748b; margin-top:4px;">১৪টি অধ্যায় • সূত্র ও গাণিতিক সমাধান</p>
+        </div>
+        <div class="book-card">
+          <h3 style="color:#059669;">📐 সাধারণ গণিত</h3>
+          <p style="font-size:12px; color:#64748b; margin-top:4px;">১৭টি অধ্যায় • অনুশীলনী সমাধান</p>
+        </div>
+        <div class="book-card">
+          <h3 style="color:#059669;">📊 উচ্চতর গণিত</h3>
+          <p style="font-size:12px; color:#64748b; margin-top:4px;">১৪টি অধ্যায় • জ্যামিতি ও স্থানাঙ্ক</p>
+        </div>
+        <div class="book-card">
+          <h3 style="color:#059669;">📖 বাংলা সাহিত্য</h3>
+          <p style="font-size:12px; color:#64748b; margin-top:4px;">গদ্য, পদ্য ও সহপাঠ উপন্যাস</p>
+        </div>
+        <div class="book-card">
+          <h3 style="color:#059669;">🔤 English For Today</h3>
+          <p style="font-size:12px; color:#64748b; margin-top:4px;">Units, Passages & Grammar</p>
+        </div>
+        <div class="book-card">
+          <h3 style="color:#059669;">💻 আইসিটি (ICT)</h3>
+          <p style="font-size:12px; color:#64748b; margin-top:4px;">৬টি অধ্যায় • প্রোগ্রামিং ও ই-হেলথ</p>
         </div>
       </div>
     </section>
 
-    <!-- TAB 2: MEDICAL ACADEMY -->
-    <section id="tab-medical" class="hidden">
-      <div class="card-banner">
-        <span style="font-size:12px; font-weight:bold; background:rgba(16,185,129,0.2); border:1px solid rgba(52,211,153,0.3); color:#6ee7b7; padding:4px 12px; border-radius:20px;">
-          ভবিষ্যতের ডাক্তারদের ভিত্তি গড়ার প্ল্যাটফর্ম
-        </span>
-        <h1 style="font-size:28px; font-weight:bold; margin-top:12px;">নবম-দশম প্রি-মেডিকেল একাডেমি</h1>
-        <p style="font-size:14px; color:#cbd5e1; margin-top:8px; max-width:600px;">
-          মেডিকেল ভর্তি পরীক্ষায় মোট ১০০ নম্বরের মধ্যে জীববিজ্ঞানে ৩০ এবং রসায়নে ২৫ (মোট ৫৫%) থাকে। নবম শ্রেণি থেকেই মানব শরীরস্থান ও ক্লিনিক্যাল প্রয়োগ শিখে ডাক্তারির শক্ত ভিত তৈরি করুন।
+    <!-- TAB 2: GUIDES & EXERCISES -->
+    <section id="tab-guides" class="hidden">
+      <div class="card">
+        <h3>📝 বোর্ড গাইড ও সৃজনশীল প্রশ্ন (CQ) ব্যাংক</h3>
+        <p style="font-size:13px; color:#64748b; margin-top:8px;">
+          বাংলাদেশের ৮টি শিক্ষা বোর্ডের সেরা টেস্ট পেপার ও নৈর্ব্যক্তিক সমাধান এখানে যুক্ত করা সম্ভব।
         </p>
       </div>
+    </section>
 
-      <div class="grid-3">
-        <div class="card">
-          <div style="font-size:32px;">❤️</div>
-          <h3 style="font-weight:bold; font-size:18px; color:#047857; margin:8px 0;">মানব হৃদপিণ্ড ও রক্ত সংবহন</h3>
-          <p style="font-size:13px; color:#475569; line-height:1.5;">
-            চারটি প্রকোষ্ঠ (ডান-বাম অলিন্দ ও নিলয়), দ্বিপত্র ও ত্রিপত্র কপাটিকা, মহাধমনি (Aorta), কার্ডিয়াক সাইকেল এবং হার্ট অ্যাটাকের শারীরবৃত্তীয় ব্যাখ্যা।
-          </p>
-          <div class="tip-box">
-            <strong>মেডিকেল টিপ:</strong> বাম নিলয়ের প্রাচীর সবচেয়ে বেশি পুরু কারণ এটি সারা দেহে রক্ত পাম্প করে।
-          </div>
-        </div>
-
-        <div class="card">
-          <div style="font-size:32px;">🫘</div>
-          <h3 style="font-weight:bold; font-size:18px; color:#047857; margin:8px 0;">বৃক্ক, নেফ্রন ও ডায়ালাইসিস</h3>
-          <p style="font-size:13px; color:#475569; line-height:1.5;">
-            প্রতিটি কিডনিতে ১০-১২ লক্ষ নেফ্রন। বোম্যান্স ক্যাপসুল, গ্লোমেরুলাসের পরাপরিস্রাবণ (Ultrafiltration) এবং রক্তে ক্রিয়েটিনিন বাড়লে হেমোডায়ালাইসিস পদ্ধতি।
-          </p>
-          <div class="tip-box">
-            <strong>ক্লিনিক্যাল রক্ত পরীক্ষা:</strong> সিরাম ক্রিয়েটিনিনের স্বাভাবিক মান ০.৬ - ১.২ mg/dL।
-          </div>
-        </div>
-
-        <div class="card">
-          <div style="font-size:32px;">🧠</div>
-          <h3 style="font-weight:bold; font-size:18px; color:#047857; margin:8px 0;">মানব মস্তিষ্ক ও নিউরন</h3>
-          <p style="font-size:13px; color:#475569; line-height:1.5;">
-            সেরিব্রাম (চিন্তা ও বুদ্ধি), সেরিবেলাম (শারীরিক ভারসাম্য), মেডুলা অবলংগাটা (হৃদস্পন্দন ও শ্বাসক্রিয়ার স্বয়ংক্রিয় নিয়ন্ত্রণ কেন্দ্র)।
-          </p>
-          <div class="tip-box">
-            <strong>নিউরন গঠন:</strong> কোষদেহ, ডেনড্রাইট এবং অ্যাক্সন নিয়ে গঠিত স্নায়ুকোষ কখনো বিভাজিত হয় না (সেন্ট্রিওল নিষ্ক্রিয়)।
-          </div>
+    <!-- TAB 3: CALCULATOR & TOOLS -->
+    <section id="tab-calc" class="hidden">
+      <div class="card" style="max-width:400px; margin:0 auto;">
+        <h3 style="margin-bottom:12px; text-align:center;">🧮 সায়েন্টিফিক ও ল্যাব ক্যালকুলেটর</h3>
+        <input type="text" id="calc-display" class="calc-screen" readonly value="0">
+        <div class="calc-grid">
+          <button class="calc-btn" onclick="clearCalc()">C</button>
+          <button class="calc-btn" onclick="pressCalc('(')">(</button>
+          <button class="calc-btn" onclick="pressCalc(')')">)</button>
+          <button class="calc-btn op" onclick="pressCalc('/')">/</button>
+          
+          <button class="calc-btn" onclick="pressCalc('7')">7</button>
+          <button class="calc-btn" onclick="pressCalc('8')">8</button>
+          <button class="calc-btn" onclick="pressCalc('9')">9</button>
+          <button class="calc-btn op" onclick="pressCalc('*')">*</button>
+          
+          <button class="calc-btn" onclick="pressCalc('4')">4</button>
+          <button class="calc-btn" onclick="pressCalc('5')">5</button>
+          <button class="calc-btn" onclick="pressCalc('6')">6</button>
+          <button class="calc-btn op" onclick="pressCalc('-')">-</button>
+          
+          <button class="calc-btn" onclick="pressCalc('1')">1</button>
+          <button class="calc-btn" onclick="pressCalc('2')">2</button>
+          <button class="calc-btn" onclick="pressCalc('3')">3</button>
+          <button class="calc-btn op" onclick="pressCalc('+')">+</button>
+          
+          <button class="calc-btn" onclick="pressCalc('0')">0</button>
+          <button class="calc-btn" onclick="pressCalc('.')">.</button>
+          <button class="calc-btn op" style="grid-column: span 2;" onclick="solveCalc()">=</button>
         </div>
       </div>
     </section>
-
-    <!-- TAB 3: CQ GUIDES -->
-    <section id="tab-guides" class="hidden">
-      <div class="card-banner" style="background: linear-gradient(to right, #047857, #115e59);">
-        <h2 style="font-size:24px; font-weight:bold;">নবম-দশম সহায়ক গাইড ও সৃজনশীল ব্যাংক</h2>
-        <p style="font-size:13px; color:#a7f3d0; margin-top:4px;">ক, খ, গ, ঘ অংশের সঠিক নম্বর বণ্টন ও বোর্ড স্ট্যান্ডার্ড আদর্শ সমাধান।</p>
-      </div>
-
-      <div id="cq-cards-container" style="display:flex; flex-direction:column; gap:20px;"></div>
-    </section>
-
-    <!-- TAB 4: QUIZ & PRACTICE -->
-    <section id="tab-quiz" class="hidden">
-      <div class="card-banner" style="background: linear-gradient(to right, #0f766e, #0f172a); display:flex; justify-content:space-between; align-items:center;">
-        <div>
-          <h2 style="font-size:24px; font-weight:bold;">নবম-দশম বহু-নির্বাচনী কুইজ এরিনা</h2>
-          <p style="font-size:13px; color:#cbd5e1; margin-top:4px;">তাত্ক্ষণিক সঠিক উত্তর ও ডাক্তারি ব্যাখ্যার সাথে সেলফ-টেস্ট।</p>
-        </div>
-        <div id="quiz-score-badge" style="padding:8px 16px; border-radius:12px; background:#059669; color:#fff; font-weight:bold; font-size:14px;">
-          স্কোর: ০ / ৪
-        </div>
-      </div>
-
-      <div id="quiz-questions-container" style="display:flex; flex-direction:column; gap:16px;"></div>
-    </section>
-
   </main>
 
   <footer>
-    <p style="font-weight:bold;">নবম-দশম শ্রেণির ডিজিটাল পাঠাগার ও প্রি-মেডিকেল একাডেমি</p>
-    <p style="margin-top:4px;">সকল পাঠ্যবই, বোর্ড গাইড ও ডাক্তারি ফাউন্ডেশন সংবলিত স্বয়ংসম্পূর্ণ প্ল্যাটফর্ম।</p>
+    <p><strong>সর্বজনীন নবম-দশম শিক্ষা ও ডিজিটাল পাঠাগার উদ্যোগ</strong></p>
+    <p>সমগ্র বাংলাদেশের সকল শিক্ষার্থীর জন্য উন্মুক্ত শিক্ষার এক প্ল্যাটফর্ম।</p>
   </footer>
 
   <script>
-    var BOOKS_DATA = {
-      bio: {
-        title: "জীববিজ্ঞান (Biology)",
-        tag: "নবম-দশম শ্রেণি • বিজ্ঞান • মেডিকেল ফাউন্ডেশন",
-        chapters: [
-          {
-            id: "bio-1",
-            title: "অধ্যায় ১: জীবন পাঠ (Lesson of Life)",
-            content: '<div class="tip-box"><strong>অধ্যায়ের সারসংক্ষেপ:</strong> জীববিজ্ঞানের ধারণা, ভৌত ও ফলিত শাখাসমূহ এবং মারগুলিসের পঞ্চরাজ্য।</div><h3>১.১ জীববিজ্ঞানের ধারণা ও পরিধি</h3><p>গ্রিক শব্দ bios এবং logos এর সমন্বয়ে গঠিত। চিকিৎসাবিজ্ঞান মূলত ফলিত জীববিজ্ঞানের সবচেয়ে গুরুত্বপূর্ণ শাখা।</p>'
-          },
-          {
-            id: "bio-6",
-            title: "অধ্যায় ৬: জীবে পরিবহন - রক্ত ও হৃদপিণ্ড",
-            content: '<div class="tip-box"><strong>কার্ডিওলজি গাইড:</strong> রক্তের উপাদান, ABO গ্রুপিং, Rh ফ্যাক্টর, হৃদপিণ্ডের রক্ত সঞ্চালন।</div><h3>৬.১ রক্তের উপাদান</h3><p>রক্ত একটি ক্ষারীয় তরল যোজক কলা। রক্তরস ৫৫% এবং রক্তকণিকা ৪৫%।</p>'
-          }
-        ]
-      },
-      chem: { title: "রসায়ন (Chemistry)", tag: "নবম-দশম শ্রেণি • রসায়ন", chapters: [{ id: "chem-3", title: "অধ্যায় ৩: পদার্থের গঠন", content: "<p>চিকিৎসায় আইসোটোপের ব্যবহার।</p>" }] },
-      phy: { title: "পদার্থবিজ্ঞান (Physics)", tag: "নবম-দশম শ্রেণি • পদার্থবিজ্ঞান", chapters: [{ id: "phy-14", title: "অধ্যায় ১৪: চিকিৎসা পদার্থবিজ্ঞান", content: "<p>ইসিজি, এন্ডোস্কোপি ও এমআরআই নীতি।</p>" }] },
-      math: { title: "সাধারণ গণিত", tag: "সাধারণ গণিত", chapters: [{ id: "math-1", title: "অধ্যায় ৩: বীজগাণিতিক রাশি", content: "<p>বীজগাণিতিক সূত্রের প্রয়োগ।</p>" }] },
-      hmath: { title: "উচ্চতর গণিত", tag: "উচ্চতর গণিত", chapters: [{ id: "hmath-11", title: "অধ্যায় ১১: স্থানাঙ্ক জ্যামিতি", content: "<p>স্থানাঙ্ক জ্যামিতির ধারণা।</p>" }] },
-      bangla: { title: "বাংলা সাহিত্য", tag: "বাংলা", chapters: [{ id: "bang-1", title: "বই পড়া (প্রমথ চৌধুরী)", content: "<p>বই পড়ার গুরুত্ব।</p>" }] },
-      eng: { title: "English For Today", tag: "English", chapters: [{ id: "eng-1", title: "Unit 3: Events", content: "<p>English comprehension lessons.</p>" }] },
-      ict: { title: "আইসিটি (ICT)", tag: "আইসিটি", chapters: [{ id: "ict-1", title: "চিকিৎসায় টেলিমেডিসিন", content: "<p>ই-হেলথ ও টেলিমেডিসিন প্রযুক্তি।</p>" }] }
-    };
-
-    var CQ_DATA = [
-      {
-        title: "সৃজনশীল ১ (জীববিজ্ঞান - রক্ত ও হৃদপিণ্ড)",
-        stem: "৫০ বছর বয়সী জনাব রফিক বুকে তীব্র চাপ অনুভব করায় ডাক্তার ইসিজি করার পরামর্শ দেন।",
-        qA: "অ্যানজাইনা কাকে বলে?", ansA: "হৃদপেশিতে সাময়িক রক্ত ও অক্সিজেন সরবরাহ হ্রাস পেলে যে ব্যথা অনুভূত হয়।",
-        qB: "গ্রুপ O কে সর্বজনীন দাতা বলা হয় কেন?", ansB: "এতে কোনো A বা B অ্যান্টিজেন থাকে না।"
-      }
-    ];
-
-    var QUIZ_DATA = [
-      { q: "মানবদেহের কোন প্রকোষ্ঠের প্রাচীর সবচেয়ে বেশি পুরু?", options: ["ডান অলিন্দ", "ডান নিলয়", "বাম অলিন্দ", "বাম নিলয়"], ans: 3, exp: "বাম নিলয় মহাধমনির মাধ্যমে সবচেয়ে বেশি চাপে রক্ত পাম্প করে।" },
-      { q: "রক্ত থেকে বর্জ্য ছাঁকনের প্রধান ফিল্টার কোনটি?", options: ["সংগ্রাহী নালিকা", "গ্লোমেরুলাস", "হেনলির লুপ", "ইউরেটার"], ans: 1, exp: "গ্লোমেরুলাসে পরাপরিস্রাবণ ঘটে।" }
-    ];
-
-    var currentBookKey = 'bio';
-    var currentChapterIndex = 0;
-    var fontSize = 16;
-    var quizScore = 0;
-
     function switchTab(tabId) {
-      var tabs = ['reader', 'medical', 'guides', 'quiz'];
-      for (var i = 0; i < tabs.length; i++) {
-        document.getElementById('tab-' + tabs[i]).classList.add('hidden');
-        document.getElementById('nav-' + tabs[i]).classList.remove('active');
-      }
+      ['library', 'guides', 'calc'].forEach(t => {
+        document.getElementById('tab-' + t).classList.add('hidden');
+        document.getElementById('nav-' + t).classList.remove('active');
+      });
       document.getElementById('tab-' + tabId).classList.remove('hidden');
       document.getElementById('nav-' + tabId).classList.add('active');
     }
 
-    function selectBook(bookKey) {
-      currentBookKey = bookKey;
-      currentChapterIndex = 0;
-      var keys = Object.keys(BOOKS_DATA);
-      for (var i = 0; i < keys.length; i++) {
-        var btn = document.getElementById('book-btn-' + keys[i]);
-        if (btn) {
-          if (keys[i] === bookKey) btn.classList.add('active');
-          else btn.classList.remove('active');
-        }
-      }
-      renderSidebarChapters();
-      renderCurrentChapter();
+    /* Calculator Script */
+    var screen = document.getElementById('calc-display');
+    function pressCalc(val) {
+      if (screen.value === '0') screen.value = val;
+      else screen.value += val;
     }
-
-    function renderSidebarChapters() {
-      var book = BOOKS_DATA[currentBookKey];
-      document.getElementById('current-book-sidebar-title').innerText = book.title;
-      var container = document.getElementById('chapters-list-container');
-      container.innerHTML = '';
-      for (var i = 0; i < book.chapters.length; i++) {
-        (function(idx) {
-          var btn = document.createElement('button');
-          btn.className = 'chapter-btn ' + (idx === currentChapterIndex ? 'active' : '');
-          btn.innerText = book.chapters[idx].title;
-          btn.onclick = function() {
-            currentChapterIndex = idx;
-            renderSidebarChapters();
-            renderCurrentChapter();
-          };
-          container.appendChild(btn);
-        })(i);
-      }
+    function clearCalc() { screen.value = '0'; }
+    function solveCalc() {
+      try { screen.value = eval(screen.value); }
+      catch(e) { screen.value = 'Error'; }
     }
-
-    function renderCurrentChapter() {
-      var book = BOOKS_DATA[currentBookKey];
-      var ch = book.chapters[currentChapterIndex] || book.chapters[0];
-      document.getElementById('reader-book-tag').innerText = book.tag;
-      document.getElementById('reader-chapter-title').innerText = ch.title;
-      var contentBody = document.getElementById('reader-content-body');
-      contentBody.style.fontSize = fontSize + 'px';
-      contentBody.innerHTML = ch.content;
-    }
-
-    function adjustFontSize(delta) {
-      fontSize = Math.min(26, Math.max(14, fontSize + delta * 2));
-      document.getElementById('reader-content-body').style.fontSize = fontSize + 'px';
-    }
-
-    function readAloud() {
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        var text = document.getElementById('reader-chapter-title').innerText + '. ' + document.getElementById('reader-content-body').innerText;
-        var ut = new SpeechSynthesisUtterance(text);
-        ut.lang = 'bn-BD';
-        window.speechSynthesis.speak(ut);
-      } else {
-        alert('আপনার ব্রাউজার টিটিএস সমর্থন করে না।');
-      }
-    }
-
-    function setTheme(theme) {
-      document.body.className = '';
-      if (theme === 'dark') document.body.className = 'dark';
-      else if (theme === 'sepia') document.body.className = 'theme-sepia';
-    }
-
-    function renderCQs() {
-      var container = document.getElementById('cq-cards-container');
-      container.innerHTML = '';
-      for (var i = 0; i < CQ_DATA.length; i++) {
-        var cq = CQ_DATA[i];
-        var div = document.createElement('div');
-        div.className = 'card';
-        div.innerHTML = '<h3 style="color:#059669; font-weight:bold;">' + cq.title + '</h3><p style="margin:10px 0; font-size:13px;"><strong>উদ্দীপক:</strong> ' + cq.stem + '</p><p style="font-size:13px;"><strong>ক. ' + cq.qA + '</strong><br>' + cq.ansA + '</p>';
-        container.appendChild(div);
-      }
-    }
-
-    function renderQuiz() {
-      var container = document.getElementById('quiz-questions-container');
-      container.innerHTML = '';
-      for (var i = 0; i < QUIZ_DATA.length; i++) {
-        var q = QUIZ_DATA[i];
-        var div = document.createElement('div');
-        div.className = 'card';
-        div.innerHTML = '<p style="font-weight:bold;">প্রশ্ন ' + (i+1) + ': ' + q.q + '</p>';
-        container.appendChild(div);
-      }
-    }
-
-    // Load initial views
-    renderSidebarChapters();
-    renderCurrentChapter();
-    renderCQs();
-    renderQuiz();
   </script>
 </body>
 </html>
