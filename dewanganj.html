@@ -3,394 +3,595 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>বাংলাদেশ ৬৪ জেলার লাইভ আবহাওয়া ড্যাশবোর্ড</title>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>আল-আহসান ফাউন্ডেশন বাংলাদেশ - অফিসিয়াল ডোনেশন পোর্টাল</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary-bg: #09203f;
+            --secondary-bg: #537895;
+            --accent-green: #10b981;
+            --accent-hover: #059669;
+            --card-bg: #ffffff;
+            --text-dark: #1f2937;
+            --text-muted: #6b7280;
+            --nagad-red: #d32f2f;
+            --bkash-pink: #e2136e;
+            --rocket-purple: #8c3494;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Hind Siliguri', 'Segoe UI', sans-serif;
+            font-family: 'Hind Siliguri', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: #f4f6f9;
-            color: #0c1b33;
+            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
             min-height: 100vh;
+            color: var(--text-dark);
+            padding-bottom: 40px;
         }
 
-        /* Shikho Official Top Navbar */
-        .shikho-nav {
-            background-color: #ffffff;
-            padding: 12px 20px;
+        /* Top Notification Bar */
+        .top-nav {
+            background-color: rgba(0, 0, 0, 0.25);
+            color: #e5e7eb;
+            padding: 10px 20px;
+            font-size: 13px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #e2e8f0;
-            position: sticky;
-            top: 0;
-            z.index: 100;
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .shikho-logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #0c1b33;
+        .top-nav div {
+            display: flex;
+            gap: 15px;
+            align-items: center;
         }
 
-        .shikho-logo span {
-            color: #d81b60;
-        }
-
-        .shikho-contact {
-            font-weight: 600;
-            color: #0c1b33;
-            font-size: 0.95rem;
-        }
-
-        /* Shikho Dark Navy Hero Banner */
-        .hero-section {
-            background-color: #0c1b33;
-            color: #ffffff;
-            padding: 40px 20px 45px 20px;
+        /* Header & Logo Section */
+        .header-section {
             text-align: center;
-        }
-
-        .hero-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 10px;
+            padding: 35px 20px 25px;
             color: #ffffff;
         }
 
-        .hero-subtitle {
-            font-size: 1.1rem;
-            color: #d81b60;
-            font-weight: 600;
-            margin-bottom: 25px;
-        }
-
-        /* Shikho Pink & White Buttons Area */
-        .btn-group {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            max-width: 380px;
-            margin: 0 auto 25px auto;
-        }
-
-        .btn-primary {
-            background-color: #d81b60;
-            color: #ffffff;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .btn-outline {
-            background-color: #ffffff;
-            color: #d81b60;
-            border: 2px solid #d81b60;
-            padding: 12px 20px;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        /* Search Input */
-        .search-box input {
-            padding: 12px 20px;
-            width: 100%;
-            max-width: 450px;
-            border-radius: 10px;
-            border: 1px solid #cbd5e1;
-            outline: none;
-            font-size: 1rem;
+        .logo-wrapper {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 15px;
             background: #ffffff;
-            color: #0c1b33;
-        }
-
-        .search-box input:focus {
-            border-color: #d81b60;
-        }
-
-        /* Main Grid Container */
-        .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        /* Shikho Card Style */
-        .card {
-            background: #ffffff;
-            border-radius: 14px;
-            padding: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e2e8f0;
+            border-radius: 50%;
+            padding: 5px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .district-header {
-            display: flex;
-            justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid #f1f5f9;
-            padding-bottom: 10px;
+            justify-content: center;
+        }
+
+        .logo-wrapper img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .header-section h1 {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header-section p {
+            font-size: 14px;
+            color: #d1d5db;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Main App Card Container */
+        .main-container {
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 18px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .card-header {
+            background: #f8fafc;
+            padding: 16px 20px;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-header h2 {
+            font-size: 16px;
+            color: var(--primary-bg);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-body {
+            padding: 22px;
+        }
+
+        /* Payment Tabs Selector */
+        .payment-tabs {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            border: 2px solid #e2e8f0;
+            background: #f8fafc;
+            padding: 12px 8px;
+            border-radius: 12px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tab-btn.active.nagad {
+            border-color: var(--nagad-red);
+            background: #fef2f2;
+            color: var(--nagad-red);
+        }
+
+        .tab-btn.active.bkash {
+            border-color: var(--bkash-pink);
+            background: #fdf2f8;
+            color: var(--bkash-pink);
+        }
+
+        .tab-btn.active.rocket {
+            border-color: var(--rocket-purple);
+            background: #faf5ff;
+            color: var(--rocket-purple);
+        }
+
+        /* Amount Presets */
+        .amount-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .preset-amounts {
+            display: flex;
+            gap: 8px;
             margin-bottom: 15px;
         }
 
-        .district-name {
-            font-size: 1.25rem;
-            color: #0c1b33;
-            font-weight: 700;
-        }
-
-        .temp-badge {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #d81b60;
-        }
-
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 8px 0;
-            font-size: 0.95rem;
-            color: #475569;
-        }
-
-        .info-value {
-            font-weight: 600;
-            color: #0c1b33;
-        }
-
-        .status-pill {
-            margin-top: 15px;
-            padding: 10px;
+        .preset-btn {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #cbd5e1;
             border-radius: 8px;
-            font-size: 0.9rem;
-            text-align: center;
+            background: #ffffff;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+
+        .preset-btn.active {
+            background: var(--primary-bg);
+            color: #ffffff;
+            border-color: var(--primary-bg);
+        }
+
+        /* Form Controls */
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 6px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 14px 12px 40px;
+            border: 1.5px solid #d1d5db;
+            border-radius: 10px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-green);
+        }
+
+        /* Main Action Button */
+        .pay-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: var(--accent-green);
+            color: #ffffff;
+            font-size: 16px;
             font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
-        .safe { 
-            background: #d81b60; 
-            color: #ffffff; 
-        }
-        
-        .rain-risk { 
-            background: #ffffff; 
-            color: #d81b60; 
-            border: 2px solid #d81b60; 
-        }
-        
-        .flood-risk { 
-            background: #0c1b33; 
-            color: #ffffff; 
+        .pay-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
         }
 
-        .loading {
+        /* MODAL (PGW Gateway Simulation) */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .pgw-box {
+            background: #d32f2f;
+            width: 100%;
+            max-width: 380px;
+            border-radius: 16px;
+            padding: 25px 20px;
+            color: #ffffff;
             text-align: center;
-            font-size: 0.95rem;
-            color: #64748b;
-            padding: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
+            animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .pgw-header-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .pgw-icon-cart {
+            font-size: 38px;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .pgw-org-name {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pgw-label {
+            font-size: 13px;
+            margin-bottom: 12px;
+            opacity: 0.95;
+        }
+
+        /* 11 Digit Input Blocks */
+        .digit-inputs {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: 25px;
+        }
+
+        .digit-box {
+            width: 26px;
+            height: 34px;
+            background: #ffffff;
+            border-radius: 4px;
+            border: none;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .pgw-terms {
+            font-size: 11px;
+            margin-bottom: 20px;
+            opacity: 0.85;
+            line-height: 1.4;
+        }
+
+        .pgw-btn-group {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .pgw-btn {
+            padding: 8px 24px;
+            border-radius: 6px;
+            border: none;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            background: #ffffff;
+            color: #333;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .pgw-footer-logo {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .footer-text {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 12px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Al-Ahsan Official Header Bar -->
-    <div class="shikho-nav">
-        <div class="al-ahsan-logo">AL-AHSAN<span>.</span></div>
-        <div class="shikho-contact">📞 09611399315</div>
+    <!-- Top Contact Nav -->
+    <div class="top-nav">
+        <div><i class="fa-solid fa-location-dot"></i> দেওয়ানগঞ্জ, জামালপুর, বাংলাদেশ</div>
+        <div><i class="fa-solid fa-phone"></i> 01342515643</div>
     </div>
 
-    <!-- Shikho Dark Navy Banner -->
-    <div class="hero-section">
-        <h1 class="hero-title">বাংলাদেশ ৬৪ জেলার লাইভ আবহাওয়া</h1>
-        <p class="hero-subtitle">আবহাওয়ার খবর দেশের সেরা প্রযুক্তির সাথে</p>
+    <!-- Header & Brand Logo -->
+    <div class="header-section">
+        <div class="logo-wrapper">
+            <i class="fa-solid fa-hand-holding-heart" style="font-size: 45px; color: #10b981;"></i>
+        </div>
+        <h1>আল-আহসান ফাউন্ডেশন বাংলাদেশ</h1>
+        <p>মানবতার কল্যাণে অনুদান ও সহযোগিতার এক ডিজিটাল প্ল্যাটফর্ম</p>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="main-container">
         
-        <div class="btn-group">
-            <button class="btn-primary">সকল জেলার আবহাওয়া দেখুন</button>
-            <button class="btn-outline">লাইভ আপডেট শুরু করো</button>
+        <!-- Live Payment Portal Card -->
+        <div class="card">
+            <div class="card-header">
+                <h2><i class="fa-solid fa-shield-halved" style="color: #10b981;"></i> অফিসিয়াল পেমেন্ট গেটওয়ে</h2>
+                <span style="font-size: 11px; background: #e0f2fe; color: #0369a1; padding: 3px 8px; border-radius: 12px; font-weight: bold;">ইনস্ট্যান্ট অ্যাক্টিভেশন</span>
+            </div>
+            
+            <div class="card-body">
+                <!-- Payment Method Selector -->
+                <div class="payment-tabs">
+                    <div class="tab-btn active nagad" onclick="selectMethod('nagad')">
+                        <i class="fa-solid fa-wallet" style="font-size: 18px;"></i>
+                        নগদ (Nagad)
+                    </div>
+                    <div class="tab-btn bkash" onclick="selectMethod('bkash')">
+                        <i class="fa-solid fa-mobile-screen" style="font-size: 18px;"></i>
+                        বিকাশ (bKash)
+                    </div>
+                    <div class="tab-btn rocket" onclick="selectMethod('rocket')">
+                        <i class="fa-solid fa-building-columns" style="font-size: 18px;"></i>
+                        রকেট (Rocket)
+                    </div>
+                </div>
+
+                <!-- Amount Selection -->
+                <div class="amount-title">অনুদান পরিমাণ (টাকা):</div>
+                <div class="preset-amounts">
+                    <button class="preset-btn" onclick="setAmount(100)">১০০ ৳</button>
+                    <button class="preset-btn active" onclick="setAmount(500)">৫০০ ৳</button>
+                    <button class="preset-btn" onclick="setAmount(1000)">১০00 ৳</button>
+                    <button class="preset-btn" onclick="setAmount(5000)">৫০০০ ৳</button>
+                </div>
+
+                <!-- Input Form -->
+                <form id="donationForm" onsubmit="openPGW(event)">
+                    <div class="form-group">
+                        <label>অনুদানের পরিমাণ (টাকা)</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-bangladeshi-taka-sign"></i>
+                            <input type="number" id="amountInput" class="form-control" value="500" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>আপনার মোবাইল নম্বর (ঐচ্ছিক)</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-phone"></i>
+                            <input type="tel" id="phoneInput" class="form-control" placeholder="017XXXXXXXX">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>রেফারেন্স / অনুদানের খাত</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-pen"></i>
+                            <input type="text" class="form-control" value="Donation / সাধারণ অনুদান">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="pay-btn" id="payBtn">
+                        <i class="fa-solid fa-lock"></i> পেমেন্ট সম্পন্ন করুন ➔
+                    </button>
+                </form>
+            </div>
         </div>
 
-        <div class="search-box">
-            <input type="text" id="searchInput" onkeyup="filterDistricts()" placeholder="আপনার জেলার নাম লিখুন (যেমন: ঢাকা, সিলেট)...">
-        </div>
     </div>
 
-    <!-- Weather Cards Container -->
-    <div class="container">
-        <div class="grid-container" id="weatherGrid">
-            <!-- Dynamic Cards -->
+    <div class="footer-text">
+        স্বত্ব © ২০২৬ আল-আহসান ফাউন্ডেশন বাংলাদেশ। সর্বস্বত্ব সংরক্ষিত।
+    </div>
+
+    <!-- PGW MODAL SIMULATION (Matches the user's Nagad Direct-Debit Image) -->
+    <div class="modal-overlay" id="pgwModal">
+        <div class="pgw-box" id="pgwBox">
+            <div class="pgw-header-title" id="pgwTitle">Nagad Direct-Debit Activation</div>
+            
+            <div class="pgw-icon-cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+            
+            <div class="pgw-org-name">AL-AHSAN FOUNDATION</div>
+            
+            <div class="pgw-label" id="pgwAccLabel">Your Nagad Account Number</div>
+            
+            <!-- 11 Digit Input Mock -->
+            <div class="digit-inputs" id="digitInputs">
+                <input class="digit-box" type="text" maxlength="1" value="0">
+                <input class="digit-box" type="text" maxlength="1" value="1">
+                <input class="digit-box" type="text" maxlength="1" value="7">
+                <input class="digit-box" type="text" maxlength="1" value="-">
+                <input class="digit-box" type="text" maxlength="1" value="X">
+                <input class="digit-box" type="text" maxlength="1" value="X">
+                <input class="digit-box" type="text" maxlength="1" value="X">
+                <input class="digit-box" type="text" maxlength="1" value="-">
+                <input class="digit-box" type="text" maxlength="1" value="X">
+                <input class="digit-box" type="text" maxlength="1" value="X">
+                <input class="digit-box" type="text" maxlength="1" value="X">
+            </div>
+
+            <div class="pgw-terms">
+                By clicking/tapping "Proceed" you are agreeing to our <b>Terms and Conditions</b>
+            </div>
+
+            <div class="pgw-btn-group">
+                <button class="pgw-btn" onclick="executePayment()">Proceed</button>
+                <button class="pgw-btn" onclick="closePGW()">Close</button>
+            </div>
+
+            <div class="pgw-footer-logo">
+                <i class="fa-solid fa-paper-plane"></i> <span id="gatewayBrand">নগদ</span>
+            </div>
         </div>
     </div>
 
     <script>
-        const districts = [
-            { name: "ঢাকা", lat: 23.8103, lon: 90.4125 },
-            { name: "চট্টগ্রাম", lat: 22.3569, lon: 91.7832 },
-            { name: "সিলেট", lat: 24.8949, lon: 91.8687 },
-            { name: "রাজশাহী", lat: 24.3636, lon: 88.6241 },
-            { name: "খুলনা", lat: 22.8456, lon: 89.5403 },
-            { name: "বরিশাল", lat: 22.7010, lon: 90.3535 },
-            { name: "রংপুর", lat: 25.7439, lon: 89.2752 },
-            { name: "ময়মনসিংহ", lat: 24.7471, lon: 90.4203 },
-            { name: "কুমিল্লা", lat: 23.4607, lon: 91.1809 },
-            { name: "কক্সবাজার", lat: 21.4272, lon: 92.0058 },
-            { name: "নোয়াখালী", lat: 22.8696, lon: 91.0991 },
-            { name: "ফেনী", lat: 23.0159, lon: 91.3976 },
-            { name: "বগুড়া", lat: 24.8481, lon: 89.3730 },
-            { name: "পাবনা", lat: 24.0063, lon: 89.2493 },
-            { name: "যশোর", lat: 23.1664, lon: 89.2081 },
-            { name: "দিনাজপুর", lat: 25.6217, lon: 88.6354 },
-            { name: "কুষ্টিয়া", lat: 23.9013, lon: 89.1204 },
-            { name: "টাঙ্গাইল", lat: 24.2513, lon: 89.9167 },
-            { name: "ফরিদপুর", lat: 23.6070, lon: 89.8429 },
-            { name: "গাজীপুর", lat: 23.9999, lon: 90.4203 },
-            { name: "নারায়ণগঞ্জ", lat: 23.6238, lon: 90.5000 },
-            { name: "ব্রাহ্মণবাড়িয়া", lat: 23.9571, lon: 91.1119 },
-            { name: "চাঁদপুর", lat: 23.2333, lon: 90.6667 },
-            { name: "লক্ষ্মীপুর", lat: 22.9447, lon: 90.8282 },
-            { name: "হবিগঞ্জ", lat: 24.3749, lon: 91.4155 },
-            { name: "মৌলভীবাজার", lat: 24.4829, lon: 91.7774 },
-            { name: "সুনামগঞ্জ", lat: 25.0658, lon: 91.3950 },
-            { name: "নাটোর", lat: 24.4206, lon: 89.0000 },
-            { name: "নওগাঁ", lat: 24.7936, lon: 88.9318 },
-            { name: "সিরাজগঞ্জ", lat: 24.4534, lon: 89.7008 },
-            { name: "জয়পুরহাট", lat: 25.1008, lon: 89.0232 },
-            { name: "চাঁপাইনবাবগঞ্জ", lat: 24.5965, lon: 88.2775 },
-            { name: "কুড়িগ্রাম", lat: 25.8054, lon: 89.6361 },
-            { name: "গাইবান্ধা", lat: 25.3288, lon: 89.5403 },
-            { name: "লালমনিরহাট", lat: 25.9165, lon: 89.4532 },
-            { name: "নীলফামারী", lat: 25.9312, lon: 88.8560 },
-            { name: "পঞ্চগড়", lat: 26.3411, lon: 88.5541 },
-            { name: "ঠাকুরগাঁও", lat: 26.0337, lon: 88.4617 },
-            { name: "সাতক্ষীরা", lat: 22.7185, lon: 89.0705 },
-            { name: "বাগেরহাট", lat: 22.6516, lon: 89.7859 },
-            { name: "ঝিনাইদহ", lat: 23.5448, lon: 89.1539 },
-            { name: "মাগুরা", lat: 23.4873, lon: 89.4199 },
-            { name: "নড়াইল", lat: 23.1725, lon: 89.5126 },
-            { name: "মেহেরপুর", lat: 23.7622, lon: 88.6318 },
-            { name: "চুয়াডাঙ্গা", lat: 23.6402, lon: 88.8418 },
-            { name: "পটুয়াখালী", lat: 22.3596, lon: 90.3298 },
-            { name: "ভোলা", lat: 22.6859, lon: 90.6481 },
-            { name: "বরগুনা", lat: 22.1528, lon: 90.1256 },
-            { name: "ঝালকাঠি", lat: 22.6406, lon: 90.1987 },
-            { name: "পিরোজপুর", lat: 22.5841, lon: 89.9720 },
-            { name: "নেত্রকোণা", lat: 24.8709, lon: 90.7279 },
-            { name: "শেরপুর", lat: 25.0205, lon: 90.0153 },
-            { name: "জামালপুর দেওয়ানগঞ্জ", lat: 24.9375, lon: 89.9377 },
-            { name: "কিশোরগঞ্জ", lat: 24.4449, lon: 90.7765 },
-            { name: "মানিকগঞ্জ", lat: 23.8644, lon: 90.0047 },
-            { name: "মুন্সীগঞ্জ", lat: 23.5422, lon: 90.5305 },
-            { name: "রাজবাড়ী", lat: 23.7574, lon: 89.6444 },
-            { name: "মাদারীপুর", lat: 23.1641, lon: 90.1897 },
-            { name: "গোপালগঞ্জ", lat: 23.0051, lon: 89.8266 },
-            { name: "শরীয়তপুর", lat: 23.2423, lon: 90.4348 },
-            { name: "রাঙ্গামাটি", lat: 22.6533, lon: 92.1789 },
-            { name: "বান্দরবান", lat: 22.1953, lon: 92.2184 },
-            { name: "খাগড়াছড়ি", lat: 23.1192, lon: 91.9847 }
-        ];
+        let selectedMethod = 'nagad';
 
-        const grid = document.getElementById('weatherGrid');
-
-        function createCards() {
-            districts.forEach((district, index) => {
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.id = `card-${index}`;
-                card.innerHTML = `
-                    <div class="district-header">
-                        <span class="district-name">${district.name}</span>
-                    </div>
-                    <div class="loading">তথ্য লোড হচ্ছে...</div>
-                `;
-                grid.appendChild(card);
-                fetchWeather(district, index);
-            });
-        }
-
-        async function fetchWeather(district, index) {
-            const url = `https://api.open-meteo.com/v1/forecast?latitude=${district.lat}&longitude=${district.lon}&current_weather=true&hourly=precipitation_probability,rain`;
+        function selectMethod(method) {
+            selectedMethod = method;
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active', 'nagad', 'bkash', 'rocket'));
             
-            try {
-                const response = await fetch(url);
-                const data = await response.json();
+            const selectedBtn = document.querySelector(`.tab-btn.${method}`);
+            selectedBtn.classList.add('active', method);
 
-                const temp = Math.round(data.current_weather.temperature);
-                const wind = data.current_weather.windspeed;
-                const rainProb = data.hourly.precipitation_probability[0] || 0;
-                const rainAmount = data.hourly.rain[0] || 0;
-
-                let statusText = "স্বাভাবিক আবহাওয়া";
-                let statusClass = "safe";
-
-                if (rainAmount > 10 || (rainProb > 70 && ["সিলেট", "সুনামগঞ্জ", "কুড়িগ্রাম", "ফেনী"].includes(district.name))) {
-                    statusText = "⚠️ বন্যার আশঙ্কা";
-                    statusClass = "flood-risk";
-                } else if (rainProb > 50 || rainAmount > 2) {
-                    statusText = "🌧️ বৃষ্টির সম্ভাবনা";
-                    statusClass = "rain-risk";
-                }
-
-                const card = document.getElementById(`card-${index}`);
-                card.innerHTML = `
-                    <div>
-                        <div class="district-header">
-                            <span class="district-name">${district.name}</span>
-                            <span class="temp-badge">${temp}°C</span>
-                        </div>
-                        <div class="info-row">
-                            <span>বাতাসের গতি:</span>
-                            <span class="info-value">${wind} km/h</span>
-                        </div>
-                        <div class="info-row">
-                            <span>বৃষ্টির সম্ভাবনা:</span>
-                            <span class="info-value">${rainProb}%</span>
-                        </div>
-                    </div>
-                    <div class="status-pill ${statusClass}">${statusText}</div>
-                `;
-            } catch (error) {
-                const card = document.getElementById(`card-${index}`);
-                card.innerHTML = `
-                    <div class="district-name">${district.name}</div>
-                    <div style="color: #ef4444; padding: 10px 0;">তথ্য সংযোগে সমস্যা হয়েছে</div>
-                `;
+            const pgwBox = document.getElementById('pgwBox');
+            if(method === 'nagad') {
+                pgwBox.style.background = '#d32f2f';
+                document.getElementById('pgwTitle').innerText = 'Nagad Direct-Debit Activation';
+                document.getElementById('pgwAccLabel').innerText = 'Your Nagad Account Number';
+                document.getElementById('gatewayBrand').innerText = 'নগদ';
+            } else if(method === 'bkash') {
+                pgwBox.style.background = '#e2136e';
+                document.getElementById('pgwTitle').innerText = 'bKash Payment Gateway';
+                document.getElementById('pgwAccLabel').innerText = 'Your bKash Account Number';
+                document.getElementById('gatewayBrand').innerText = 'বিকাশ';
+            } else if(method === 'rocket') {
+                pgwBox.style.background = '#8c3494';
+                document.getElementById('pgwTitle').innerText = 'Rocket Mobile Banking';
+                document.getElementById('pgwAccLabel').innerText = 'Your Rocket Account Number';
+                document.getElementById('gatewayBrand').innerText = 'রকেট';
             }
         }
 
-        function filterDistricts() {
-            const input = document.getElementById('searchInput').value.toLowerCase();
-            const cards = document.getElementsByClassName('card');
-
-            for (let i = 0; i < cards.length; i++) {
-                const districtName = cards[i].getElementsByClassName('district-name')[0].innerText;
-                if (districtName.toLowerCase().includes(input)) {
-                    cards[i].style.display = "";
-                } else {
-                    cards[i].style.display = "none";
-                }
-            }
+        function setAmount(val) {
+            document.getElementById('amountInput').value = val;
+            document.querySelectorAll('.preset-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
         }
 
-        window.onload = createCards;
+        function openPGW(e) {
+            e.preventDefault();
+            const phone = document.getElementById('phoneInput').value;
+            if(phone && phone.length === 11) {
+                const digits = phone.split('');
+                const boxes = document.querySelectorAll('.digit-box');
+                let idx = 0;
+                boxes.forEach((box) => {
+                    if(box.value !== '-') {
+                        box.value = digits[idx] || 'X';
+                        idx++;
+                    }
+                });
+            }
+            document.getElementById('pgwModal').classList.add('active');
+        }
+
+        function closePGW() {
+            document.getElementById('pgwModal').classList.remove('active');
+        }
+
+        function executePayment() {
+            alert('আপনার অনুরোধটি প্রসেস করা হচ্ছে। পিন (PIN) ও ওটিপি (OTP) দিয়ে পেমেন্ট সম্পূর্ণ করুন।');
+            closePGW();
+        }
     </script>
 </body>
 </html>
