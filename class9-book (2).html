@@ -1,351 +1,321 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>নবম-দশম শ্রেণি সর্বজনীন ডিজিটাল পাঠাগার ও স্মার্ট লার্নিং হাব</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Hind Siliguri', sans-serif; background-color: #f8fafc; color: #0f172a; transition: background 0.2s, color 0.2s; }
-    
-    /* Header Navbar */
-    header { position: sticky; top: 0; z-index: 50; background-color: #ffffff; border-bottom: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-    .nav-container { max-width: 1280px; margin: 0 auto; padding: 0 16px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
-    .logo-area { display: flex; align-items: center; gap: 12px; cursor: pointer; }
-    .logo-icon { width: 42px; height: 42px; border-radius: 10px; background: #059669; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: bold; font-size: 22px; }
-    
-    .nav-btns { display: flex; align-items: center; gap: 6px; }
-    .nav-btn { padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 600; border: none; cursor: pointer; background: transparent; color: #334155; }
-    .nav-btn.active { background-color: #059669; color: #ffffff; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আল আহসান ফাউন্ডেশন বাংলাদেশ</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0d6e40;
+            --secondary-color: #128c52;
+            --bg-color: #f4f6f8;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+        }
 
-    .theme-toggle { padding: 6px 12px; border-radius: 8px; border: 1px solid #cbd5e1; background: #f1f5f9; cursor: pointer; font-size: 13px; font-weight: bold; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    /* Layout */
-    main { max-width: 1280px; margin: 0 auto; padding: 24px 16px; }
-    .hidden { display: none !important; }
-    
-    .banner { background: #059669; border-radius: 16px; padding: 24px; color: #fff; margin-bottom: 24px; }
-    .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 20px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); margin-bottom: 20px; }
-    
-    /* Grid for 14+ Books */
-    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
-    .book-card { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 18px; cursor: pointer; transition: all 0.2s; position: relative; }
-    .book-card:hover { border-color: #059669; box-shadow: 0 4px 12px rgba(5, 150, 105, 0.1); }
-    .book-badge { position: absolute; top: 12px; right: 12px; background: #e0f2fe; color: #0369a1; font-size: 10px; font-weight: bold; padding: 2px 8px; border-radius: 4px; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding-bottom: 70px;
+        }
 
-    /* FX-991MS Scientific Calculator UI */
-    .fx-calc-container { max-width: 420px; margin: 0 auto; background: #1e293b; border-radius: 16px; padding: 20px; color: #fff; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 2px solid #334155; }
-    .fx-screen-box { background: #0f172a; border-radius: 8px; padding: 12px; margin-bottom: 16px; border: 1px solid #475569; }
-    .fx-screen-mode { font-size: 10px; color: #10b981; font-family: monospace; letter-spacing: 2px; margin-bottom: 4px; display: flex; justify-content: space-between; }
-    .fx-screen-input { width: 100%; background: transparent; border: none; color: #f8fafc; font-size: 16px; text-align: right; font-family: monospace; outline: none; }
-    .fx-screen-output { width: 100%; background: transparent; border: none; color: #34d399; font-size: 24px; text-align: right; font-family: monospace; font-weight: bold; outline: none; }
-    
-    .fx-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
-    .fx-btn { padding: 10px 4px; border-radius: 6px; border: none; background: #334155; color: #f8fafc; font-size: 12px; font-weight: bold; cursor: pointer; font-family: inherit; }
-    .fx-btn:active { background: #475569; }
-    .fx-btn.func { background: #0f766e; color: #fff; }
-    .fx-btn.action { background: #b91c1c; color: #fff; }
-    .fx-btn.equals { background: #059669; color: #fff; grid-column: span 2; }
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-    /* Dark Mode Theme */
-    body.dark { background-color: #0f172a; color: #f8fafc; }
-    body.dark header { background-color: #1e293b; border-color: #334155; }
-    body.dark .nav-btn { color: #cbd5e1; }
-    body.dark .card, body.dark .book-card { background-color: #1e293b; border-color: #334155; color: #f8fafc; }
-    body.dark .theme-toggle { background: #334155; color: #fff; border-color: #475569; }
+        header h1 {
+            font-size: 20px;
+        }
 
-    footer { border-top: 1px solid #e2e8f0; background: #fff; padding: 24px; text-align: center; font-size: 12px; color: #64748b; margin-top: 40px; }
-    body.dark footer { background: #1e293b; border-color: #334155; color: #94a3b8; }
-  </style>
+        /* Container */
+        .container {
+            padding: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Banner / Prayer Time */
+        .prayer-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .prayer-card h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .prayer-card h2 {
+            font-size: 24px;
+            color: #ffe867;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 15px 0 10px;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 3px;
+        }
+
+        /* Grid Category */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .grid-card {
+            background-color: var(--card-bg);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .grid-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .grid-card i {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .grid-card p {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* Book List Layout */
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .book-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .book-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+
+        .book-card h4 {
+            font-size: 13px;
+            margin-bottom: 8px;
+            height: 36px;
+            overflow: hidden;
+        }
+
+        .btn-download {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-size: 12px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* Bottom Navigation */
+        .nav-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--card-bg);
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-item {
+            text-align: center;
+            color: #666;
+            text-decoration: none;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .nav-item i {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .nav-item.active {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Views */
+        .page-view {
+            display: none;
+        }
+
+        .page-view.active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <header>
-    <div class="nav-container">
-      <div class="logo-area" onclick="switchTab('library')">
-        <div class="logo-icon">📚</div>
-        <div>
-          <span style="font-weight:bold; font-size:18px;">ডিজিটাল পাঠাগার ৯-১০</span>
-          <p style="font-size:11px; color:#64748b;">সকল পাঠ্যবই, বোর্ড গাইড ও সাইন্টিফিক টুলস</p>
+    <!-- Header -->
+    <header>
+        <h1>আল আহসান ফাউন্ডেশন বাংলাদেশ</h1>
+    </header>
+
+    <div class="container">
+        
+        <!-- HOME PAGE -->
+        <div id="home" class="page-view active">
+            <div class="prayer-card">
+                <h3>চলমান ওয়াক্ত</h3>
+                <h2>ফজর - ০৪:৩০ AM</h2>
+            </div>
+
+            <div class="section-title">শিক্ষা বিভাগ</div>
+            <div class="grid-container">
+                <div class="grid-card" onclick="showPage('kitab')">
+                    <i class="fas fa-quran"></i>
+                    <p>কুরআন মাজিদ</p>
+                </div>
+                <div class="grid-card" onclick="showPage('kitab')">
+                    <i class="fas fa-book-open"></i>
+                    <p>হাদিস গ্রন্থসমূহ</p>
+                </div>
+                <div class="grid-card" onclick="showPage('kitab')">
+                    <i class="fas fa-balance-scale"></i>
+                    <p>ফাতওয়া ও মাসায়েল</p>
+                </div>
+                <div class="grid-card" onclick="showPage('kitab')">
+                    <i class="fas fa-user-graduate"></i>
+                    <p>নবীদের জীবনী</p>
+                </div>
+            </div>
+
+            <div class="section-title">আমল ও অন্যান্য</div>
+            <div class="grid-container">
+                <div class="grid-card">
+                    <i class="fas fa-clock"></i>
+                    <p>নামাজের সময়</p>
+                </div>
+                <div class="grid-card">
+                    <i class="fas fa-calculator"></i>
+                    <p>যাকাত হিসাব</p>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <nav class="nav-btns">
-        <button id="nav-library" onclick="switchTab('library')" class="nav-btn active">📚 সকল বই ও গাইড</button>
-        <button id="nav-calc" onclick="switchTab('calc')" class="nav-btn">🧮 FX-991MS ক্যালকুলেটর</button>
-        <button id="nav-exercises" onclick="switchTab('exercises')" class="nav-btn">📝 অনুশীলনী ও কুইজ</button>
-      </nav>
+        <!-- KITAB / BOOK STORE PAGE -->
+        <div id="kitab" class="page-view">
+            <div class="section-title">কিতাব ঘর</div>
+            <div class="book-grid">
+                <div class="book-card">
+                    <img src="https://via.placeholder.com/120x160?text=সহীহ+বুখারী" alt="Book">
+                    <h4>সহীহ বুখারী (সকল খণ্ড)</h4>
+                    <button class="btn-download" onclick="downloadBook('সহীহ বুখারী')"><i class="fas fa-download"></i> ডাউনলোড</button>
+                </div>
+                <div class="book-card">
+                    <img src="https://via.placeholder.com/120x160?text=সহীহ+মুসলিম" alt="Book">
+                    <h4>সহীহ মুসলিম (সকল খণ্ড)</h4>
+                    <button class="btn-download" onclick="downloadBook('সহীহ মুসলিম')"><i class="fas fa-download"></i> ডাউনলোড</button>
+                </div>
+                <div class="book-card">
+                    <img src="https://via.placeholder.com/120x160?text=তাফসীর+ইবনে+কাছীর" alt="Book">
+                    <h4>তাফসীর ইবনে কাছীর</h4>
+                    <button class="btn-download" onclick="downloadBook('তাফসীর ইবনে কাছীর')"><i class="fas fa-download"></i> ডাউনলোড</button>
+                </div>
+                <div class="book-card">
+                    <img src="https://via.placeholder.com/120x160?text=আলফিয়্যাতুল+হাদীস" alt="Book">
+                    <h4>আলফিয়্যাতুল হাদীস</h4>
+                    <button class="btn-download" onclick="downloadBook('আলফিয়্যাতুল হাদীস')"><i class="fas fa-download"></i> ডাউনলোড</button>
+                </div>
+            </div>
+        </div>
 
-      <button onclick="toggleTheme()" class="theme-toggle" id="theme-btn">🌙 ডার্ক মোড</button>
+        <!-- OFFLINE / DOWNLOADS PAGE -->
+        <div id="offline" class="page-view">
+            <div class="section-title">ডাউনলোডকৃত বইসমূহ</div>
+            <p style="text-align: center; color: #777; margin-top: 20px;">আপনার সংরক্ষিত বইগুলো এখানে থাকবে।</p>
+        </div>
+
     </div>
-  </header>
 
-  <main>
-
-    <!-- TAB 1: ALL 14+ BOOKS & GUIDES -->
-    <section id="tab-library">
-      <div class="banner">
-        <h2>নবম-দশম শ্রেণির ১৪টি সম্পূর্ণ পাঠ্যবই ও গাইড হাব</h2>
-        <p style="font-size:13px; color:#e2e8f0; margin-top:4px;">বাংলাদেশের সকল শিক্ষা বোর্ডের অনুমোদিত পাঠ্যবই, অধ্যায়ভিত্তিক গাইড এবং বোর্ড পরীক্ষার সমাধান।</p>
-      </div>
-
-      <h3 style="margin-bottom:16px; color:#059669;">🧪 বিজ্ঞান ও গণিত বিভাগ</h3>
-      <div class="grid-4" style="margin-bottom:28px;">
-        <div class="book-card" onclick="openBookModal('জীববিজ্ঞান', 'http://www.nctb.gov.bd')">
-          <span class="book-badge">বিজ্ঞান</span>
-          <h4 style="font-size:16px; margin-bottom:4px;">🧬 জীববিজ্ঞান</h4>
-          <p style="font-size:12px; color:#64748b;">১৪টি অধ্যায় • চিত্রসহ গাইড ও মেডিকেল টিপস</p>
+    <!-- Bottom Navigation -->
+    <div class="nav-bar">
+        <div class="nav-item active" id="nav-home" onclick="showPage('home')">
+            <i class="fas fa-home"></i>
+            হোম পেজ
         </div>
-
-        <div class="book-card" onclick="openBookModal('রসায়ন', 'http://www.nctb.gov.bd')">
-          <span class="book-badge">বিজ্ঞান</span>
-          <h4 style="font-size:16px; margin-bottom:4px;">🧪 রসায়ন</h4>
-          <p style="font-size:12px; color:#64748b;">১২টি অধ্যায় • বিক্রিয়া, সংকেত ও সমীকরণ</p>
+        <div class="nav-item" id="nav-kitab" onclick="showPage('kitab')">
+            <i class="fas fa-book"></i>
+            কিতাব
         </div>
-
-        <div class="book-card" onclick="openBookModal('পদার্থবিজ্ঞান', 'http://www.nctb.gov.bd')">
-          <span class="book-badge">বিজ্ঞান</span>
-          <h4 style="font-size:16px; margin-bottom:4px;">⚡ পদার্থবিজ্ঞান</h4>
-          <p style="font-size:12px; color:#64748b;">১৪টি অধ্যায় • গাণিতিক সমাধান ও সূত্রাবলী</p>
+        <div class="nav-item" id="nav-offline" onclick="showPage('offline')">
+            <i class="fas fa-download"></i>
+            অফলাইন
         </div>
+    </div>
 
-        <div class="book-card" onclick="openBookModal('উচ্চতর গণিত', 'http://www.nctb.gov.bd')">
-          <span class="book-badge">বিজ্ঞান</span>
-          <h4 style="font-size:16px; margin-bottom:4px;">📊 উচ্চতর গণিত</h4>
-          <p style="font-size:12px; color:#64748b;">১৪টি অধ্যায় • স্থানাঙ্ক জ্যামিতি ও ভেক্টর</p>
-        </div>
-      </div>
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-view');
+            pages.forEach(page => page.classList.remove('active'));
 
-      <h3 style="margin-bottom:16px; color:#059669;">📖 আবশ্যিক ও সাধারণ বিভাগ</h3>
-      <div class="grid-4" style="margin-bottom:28px;">
-        <div class="book-card" onclick="openBookModal('সাধারণ গণিত', 'http://www.nctb.gov.bd')">
-          <span class="book-badge">আবশ্যিক</span>
-          <h4 style="font-size:16px; margin-bottom:4px;">📐 সাধারণ গণিত</h4>
-          <p style="font-size:12px; color:#64748b;">১৭টি অধ্যায় • অনুশীলনী সমাধান</p>
-        </div>
+            // Remove active class from nav items
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('active'));
 
-        <div class="book-card" onclick="openBookModal('বাংলা সাহিত্য', 'http://www.nctb.gov.bd')">
-          <span class="book-badge">আবশ্যিক</span>
-          <h4 style="font-size:16px; margin-bottom:4px;">📚 বাংলা সাহিত্য (গদ্য ও পদ্য)</h4>
-          <p style="font-size:12px; color:#64748b;">সকল কবিতা, গল্প ও সহপাঠ উপন্যাস</p>
-        </div>
+            // Show current page & set nav active
+            document.getElementById(pageId).classList.add('active');
+            document.getElementById('nav-' + pageId).classList.add('active');
+        }
 
-        <div class="book-card" onclick="openBookModal('বাংলা ব্যাকরণ', 'http://www.nctb.gov.bd')">
-          <span class="book-badge">আবশ্যিক</span>
-          <h4 style="font-size:16px; margin-bottom:4px;">📝 বাংলা ব্যাকরণ ও নির্মিতি</h4>
-          <p style="font-size:12px; color:#64748b;">কারক, সমাস, সন্ধি ও নির্মিতি অংশ</p>
-        </div>
-
-        <div class="book-card" onclick="openBookModal('English For Today', 'http://www.nctb.gov.bd')">
-          <span class="book-badge">আবশ্যিক</span>
-          <h4 style="font-size:16px; margin-bottom:4px;">🔤 English For Today</h4>
-          <p style="font-size:12px; color:#64748b;">Unseen Passages, Model Questions</p>
-        </div>
-
-        <div class="book-card" onclick="openBookModal('English Grammar', 'http://www.nctb.gov.bd')">
-          <span class="book-badge">আবশ্যিক</span>
-          <h4 style="font-size:16px; margin-bottom:4px;">✍️ English Grammar & Composition</h4>
-          <p style="font-size:12px; color:#64748b;">Rules, Tense, Transformation & Composition</p>
-        </div>
-
-        <div class="book-card" onclick="openBookModal('আইসিটি', 'http://www.nctb.gov.bd')">
-          <span class="book-badge">আবশ্যিক</span>
-          <h4 style="font-size:16px; margin-bottom:4px;">💻 তথ্য ও যোগাযোগ প্রযুক্তি (ICT)</h4>
-          <p style="font-size:12px; color:#64748b;">ই-লার্নিং, নিরাপত্তা ও প্রোগ্রামিং</p>
-        </div>
-
-        <div class="book-card" onclick="openBookModal('বাংলাদেশ ও বিশ্বপরিচয়', 'http://www.nctb.gov.bd')">
-          <span class="book-badge">আবশ্যিক</span>
-          <h4 style="font-size:16px; margin-bottom:4px;">🌏 বাংলাদেশ ও বিশ্বপরিচয়</h4>
-          <p style="font-size:12px; color:#64748b;">ইতিহাস, ভূগোল ও পৌরনীতি</p>
-        </div>
-
-        <div class="book-card" onclick="openBookModal('সাধারণ বিজ্ঞান', 'http://www.nctb.gov.bd')">
-          <span class="book-badge">সাধারণ</span>
-          <h4 style="font-size:16px; margin-bottom:4px;">🔬 সাধারণ বিজ্ঞান</h4>
-          <p style="font-size:12px; color:#64748b;">মানবিক ও ব্যবসায় শিক্ষা বিভাগের জন্য</p>
-        </div>
-      </div>
-
-      <h3 style="margin-bottom:16px; color:#059669;">💼 ব্যবসায় শিক্ষা ও ঐচ্ছিক বিভাগ</h3>
-      <div class="grid-4">
-        <div class="book-card" onclick="openBookModal('হিসাববিজ্ঞান', 'http://www.nctb.gov.bd')">
-          <span class="book-badge">ব্যবসায়</span>
-          <h4 style="font-size:16px; margin-bottom:4px;">📈 হিসাববিজ্ঞান</h4>
-          <p style="font-size:12px; color:#64748b;">জাবেদা, খতিয়ান ও আর্থিক বিবরণী</p>
-        </div>
-
-        <div class="book-card" onclick="openBookModal('ব্যবসায় উদ্যোগ', 'http://www.nctb.gov.bd')">
-          <span class="book-badge">ব্যবসায়</span>
-          <h4 style="font-size:16px; margin-bottom:4px;">🏢 ব্যবসায় উদ্যোগ</h4>
-          <p style="font-size:12px; color:#64748b;">শিল্প, বাণিজ্য ও সফল উদ্যোক্তা নির্দেশিকা</p>
-        </div>
-
-        <div class="book-card" onclick="openBookModal('কৃষি শিক্ষা', 'http://www.nctb.gov.bd')">
-          <span class="book-badge">ঐচ্ছিক</span>
-          <h4 style="font-size:16px; margin-bottom:4px;">🌾 কৃষি শিক্ষা / গার্হস্থ্য বিজ্ঞান</h4>
-          <p style="font-size:12px; color:#64748b;">ব্যবহারিক অনুশীলন ও নোটস</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 2: CASIO FX-991MS SCIENTIFIC CALCULATOR -->
-    <section id="tab-calc" class="hidden">
-      <div class="card" style="text-align:center; margin-bottom:16px;">
-        <h2>🧮 CASIO FX-991MS Scientific Calculator Simulator</h2>
-        <p style="font-size:13px; color:#64748b; margin-top:4px;">বিজ্ঞান ও গণিতের জটিল হিসাবের জন্য প্রস্তুত করা অনলাইন সায়েন্টিফিক ক্যালকুলেটর</p>
-      </div>
-
-      <div class="fx-calc-container">
-        <div class="fx-screen-box">
-          <div class="fx-screen-mode">
-            <span>CASIO FX-991MS</span>
-            <span>DEG S-V.P.A.M.</span>
-          </div>
-          <input type="text" id="fx-expr" class="fx-screen-input" readonly placeholder="0">
-          <input type="text" id="fx-res" class="fx-screen-output" readonly value="0">
-        </div>
-
-        <div class="fx-grid">
-          <!-- Row 1: Scientific Functions -->
-          <button class="fx-btn func" onclick="fxAppend('sin(')">sin</button>
-          <button class="fx-btn func" onclick="fxAppend('cos(')">cos</button>
-          <button class="fx-btn func" onclick="fxAppend('tan(')">tan</button>
-          <button class="fx-btn func" onclick="fxAppend('log(')">log</button>
-          <button class="fx-btn func" onclick="fxAppend('ln(')">ln</button>
-
-          <!-- Row 2: Powers & Roots -->
-          <button class="fx-btn func" onclick="fxAppend('^2')">x²</button>
-          <button class="fx-btn func" onclick="fxAppend('^')">x^y</button>
-          <button class="fx-btn func" onclick="fxAppend('sqrt(')">√</button>
-          <button class="fx-btn func" onclick="fxAppend('(')">(</button>
-          <button class="fx-btn func" onclick="fxAppend(')')">)</button>
-
-          <!-- Row 3: Numbers 7-9 & AC/DEL -->
-          <button class="fx-btn" onclick="fxAppend('7')">7</button>
-          <button class="fx-btn" onclick="fxAppend('8')">8</button>
-          <button class="fx-btn" onclick="fxAppend('9')">9</button>
-          <button class="fx-btn action" onclick="fxDel()">DEL</button>
-          <button class="fx-btn action" onclick="fxClear()">AC</button>
-
-          <!-- Row 4: Numbers 4-6 & Operations -->
-          <button class="fx-btn" onclick="fxAppend('4')">4</button>
-          <button class="fx-btn" onclick="fxAppend('5')">5</button>
-          <button class="fx-btn" onclick="fxAppend('6')">6</button>
-          <button class="fx-btn func" onclick="fxAppend('*')">×</button>
-          <button class="fx-btn func" onclick="fxAppend('/')">÷</button>
-
-          <!-- Row 5: Numbers 1-3 & Operations -->
-          <button class="fx-btn" onclick="fxAppend('1')">1</button>
-          <button class="fx-btn" onclick="fxAppend('2')">2</button>
-          <button class="fx-btn" onclick="fxAppend('3')">3</button>
-          <button class="fx-btn func" onclick="fxAppend('+')">+</button>
-          <button class="fx-btn func" onclick="fxAppend('-')">-</button>
-
-          <!-- Row 6: Zero, Dot, Pi & Equals -->
-          <button class="fx-btn" onclick="fxAppend('0')">0</button>
-          <button class="fx-btn" onclick="fxAppend('.')">.</button>
-          <button class="fx-btn func" onclick="fxAppend('3.14159')">π</button>
-          <button class="fx-btn equals" onclick="fxSolve()">=</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 3: EXERCISES & PRACTICE -->
-    <section id="tab-exercises" class="hidden">
-      <div class="card">
-        <h3>📝 অনুশীলনী ও টেস্ট পেপার সমাধান ব্যাংক</h3>
-        <p style="font-size:13px; color:#64748b; margin-top:6px;">
-          নবম-দশম শ্রেণির সকল বিষয়ের অধ্যায়ভিত্তিক বহুনির্বাচনী (MCQ) ও সৃজনশীল (CQ) প্রশ্নাবলী এখানে সরাসরি প্র্যাকটিস করা যাবে।
-        </p>
-      </div>
-
-      <div class="card">
-        <h4 style="color:#059669; margin-bottom:8px;">কুইজ মডেল টেস্ট: জীববিজ্ঞান অধ্যায় ৬</h4>
-        <p style="font-weight:bold; font-size:14px;">প্রশ্ন: রক্তের কোন উপাদান অনুচক্রিকা (Platelet) জমাট বাঁধতে সাহায্য করে?</p>
-        <div style="margin-top:8px; display:flex; flex-direction:column; gap:6px;">
-          <button onclick="alert('সঠিক উত্তর! অনুচক্রিকা রক্ত জমাট বাঁধায় সাহায্য করে।')" style="padding:8px; text-align:left; border:1px solid #cbd5e1; border-radius:6px; background:#f8fafc; cursor:pointer;">ক) ফাইব্রিনোজেন ও অনুচক্রিকা</button>
-          <button onclick="alert('ভুল উত্তর! আবার চেষ্টা করুন।')" style="padding:8px; text-align:left; border:1px solid #cbd5e1; border-radius:6px; background:#f8fafc; cursor:pointer;">খ) লোহিত রক্তকণিকা</button>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <p><strong>নবম-দশম শ্রেণি সর্বজনীন লার্নিং প্ল্যাটফর্ম ও ডিজিটাল পাঠাগার</strong></p>
-    <p style="margin-top:4px;">বাংলাদেশের ১৮ কোটি মানুষের সুবিধার্থে উন্মুক্ত শিক্ষা উদ্যোগ।</p>
-  </footer>
-
-  <script>
-    // Tab Switcher
-    function switchTab(tabId) {
-      ['library', 'calc', 'exercises'].forEach(t => {
-        document.getElementById('tab-' + t).classList.add('hidden');
-        document.getElementById('nav-' + t).classList.remove('active');
-      });
-      document.getElementById('tab-' + tabId).classList.remove('hidden');
-      document.getElementById('nav-' + tabId).classList.add('active');
-    }
-
-    // Theme Switcher (White & Dark Mode)
-    function toggleTheme() {
-      document.body.classList.toggle('dark');
-      var btn = document.getElementById('theme-btn');
-      if (document.body.classList.contains('dark')) {
-        btn.innerText = '☀️ লাইট মোড';
-      } else {
-        btn.innerText = '🌙 ডার্ক মোড';
-      }
-    }
-
-    // Open NCTB Book Modal/Action
-    function openBookModal(bookName, link) {
-      alert(bookName + " বই ও গাইড খোলার চেষ্টা করা হচ্ছে। NCTB এর অফিশিয়াল পিডিএফে কানেক্ট করা হচ্ছে...");
-      window.open(link, '_blank');
-    }
-
-    // FX-991MS Scientific Calculator Logic
-    var exprInput = document.getElementById('fx-expr');
-    var resInput = document.getElementById('fx-res');
-
-    function fxAppend(val) {
-      if (exprInput.value === '0') exprInput.value = '';
-      exprInput.value += val;
-    }
-
-    function fxClear() {
-      exprInput.value = '';
-      resInput.value = '0';
-    }
-
-    function fxDel() {
-      exprInput.value = exprInput.value.slice(0, -1);
-    }
-
-    function fxSolve() {
-      try {
-        let str = exprInput.value;
-        str = str.replace(/sin\(/g, 'Math.sin(')
-                 .replace(/cos\(/g, 'Math.cos(')
-                 .replace(/tan\(/g, 'Math.tan(')
-                 .replace(/log\(/g, 'Math.log10(')
-                 .replace(/ln\(/g, 'Math.log(')
-                 .replace(/sqrt\(/g, 'Math.sqrt(')
-                 .replace(/\^2/g, '**2')
-                 .replace(/\^/g, '**');
-
-        let ans = eval(str);
-        resInput.value = Number.isInteger(ans) ? ans : ans.toFixed(4);
-      } catch (e) {
-        resInput.value = 'Syntax ERROR';
-      }
-    }
-  </script>
+        function downloadBook(bookName) {
+            alert(bookName + " বইটি ডাউনলোড শুরু হয়েছে।");
+        }
+    </script>
 </body>
 </html>
