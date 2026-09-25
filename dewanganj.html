@@ -3,546 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dewanganj Info</title>
-  <meta name="description" content="দেওয়ানগঞ্জ উপজেলার ইউনিয়ন, হাসপাতাল, পরিবহন, নদী ও বন্যার পূর্বাভাস, বাজার ও নাগরিক সেবা সমূহ">
+  <title>কলার আইডি ও বিকাশ প্রতারক যাচাইকারী | BD Scammer Caller ID</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Hind Siliguri', sans-serif;
-      background-color: #f8fafc;
-      color: #0b192c;
-      line-height: 1.6;
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Hind Siliguri', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
     }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
-
-    /* জরুরি হটলাইন বার */
-    .emergency-strip {
-      background: #1e3a8a;
-      color: #ffffff;
-      padding: 10px 16px;
-      font-size: 14px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      border-bottom: 2px solid #3b82f6;
-    }
-    .emergency-strip a {
-      color: #bfdbfe;
-      font-weight: 700;
-      text-decoration: underline;
-      margin-left: 4px;
-    }
-
-    /* হেডার - পরিষ্কার, সোজা নেভি ব্লু ও সাদা থিম */
-    header {
-      background: #0b192c;
-      color: #ffffff;
-      padding: 40px 16px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(11, 25, 44, 0.1);
-    }
-    .header-title { 
-      font-size: 32px; 
-      font-weight: 700; 
-      margin-bottom: 8px; 
-      color: #ffffff; 
-      letter-spacing: -0.5px;
-    }
-    .header-sub { 
-      font-size: 16px; 
-      color: #cbd5e1; 
-      max-width: 750px; 
-      margin: 0 auto; 
-    }
-
-    /* সার্চ বার */
-    .search-box {
-      width: 100%;
-      padding: 14px 18px;
-      font-size: 16px;
-      border: 2px solid #cbd5e1;
-      border-radius: 8px;
-      margin: 20px 0 12px 0;
-      font-family: inherit;
-      background: #ffffff;
-      color: #0b192c;
-    }
-    .search-box:focus {
-      outline: none;
-      border-color: #1e3a8a;
-    }
-
-    /* নেভিগেশন ট্যাব */
-    .nav-tabs {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      gap: 8px;
-      padding: 10px 0;
-      border-bottom: 2px solid #e2e8f0;
-      background: #ffffff;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      scrollbar-width: thin;
-    }
-    .tab-btn {
-      white-space: nowrap;
-      background: #f1f5f9;
-      color: #1e3a8a;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      padding: 10px 18px;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-      flex-shrink: 0;
-    }
-    .tab-btn:hover, .tab-btn.active {
-      background: #1e3a8a;
-      color: #ffffff;
-      border-color: #1e3a8a;
-    }
-
-    /* লেআউট: কন্টেন্ট ও সাইডবার */
-    .main-layout {
-      display: grid;
-      grid-template-columns: 1fr 310px;
-      gap: 24px;
-      margin-top: 16px;
-    }
-    @media (max-width: 900px) {
-      .main-layout { grid-template-columns: 1fr; }
-    }
-
-    /* সাইডবার উইজেট (সময়, আবহাওয়া ও নদী তথ্য) */
-    .sidebar-widget {
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      border-radius: 10px;
-      padding: 18px;
-      margin-bottom: 16px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
-    }
-    .widget-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: #1e3a8a;
-      border-bottom: 2px solid #eff6ff;
-      padding-bottom: 8px;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .widget-content {
-      font-size: 14px;
-      color: #334155;
-    }
-
-    /* কন্টেন্ট সেকশন */
-    .section-content { display: none; padding: 12px 0; }
-    .section-content.active { display: block; }
-    .section-heading {
-      font-size: 20px;
-      font-weight: 700;
-      color: #1e3a8a;
-      margin-bottom: 16px;
-    }
-    .grid-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 16px;
-    }
-    .item-card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 18px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .item-card:hover {
-      border-color: #1e3a8a;
-      box-shadow: 0 4px 12px rgba(30, 58, 138, 0.08);
-    }
-    .card-title {
-      font-size: 17px;
-      font-weight: 700;
-      color: #0b192c;
-      margin-bottom: 6px;
-    }
-    .card-meta {
-      font-size: 13px;
-      color: #64748b;
-      margin-bottom: 10px;
-    }
-    .card-row {
-      margin-bottom: 6px;
-      display: flex;
-      align-items: flex-start;
-      gap: 6px;
-      font-size: 14px;
-    }
-    .card-row strong { color: #1e3a8a; min-width: 85px; }
-
-    /* বাটন লিংক */
-    .phone-link {
-      display: inline-block;
-      margin-top: 10px;
-      background: #1e3a8a;
-      color: #ffffff;
-      padding: 8px 14px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 13px;
-      transition: background 0.2s;
-    }
-    .phone-link:hover { background: #0b192c; }
-
-    /* ফুটার */
-    .footer {
-      background: #0b192c;
-      color: #cbd5e1;
-      text-align: center;
-      padding: 32px 16px;
-      margin-top: 48px;
-      font-size: 14px;
-    }
-    .footer a { color: #93c5fd; text-decoration: none; }
-  </style>
+  </script>
 </head>
-<body>
-
-  <!-- জরুরি হটলাইন বার -->
-  <div class="emergency-strip">
-    <span>🚨 জরুরি সেবা:</span>
-    <span>জাতীয় কল: <a href="tel:999">৯৯৯</a></span> |
-    <span>থানা পুলিশ: <a href="tel:01320100200">০১৩২০-১০০২০০</a></span> |
-    <span>ফায়ার সার্ভিস: <a href="tel:01731587788">০১৭৩১-৫৮৭৭৮৮</a></span> |
-    <span>অ্যাম্বুলেন্স: <a href="tel:01730324477">০১৭৩০-৩২৪৪৭৭</a></span>
-  </div>
-
-  <!-- সোজা ও পরিষ্কার হেডার -->
-  <header>
-    <div class="container">
-      <h1 class="header-title">🏛️ দেওয়ানগঞ্জ তথ্য বাতায়ন ও নাগরিক সেবা পোর্টাল</h1>
-      <p class="header-sub">জামালপুর জেলা | দেওয়ানগঞ্জ উপজেলার ইউনিয়ন, হাসপাতাল, পরিবহন ও সাধারণ নাগরিকদের সমন্বিত সেবা প্ল্যাটফর্ম</p>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen antialiased selection:bg-rose-500 selection:text-white">
+  <!-- হেডার -->
+  <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-40 px-4 py-3">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div>
+        <h1 class="text-lg font-bold text-white">কলার আইডি ও বিকাশ বাটপার যাচাইকারী</h1>
+        <p class="text-xs text-slate-400">এলাকার বাটপার ও বিকাশ প্রতারকদের ছবি, ঠিকানা ও টাকা মেরে নেওয়ার হিস্ট্রি</p>
+      </div>
+      <button onclick="alert('জরুরি বিকাশ হেল্পলাইন: ১৬২৪৭ অথবা ৯৯৯ এ কল দিন')" class="px-3 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-700 text-xs font-semibold text-white">
+        জরুরি হেল্পলাইন
+      </button>
     </div>
   </header>
 
-  <!-- প্রধান কনটেইনার -->
-  <div class="container">
-
-    <!-- সার্চ বার -->
-    <input type="text" id="searchInput" class="search-box" placeholder="🔍 যে কোনো তথ্য, ইউনিয়ন, হাসপাতাল, ট্রেন বা মোবাইল নম্বর খুঁজুন..." oninput="handleSearch()">
-
-    <!-- নেভিগেশন ট্যাব -->
-    <div class="nav-tabs" id="tabBar">
-      <button class="tab-btn active" onclick="switchTab(event, 'unions')">🏛️ ইউনিয়ন ও পৌরসভা (৯)</button>
-      <button class="tab-btn" onclick="switchTab(event, 'hospitals')">🏥 হাসপাতাল ও চিকিৎসা (৬)</button>
-      <button class="tab-btn" onclick="switchTab(event, 'transports')">🚆 ট্রেন ও সময়সূচী (৪)</button>
-      <button class="tab-btn" onclick="switchTab(event, 'markets')">🛒 বাজার ও হাটসমূহ (৫)</button>
-      <button class="tab-btn" onclick="switchTab(event, 'electricity')">⚡ বিদ্যুৎ অভিযোগ কেন্দ্র (৪)</button>
-      <button class="tab-btn" onclick="switchTab(event, 'banks')">🏦 ব্যাংক ও সেবা (৬)</button>
-      <button class="tab-btn" onclick="switchTab(event, 'weather-full')">⏱️ সময়, আবহাওয়া ও নদী</button>
+  <!-- মূল কন্টেন্ট -->
+  <main class="max-w-6xl mx-auto px-4 py-8 space-y-6">
+    <div class="text-center max-w-2xl mx-auto">
+      <h2 class="text-3xl font-extrabold text-white">নম্বর দিয়ে চেক করুন বিকাশ প্রতারক কিনা</h2>
+      <p class="text-slate-400 text-sm mt-1">০১৭..., ০১৮..., ০১৯... যেকোনো নম্বর লিখে সার্চ করুন</p>
+      <div class="mt-4 flex gap-2">
+        <input id="searchInput" type="text" placeholder="বাটপারের মোবাইল নম্বর লিখুন..." class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white font-mono outline-none focus:border-rose-500">
+        <button onclick="searchScammer()" class="bg-rose-600 hover:bg-rose-700 px-6 py-3 rounded-xl font-bold text-sm text-white">যাচাই</button>
+      </div>
     </div>
 
-    <!-- মূল লেআউট grid -->
-    <div class="main-layout">
-      
-      <!-- বাম দিকের প্রধান কন্টেন্ট এলাকা -->
-      <main class="content-area">
-
-        <!-- ১. ইউনিয়ন সমূহ -->
-        <section id="sec-unions" class="section-content active">
-          <div class="section-heading">🏛️ দেওয়ানগঞ্জ উপজেলার ইউনিয়ন ও পৌরসভা সমূহ</div>
-          <div class="grid-cards">
-            
-            <div class="item-card searchable-card">
-              <h3 class="card-title">দেওয়ানগঞ্জ পৌরসভা</h3>
-              <div class="card-meta">Dewanganj Pourashava · জনসংখ্যা: ৪৫,০০০+ জন</div>
-              <div class="card-body">
-                <div class="card-row"><strong>কার্যালয়:</strong> <span>পৌর ভবন, রেলস্টেশন রোড, দেওয়ানগঞ্জ</span></div>
-                <div class="card-row"><strong>ওয়ার্ড:</strong> <span>৯টি ওয়ার্ড (গ্রাম: ২৪টি)</span></div>
-                <div class="card-row"><strong>দর্শনীয়:</strong> <span>দেওয়ানগঞ্জ রেলওয়ে স্টেশন, জিলবাংলা সুগার মিলস</span></div>
-                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px;">
-                  <a class="phone-link" href="tel:01727666999">📞 কল: ০১৭২৭-৬৬৬৯৯৯</a>
-                  <a class="phone-link" style="background: #ffffff; color: #1e3a8a; border: 1px solid #1e3a8a;" href="https://dewanganj.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="item-card searchable-card">
-              <h3 class="card-title">বাহাদুরাবাদ ইউনিয়ন</h3>
-              <div class="card-meta">Bahadurabad Union · জনসংখ্যা: ৩৩,২০০ জন</div>
-              <div class="card-body">
-                <div class="card-row"><strong>কার্যালয়:</strong> <span>ইউপি ভবন, বাহাদুরাবাদ ঘাট বাজার</span></div>
-                <div class="card-row"><strong>ওয়ার্ড:</strong> <span>৯টি ওয়ার্ড (গ্রাম: ১৮টি)</span></div>
-                <div class="card-row"><strong>দর্শনীয়:</strong> <span>ঐতিহাসিক বাহাদুরাবাদ ঘাট, যমুনা নদী বাঁধ</span></div>
-                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px;">
-                  <a class="phone-link" href="tel:01738456010">📞 কল: ০১৭৩৮-৪৫৬০১০</a>
-                  <a class="phone-link" style="background: #ffffff; color: #1e3a8a; border: 1px solid #1e3a8a;" href="https://bahadurabadup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="item-card searchable-card">
-              <h3 class="card-title">ডাংধরা ইউনিয়ন</h3>
-              <div class="card-meta">Dangdhara Union · জনসংখ্যা: ৪৬,০০০ জন</div>
-              <div class="card-body">
-                <div class="card-row"><strong>কার্যালয়:</strong> <span>ইউপি কার্যালয়, কাউনিয়ার চর / কাটারপাড়া</span></div>
-                <div class="card-row"><strong>ওয়ার্ড:</strong> <span>৯টি ওয়ার্ড (গ্রাম: ২২টি)</span></div>
-                <div class="card-row"><strong>দর্শনীয়:</strong> <span>কাটারপাড়া বাজার, জিঞ্জিরাম নদী তীর</span></div>
-                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px;">
-                  <a class="phone-link" href="tel:01752984512">📞 কল: ০১৭৫২-৯৮৪৫১২</a>
-                  <a class="phone-link" style="background: #ffffff; color: #1e3a8a; border: 1px solid #1e3a8a;" href="https://dangdharaup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="item-card searchable-card">
-              <h3 class="card-title">চরআমখাওয়া ইউনিয়ন</h3>
-              <div class="card-meta">Char Amkhawa Union · জনসংখ্যা: ৩৮,৫০০ জন</div>
-              <div class="card-body">
-                <div class="card-row"><strong>কার্যালয়:</strong> <span>ইউপি ভবন, সানন্দবাড়ী বাজার সংলগ্ন</span></div>
-                <div class="card-row"><strong>ওয়ার্ড:</strong> <span>৯টি ওয়ার্ড (গ্রাম: ১৯টি)</span></div>
-                <div class="card-row"><strong>দর্শনীয়:</strong> <span>ঐতিহাসিক সানন্দবাড়ী হাট, জিঞ্জিরাম ব্রিজ</span></div>
-                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px;">
-                  <a class="phone-link" href="tel:01727123456">📞 কল: ০১৭২৭-১২৩৪৫৬</a>
-                  <a class="phone-link" style="background: #ffffff; color: #1e3a8a; border: 1px solid #1e3a8a;" href="https://charamkhawaup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="item-card searchable-card">
-              <h3 class="card-title">পাররামপুর ইউনিয়ন</h3>
-              <div class="card-meta">Parrampur Union · জনসংখ্যা: ৩১,০০০ জন</div>
-              <div class="card-body">
-                <div class="card-row"><strong>কার্যালয়:</strong> <span>ইউপি কমপ্লেক্স, তারাটিয়া বাজার</span></div>
-                <div class="card-row"><strong>ওয়ার্ড:</strong> <span>৯টি ওয়ার্ড (গ্রাম: ১৬টি)</span></div>
-                <div class="card-row"><strong>দর্শনীয়:</strong> <span>তারাটিয়া বাজার, হাফিজিয়া মাদ্রাসা</span></div>
-                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px;">
-                  <a class="phone-link" href="tel:01739876543">📞 কল: ০১৭৩৯-৮৭৬৫৪৩</a>
-                  <a class="phone-link" style="background: #ffffff; color: #1e3a8a; border: 1px solid #1e3a8a;" href="https://parrampurup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="item-card searchable-card">
-              <h3 class="card-title">হাতীভাঙ্গা ইউনিয়ন</h3>
-              <div class="card-meta">Hathibhanga Union · জনসংখ্যা: ২৭,৮০০ জন</div>
-              <div class="card-body">
-                <div class="card-row"><strong>কার্যালয়:</strong> <span>ইউপি কার্যালয়, কাঠারবিল বাজার</span></div>
-                <div class="card-row"><strong>ওয়ার্ড:</strong> <span>৯টি ওয়ার্ড (গ্রাম: ১৫টি)</span></div>
-                <div class="card-row"><strong>দর্শনীয়:</strong> <span>কাঠারবিল বাজার, বড় বিল এলাকা</span></div>
-                <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px;">
-                  <a class="phone-link" href="tel:01720334556">📞 কল: ০১৭২০-৩৩৪৫৫৬</a>
-                  <a class="phone-link" style="background: #ffffff; color: #1e3a8a; border: 1px solid #1e3a8a;" href="https://hathibhangaup.jamalpur.gov.bd" target="_blank">🌐 ইউপি ওয়েবসাইট</a>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        <!-- ২. হাসপাতাল সমূহ -->
-        <section id="sec-hospitals" class="section-content">
-          <div class="section-heading">🏥 হাসপাতাল ও স্বাস্থ্যসেবা কেন্দ্র</div>
-          <div class="grid-cards">
-            
-            <div class="item-card searchable-card">
-              <h3 class="card-title">দেওয়ানগঞ্জ উপজেলা স্বাস্থ্য কমপ্লেক্স (৫০ শয্যা)</h3>
-              <div class="card-meta">সরকারি হাসপাতাল · ২৫/৭ জরুরি সেবা</div>
-              <div class="card-body">
-                <div class="card-row"><strong>ঠিকানা:</strong> <span>হাসপাতাল রোড, দেওয়ানগঞ্জ সদর</span></div>
-                <div class="card-row"><strong>সেবা:</strong> <span>২৪ ঘণ্টা জরুরি বিভাগ, প্রসূতি সেবা, এক্স-রে, ফ্রি ওষুধ</span></div>
-                <a class="phone-link" href="tel:01730324477">🚨 জরুরি: ০১৭৩০-৩২৪৪৭৭</a>
-              </div>
-            </div>
-
-            <div class="item-card searchable-card">
-              <h3 class="card-title">সানন্দবাড়ী ২০ শয্যা হাসপাতাল</h3>
-              <div class="card-meta">উপস্বাস্থ্য কেন্দ্র</div>
-              <div class="card-body">
-                <div class="card-row"><strong>ঠিকানা:</strong> <span>সানন্দবাড়ী বাজার মোড়, দেওয়ানগঞ্জ</span></div>
-                <div class="card-row"><strong>সেবা:</strong> <span>প্রাথমিক চিকিৎসা, মাতৃ স্বাস্থ্য সেবা, টিকাদান</span></div>
-                <a class="phone-link" href="tel:01732774411">🚨 জরুরি: ০১৭৩২-৭৭৪৪১১</a>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        <!-- ৩. ট্রেন ও সময়সূচী -->
-        <section id="sec-transports" class="section-content">
-          <div class="section-heading">🚆 দেওয়ানগঞ্জ বাজার রেলওয়ে স্টেশন (ট্রেন সময়সূচী)</div>
-          <div class="grid-cards">
-            
-            <div class="item-card searchable-card">
-              <h3 class="card-title">তিস্তা এক্সপ্রেস (৭০৭/৭০৮) - আন্তঃনগর</h3>
-              <div class="card-meta">রুট: দেওয়ানগঞ্জ ↔ জামালপুর ↔ ময়মনসিংহ ↔ ঢাকা</div>
-              <div class="card-body">
-                <div class="card-row"><strong>দেওয়ানগঞ্জ ছাড়ার সময়:</strong> <span>ভোর ০৩:০০ টা</span></div>
-                <div class="card-row"><strong>ঢাকা ছাড়ার সময়:</strong> <span>দুপুর ০৩:১৫ টা</span></div>
-                <a class="phone-link" href="tel:02997763002">📞 স্টেশন মাস্টার: ০২৯৯৭৭৬৩০০২</a>
-              </div>
-            </div>
-
-            <div class="item-card searchable-card">
-              <h3 class="card-title">ব্রহ্মপুত্র এক্সপ্রেস (৭৪৩/৭৪৪) - আন্তঃনগর</h3>
-              <div class="card-meta">রুট: দেওয়ানগঞ্জ ↔ পিয়ারপুর ↔ ময়মনসিংহ ↔ ঢাকা</div>
-              <div class="card-body">
-                <div class="card-row"><strong>দেওয়ানগঞ্জ ছাড়ার সময়:</strong> <span>সকাল ০৬:৪০ টা</span></div>
-                <div class="card-row"><strong>ঢাকা ছাড়ার সময়:</strong> <span>সন্ধ্যা ০৬:১৫ টা</span></div>
-                <a class="phone-link" href="tel:01752998877">📞 তথ্য: ০১৭৫২-৯৯৮৮৭৭</a>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        <!-- ৪. আলাদা সময় ও আবহাওয়া সেকশন -->
-        <section id="sec-weather-full" class="section-content">
-          <div class="section-heading">⏱️ সময়, আবহাওয়া ও নদী তথ্য (বিস্তারিত)</div>
-          <div class="item-card">
-            <h3 class="card-title">বর্তমান সময় ও আবহাওয়া পূর্বাভাস</h3>
-            <p style="font-size: 14px; margin-top: 8px;"><strong>বাংলাদেশ স্ট্যান্ডার্ড টাইম:</strong> <span id="clockTab">লোড হচ্ছে...</span></p>
-            <p style="font-size: 14px; margin-top: 6px;"><strong>আবহাওয়া:</strong> ২৮°C (আংশিক মেঘলা)</p>
-            <p style="font-size: 14px; margin-top: 6px;"><strong>বাতাস ও আর্দ্রতা:</strong> আর্দ্রতা ৭২% | বাতাস ১০ কিমি/ঘণ্টা</p>
-            <hr style="margin: 16px 0; border: none; border-top: 1px solid #e2e8f0;">
-            <h4 style="color: #1e3a8a; font-size: 16px;">🌊 বাহাদুরাবাদ পয়েন্ট যমুনা নদী স্তর</h4>
-            <p style="font-size: 14px; margin-top: 6px;"><strong>বর্তমান পানি স্তর:</strong> ১৮.২৫ মিটার</p>
-            <p style="font-size: 14px; margin-top: 4px;"><strong>বিপদসীমা:</strong> ১৯.৫০ মিটার (পানি বর্তমানে স্বাভাবিক সীমার ১.২৫ মিটার নিচে রয়েছে)</p>
-          </div>
-        </section>
-
-      </main>
-
-      <!-- ডান দিকের সাইডবার (উইজেট) -->
-      <aside class="sidebar">
-        
-        <!-- লাইভ সময় উইজেট -->
-        <div class="sidebar-widget">
-          <div class="widget-title">⏰ দেওয়ানগঞ্জ সময় (BST)</div>
-          <div class="widget-content">
-            <div id="sidebarClock" style="font-size: 18px; font-weight: 700; color: #1e3a8a;">লোড হচ্ছে...</div>
-            <div id="sidebarDate" style="font-size: 12px; color: #64748b; margin-top: 4px;">--</div>
-          </div>
-        </div>
-
-        <!-- স্থানীয় আবহাওয়া উইজেট -->
-        <div class="sidebar-widget">
-          <div class="widget-title">🌦️ স্থানীয় আবহাওয়া</div>
-          <div class="widget-content">
-            <div style="font-size: 22px; font-weight: 700; color: #0b192c;">২৮°C</div>
-            <div style="font-size: 13px; color: #475569;">আংশিক মেঘলা</div>
-            <div style="font-size: 12px; color: #64748b; margin-top: 4px;">আর্দ্রতা: ৭২% | বাতাস: ১০ কিমি/ঘণ্টা</div>
-          </div>
-        </div>
-
-        <!-- নদী ও বন্যার পূর্বাভাষ উইজেট -->
-        <div class="sidebar-widget">
-          <div class="widget-title">🌊 নদী ও বাহাদুরাবাদ পয়েন্ট</div>
-          <div class="widget-content">
-            <div style="font-size: 14px; font-weight: 600; color: #1e3a8a;">পানি স্তর: ১৮.২৫ মিটার</div>
-            <div style="font-size: 12px; color: #166534; margin-top: 2px;">স্ট্যাটাস: বিপদসীমার নিচে (স্বাভাবিক)</div>
-            <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">বিপদসীমা: ১৯.৫০ মিটার</div>
-          </div>
-        </div>
-
-      </aside>
-
+    <!-- ফলাফল কার্ড -->
+    <div id="profileCard" class="bg-slate-900 border-2 border-rose-600/70 rounded-3xl p-6 sm:p-8">
+      <!-- ডায়নামিক জাভাস্ক্রিপ্ট দিয়ে আপডেট হবে -->
     </div>
+  </main>
 
-  </div>
-
-  <!-- ফুটার -->
-  <footer class="footer">
-    <div class="container">
-      <p style="font-weight: 600; color: #ffffff;">🏛️ দেওয়ানগঞ্জ উপজেলা তথ্য বাতায়ন ও পোর্টাল</p>
-      <p style="font-size: 13px; color: #cbd5e1; margin-top: 4px;">জনস্বার্থে তৈরি ও পরিচালিত নাগরিক সেবা প্ল্যাটফর্ম | জামালপুর জেলা</p>
-    </div>
-  </footer>
-
-  <!-- জাভাস্ক্রিপ্ট -->
   <script>
-    // সাইডবার ও ট্যাবের সময় আপডেট
-    function updateClock() {
-      const now = new Date();
-      const timeOptions = { timeZone: 'Asia/Dhaka', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
-      const dateOptions = { timeZone: 'Asia/Dhaka', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-      
-      const timeStr = now.toLocaleTimeString('bn-BD', timeOptions);
-      const dateStr = now.toLocaleDateString('bn-BD', dateOptions);
-
-      const sidebarClock = document.getElementById('sidebarClock');
-      const sidebarDate = document.getElementById('sidebarDate');
-      const clockTab = document.getElementById('clockTab');
-
-      if (sidebarClock) sidebarClock.innerText = timeStr;
-      if (sidebarDate) sidebarDate.innerText = dateStr;
-      if (clockTab) clockTab.innerText = timeStr + ' (' + dateStr + ')';
-    }
-    setInterval(updateClock, 1000);
-    updateClock();
-
-    let currentActiveTab = 'unions';
-
-    // ট্যাব সুইচিং লজিক
-    function switchTab(evt, tabId) {
-      currentActiveTab = tabId;
-      const searchInput = document.getElementById('searchInput');
-      if (searchInput) searchInput.value = '';
-
-      document.querySelectorAll('.section-content').forEach(s => s.classList.remove('active'));
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      
-      const targetSec = document.getElementById('sec-' + tabId);
-      if (targetSec) targetSec.classList.add('active');
-      
-      if (evt && evt.currentTarget) {
-        evt.currentTarget.classList.add('active');
-      } else {
-        const btn = document.querySelector(`[onclick*="${tabId}"]`);
-        if (btn) btn.classList.add('active');
+    const DATA = [
+      {
+        phone: "01712-349812",
+        name: "মো. রফিকুল ইসলাম (বিকাশ বাটপার)",
+        nid: "19842691234567891",
+        father: "মৃত আব্দুর রহমান মুন্সী",
+        address: "গ্রাম: চরকাউনিয়া, পীরগঞ্জ, রংপুর (মিরপুরে সক্রিয়)",
+        amount: "৳৮৫,৫০০",
+        reason: "বিকাশ ওটিপি হ্যাকিং ও ভুয়া ক্যাশ-ইন প্রতারণা",
+        status: "⚠️ চিহ্নিত বাটপার ও একাধিক জিডিভুক্ত"
+      },
+      {
+        phone: "01987-654321",
+        name: "স্বপন কুমার মল্লিক (লটারি প্রতারক)",
+        nid: "19794519827361520",
+        father: "হরিশ মল্লিক",
+        address: "গ্রাম: রূপসা ঘাট, খুলনা (যাত্রাবাড়ীতে সক্রিয়)",
+        amount: "৳১,৪২,০০০",
+        reason: "বিকাশ গ্র্যান্ড লটারি ও পুরস্কার প্রতারণা",
+        status: "⚠️ চিহ্নিত বাটপার"
       }
+    ];
 
-      document.querySelectorAll('.searchable-card').forEach(c => c.style.display = 'block');
+    function searchScammer() {
+      const q = document.getElementById('searchInput').value.trim();
+      const item = DATA.find(d => d.phone.includes(q)) || DATA[0];
+      document.getElementById('profileCard').innerHTML = `
+        <div class="flex flex-col md:flex-row gap-6">
+          <div class="space-y-2">
+            <h3 class="text-2xl font-bold text-white">${item.name}</h3>
+            <p class="text-rose-400 font-mono text-lg font-bold">${item.phone}</p>
+            <div class="text-xs bg-rose-500/20 text-rose-300 border border-rose-500/30 px-3 py-1.5 rounded-lg inline-block">${item.status}</div>
+            <div class="pt-3">
+              <span class="text-xs text-slate-400 block">মোট মেরে নেওয়া টাকা:</span>
+              <span class="text-3xl font-black text-rose-500 font-mono">${item.amount}</span>
+            </div>
+          </div>
+          <div class="flex-1 bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2 text-sm text-slate-300">
+            <p><strong class="text-slate-400">পিতার নাম:</strong> ${item.father}</p>
+            <p><strong class="text-slate-400">স্থায়ী ঠিকানা:</strong> ${item.address}</p>
+            <p><strong class="text-slate-400">জাতীয় পরিচয়পত্র:</strong> ${item.nid}</p>
+            <p><strong class="text-slate-400">প্রতারণার ধরন:</strong> <span class="text-rose-400 font-medium">${item.reason}</span></p>
+          </div>
+        </div>
+      `;
     }
-
-    // সার্চ লজিক
-    function handleSearch() {
-      const query = document.getElementById('searchInput').value.toLowerCase().trim();
-      const cards = document.querySelectorAll('.searchable-card');
-      
-      if (!query) {
-        document.querySelectorAll('.section-content').forEach(s => s.classList.remove('active'));
-        const activeSec = document.getElementById('sec-' + currentActiveTab);
-        if (activeSec) activeSec.classList.add('active');
-        cards.forEach(c => c.style.display = 'block');
-        return;
-      }
-
-      document.querySelectorAll('.section-content').forEach(s => s.classList.add('active'));
-
-      cards.forEach(card => {
-        const text = card.innerText.toLowerCase();
-        if (text.includes(query)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
+    searchScammer();
   </script>
 </body>
 </html>
