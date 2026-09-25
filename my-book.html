@@ -30,10 +30,11 @@
             color: var(--text-dark);
         }
 
+        /* Top Info Bar with Location, Live Clock & Weather Box */
         .top-bar {
             background: #080d1a;
             color: var(--text-light);
-            padding: 8px 5%;
+            padding: 10px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -44,9 +45,19 @@
         .location-badge {
             background: rgba(233, 30, 99, 0.2);
             color: #ff758c;
-            padding: 3px 10px;
+            padding: 4px 12px;
             border-radius: 12px;
             font-weight: bold;
+        }
+
+        .dewanganj-info-box {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            padding: 6px 15px;
+            border-radius: 10px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
         }
 
         header {
@@ -206,7 +217,7 @@
         .quiz-option {
             display: block;
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             margin: 10px 0;
             background: #f1f5f9;
             border: 2px solid #cbd5e1;
@@ -214,6 +225,13 @@
             text-align: left;
             cursor: pointer;
             font-weight: 600;
+            font-size: 16px;
+            transition: 0.2s;
+        }
+
+        .quiz-option:hover {
+            background: #e2e8f0;
+            border-color: var(--shikho-pink);
         }
 
         .reward-card {
@@ -221,7 +239,7 @@
             border: 2px dashed #ffd700;
             padding: 20px;
             border-radius: 12px;
-            margin: 10px 0;
+            margin: 15px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -241,9 +259,13 @@
     <div class="top-bar">
         <div>
             <i class="fa-solid fa-location-dot"></i> <span class="location-badge">দেওয়ানগঞ্জ, জামালপুর</span>
-            <span style="margin-left:10px;"><i class="fa-solid fa-clock"></i> সময়: <strong id="clock">00:00:00</strong></span>
         </div>
-        <div><i class="fa-solid fa-graduation-cap"></i> শ্রেণী: <strong>চতুর্থ শ্রেণী (Class 4)</strong></div>
+        
+        <div class="dewanganj-info-box">
+            <span><i class="fa-solid fa-calendar-day" style="color:var(--gold-primary);"></i> তারিখ: <strong id="currentDate">--/--/----</strong></span>
+            <span><i class="fa-solid fa-clock" style="color:var(--gold-primary);"></i> সময়: <strong id="clock">00:00:00</strong></span>
+            <span><i class="fa-solid fa-temperature-high" style="color:#ff758c;"></i> তাপমাত্রা: <strong>২৮°C (স্বাভাবিক)</strong></span>
+        </div>
     </div>
 
     <header>
@@ -251,56 +273,56 @@
             <a href="#" class="logo"><i class="fa-solid fa-book-open"></i> মাই<span>বুক</span></a>
             <ul class="nav-links">
                 <li><a href="#books">চতুর্থ শ্রেণীর বই</a></li>
-                <li><a href="#quiz">১ লক্ষ কুইজ ব্যাংক</a></li>
-                <li><a href="#rewards">স্বর্ণমুদ্রা পুরস্কার</a></li>
+                <li><a href="#quiz">আনলিমিটেড কঠিন কুইজ</a></li>
+                <li><a href="#rewards">মেগা পুরস্কার</a></li>
             </ul>
             <div class="coin-box">
                 <i class="fa-solid fa-coins" style="font-size: 20px; color: #b8860b;"></i>
-                <span>স্বর্ণমুদ্রা: <strong id="coinCount">৫০০</strong></span>
+                <span>স্বর্ণমুদ্রা: <strong id="coinCount">১০০০</strong></span>
             </div>
         </div>
     </header>
 
     <section class="hero">
-        <h1>চতুর্থ শ্রেণীর ডিজিটাল লার্নিং পোর্টাল</h1>
-        <p>কুইজ খেলে স্বর্ণমুদ্রা সংগ্রহ করুন এবং জিতে নিন আকর্ষণীয় সব পুরস্কার!</p>
+        <h1>চতুর্থ শ্রেণীর সেরা লার্নিং প্ল্যাটফর্ম</h1>
+        <p>অনলাইন ডাইনামিক সিস্টেমে কঠিন কুইজ খেলুন, স্বর্ণমুদ্রা অর্জন করুন এবং আকর্ষণীয় মেগা পুরস্কার জিতুন!</p>
     </section>
 
     <div class="container" id="books">
         <div class="section-header">
-            <i class="fa-solid fa-book"></i> চতুর্থ শ্রেণীর সকল পাঠ্যবই ও গাইড
+            <i class="fa-solid fa-book"></i> চতুর্থ শ্রেণীর সকল পাঠ্যবই ও সমাধান গাইড
         </div>
         
         <div class="grid-3">
             <div class="card">
                 <div class="card-icon"><i class="fa-solid fa-language"></i></div>
-                <h3>আমার বাংলা বই (চতুর্থ শ্রেণী)</h3>
-                <button class="btn-action" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-file-pdf"></i> মূল বই পড়ুন</button>
+                <h3>আমার বাংলা বই</h3>
+                <button class="btn-action" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-file-pdf"></i> মূল বই ডাউনলোড/পড়ুন</button>
             </div>
             <div class="card">
                 <div class="card-icon"><i class="fa-solid fa-font"></i></div>
-                <h3>English for Today (Class 4)</h3>
-                <button class="btn-action" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-file-pdf"></i> মূল বই পড়ুন</button>
+                <h3>English for Today</h3>
+                <button class="btn-action" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-file-pdf"></i> মূল বই ডাউনলোড/পড়ুন</button>
             </div>
             <div class="card">
                 <div class="card-icon"><i class="fa-solid fa-calculator"></i></div>
-                <h3>প্রাথমিক গণিত (চতুর্থ শ্রেণী)</h3>
-                <button class="btn-action" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-file-pdf"></i> মূল বই পড়ুন</button>
+                <h3>প্রাথমিক গণিত</h3>
+                <button class="btn-action" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-file-pdf"></i> মূল বই ডাউনলোড/পড়ুন</button>
             </div>
             <div class="card">
                 <div class="card-icon"><i class="fa-solid fa-flask"></i></div>
                 <h3>প্রাথমিক বিজ্ঞান</h3>
-                <button class="btn-action" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-file-pdf"></i> মূল বই পড়ুন</button>
+                <button class="btn-action" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-file-pdf"></i> মূল বই ডাউনলোড/পড়ুন</button>
             </div>
             <div class="card">
                 <div class="card-icon"><i class="fa-solid fa-globe"></i></div>
                 <h3>বাংলাদেশ ও বিশ্বপরিচয়</h3>
-                <button class="btn-action" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-file-pdf"></i> মূল বই পড়ুন</button>
+                <button class="btn-action" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-file-pdf"></i> মূল বই ডাউনলোড/পড়ুন</button>
             </div>
             <div class="card">
                 <div class="card-icon"><i class="fa-solid fa-mosque"></i></div>
                 <h3>ইসলাম ও নৈতিক শিক্ষা</h3>
-                <button class="btn-action" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-file-pdf"></i> মূল বই পড়ুন</button>
+                <button class="btn-action" onclick="openPdf('https://nctb.portal.gov.bd/')"><i class="fa-solid fa-file-pdf"></i> মূল বই ডাউনলোড/পড়ুন</button>
             </div>
         </div>
 
@@ -311,157 +333,204 @@
 
     <div class="container" id="quiz">
         <div class="section-header">
-            <i class="fa-solid fa-gamepad"></i> চতুর্থ শ্রেণীর ১ লক্ষ কুইজ ব্যাংক
+            <i class="fa-solid fa-gamepad"></i> চতুর্থ শ্রেণীর ১ লক্ষ+ আনলিমিটেড কুইজ ব্যাংক
         </div>
 
         <div class="quiz-container">
-            <h3 id="quizQ">প্রশ্ন লোড হচ্ছে...</h3>
+            <div style="text-align: right; font-weight: bold; color: var(--shikho-pink);" id="quizCategory">বিষয়: গণিত</div>
+            <h3 id="quizQ" style="margin-top: 10px; font-size: 20px;">প্রশ্ন প্রস্তুত করা হচ্ছে...</h3>
             <div id="quizOpts" style="margin-top:20px;"></div>
-            <p id="quizRes" style="margin-top:15px; font-weight:bold;"></p>
-            <button id="nextQ" class="btn-action" style="display:none; width:auto; padding:10px 25px;" onclick="generateRandomQuiz()">পরবর্তী প্রশ্ন</button>
+            <p id="quizRes" style="margin-top:15px; font-weight:bold; font-size: 18px;"></p>
+            <button id="nextQ" class="btn-action" style="display:none; width:auto; padding:12px 30px; margin: 15px auto 0;" onclick="generateUnlimitedQuiz()">পরবর্তী কঠিন প্রশ্ন</button>
         </div>
     </div>
 
     <div class="container" id="rewards">
         <div class="section-header">
-            <i class="fa-solid fa-gift"></i> স্বর্ণমুদ্রা দিয়ে পুরস্কার সংগ্রহ করুন
+            <i class="fa-solid fa-gift"></i> স্বর্ণমুদ্রা দিয়ে মেগা পুরস্কার অফার
         </div>
 
         <div class="reward-container">
-            <p style="margin-bottom: 20px; color: #555;">আপনার জমাকৃত স্বর্ণমুদ্রা দিয়ে নিচে দেওয়া যেকোনো পুরস্কার রিডিম করতে পারবেন:</p>
+            <p style="margin-bottom: 20px; color: #555; font-weight: 600;">অধ্যবসায় ও কুইজ জয়ের মাধ্যমে অর্জিত স্বর্ণমুদ্রা রিডিম করে সংগ্রহ করুন সেরা উপহারসমূহ:</p>
             
             <div class="reward-card">
                 <div style="text-align: left;">
-                    <h4><i class="fa-solid fa-pen"></i> চতুর্থ শ্রেণীর আকর্ষণীয় নোట్‌বুক ও কলম সেট</h4>
-                    <p style="color: #b8860b; font-weight: bold;">প্রয়োজনীয় স্বর্ণমুদ্রা: ১০০০টি</p>
+                    <h4><i class="fa-solid fa-pen-ruler"></i> অল-ইন-ওয়ান স্টাডি কিট ও প্রিমিয়াম কলম বক্স</h4>
+                    <p style="color: #b8860b; font-weight: bold; margin-top: 5px;">প্রয়োজনীয় স্বর্ণমুদ্রা: ১৫০০টি</p>
                 </div>
-                <button class="btn-action guide" style="width: auto; padding: 8px 15px;" onclick="claimReward(1000, 'নোట్‌বুক ও কলম সেট')">পুরস্কার নিন</button>
+                <button class="btn-action guide" style="width: auto; padding: 10px 20px;" onclick="claimReward(1500, 'স্টাডি কিট ও প্রিমিয়াম কলম বক্স')">উপহার নিন</button>
             </div>
 
             <div class="reward-card">
                 <div style="text-align: left;">
-                    <h4><i class="fa-solid fa-book-bookmark"></i> চতুর্থ শ্রেণীর স্পেশাল গাইড বই</h4>
-                    <p style="color: #b8860b; font-weight: bold;">প্রয়োজনীয় স্বর্ণমুদ্রা: ২৫০০টি</p>
+                    <h4><i class="fa-solid fa-graduation-cap"></i> চতুর্থ শ্রেণীর সম্পূর্ণ অল-সাবজেক্ট প্রিমিয়াম গাইড সেট</h4>
+                    <p style="color: #b8860b; font-weight: bold; margin-top: 5px;">প্রয়োজনীয় স্বর্ণমুদ্রা: ৩০০০টি</p>
                 </div>
-                <button class="btn-action guide" style="width: auto; padding: 8px 15px;" onclick="claimReward(2500, 'স্পেশাল গাইড বই')">পুরস্কার নিন</button>
+                <button class="btn-action guide" style="width: auto; padding: 10px 20px;" onclick="claimReward(3000, 'প্রিমিয়াম গাইড সেট')">উপহার নিন</button>
             </div>
 
             <div class="reward-card">
                 <div style="text-align: left;">
-                    <h4><i class="fa-solid fa-trophy"></i> মাই বুক বেস্ট লার্নার মেডেল ও গিফট বক্স</h4>
-                    <p style="color: #b8860b; font-weight: bold;">প্রয়োজনীয় স্বর্ণমুদ্রা: ৫০০০টি</p>
+                    <h4><i class="fa-solid fa-clock"></i> স্টুডেন্ট স্মার্ট ডিজিটাল ওয়াচ (স্মার্টঘড়ি)</h4>
+                    <p style="color: #b8860b; font-weight: bold; margin-top: 5px;">প্রয়োজনীয় স্বর্ণমুদ্রা: ৫০০০টি</p>
                 </div>
-                <button class="btn-action guide" style="width: auto; padding: 8px 15px;" onclick="claimReward(5000, 'মেডেল ও গিফট বক্স')">পুরস্কার নিন</button>
+                <button class="btn-action guide" style="width: auto; padding: 10px 20px;" onclick="claimReward(5000, 'স্টুডেন্ট স্মার্টঘড়ি')">উপহার নিন</button>
+            </div>
+
+            <div class="reward-card">
+                <div style="text-align: left;">
+                    <h4><i class="fa-solid fa-tablet-screen-button"></i> বিশেষ লার্নিং ডিজিটাল মেগা ট্যাব (অফিশিয়াল মেডেল সহ)</h4>
+                    <p style="color: #b8860b; font-weight: bold; margin-top: 5px;">প্রয়োজনীয় স্বর্ণমুদ্রা: ১০০০০টি</p>
+                </div>
+                <button class="btn-action guide" style="width: auto; padding: 10px 20px;" onclick="claimReward(10000, 'ডিজিটাল লার্নিং ট্যাব')">উপহার নিন</button>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; ২০২৬ মাই বুক পোর্টাল | চতুর্থ শ্রেণী | দেওয়ানগঞ্জ, জামালপুর।</p>
+        <p>&copy; ২০২৬ মাই বুক পোর্টাল | চতুর্থ শ্রেণী লার্নিং সেন্টার | দেওয়ানগঞ্জ, জামালপুর।</p>
     </footer>
 
     <script>
-        function startClock() {
+        // Date & Clock for DewanGanj
+        function updateTimeAndDate() {
             const now = new Date();
             document.getElementById('clock').innerText = now.toLocaleTimeString('bn-BD');
+            document.getElementById('currentDate').innerText = now.toLocaleDateString('bn-BD', {
+                year: 'numeric', month: 'long', day: 'numeric'
+            });
         }
-        setInterval(startClock, 1000);
-        startClock();
+        setInterval(updateTimeAndDate, 1000);
+        updateTimeAndDate();
 
         function openPdf(url) {
             document.getElementById('pdfViewer').src = url;
             window.location.href = '#books';
         }
 
-        let coins = 500;
-        let currentAns = 0;
+        let coins = 1000;
 
-        // 1 Lakh Random Math & GK Quiz Generator Engine for Class 4
-        function generateRandomQuiz() {
+        // Dynamic Unlimited Quiz Generator Engine
+        function generateUnlimitedQuiz() {
             document.getElementById('quizRes').innerText = '';
             document.getElementById('nextQ').style.display = 'none';
 
-            const quizTypes = [
+            const quizGenerators = [
+                // Advanced Math 1
                 () => {
-                    let a = Math.floor(Math.random() * 80) + 20;
-                    let b = Math.floor(Math.random() * 80) + 10;
-                    currentAns = 0;
+                    let num1 = Math.floor(Math.random() * 400) + 100;
+                    let num2 = Math.floor(Math.random() * 300) + 50;
+                    let ans = num1 + num2;
                     return {
-                        q: `প্রাথমিক গণিত: ${a} + ${b} = কত?`,
-                        opts: [a + b, a + b + 5, a + b - 3],
-                        a: 0
+                        cat: "বিষয়: প্রাথমিক গণিত (যোগ)",
+                        q: `একটি বিদ্যালয়ে ${num1} জন ছাত্র এবং ${num2} জন ছাত্রী আছে। ঐ বিদ্যালয়ে মোট কতজন শিক্ষার্থী আছে?`,
+                        opts: [ans, ans + 10, ans - 15, ans + 5],
+                        correct: 0
                     };
                 },
+                // Advanced Math 2
                 () => {
-                    let a = Math.floor(Math.random() * 12) + 2;
-                    let b = Math.floor(Math.random() * 10) + 2;
-                    currentAns = 1;
+                    let a = Math.floor(Math.random() * 25) + 12;
+                    let b = Math.floor(Math.random() * 8) + 4;
+                    let ans = a * b;
                     return {
-                        q: `প্রাথমিক গণিত: ${a} × ${b} = কত?`,
-                        opts: [a * b + 2, a * b, a * b - 4],
-                        a: 1
+                        cat: "বিষয়: প্রাথমিক গণিত (গুণ)",
+                        q: `এক প্যাকেট কলমের দাম ${a} টাকা হলে, এরকম ${b} প্যাকেট কলমের মোট দাম কত টাকা?`,
+                        opts: [ans + 12, ans, ans - 8, ans + 20],
+                        correct: 1
                     };
                 },
+                // Advanced Math 3 (Division & Remainder)
                 () => {
-                    currentAns = 0;
+                    let total = Math.floor(Math.random() * 80) + 20;
+                    let perPerson = 5;
+                    let ans = Math.floor(total / perPerson);
+                    let rem = total % perPerson;
                     return {
-                        q: "বাংলা: 'আমাদের ছোট নদী' কবিতাটি কার লেখা?",
-                        opts: ["রবীন্দ্রনাথ ঠাকুর", "কাজী নজরুল ইসলাম", "জসীমউদ্দীন"],
-                        a: 0
+                        cat: "বিষয়: প্রাথমিক গণিত (ভাগ সংক্রান্ত)",
+                        q: `${total}টি চকলেট ৫ জন শিশুর মধ্যে সমানভাবে ভাগ করে দিলে কয়টি চকলেট অবশিষ্ট থাকবে?`,
+                        opts: [`${rem + 1}টি`, `${rem}টি`, `${rem + 2}টি`, `০টি`],
+                        correct: 1
                     };
                 },
+                // Science
                 () => {
-                    currentAns = 2;
-                    return {
-                        q: "English: What is the capital of Bangladesh?",
-                        opts: ["Chittagong", "Sylhet", "Dhaka"],
-                        a: 2
-                    };
+                    const scienceQuestions = [
+                        { q: "উদ্ভিদ খাদ্য তৈরির জন্য বাতাসের কোন গ্যাসটি গ্রহণ করে?", opts: ["অক্সিজেন", "কার্বন ডাই-অক্সাইড", "নাইট্রোজেন", "হাইড্রোজেন"], c: 1 },
+                        { q: "নিচের কোনটি পরিবেশ বান্ধব শক্তি?", opts: ["কয়লা", "খনিজ তেল", "সৌরশক্তি", "প্রাকৃতিক গ্যাস"], c: 2 },
+                        { q: "পানি জমে বরফে পরিণত হলে তার অবস্থার কী পরিবর্তন হয়?", opts: ["তরল থেকে কঠিন", "কঠিন থেকে বায়বীয়", "বায়বীয় থেকে তরল", "কোনো পরিবর্তন হয় না"], c: 0 }
+                    ];
+                    let sq = scienceQuestions[Math.floor(Math.random() * scienceQuestions.length)];
+                    return { cat: "বিষয়: প্রাথমিক বিজ্ঞান", q: sq.q, opts: sq.opts, correct: sq.c };
+                },
+                // English Grammar
+                () => {
+                    const engQuestions = [
+                        { q: "Choose the correct Plural form: 'Child'", opts: ["Childs", "Children", "Childrens", "Childes"], c: 1 },
+                        { q: "Fill in the blank: Rina ___ going to school every day.", opts: ["is", "are", "were", "have"], c: 0 },
+                        { q: "What is the Opposite word of 'Honest'?", opts: ["Good", "Dishonest", "Kind", "Truthful"], c: 1 }
+                    ];
+                    let eq = engQuestions[Math.floor(Math.random() * engQuestions.length)];
+                    return { cat: "Subject: English", q: eq.q, opts: eq.opts, correct: eq.c };
+                },
+                // BGS & GK
+                () => {
+                    const bgsQuestions = [
+                        { q: "বাংলাদেশের সর্ববৃহৎ নদী কোনটি?", opts: ["পদ্মা", "মেঘনা", "যমুনা", "পুরাতন ব্রহ্মপুত্র"], c: 1 },
+                        { q: "জামালপুর জেলা কোন বিভাগে অবস্থিত?", opts: ["ঢাকা", "ময়মনসিংহ", "রাজশাহী", "রংপুর"], c: 1 },
+                        { q: "ঐতিহাসিক মুক্তিযুদ্ধ জাদুঘর কোথায় অবস্থিত?", opts: ["চট্টগ্রাম", "সিলেট", "ঢাকা (আগারগাঁও)", "রাজশাহী"], c: 2 }
+                    ];
+                    let bq = bgsQuestions[Math.floor(Math.random() * bgsQuestions.length)];
+                    return { cat: "বিষয়: বাংলাদেশ ও বিশ্বপরিচয়", q: bq.q, opts: bq.opts, correct: bq.c };
                 }
             ];
 
-            const selected = quizTypes[Math.floor(Math.random() * quizTypes.length)]();
-            document.getElementById('quizQ').innerText = selected.q;
+            const selectedQuiz = quizGenerators[Math.floor(Math.random() * quizGenerators.length)]();
+            
+            document.getElementById('quizCategory').innerText = selectedQuiz.cat;
+            document.getElementById('quizQ').innerText = selectedQuiz.q;
+            
             const optsDiv = document.getElementById('quizOpts');
             optsDiv.innerHTML = '';
 
-            selected.opts.forEach((opt, i) => {
-                const b = document.createElement('button');
-                b.className = 'quiz-option';
-                b.innerText = opt;
-                b.onclick = () => checkQuiz(i, selected.a);
-                optsDiv.appendChild(b);
+            selectedQuiz.opts.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-option';
+                btn.innerText = `${index + 1}. ${opt}`;
+                btn.onclick = () => checkAnswer(index, selectedQuiz.correct);
+                optsDiv.appendChild(btn);
             });
         }
 
-        function checkQuiz(selected, correct) {
-            const res = document.getElementById('quizRes');
+        function checkAnswer(selectedIndex, correctIndex) {
+            const resText = document.getElementById('quizRes');
             const btns = document.querySelectorAll('.quiz-option');
             btns.forEach(b => b.disabled = true);
 
-            if(selected === correct) {
-                coins += 50;
+            if(selectedIndex === correctIndex) {
+                coins += 100;
                 document.getElementById('coinCount').innerText = coins;
-                res.style.color = '#10b981';
-                res.innerText = 'অভিনন্দন! সঠিক উত্তর। আপনি ৫০টি স্বর্ণমুদ্রা পেয়েছেন! 🪙🎉';
+                resText.style.color = '#10b981';
+                resText.innerText = 'অসাধারণ! সঠিক উত্তর। আপনি ১০০টি স্বর্ণমুদ্রা পেয়েছেন! 🪙🎉';
             } else {
-                res.style.color = '#ef4444';
-                res.innerText = 'ভুল উত্তর! আবার চেষ্টা করুন।';
+                resText.style.color = '#ef4444';
+                resText.innerText = 'ভুল উত্তর! সঠিক উত্তরটি মনোযোগ দিয়ে দেখে আবার চেষ্টা করুন।';
             }
-            document.getElementById('nextQ').style.display = 'inline-block';
+            document.getElementById('nextQ').style.display = 'block';
         }
 
-        function claimReward(cost, rewardName) {
+        function claimReward(cost, name) {
             if (coins >= cost) {
                 coins -= cost;
                 document.getElementById('coinCount').innerText = coins;
-                alert(`অভিনন্দন! আপনি সফলভাবে '${rewardName}' পুরস্কারটি ক্লেম করেছেন। দেওয়ানগঞ্জ অফিস থেকে আপনার উপহার সংগ্রহ করুন!`);
+                alert(`অভিনন্দন! আপনি সফলভাবে '${name}' পুরস্কারটির জন্য আবেদন করেছেন। দেওয়ানগঞ্জ শিক্ষাকেন্দ্র থেকে আপনার পুরস্কার বুঝে নিন!`);
             } else {
-                alert(`ক্ষমা করবেন! আপনার নিকট পর্যাপ্ত স্বর্ণমুদ্রা নেই। আরও কুইজ খেলে স্বর্ণমুদ্রা অর্জন করুন।`);
+                alert(`দুঃখিত! আপনার কাছে পর্যাপ্ত স্বর্ণমুদ্রা নেই। আরও কুইজ খেলে স্বর্ণমুদ্রা বৃদ্ধি করুন।`);
             }
         }
 
-        generateRandomQuiz();
+        // Initialize quiz
+        generateUnlimitedQuiz();
     </script>
 </body>
 </html>
