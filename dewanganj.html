@@ -4,63 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>বাংলাদেশ ৬৪ জেলার লাইভ আবহাওয়া ড্যাশবোর্ড</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Hind Siliguri', 'Segoe UI', Arial, sans-serif;
+            font-family: 'Hind Siliguri', 'Segoe UI', sans-serif;
         }
 
         body {
-            background-color: #f4f7fc;
-            color: #2d3748;
-            padding: 20px;
+            background-color: #f5f7fa;
+            color: #0f172a;
             min-height: 100vh;
         }
 
-        header {
+        /* Shikho Original Light Sky Blue Hero Banner */
+        .hero-section {
+            background: linear-gradient(180deg, #bbe2fb 0%, #e0f2fe 100%);
+            padding: 35px 20px 45px 20px;
             text-align: center;
-            margin-bottom: 30px;
-            padding: 30px 20px;
-            background: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e2e8f0;
+            border-bottom: 1px solid #bae6fd;
         }
 
-        h1 {
-            font-size: 2.2rem;
-            color: #1a202c;
-            margin-bottom: 10px;
+        .brand-logo {
+            font-size: 2rem;
             font-weight: 700;
+            color: #1e3a8a; /* Shikho Blue */
+            margin-bottom: 12px;
         }
 
-        header p {
-            color: #718096;
+        .hero-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1e3a8a;
+        }
+
+        .hero-subtitle {
             font-size: 1.1rem;
+            color: #e11d48; /* Shikho Pink Text */
+            font-weight: 600;
+            margin-bottom: 25px;
         }
 
-        .search-box {
-            margin-top: 20px;
-        }
-
+        /* Shikho Search Box Style */
         .search-box input {
-            padding: 14px 22px;
-            width: 90%;
-            max-width: 450px;
-            border-radius: 30px;
-            border: 2px solid #e2e8f0;
+            padding: 12px 20px;
+            width: 100%;
+            max-width: 480px;
+            border-radius: 12px;
+            border: 2px solid #e11d48;
             outline: none;
             font-size: 1rem;
+            background: #ffffff;
+            color: #0f172a;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
-            background-color: #f8fafc;
         }
 
         .search-box input:focus {
-            border-color: #d81b60;
-            box-shadow: 0 0 10px rgba(216, 27, 96, 0.15);
-            background-color: #ffffff;
+            box-shadow: 0 0 12px rgba(225, 29, 72, 0.3);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
         }
 
         .grid-container {
@@ -69,31 +80,44 @@
             gap: 20px;
         }
 
+        /* Shikho Official Card Design */
         .card {
             background: #ffffff;
-            border: 1px solid #edf2f7;
             border-radius: 16px;
-            padding: 22px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
         .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(216, 27, 96, 0.12);
-            border-color: #fbb6ce;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border-color: #cbd5e1;
+        }
+
+        .district-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .district-name {
-            font-size: 1.35rem;
-            color: #1a202c;
+            font-size: 1.25rem;
+            color: #1e3a8a;
             font-weight: 700;
-            margin-bottom: 12px;
-            border-bottom: 2px solid #f7fafc;
-            padding-bottom: 8px;
+        }
+
+        .temp-badge {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e11d48; /* Shikho Pink */
         }
 
         .info-row {
@@ -102,62 +126,65 @@
             align-items: center;
             margin: 8px 0;
             font-size: 0.95rem;
-            color: #4a5568;
+            color: #475569;
         }
 
-        .temp {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #d81b60; /* Shikho Theme Pink/Magenta */
-        }
-
-        .warning {
-            margin-top: 14px;
-            padding: 10px 12px;
-            border-radius: 10px;
-            font-size: 0.85rem;
-            text-align: center;
+        .info-value {
             font-weight: 600;
+            color: #0f172a;
+        }
+
+        /* Status Pills using Shikho Button Styles */
+        .warning-pill {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            text-align: center;
+            font-weight: 700;
         }
 
         .safe { 
-            background: #e6fffa; 
-            color: #234e52; 
-            border: 1px solid #b2f5ea;
+            background: #e11d48; 
+            color: #ffffff; /* Solid Pink Button Style */
         }
         
         .rain-risk { 
-            background: #ebf8ff; 
-            color: #2b6cb0; 
-            border: 1px solid #bee3f8;
+            background: #ffffff; 
+            color: #e11d48; 
+            border: 2px solid #e11d48; /* Outline Pink Button Style */
         }
         
         .flood-risk { 
-            background: #fff5f5; 
-            color: #c53030; 
-            border: 1px solid #fed7d7;
+            background: #1e3a8a; 
+            color: #ffffff; 
         }
 
         .loading {
             text-align: center;
             font-size: 0.95rem;
-            color: #a0aec0;
+            color: #64748b;
             padding: 20px 0;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>🇧🇩 বাংলাদেশ ৬৪ জেলার লাইভ আবহাওয়া</h1>
-        <p>বর্তমান তাপমাত্রা, বৃষ্টির সম্ভাবনা ও পূর্বাভাসের রিয়েল-টাইম তথ্য</p>
+    <!-- Shikho Original Style Banner -->
+    <div class="hero-section">
+        <div class="brand-logo">shikho</div>
+        <h1 class="hero-title">একডেমিক থেকে অ্যাডমিশন প্রস্তুতি নাও</h1>
+        <p class="hero-subtitle">বাংলাদেশ ৬৪ জেলার লাইভ আবহাওয়া ড্যাশবোর্ড</p>
         <div class="search-box">
-            <input type="text" id="searchInput" onkeyup="filterDistricts()" placeholder="জেলার নাম অনুসন্ধান করুন (যেমন: ঢাকা, সিলেট)...">
+            <input type="text" id="searchInput" onkeyup="filterDistricts()" placeholder="আপনার জেলার নাম লিখুন (যেমন: ঢাকা, সিলেট)...">
         </div>
-    </header>
+    </div>
 
-    <div class="grid-container" id="weatherGrid">
-        <!-- কার্ডগুলো জাভাস্ক্রিপ্টের মাধ্যমে লোড হবে -->
+    <!-- Cards Container -->
+    <div class="container">
+        <div class="grid-container" id="weatherGrid">
+            <!-- Dynamic Cards Load Here -->
+        </div>
     </div>
 
     <script>
@@ -235,8 +262,10 @@
                 card.className = 'card';
                 card.id = `card-${index}`;
                 card.innerHTML = `
-                    <div class="district-name">${district.name}</div>
-                    <div class="loading">তথ্য লোড করা হচ্ছে...</div>
+                    <div class="district-header">
+                        <span class="district-name">${district.name}</span>
+                    </div>
+                    <div class="loading">তথ্য লোড হচ্ছে...</div>
                 `;
                 grid.appendChild(card);
                 fetchWeather(district, index);
@@ -259,37 +288,36 @@
                 let statusClass = "safe";
 
                 if (rainAmount > 10 || (rainProb > 70 && ["সিলেট", "সুনামগঞ্জ", "কুড়িগ্রাম", "ফেনী"].includes(district.name))) {
-                    statusText = "⚠️ বন্যার ঝুঁকি রয়েছে";
+                    statusText = "⚠️ বন্যার আশঙ্কা";
                     statusClass = "flood-risk";
                 } else if (rainProb > 50 || rainAmount > 2) {
-                    statusText = "🌧️ বৃষ্টির সম্ভাবনা রয়েছে";
+                    statusText = "🌧️ বৃষ্টির সম্ভাবনা";
                     statusClass = "rain-risk";
                 }
 
                 const card = document.getElementById(`card-${index}`);
                 card.innerHTML = `
                     <div>
-                        <div class="district-name">${district.name}</div>
-                        <div class="info-row">
-                            <span>বর্তমান তাপমাত্রা</span>
-                            <span class="temp">${temp}°C</span>
+                        <div class="district-header">
+                            <span class="district-name">${district.name}</span>
+                            <span class="temp-badge">${temp}°C</span>
                         </div>
                         <div class="info-row">
-                            <span>বাতাসের গতি</span>
-                            <span><b>${wind}</b> km/h</span>
+                            <span>বাতাসের গতি:</span>
+                            <span class="info-value">${wind} km/h</span>
                         </div>
                         <div class="info-row">
-                            <span>বৃষ্টির সম্ভাবনা</span>
-                            <span><b>${rainProb}%</b></span>
+                            <span>বৃষ্টির সম্ভাবনা:</span>
+                            <span class="info-value">${rainProb}%</span>
                         </div>
                     </div>
-                    <div class="warning ${statusClass}">${statusText}</div>
+                    <div class="warning-pill ${statusClass}">${statusText}</div>
                 `;
             } catch (error) {
                 const card = document.getElementById(`card-${index}`);
                 card.innerHTML = `
                     <div class="district-name">${district.name}</div>
-                    <div style="color: #e53e3e; font-size: 0.9rem; padding: 10px 0;">তথ্য লোড করা সম্ভব হয়নি</div>
+                    <div style="color: #ef4444; padding: 10px 0;">তথ্য লোড হয়নি</div>
                 `;
             }
         }
