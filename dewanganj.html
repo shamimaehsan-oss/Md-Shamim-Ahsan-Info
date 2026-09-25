@@ -3,49 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>বাংলাদেশ ৬৪ জেলার লাইভ আবহাওয়া ও তথ্য</title>
+    <title>বাংলাদেশ ৬৪ জেলার লাইভ আবহাওয়া ড্যাশবোর্ড</title>
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: 'Hind Siliguri', 'Segoe UI', Arial, sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            color: #fff;
+            background-color: #f4f7fc;
+            color: #2d3748;
             padding: 20px;
             min-height: 100vh;
         }
 
         header {
             text-align: center;
-            margin-bottom: 25px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+            padding: 30px 20px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
         }
 
         h1 {
-            font-size: 2rem;
-            color: #00d2ff;
+            font-size: 2.2rem;
+            color: #1a202c;
             margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            color: #718096;
+            font-size: 1.1rem;
         }
 
         .search-box {
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
         .search-box input {
-            padding: 10px 15px;
-            width: 80%;
-            max-width: 400px;
-            border-radius: 20px;
-            border: none;
+            padding: 14px 22px;
+            width: 90%;
+            max-width: 450px;
+            border-radius: 30px;
+            border: 2px solid #e2e8f0;
             outline: none;
             font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: #f8fafc;
+        }
+
+        .search-box input:focus {
+            border-color: #d81b60;
+            box-shadow: 0 0 10px rgba(216, 27, 96, 0.15);
+            background-color: #ffffff;
         }
 
         .grid-container {
@@ -55,76 +70,97 @@
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 20px;
-            backdrop-filter: blur(5px);
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: #ffffff;
+            border: 1px solid #edf2f7;
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 210, 255, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(216, 27, 96, 0.12);
+            border-color: #fbb6ce;
         }
 
         .district-name {
-            font-size: 1.4rem;
-            color: #ffcb74;
-            margin-bottom: 10px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            padding-bottom: 5px;
+            font-size: 1.35rem;
+            color: #1a202c;
+            font-weight: 700;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #f7fafc;
+            padding-bottom: 8px;
         }
 
         .info-row {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             margin: 8px 0;
             font-size: 0.95rem;
+            color: #4a5568;
         }
 
         .temp {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #00f2fe;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #d81b60; /* Shikho Theme Pink/Magenta */
         }
 
         .warning {
-            margin-top: 10px;
-            padding: 8px;
-            border-radius: 8px;
+            margin-top: 14px;
+            padding: 10px 12px;
+            border-radius: 10px;
             font-size: 0.85rem;
             text-align: center;
-            font-weight: bold;
+            font-weight: 600;
         }
 
-        .safe { background: rgba(46, 204, 113, 0.2); color: #2ecc71; }
-        .rain-risk { background: rgba(241, 196, 15, 0.2); color: #f1c40f; }
-        .flood-risk { background: rgba(231, 76, 60, 0.2); color: #e74c3c; }
+        .safe { 
+            background: #e6fffa; 
+            color: #234e52; 
+            border: 1px solid #b2f5ea;
+        }
+        
+        .rain-risk { 
+            background: #ebf8ff; 
+            color: #2b6cb0; 
+            border: 1px solid #bee3f8;
+        }
+        
+        .flood-risk { 
+            background: #fff5f5; 
+            color: #c53030; 
+            border: 1px solid #fed7d7;
+        }
 
         .loading {
             text-align: center;
-            font-size: 1.2rem;
-            color: #aaa;
+            font-size: 0.95rem;
+            color: #a0aec0;
+            padding: 20px 0;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>🇧🇩 বাংলাদেশ ৬৪ জেলার লাইভ আবহাওয়া ড্যাশবোর্ড</h1>
-        <p>লাইভ তাপমাত্রা, বৃষ্টির সম্ভাবনা ও পূর্বাভাসের নজরদারি</p>
+        <h1>🇧🇩 বাংলাদেশ ৬৪ জেলার লাইভ আবহাওয়া</h1>
+        <p>বর্তমান তাপমাত্রা, বৃষ্টির সম্ভাবনা ও পূর্বাভাসের রিয়েল-টাইম তথ্য</p>
         <div class="search-box">
-            <input type="text" id="searchInput" onkeyup="filterDistricts()" placeholder="জেলার নাম লিখুন (যেমন: ঢাকা, সিলেট)...">
+            <input type="text" id="searchInput" onkeyup="filterDistricts()" placeholder="জেলার নাম অনুসন্ধান করুন (যেমন: ঢাকা, সিলেট)...">
         </div>
     </header>
 
     <div class="grid-container" id="weatherGrid">
-        <!-- জেলার কার্ডগুলো এখানে ডাইনামিকালি তৈরি হবে -->
+        <!-- কার্ডগুলো জাভাস্ক্রিপ্টের মাধ্যমে লোড হবে -->
     </div>
 
     <script>
-        // বাংলাদেশের ৬৪টি জেলার ল্যাটিটিউড এবং লঙ্গিটিউড ডাটা
         const districts = [
             { name: "ঢাকা", lat: 23.8103, lon: 90.4125 },
             { name: "চট্টগ্রাম", lat: 22.3569, lon: 91.7832 },
@@ -193,7 +229,6 @@
 
         const grid = document.getElementById('weatherGrid');
 
-        // কার্ড তৈরি করার প্রাথমিক ফাংশন
         function createCards() {
             districts.forEach((district, index) => {
                 const card = document.createElement('div');
@@ -201,14 +236,13 @@
                 card.id = `card-${index}`;
                 card.innerHTML = `
                     <div class="district-name">${district.name}</div>
-                    <div class="loading">লাইভ ডাটা লোড হচ্ছে...</div>
+                    <div class="loading">তথ্য লোড করা হচ্ছে...</div>
                 `;
                 grid.appendChild(card);
                 fetchWeather(district, index);
             });
         }
 
-        // লাইভ আবহাওয়া ডাটা API কল
         async function fetchWeather(district, index) {
             const url = `https://api.open-meteo.com/v1/forecast?latitude=${district.lat}&longitude=${district.lon}&current_weather=true&hourly=precipitation_probability,rain`;
             
@@ -216,17 +250,16 @@
                 const response = await fetch(url);
                 const data = await response.json();
 
-                const temp = data.current_weather.temperature;
+                const temp = Math.round(data.current_weather.temperature);
                 const wind = data.current_weather.windspeed;
                 const rainProb = data.hourly.precipitation_probability[0] || 0;
                 const rainAmount = data.hourly.rain[0] || 0;
 
-                // বন্যার ঝুঁকি গণনা
-                let statusText = "স্বাভাবিক পরিবেশ";
+                let statusText = "স্বাভাবিক আবহাওয়া";
                 let statusClass = "safe";
 
-                if (rainAmount > 10 || (rainProb > 70 && (district.name === "সিলেট" || district.name === "সুনামগঞ্জ" || district.name === "কুড়িগ্রাম" || district.name === "ফেনী"))) {
-                    statusText = "⚠️ বন্যার ঝুঁকিপূর্ণ এলাকা";
+                if (rainAmount > 10 || (rainProb > 70 && ["সিলেট", "সুনামগঞ্জ", "কুড়িগ্রাম", "ফেনী"].includes(district.name))) {
+                    statusText = "⚠️ বন্যার ঝুঁকি রয়েছে";
                     statusClass = "flood-risk";
                 } else if (rainProb > 50 || rainAmount > 2) {
                     statusText = "🌧️ বৃষ্টির সম্ভাবনা রয়েছে";
@@ -235,18 +268,20 @@
 
                 const card = document.getElementById(`card-${index}`);
                 card.innerHTML = `
-                    <div class="district-name">${district.name}</div>
-                    <div class="info-row">
-                        <span>তাপমাত্রা:</span>
-                        <span class="temp">${temp}°C</span>
-                    </div>
-                    <div class="info-row">
-                        <span>বাতাসের গতি:</span>
-                        <span>${wind} km/h</span>
-                    </div>
-                    <div class="info-row">
-                        <span>বৃষ্টির সম্ভাবনা:</span>
-                        <span>${rainProb}%</span>
+                    <div>
+                        <div class="district-name">${district.name}</div>
+                        <div class="info-row">
+                            <span>বর্তমান তাপমাত্রা</span>
+                            <span class="temp">${temp}°C</span>
+                        </div>
+                        <div class="info-row">
+                            <span>বাতাসের গতি</span>
+                            <span><b>${wind}</b> km/h</span>
+                        </div>
+                        <div class="info-row">
+                            <span>বৃষ্টির সম্ভাবনা</span>
+                            <span><b>${rainProb}%</b></span>
+                        </div>
                     </div>
                     <div class="warning ${statusClass}">${statusText}</div>
                 `;
@@ -254,12 +289,11 @@
                 const card = document.getElementById(`card-${index}`);
                 card.innerHTML = `
                     <div class="district-name">${district.name}</div>
-                    <div style="color: #ff6b6b;">ডাটা লোড করা যায়নি!</div>
+                    <div style="color: #e53e3e; font-size: 0.9rem; padding: 10px 0;">তথ্য লোড করা সম্ভব হয়নি</div>
                 `;
             }
         }
 
-        // জেলা সার্চ করার সুবিধা
         function filterDistricts() {
             const input = document.getElementById('searchInput').value.toLowerCase();
             const cards = document.getElementsByClassName('card');
@@ -274,7 +308,6 @@
             }
         }
 
-        // পেজ লোড হলে কার্ডগুলো লোড হবে
         window.onload = createCards;
     </script>
 </body>
