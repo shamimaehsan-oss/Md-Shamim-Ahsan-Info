@@ -14,60 +14,111 @@
         }
 
         body {
-            background-color: #f5f7fa;
-            color: #0f172a;
+            background-color: #f4f6f9;
+            color: #0c1b33;
             min-height: 100vh;
         }
 
-        /* Shikho Original Light Sky Blue Hero Banner */
-        .hero-section {
-            background: linear-gradient(180deg, #bbe2fb 0%, #e0f2fe 100%);
-            padding: 35px 20px 45px 20px;
-            text-align: center;
-            border-bottom: 1px solid #bae6fd;
+        /* Shikho Official Top Navbar */
+        .shikho-nav {
+            background-color: #ffffff;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z.index: 100;
         }
 
-        .brand-logo {
-            font-size: 2rem;
+        .shikho-logo {
+            font-size: 1.8rem;
             font-weight: 700;
-            color: #1e3a8a; /* Shikho Blue */
-            margin-bottom: 12px;
+            color: #0c1b33;
+        }
+
+        .shikho-logo span {
+            color: #d81b60;
+        }
+
+        .shikho-contact {
+            font-weight: 600;
+            color: #0c1b33;
+            font-size: 0.95rem;
+        }
+
+        /* Shikho Dark Navy Hero Banner */
+        .hero-section {
+            background-color: #0c1b33;
+            color: #ffffff;
+            padding: 40px 20px 45px 20px;
+            text-align: center;
         }
 
         .hero-title {
             font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 8px;
-            color: #1e3a8a;
+            margin-bottom: 10px;
+            color: #ffffff;
         }
 
         .hero-subtitle {
             font-size: 1.1rem;
-            color: #e11d48; /* Shikho Pink Text */
+            color: #d81b60;
             font-weight: 600;
             margin-bottom: 25px;
         }
 
-        /* Shikho Search Box Style */
+        /* Shikho Pink & White Buttons Area */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 380px;
+            margin: 0 auto 25px auto;
+        }
+
+        .btn-primary {
+            background-color: #d81b60;
+            color: #ffffff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .btn-outline {
+            background-color: #ffffff;
+            color: #d81b60;
+            border: 2px solid #d81b60;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* Search Input */
         .search-box input {
             padding: 12px 20px;
             width: 100%;
-            max-width: 480px;
-            border-radius: 12px;
-            border: 2px solid #e11d48;
+            max-width: 450px;
+            border-radius: 10px;
+            border: 1px solid #cbd5e1;
             outline: none;
             font-size: 1rem;
             background: #ffffff;
-            color: #0f172a;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            color: #0c1b33;
         }
 
         .search-box input:focus {
-            box-shadow: 0 0 12px rgba(225, 29, 72, 0.3);
+            border-color: #d81b60;
         }
 
-        /* Main Container */
+        /* Main Grid Container */
         .container {
             max-width: 1200px;
             margin: 30px auto;
@@ -80,23 +131,16 @@
             gap: 20px;
         }
 
-        /* Shikho Official Card Design */
+        /* Shikho Card Style */
         .card {
             background: #ffffff;
-            border-radius: 16px;
+            border-radius: 14px;
             padding: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             border: 1px solid #e2e8f0;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            border-color: #cbd5e1;
         }
 
         .district-header {
@@ -110,14 +154,14 @@
 
         .district-name {
             font-size: 1.25rem;
-            color: #1e3a8a;
+            color: #0c1b33;
             font-weight: 700;
         }
 
         .temp-badge {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #e11d48; /* Shikho Pink */
+            color: #d81b60;
         }
 
         .info-row {
@@ -131,32 +175,31 @@
 
         .info-value {
             font-weight: 600;
-            color: #0f172a;
+            color: #0c1b33;
         }
 
-        /* Status Pills using Shikho Button Styles */
-        .warning-pill {
+        .status-pill {
             margin-top: 15px;
             padding: 10px;
-            border-radius: 10px;
+            border-radius: 8px;
             font-size: 0.9rem;
             text-align: center;
             font-weight: 700;
         }
 
         .safe { 
-            background: #e11d48; 
-            color: #ffffff; /* Solid Pink Button Style */
+            background: #d81b60; 
+            color: #ffffff; 
         }
         
         .rain-risk { 
             background: #ffffff; 
-            color: #e11d48; 
-            border: 2px solid #e11d48; /* Outline Pink Button Style */
+            color: #d81b60; 
+            border: 2px solid #d81b60; 
         }
         
         .flood-risk { 
-            background: #1e3a8a; 
+            background: #0c1b33; 
             color: #ffffff; 
         }
 
@@ -170,20 +213,31 @@
 </head>
 <body>
 
-    <!-- Shikho Original Style Banner -->
+    <!-- Shikho Official Header Bar -->
+    <div class="shikho-nav">
+        <div class="shikho-logo">shikho<span>.</span></div>
+        <div class="shikho-contact">📞 16780</div>
+    </div>
+
+    <!-- Shikho Dark Navy Banner -->
     <div class="hero-section">
-        <div class="brand-logo">shikho</div>
-        <h1 class="hero-title">একডেমিক থেকে অ্যাডমিশন প্রস্তুতি নাও</h1>
-        <p class="hero-subtitle">বাংলাদেশ ৬৪ জেলার লাইভ আবহাওয়া ড্যাশবোর্ড</p>
+        <h1 class="hero-title">বাংলাদেশ ৬৪ জেলার লাইভ আবহাওয়া</h1>
+        <p class="hero-subtitle">প্রস্তুতি নাও দেশের সেরা প্রযুক্তির সাথে</p>
+        
+        <div class="btn-group">
+            <button class="btn-primary">সকল জেলার আবহাওয়া দেখুন</button>
+            <button class="btn-outline">লাইভ আপডেট শুরু করো</button>
+        </div>
+
         <div class="search-box">
             <input type="text" id="searchInput" onkeyup="filterDistricts()" placeholder="আপনার জেলার নাম লিখুন (যেমন: ঢাকা, সিলেট)...">
         </div>
     </div>
 
-    <!-- Cards Container -->
+    <!-- Weather Cards Container -->
     <div class="container">
         <div class="grid-container" id="weatherGrid">
-            <!-- Dynamic Cards Load Here -->
+            <!-- Dynamic Cards -->
         </div>
     </div>
 
@@ -311,13 +365,13 @@
                             <span class="info-value">${rainProb}%</span>
                         </div>
                     </div>
-                    <div class="warning-pill ${statusClass}">${statusText}</div>
+                    <div class="status-pill ${statusClass}">${statusText}</div>
                 `;
             } catch (error) {
                 const card = document.getElementById(`card-${index}`);
                 card.innerHTML = `
                     <div class="district-name">${district.name}</div>
-                    <div style="color: #ef4444; padding: 10px 0;">তথ্য লোড হয়নি</div>
+                    <div style="color: #ef4444; padding: 10px 0;">তথ্য সংযোগে সমস্যা হয়েছে</div>
                 `;
             }
         }
